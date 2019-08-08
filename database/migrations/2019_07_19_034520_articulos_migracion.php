@@ -17,13 +17,13 @@ class ArticulosMigracion extends Migration
         {
             $tablaArticulos->increments('Id');//clave primaria para Articulo
             $tablaArticulos->string('Nombre',100 );// nombre del Artículo
-            $tablaArticulos->intenger('IdCategoria');//ID para la categoria del articulo
+            $tablaArticulos->integer('IdCategoria');//ID para la categoria del articulo
             $tablaArticulos->string('PrecioCompra',100 );//Precio-Compra del artículo
             $tablaArticulos->string('Marca',100 ); //Marca del articulo
-            $tablaArticulos->intenger('Stock'); // cuantos existen en stock
+            $tablaArticulos->integer('Stock'); // cuantos existen en stock
             $tablaArticulos->string('Fecha_Caducidad',100 ); //fecha en el que caduca el articulo
             $tablaArticulos->float('PrecioUt',8,2 ); //Precio Articulo
-            $tablaArticulos->intenger('IdSubcategoria' ); //IdSubcategoria
+            $tablaArticulos->integer('IdSubcategoria' ); //IdSubcategoria
         } );
     }
 

@@ -18,7 +18,7 @@ class UsuariosMigracion extends Migration
             $tablaAdmin->increments('Id'); //Id 
             $tablaAdmin->string('Usr',100); 
             $tablaAdmin->string('Contraseña',20); 
-            $tablaAdmin->intenger('Tipo'); //El tipo de usuario que va ser la cuenta
+            $tablaAdmin->integer('Tipo'); //El tipo de usuario que va ser la cuenta
 
         } );
     }

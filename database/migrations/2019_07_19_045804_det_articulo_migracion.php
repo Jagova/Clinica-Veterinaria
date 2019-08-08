@@ -16,8 +16,8 @@ class DetArticuloMigracion extends Migration
         Schema::create('detArticulo',function( Blueprint $tablaDetArticulo ) 
         {
             $tablaDetArticulo->increments('Id'); //Id DetArticulo
-            $tablaDetArticulo->intenger('IdArticulo');//Id Articulo
-            $tablaDetArticulo->intenger('IdMascota'); //IdMascota
+            $tablaDetArticulo->integer('IdArticulo');//Id Articulo
+            $tablaDetArticulo->integer('IdMascota'); //IdMascota
             $tablaDetArticulo->date('Fecha'); //fechadet_articurlo
             $tablaDetArticulo->integer('IdVenta'); //id venta
             $tablaDetArticulo->string('Talla',10); //Talla detArticulo

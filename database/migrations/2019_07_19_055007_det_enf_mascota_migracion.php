@@ -16,7 +16,7 @@ class DetEnfMascotaMigracion extends Migration
         Schema::create('detEnfMascota',function( Blueprint $tablaDetEnfMascota ) 
         {
             $tablaDetEnfMascota->increments('Id'); //Id Det Enfermedad mascota
-            $tablaDetEnfMascota->intenger('IdServ');//Id Mascota
+            $tablaDetEnfMascota->integer('IdServ');//Id Mascota
             $tablaDetEnfMascota->string('Padecimiento',100);//Padecimiento
         } );
     }

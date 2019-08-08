@@ -27,7 +27,7 @@ class Doctores extends Migration
             $tablaDoctores->string('Esp1',100 ); //1er Especialidad  del doctor
             $tablaDoctores->string('Esp2',100 ); //2da Especialidad del doctor
             $tablaDoctores->string('Urgencia',100 ); //Urgencia 
-            $tablaDoctores->intenger('IdUs1'); //Clave externa - Id usurio 
+            $tablaDoctores->integer('IdUs1'); //Clave externa - Id usurio 
         } );
     }
 

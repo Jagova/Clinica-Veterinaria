@@ -16,14 +16,14 @@ class DetServMigracion extends Migration
         Schema::create('detServ',function( Blueprint $tablaDetServ ) 
         {
             $tablaDetServ->increments('Id'); //Id DetArticulo
-            $tablaDetServ->intenger('IdServ');//Id Servicio
-            $tablaDetServ->intenger('IdDoc');//Id Doctor
-            $tablaDetServ->intenger('IdAyudante'); //Id Ayudante
+            $tablaDetServ->integer('IdServ');//Id Servicio
+            $tablaDetServ->integer('IdDoc');//Id Doctor
+            $tablaDetServ->integer('IdAyudante'); //Id Ayudante
             $tablaDetServ->date('Fecha'); //fecha det_serv
             $tablaDetServ->integer('IdMedicamento'); //Id Medicamento
             $tablaDetServ->string('CantMedicamento'); //Cantidad Medicamento
             $tablaDetServ->float('Costo',8,2); //Costo Servicio
-            $tablaDetServ->intenger('IdMascota'); //Id de la mascota
+            $tablaDetServ->integer('IdMascota'); //Id de la mascota
         } );
     
     }

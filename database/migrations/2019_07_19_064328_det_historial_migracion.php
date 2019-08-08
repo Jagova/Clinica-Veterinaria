@@ -16,7 +16,7 @@ class DetHistorialMigracion extends Migration
         Schema::create('det_historial',function( Blueprint $tablaDetHistorial ) 
         {
             $tablaDetHistorial->increments('Id'); //Id 
-            $tablaDetHistorial->intenger('IdHistorial'); //id de Historial
+            $tablaDetHistorial->integer('IdHistorial'); //id de Historial
             $tablaDetHistorial->string('Archivo',100);//
             $tablaDetHistorial->text('Nota'); 
         } );

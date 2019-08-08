@@ -16,7 +16,7 @@ class AdminMigracion extends Migration
         Schema::create('admin',function( Blueprint $tablaAdmin ) 
         {
             $tablaAdmin->increments('Id'); //Id 
-            $tablaAdmin->intenger('IdUsr'); //Id usuario
+            $tablaAdmin->integer('IdUsr'); //Id usuario
         } );
     }
 

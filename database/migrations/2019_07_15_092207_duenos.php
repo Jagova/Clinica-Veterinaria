@@ -24,9 +24,9 @@ class Duenos extends Migration
             $tablaDueno->string('Cel',10 ); //celular del cliente
             $tablaDueno->string('Correo',100 ); //corrreo electronico del cliente
             $tablaDueno->string('RFC',100 );// rfc del cliente
-            $tablaDueno->intenger('CP'); // codigo postal del cliente
+            $tablaDueno->integer('CP'); // codigo postal del cliente
             $tablaDueno->string('RazonSocial',100); // Razon social del cliente
-            $tablaDueno->intenger('IdUsr'); //Id usuario para el cliente
+            $tablaDueno->integer('IdUsr'); //Id usuario para el cliente
         } );
     }
 

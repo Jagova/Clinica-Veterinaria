@@ -17,9 +17,9 @@ class VentaMigracion extends Migration
         {
             $tablaVentas->increments('Id'); //Id de ventas
             $tablaVentas->date('Fecha');//Fecha de ventas
-            $tablaVentas->intenger('IdAyudante');//Id del Ayudante
+            $tablaVentas->integer('IdAyudante');//Id del Ayudante
             $tablaVentas->float('Total',8,2);//total de venta
-            $tablaVentas->intenger('IdDueno',100);//Id del dueno
+            $tablaVentas->integer('IdDueno',100);//Id del dueno
         } );
     }
 

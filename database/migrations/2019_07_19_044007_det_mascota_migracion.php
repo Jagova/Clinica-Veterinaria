@@ -16,7 +16,7 @@ class DetMascotaMigracion extends Migration
         Schema::create('detMascota',function( Blueprint $tablaDetMascota ) 
         {
             $tablaDetMascota->increments('Id'); //Id DetMascota
-            $tablaDetMascota->intenger('IdMascota');//Id Mascota
+            $tablaDetMascota->integer('IdMascota');//Id Mascota
             $tablaDetMascota->string('Status',100);//Estatus de la mascota
             $tablaDetMascota->string('Esterilizado',100);//Estirilizacion de la mascota
             $tablaDetMascota->string('Temperamento',100);//Temperamento de la mascota

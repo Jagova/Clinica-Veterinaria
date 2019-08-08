@@ -20,14 +20,14 @@ class OfertaMigracion extends Migration
             $tablaOfertas->float('Costo',8,2);
             $tablaOfertas->date('F_Inicio'); //fecha de inicio
             $tablaOfertas->date('F_final'); //fecha de final
-            $tablaOfertas->intenger('Porcentaje');
-            $tablaOfertas->intenger('Cantidad');
-            $tablaOfertas->intenger('Activo');
-            $tablaOfertas->intenger('Min_Pza'); //minimo de pieza
-            $tablaOfertas->intenger('Min_Compra'); //minimo de pieza
-            $tablaOfertas->intenger('Min_Pza'); //minimo de pieza
-            $tablaOfertas->intenger('Max_Compra'); //Max de pieza
-            $tablaOfertas->intenger('Max_Pza'); //Max de pieza
+            $tablaOfertas->integer('Porcentaje');
+            $tablaOfertas->integer('Cantidad');
+            $tablaOfertas->integer('Activo');
+            $tablaOfertas->integer('Min_Pza'); //minimo de pieza
+            $tablaOfertas->integer('Min_Compra'); //minimo de pieza
+            $tablaOfertas->integer('Min_Pza'); //minimo de pieza
+            $tablaOfertas->integer('Max_Compra'); //Max de pieza
+            $tablaOfertas->integer('Max_Pza'); //Max de pieza
         } );
     }
 

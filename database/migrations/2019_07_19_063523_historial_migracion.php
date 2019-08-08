@@ -16,12 +16,12 @@ class HistorialMigracion extends Migration
         Schema::create('historial',function( Blueprint $tablaHistorial ) 
         {
             $tablaHistorial->increments('Id'); //Id 
-            $tablaHistorial->intenger('IdServ'); //id del servicio
-            $tablaHistorial->intenger('IdTrat');//id tratamiento
-            $tablaHistorial->intenger('IdMascota'); //id de la mascota
+            $tablaHistorial->integer('IdServ'); //id del servicio
+            $tablaHistorial->integer('IdTrat');//id tratamiento
+            $tablaHistorial->integer('IdMascota'); //id de la mascota
             $tablaHistorial->string('Nombre',100); 
             $tablaHistorial->date('Fecha');
-            $tablaHistorial->intenger('IdDoct'); //id Doctor
+            $tablaHistorial->integer('IdDoct'); //id Doctor
         } );
     }
 

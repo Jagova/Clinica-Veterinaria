@@ -16,8 +16,8 @@ class DetDoctorMigracion extends Migration
         Schema::create('detDoctor',function( Blueprint $tablaDetDoctor ) 
         {
             $tablaDetDoctor->increments('Id'); //Id DetDoctor
-            $tablaDetDoctor->intenger('IdClinica');//Id Clinica
-            $tablaDetDoctor->intenger('Id');//Id
+            $tablaDetDoctor->integer('IdClinica');//Id Clinica
+            $tablaDetDoctor->integer('Id');//Id
 
         } );
     

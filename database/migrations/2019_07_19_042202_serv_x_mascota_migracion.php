@@ -16,8 +16,8 @@ class ServXMascotaMigracion extends Migration
         Schema::create('ServXMascota',function( Blueprint $tablaServXMascota ) 
         {
             $tablaServXMascota->increments('Id'); //Id para servicio para mascota
-            $tablaServXMascota->intenger('IdServ');//Id Servicio
-            $tablaServXMascota->intenger('IdMascota');//Id Mascota
+            $tablaServXMascota->integer('IdServ');//Id Servicio
+            $tablaServXMascota->integer('IdMascota');//Id Mascota
         } );
     }
 

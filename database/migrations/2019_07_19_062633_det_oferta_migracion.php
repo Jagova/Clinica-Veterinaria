@@ -16,9 +16,9 @@ class DetOfertaMigracion extends Migration
         Schema::create('detOferta',function( Blueprint $tabladetOferta ) 
         {
             $tabladetOferta->increments('Id'); //Id 
-            $tabladetOferta->intenger('IdServ');
-            $tabladetOferta->intenger('IdArticulo');
-            $tabladetOferta->intenger('IdCat');
+            $tabladetOferta->integer('IdServ');
+            $tabladetOferta->integer('IdArticulo');
+            $tabladetOferta->integer('IdCat');
         } );
     }
 
