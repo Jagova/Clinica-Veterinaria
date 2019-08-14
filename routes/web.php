@@ -24,6 +24,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/prueba2', function () {
+    return view('prueba');
+});
+
+Route::resource('/prueba','EjemploController');
+
+Route::resource('/pruebaDos','EjemploDosController');
+
 /*Esta ruta regresa una vista de los dueños de las mascotas */
 Route::get('duenos',function (){
     
