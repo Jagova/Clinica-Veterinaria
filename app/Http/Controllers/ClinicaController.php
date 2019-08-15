@@ -45,6 +45,7 @@ class ClinicaController extends Controller
         //
         $nuevaClinica = new \App\Clinica;
         $nuevaClinica->nombre = $request->get('nombre');
+        $nuevaClinica->direccion = $request->get('direccion');
         $nuevaClinica->save();
         return redirect('/clinicas');
     }
