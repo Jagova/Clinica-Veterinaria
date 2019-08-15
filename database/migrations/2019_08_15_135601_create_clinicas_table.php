@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AdminMigracion extends Migration
+class CreateClinicasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class AdminMigracion extends Migration
      */
     public function up()
     {
-        Schema::create('admin',function( Blueprint $tablaAdmin ) 
-        {
-            $tablaAdmin->increments('Id'); //Id 
-            $tablaAdmin->integer('IdUsr'); //Id usuario
-        } );
+        Schema::create('clinicas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class AdminMigracion extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('clinicas');
     }
 }
