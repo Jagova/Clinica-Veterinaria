@@ -2,36 +2,17 @@
 
 @section('contenido')
 
-<h1>Clinicas</h1>
 
 
-<table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Dirección</th>
-             </tr>
-        </thead>
-        <tbody>
-    @foreach($Clinicas as $clinica)
-    <tr>
-        <td>{{$clinica->id}}</td>
-        <td>{{$clinica->nombre}}</td>   
-        <td>{{$clinica->direccion}}</td>   
-    </tr>  
-    @endforeach
-    </tbody>
-</table>
 
-<button> <a href="clinicas/create">Crear clínica</a></button>
 
 
 
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Clínica Veterinaria</h1></div>
-            
+            <button> <a href="clinicas/create">Crear clínica</a></button>
+
             <div class="row p-5">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregarModal">
                     Agregar
@@ -43,51 +24,31 @@
                 <table class="table" id="table1">
                     <thead>
                         <tr>
-                            <th >ATRIBUTO1</th>
-                            <th >ATRIBUTO2</th>
-                            <th >ATRIBUTO3</th>
-                            <th>ACCIONES</th>
+                            <th >Id</th>
+                            <th >Nombre</th>
+                            <th >Direccion</th>
+                            <th></th>
                         </tr>
 
                     </thead>
                     
                     <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Acciones">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarModal">Modificar</button>
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-                                            
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Acciones">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarModal">Modificar</button>
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-                                                
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Acciones">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarModal">Modificar</button>
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-                                            
-                                    </div>
-                                </td>
-                            </tr>
+
+                        @foreach ($Clinicas as $clinica)
+                        <tr>
+                        <td>{{$clinica->id}}</td>
+                        <td>{{$clinica->nombre}}</td>   
+                        <td>{{$clinica->direccion}}</td>
+                        <td>
+                                <div class="btn-group" role="group" aria-label="Acciones">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarModal">Modificar</button>
+                                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
+                                        
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        @endforeach
                         </tbody>
                                         
                 </table>
