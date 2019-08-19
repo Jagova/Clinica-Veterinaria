@@ -8,6 +8,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        
+        <!-- Font Awesome Link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
         <!-- Styles -->
         <style>
@@ -82,16 +86,18 @@
             <div class="content">
                 <div class="title m-b-md">
                     Veterinaria - Bienvenido 
+                    
+                    <i class="fa fa-paw" style="font-size:60px;color:gray;"></i>
+                   
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://laravel.com/docs">Artículos</a>
+                    <a href="https://laracasts.com">Dueños</a>
+                    <a href="https://laravel-news.com">Mascotas</a>
+                    <a href="https://blog.laravel.com">Servicios</a>
+                    <a href="https://nova.laravel.com">Tratamientos</a>
+>
                 </div>
             </div>
         </div>

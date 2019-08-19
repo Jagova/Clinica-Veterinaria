@@ -1,20 +1,20 @@
+        <!-- Font Awesome Link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 @extends('layout')
 
 @section('contenido')
 
 
-
-
-
-
-
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Clínica Veterinaria</h1></div>
-            <button> <a href="clinicas/create">Crear clínica</a></button>
+            <div class="row p-5"><h1 class="display-1">Cli­nica Veterinaria <i class="fas fa-notes-medical"></i> </h1></div>
+            <button> <a href="clinicas/create"><i class="fas fa-plus"></i>Crear cli­nica</a></button>
 
             <div class="row p-5">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregarModal">
+                <!-- Icini de agregar registro-->
+                <i class="fas fa-plus"></i>
                     Agregar
                 </button>
                                     
@@ -40,9 +40,9 @@
                         <td>{{$clinica->nombre}}</td>   
                         <td>{{$clinica->direccion}}</td>
                         <td>
-                                <div class="btn-group" role="group" aria-label="Acciones">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarModal">Modificar</button>
-                                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
+                                <div class="btn-group" role="group" aria-label="Acciones"> 
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificarModal">Modificar <i class="fas fa-pencil-alt"></i> </button>
+                                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarModal">Eliminar <i class="fas fa-trash-alt"></i></button>
                                         
                                 </div>
                             </td>
@@ -133,7 +133,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                Estás seguro de eliminar el elemento?
+                                EstÃ¡s seguro de eliminar el elemento?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
