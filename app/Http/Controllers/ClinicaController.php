@@ -93,5 +93,8 @@ class ClinicaController extends Controller
     public function destroy(Clinica $clinica)
     {
         //
+        //$clinica = \App\Clinica::find($clinica);
+        $clinica->delete();
+        return redirect('/clinicas');
     }
 }
