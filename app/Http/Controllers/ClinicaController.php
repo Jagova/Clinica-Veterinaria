@@ -81,7 +81,12 @@ class ClinicaController extends Controller
      */
     public function update(Request $request, Clinica $clinica)
     {
-        //
+        //El request toma los valores con el name en HTML
+        //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
+        $clinica->nombre = $request->get('nombre');
+        $clinica->direccion = $request->get('direccion');
+        $clinica->save();
+        return redirect('/clinicas');
     }
 
     /**

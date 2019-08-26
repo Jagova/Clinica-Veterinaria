@@ -12,6 +12,19 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     document.getElementById('form-eliminar').action = "clinicas/" + clinicaId;
 });
 </script>
+
+
+<script>
+    $(document).on("click", ".abrirEditaModal", function (event) {
+        var clinicaNombre = $(this).data('nombre');
+        var clinicaId = $(this).data('id');
+        var clinicaDireccion = $(this).data('direccion');
+        $("#editar-clinica-nombre").val(clinicaNombre);
+        $("#editar-clinica-direccion").val(clinicaDireccion);
+        document.getElementById('form-editar').action = "clinicas/" + clinicaId;
+    });
+    </script>
+
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Cli­nicas <i class="fas fa-hospital"></i> </h1></div>
@@ -34,7 +47,13 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         <td>{{$clinica->direccion}}</td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
-                                    <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#modificarModal">Modificar <i class="fas fa-pencil-alt"></i> </button>
+                                    <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
+                                    data-target="#editarModal"
+                                    data-id="{{$clinica->id}}"
+                                    data-nombre="{{$clinica->nombre}}"
+                                    data-direccion="{{$clinica->direccion}}"
+                                    >Modificar <i class="fas fa-pencil-alt"></i> </button>
+
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
                                 data-id="{{$clinica->id}}"
@@ -81,36 +100,35 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     </div>
                 </div>
             </div>
-            <!-- Modal Modificar -->
-            <div class="modal fade" id="modificarModal" tabindex="-1" role="dialog" aria-labelledby="modificarModalLabel" aria-hidden="true">
+
+            <!-- Modal editar -->
+            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modificarModalLabel">Editar elemento</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar elemento</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <form>
+                            <form id="form-editar" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="in_atributo1">Atributo1</label>
-                                            <input type="text" class="form-control" id="in_atributo1">
+                                        <label for="editar-clinica-nombre">Nombre</label>
+                                            <input type="text" class="form-control" id="editar-clinica-nombre" name="nombre">
                                     </div>
                                     <div class="form-group">
-                                        <label for="in_atributo2">Atributo2</label>
-                                        <input type="text" class="form-control" id="in_atributo2">
+                                        <label for="editar-clinica-direccion">Dirección</label>
+                                        <input type="text" class="form-control" id="editar-clinica-direccion" name="direccion">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="in_atributo3">Atributo3</label>
-                                        <input type="text" class="form-control" id="in_atributo3">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
-                            </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
             </div>
