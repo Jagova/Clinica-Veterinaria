@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css"  crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
-    <title> Clinicas </title>
+    <title> Clinica veterinaria </title>
 
     <!-- Font Awesome Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,7 +32,7 @@
                               Clinicas</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-stethoscope"></i>
+                          <a class="nav-link" href="/doctores"><i class="fas fa-stethoscope"></i>
                               Doctores</a>
                       </li>
                       <li class="nav-item active">
