@@ -95,7 +95,7 @@ class DoctorController extends Controller
         $doctor->segundo_nombre = $request->get('nombre2');
         $doctor->apellido_paterno = $request->get('ApPaterno');
         $doctor->apellido_materno = $request->get('ApMaterno');
-        $doctoroctor->especialidad_1 = $request->get('esp1');
+        $doctor->especialidad_1 = $request->get('esp1');
         $doctor->especialidad_2 = $request->get('esp2');
         $doctor->clinica_id = $request->get('clinica');
         $doctor->save();
@@ -113,6 +113,6 @@ class DoctorController extends Controller
         //
         //$doctor = \App\Doctor::find($doctor);
         $doctor->delete();
-        return redirect('/doctores');
+        return redirect('/doctores'.$doctor);
     }
 }
