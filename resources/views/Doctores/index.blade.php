@@ -64,7 +64,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     data-nombre1="{{$doctor->primer_nombre}}"
                                     data-nombre2="{{$doctor->segundo_nombre}}"
                                     data-apellido1="{{$doctor->apellido_paterno}}"
-                                    data-apellido2="{{$doctor->apellidp_materno}}"
+                                    data-apellido2="{{$doctor->apellido_materno}}"
                                     data-especialidad1="{{$doctor->especialidad_1}}"
                                     data-especialidad2="{{$doctor->especialidad_2}}"
                                     data-clinica="{{$doctor->clinica_id}}"
@@ -193,7 +193,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 </div>
                                 <div class="form-group">
                                         <label for="editar-doctor-clinica">Clínica</label>
-                                        <select class="form-control" name="doctor" id="editar-doctor-clinica">
+                                        <select class="form-control" name="clinica" id="editar-doctor-clinica">
                                         @foreach ($Clinicas as $clinica)                                  
                                                 <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
                                             @endforeach
