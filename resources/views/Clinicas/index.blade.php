@@ -13,7 +13,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 });
 </script>
 
-
+<!--Script para editar un modal-->
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
         var clinicaNombre = $(this).data('nombre');

@@ -44,7 +44,7 @@
                               Dueños</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-paw"></i>
+                          <a class="nav-link" href="/pacientes"><i class="fas fa-paw"></i>
                               Pacientes</a>
                       </li>
                       <li class="nav-item active">
