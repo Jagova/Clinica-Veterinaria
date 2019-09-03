@@ -87,10 +87,11 @@ class DoctorController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-   function update(Request $request, Doctor $doctor)
+   function update(Request $request, $id)
     {
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
+        $doctor = \App\Doctor::find($id);
         $doctor->primer_nombre = $request->get('nombre1');
         $doctor->segundo_nombre = $request->get('nombre2');
         $doctor->apellido_paterno = $request->get('ApPaterno');
@@ -108,11 +109,12 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy($id)
     {
         //
-        //$doctor = \App\Doctor::find($doctor);
+        $doctor = \App\Doctor::find($id);
         $doctor->delete();
-        return redirect('/doctores'.$doctor);
+        //dd($doctor);
+        return redirect('/doctores');
     }
 }

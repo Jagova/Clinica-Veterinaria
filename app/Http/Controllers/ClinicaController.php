@@ -99,6 +99,7 @@ class ClinicaController extends Controller
     {
         //
         //$clinica = \App\Clinica::find($clinica);
+        dd($clinica);
         $clinica->delete();
         return redirect('/clinicas');
     }

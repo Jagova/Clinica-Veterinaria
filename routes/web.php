@@ -29,8 +29,9 @@ Route::get('/', function () {
 Route::resource('/clinicas','ClinicaController');
 //Doctores
 Route::resource('/doctores','DoctorController');
-//Duenos
-Route::resource('/doctores','DuenoController');
+//Pacientes
+Route::resource('/pacientes','PacienteController');
+
 
 
 /*regresa una vista de las mascotas*/

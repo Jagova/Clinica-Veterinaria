@@ -9,6 +9,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     var doctorId = $(this).data('id');
     $("#eliminar-doctor-id").val(doctorId);
     document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
+    console.log(doctorId);
     document.getElementById('form-eliminar').action = "doctores/" + doctorId;
 });
 </script>
