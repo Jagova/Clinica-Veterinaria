@@ -27,8 +27,6 @@ Route::get('/', function () {
 
 //Clinicas
 Route::resource('/clinicas','ClinicaController');
-//Doctores
-Route::resource('/doctores','DoctorController');
 //Pacientes
 Route::resource('/pacientes','PacienteController');
 
