@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Articulos extends Migration
+class CategoriaArti extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,10 @@ class Articulos extends Migration
      */
     public function up()
     {
-        Schema::create('articulos', function (Blueprint $table) {
+        Schema::create('cate', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('nombre');
-            $table->string('direc');
-
-            $table->string('precioCompra');
-            $table->string('marca');
-           
-            $table->unsignedInteger('stock');
-            $table->string('fecha_cad');
-
-            $table->string('precio_u');
 
             $table->timestamps();
         });
@@ -38,6 +29,7 @@ class Articulos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articulos');
+        Schema::dropIfExists('cate');
+        //
     }
 }
