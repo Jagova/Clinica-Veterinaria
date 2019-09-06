@@ -3,7 +3,7 @@
 @section('contenido')
 
 <script>
-$(document).on("click", ".abrirEliminaModal", function (event) {
+/*$(document).on("click", ".abrirEliminaModal", function (event) {
     var doctorNombre = $(this).data('nombre');
     var doctorClinica = $(this).data('clinica');
     var doctorId = $(this).data('id');
@@ -11,12 +11,12 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
     console.log(doctorId);
     document.getElementById('form-eliminar').action = "doctores/" + doctorId;
-});
+});*/
 </script>
 
 
 <script>
-    $(document).on("click", ".abrirEditaModal", function (event) {
+   /* $(document).on("click", ".abrirEditaModal", function (event) {
         var doctorNombre1 = $(this).data('nombre1');
         var doctorNombre2 = $(this).data('nombre2');
         var doctorApellido1 = $(this).data('apellido1');
@@ -33,15 +33,15 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         $("#editar-doctor-especialidad2").val(doctorEspecialidad2);
         $("#editar-doctor-clinica").val(doctorClinica);
         document.getElementById('form-editar').action = "doctores/" + doctorId;
-    });
+    });*/
 </script>
 
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Doctores <i class="fas fa-stethoscope"></i> </h1></div>
+            <div class="row p-5"><h1 class="display-1">Servicios <i class="fas fa-heartbeat"></i> </h1></div>
             <div class="row p-5">
-                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar doctor</button>
+                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar servicio</button>
                 <table class="table" id="table1">
                     <thead>
                         <tr>
@@ -52,36 +52,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Doctores as $doctor)
-                        <tr>
-                        <td>{{$doctor->id}}</td>
-                        <td>{{$doctor->primer_nombre}} {{$doctor->apellido_paterno}}</td>   
-                        <td>{{$doctor->clinica_id}}</td>
-                        <td>
-                                <div class="btn-group" role="group" aria-label="Acciones"> 
-                                    <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
-                                    data-target="#editarModal"
-                                    data-id="{{$doctor->id}}"
-                                    data-nombre1="{{$doctor->primer_nombre}}"
-                                    data-nombre2="{{$doctor->segundo_nombre}}"
-                                    data-apellido1="{{$doctor->apellido_paterno}}"
-                                    data-apellido2="{{$doctor->apellido_materno}}"
-                                    data-especialidad1="{{$doctor->especialidad_1}}"
-                                    data-especialidad2="{{$doctor->especialidad_2}}"
-                                    data-clinica="{{$doctor->clinica_id}}"
-                                    >Modificar <i class="fas fa-pencil-alt"></i> </button>
-
-                                    <button type="button" class="btn btn-danger abrirEliminaModal"
-                                data-toggle="modal" data-target="#eliminarModal"
-                                data-id="{{$doctor->id}}"
-                                data-nombre="{{$doctor->primer_nombre}}"
-                                data-clinica="{{$doctor->clinica}}"
-                                >Eliminar <i class="fas fa-trash-alt"></i> </button>
-                                </div>
-                        </td>
-                        </tr>
-                        @endforeach
-                        </tbody>           
+                    </tbody>           
                 </table>
             </div>
 
@@ -133,9 +104,6 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <div class="form-group">
                                         <label for="in_atributo1">Clinica</label>
                                         <select class="form-control" name="clinica">
-                                            @foreach ($Clinicas as $clinica)                                  
-                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
-                                            @endforeach
                                         </select>
                                 </div>
                         </div>
@@ -195,9 +163,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <div class="form-group">
                                         <label for="editar-doctor-clinica">Clínica</label>
                                         <select class="form-control" name="clinica" id="editar-doctor-clinica">
-                                        @foreach ($Clinicas as $clinica)                                  
-                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
-                                            @endforeach
+                                        
                                         </select>
                                 </div>
                         </div>

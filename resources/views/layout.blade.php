@@ -52,7 +52,7 @@
                               Inventario</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-heartbeat"></i>
+                          <a class="nav-link" href="/servicios"><i class="fas fa-heartbeat"></i>
                               Servicios</a>
                       </li>
                   </ul>

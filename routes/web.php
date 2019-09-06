@@ -31,8 +31,8 @@ Route::resource('/clinicas','ClinicaController');
 Route::resource('/doctores','DoctorController');
 //Pacientes
 Route::resource('/pacientes','PacienteController');
-
-
+//Servicios
+Route::resource('/servicios','ServicioController');
 
 /*regresa una vista de las mascotas*/
 Route::get('mascotas',function()
