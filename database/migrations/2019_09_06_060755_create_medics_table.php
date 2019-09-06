@@ -14,7 +14,19 @@ class CreateMedicsTable extends Migration
     public function up()
     {
         Schema::create('medics', function (Blueprint $table) {
+
             $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('presentacion');
+            $table->string('ml_mg');
+            $table->string('compuesto');
+            $table->string('precio');
+            $table->string('laboratorio');
+            $table->string('paq_unidad');
+            $table->string('controlado');
+            $table->string('fecha_caducidad');
+            $table->string('stock');
+            
             $table->timestamps();
         });
     }

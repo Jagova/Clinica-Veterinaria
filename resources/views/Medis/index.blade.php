@@ -5,104 +5,140 @@
 
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
-    var articuloNombre = $(this).data('nombre');
-    var articuloId = $(this).data('id');
-    var preciocom = $(this).data('preciocom');
-    var marca = $(this).data('marca');
+    var medicinaNombre = $(this).data('nombre');
+    var medicinaId = $(this).data('id');
+    var presentacion = $(this).data('presentacion');
+    var ml_mg = $(this).data('ml_mg');
+    var compuesto = $(this).data('compuesto');
+    var precio = $(this).data('precio');
+    var laboratorio = $(this).data('laboratorio');
+    var paq_unidad = $(this).data('paq_unidad');
+    var controlado = $(this).data('controlado');
+    var fecha_caducidad = $(this).data('fecha_caducidad');
     var stock = $(this).data('stock');
-    var fecha_cad = $(this).data('fecha_cad');
-    var precio_u = $(this).data('precio_u');
 
 
-    //console.log(articuloId);
-$("#eliminar-clinica-id").val(articuloId);
-    document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
-    document.getElementById('form-eliminar').action = "artis/" + articuloId;
+$("#eliminar-clinica-id").val(medicinaId);
+    document.getElementById('eliminar-nombre-m').innerHTML = medicinaNombre;
+    document.getElementById('form-eliminar').action = "medicamentos/" + ,medicinaId;
 });
 </script>
 
 <!--Script para editar un modal-->
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
+    
+    var medicinaId = $(this).data('id');
 
-    var articuloNombre = $(this).data('nombre');
-    var articuloId = $(this).data('id');
-    var preciocom = $(this).data('preciocom');
-    console.log(preciocom);
-    var marca = $(this).data('marca');
+    var medicinaNombre = $(this).data('nombre');
+    var presentacion = $(this).data('presentacion');
+
+    var ml_mg = $(this).data('ml_mg');
+    var compuesto = $(this).data('compuesto');
+
+    var precio = $(this).data('precio');
+    var laboratorio = $(this).data('laboratorio');
+
+    var paq_unidad = $(this).data('paq_unidad');
+    var controlado = $(this).data('controlado');
+
+    var fecha_caducidad = $(this).data('fecha_caducidad');
     var stock = $(this).data('stock');
-    var fecha_cad = $(this).data('fecha_cad');
-    var precio_u = $(this).data('precio_u');
 
-    console.log(articuloId);
+        $("#editar-m-nombre").val(medicinaNombre);
+        $("#editar-m-presentacion").val(presentacion);
 
+        $("#editar-m-mlmg").val(ml_mg);
+        $("#editar-m-compuesto").val(compuesto);
 
-        $("#editar-articulo-nombre").val(articuloNombre);
-        $("#editar-articulo-precio").val(preciocom);
-        $("#editar-articulo-marca").val(marca);
+        $("#editar-m-precio").val(precio);
+        $("#editar-m-laboratorio").val(laboratorio);
 
-        $("#editar-articulo-stock").val(stock);
-        $("#editar-articulo-fecha").val(fecha_cad);
-        $("#editar-articulo-preciou").val(precio_u);
+        $("#editar-m-paqunidad").val(paq_unidad);
+        $("#editar-m-controlado").val(controlado);
 
-        document.getElementById('form-editar').action = "artis/" + articuloId;
+        $("#editar-m-fechcad").val(fecha_caducidad);
+        $("#editar-m-stock").val(stock);
+        
+        document.getElementById('form-editar').action = "medicamentos/" + medicinaId;
     });
     </script>
 
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-boxes"></i> </h1>
-            <h1>Articulos</h1></div>
+                <h1>Medicamentos</h1>
+            </div>
+
             <div class="row p-5">
-                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
+                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Medicamento</button>
                 <table class="table" id="table1">
                     <thead>
                         <tr>
+                
                             <th >Id </th>
                             <th >Nombre </th>
-                            <th >Precio Compra </th>
-                            <th >Marca </th>
+                            <th >Presentacion </th>
+                            <th >ML MG </th>
+                            <th >Compuesto </th>
+                            <th >Precio </th>
+                            <th >Laboratorio </th>
+                            <th >Paq Unidad </th>
+                            <th >Controlado </th>
+                            <th >Fecha </th>
                             <th >Stock </th>
-                            <th >Fecha Caducidad</th>
-                            <th >Precio Un </th>
-
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($Artis as $artis)
+
+                        @foreach ($Medis as $medis)
                         <tr>
-                        <td>{{$artis->id}}</td>
-                        <td>{{$artis->nombre}}</td>   
-                        <td>{{$artis->preciocom}}</td>
-                        <td>{{$artis->marca}}</td>
-                        <td>{{$artis->stock}}</td>
-                        <td>{{$artis->fecha_cad}}</td>
-                        <td>{{$artis->precio_u}}</td>
+                        <td>{{$medis->id}}</td>
+                        <td>{{$medis->nombre}}</td>   
+                        <td>{{$medis->presentacion}}</td>
+                        <td>{{$medis->ml_mg}}</td>
+                        <td>{{$medis->compuesto}}</td>
+                        <td>{{$medis->precio}}</td>
+                        <td>{{$medis->laboratorio}}</td>
+                        <td>{{$medis->paq_unidad}}</td>
+                        <td>{{$medis->controlado}}</td>
+                        <td>{{$medis->fecha_caducidad}}</td>
+                        <td>{{$medis->stock}}</td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
                                     data-target="#editarModal"
-                                    data-id="{{$artis->id}}"
-                                    data-nombre="{{$artis->nombre}}"
-                                    data-preciocom="{{$artis->preciocom}}"
-                                    data-marca="{{$artis->marca}}"
-                                    data-stock="{{$artis->stock}}"
-                                    data-fecha_cad="{{$artis->fecha_cad}}"
-                                    data-precio_u="{{$artis->precio_u}}"
+
+                                    data-id="{{$medis->id}}"
+                                    data-nombre="{{$medis->nombre}}"
+                                    data-presentacion="{{$medis->presentacion}}"
+                                    data-ml_mg="{{$medis->ml_mg}}"
+                                    data-compuesto="{{$medis->compuesto}}"
+                                    data-precio="{{$medis->precio}}"
+                                    data-laboratorio="{{$medis->laboratorio}}"
+                                    data-paq_unidad="{{$medis->paq_unidad}}"
+                                    data-controlado="{{$medis->controlado}}"
+                                    data-fecha_caducidad="{{$medis->fecha_caducidad}}"
+                                    data-stock="{{$medis->stock}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
-                                    data-id="{{$artis->id}}"
-                                    data-nombre="{{$artis->nombre}}"
-                                    data-preciocom="{{$artis->preciocom}}"
-                                    data-marca="{{$artis->marca}}"
-                                    data-stock="{{$artis->stock}}"
-                                    data-fecha_cad="{{$artis->fecha_cad}}"
-                                    data-precio_u="{{$artis->precio_u}}"
+                                    data-id="{{$medis->id}}"
+                                    data-nombre="{{$medis->nombre}}"
+                                    data-presentacion="{{$medis->presentacion}}"
+                                    data-ml_mg="{{$medis->ml_mg}}"
+                                    data-compuesto="{{$medis->compuesto}}"
+                                    data-precio="{{$medis->precio}}"
+                                    data-laboratorio="{{$medis->laboratorio}}"
+                                    data-paq_unidad="{{$medis->paq_unidad}}"
+                                    data-controlado="{{$medis->controlado}}"
+                                    data-fecha_caducidad="{{$medis->fecha_caducidad}}"
+                                    data-stock="{{$medis->stock}}"
+
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
                             </td>
@@ -118,12 +154,12 @@ $("#eliminar-clinica-id").val(articuloId);
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="agregarModalLabel">Crear Articulo</h5>
+                            <h5 class="modal-title" id="agregarModalLabel">Crear Medicamento: </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/artis" method="POST">
+                        <form action="/medicamentos" method="POST">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
@@ -132,28 +168,48 @@ $("#eliminar-clinica-id").val(articuloId);
                                         <input type="text" class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
-                                    <label for="in_atributo2">Precio Compra: </label>
-                                    <input type="text" class="form-control" id="preciocom" name="preciocom">
+                                    <label for="in_atributo2">Presentacion: </label>
+                                    <input type="text" class="form-control" id="presentacion" name="presentacion">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="in_atributo3">Marca: </label>
-                                    <input type="text" class="form-control" id="marca" name="marca">
+                                    <label for="in_atributo3">ML MG: </label>
+                                    <input type="text" class="form-control" id="ml_mg" name="ml_mg">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Compuesto: </label>
+                                    <input type="text" class="form-control" id="compuesto" name="compuesto">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Precio: </label>
+                                    <input type="text" class="form-control" id="precio" name="precio">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Laboratorio: </label>
+                                    <input type="text" class="form-control" id="laboratorio" name="laboratorio">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Paq Unidad: </label>
+                                    <input type="text" class="form-control" id="paq_unidad" name="paq_unidad">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Controlado: </label>
+                                    <input type="text" class="form-control" id="controlado" name="controlado">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Fecha Caducidad: </label>
+                                    <input type="text" class="form-control" id="fecha_caducidad" name="fecha_caducidad">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Stock: </label>
                                     <input type="text" class="form-control" id="stock" name="stock">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="in_atributo2">Fecha Caducidad: </label>
-                                    <input type="text" class="form-control" id="fecha_cad" name="fecha_cad">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="in_atributo2">Precio Ut: </label>
-                                    <input type="text" class="form-control" id="precio_u" name="precio_u">
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -223,7 +279,7 @@ $("#eliminar-clinica-id").val(articuloId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar Articulo</h5>
+                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar Medicina</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -232,7 +288,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro que desea eliminar Artículo <span id="eliminar-nombre-articulo"></span>? 
+                                ¿Estás seguro que desea eliminar Medicina <span id="eliminar-nombre-m"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
