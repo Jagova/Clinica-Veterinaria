@@ -20,7 +20,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 
 $("#eliminar-clinica-id").val(medicinaId);
     document.getElementById('eliminar-nombre-m').innerHTML = medicinaNombre;
-    document.getElementById('form-eliminar').action = "medicamentos/" + ,medicinaId;
+    document.getElementById('form-eliminar').action = "medicamentos/" + medicinaId;
 });
 </script>
 
@@ -226,7 +226,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar Articulo</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar Medicamento</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -235,35 +235,55 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="editar-nombre">Nombre:</label>
-                                            <input type="text" class="form-control" id="editar-articulo-nombre" name="nombre">
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label for="editar-articulo-precio">Precio Compra:</label>
-                                        <input type="text" class="form-control" id="editar-articulo-precio" name="preciocom">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1">Nombre: </label>
+                                        <input type="text" class="form-control" id="editar-m-nombre" name="nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo2">Presentacion: </label>
+                                    <input type="text" class="form-control" id="editar-m-presentacion" name="presentacion">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="editar-articulo-marca">Marca: </label>
-                                        <input type="text" class="form-control" id="editar-articulo-marca" name="marca">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="in_atributo3">ML MG: </label>
+                                    <input type="text" class="form-control" id="editar-m-mlmg" name="ml_mg">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="editar-articulo-stock">Stock: </label>
-                                        <input type="text" class="form-control" id="editar-articulo-stock" name="stock">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="in_atributo2">Compuesto: </label>
+                                    <input type="text" class="form-control" id="editar-m-compuesto" name="compuesto">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="editar-articulo-fecha">Fecha Cad: </label>
-                                        <input type="text" class="form-control" id="editar-articulo-fecha" name="fecha_cad">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="in_atributo2">Precio: </label>
+                                    <input type="text" class="form-control" id="editar-m-precio" name="precio">
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="editar-articulo-preciou">Precio Un</label>
-                                        <input type="text" class="form-control" id="editar-articulo-preciou" name="precio_u">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="in_atributo2">Laboratorio: </label>
+                                    <input type="text" class="form-control" id="editar-m-laboratorio" name="laboratorio">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Paq Unidad: </label>
+                                    <input type="text" class="form-control" id="editar-m-paqunidad" name="paq_unidad">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Controlado: </label>
+                                    <input type="text" class="form-control" id="editar-m-controlado" name="controlado">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Fecha Caducidad: </label>
+                                    <input type="text" class="form-control" id="editar-m-fechcad" name="fecha_caducidad">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="in_atributo2">Stock: </label>
+                                    <input type="text" class="form-control" id="editar-m-stock" name="stock">
+                                </div>
 
                                 </div>
                                 <div class="modal-footer">
