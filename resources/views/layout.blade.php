@@ -36,7 +36,7 @@
                               Doctores</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-hands-helping"></i>
+                          <a class="nav-link" href="/asistentes"><i class="fas fa-hands-helping"></i>
                               Asistentes</a>
                       </li>
                       <li class="nav-item active">

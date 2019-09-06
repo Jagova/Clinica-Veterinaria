@@ -33,6 +33,9 @@ Route::resource('/doctores','DoctorController');
 Route::resource('/pacientes','PacienteController');
 //Servicios
 Route::resource('/servicios','ServicioController');
+//Asistentes
+Route::resource('/asistentes','AsistentesController');
+
 
 /*regresa una vista de las mascotas*/
 Route::get('mascotas',function()
