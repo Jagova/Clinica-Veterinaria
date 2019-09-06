@@ -7,6 +7,7 @@
  * 
  * Commit de tiffany
  * Commit de Jairo
+ *Commit de Emmanuel 
  */
 
 
@@ -36,12 +37,16 @@ Route::resource('/servicios','ServicioController');
 //Asistentes
 Route::resource('/asistentes','AsistentesController');
 
+//Articulo
+Route::resource('/artis','ArtisController');
+
+//Medicamentos
+Route::resource('/medicamentos','MedicsController');
+
+
 
 /*regresa una vista de las mascotas*/
-Route::get('mascotas',function()
-{
-}
-);
+Route::get('mascotas',function(){ });
 
 
 //Ejemplos de prueba (No perteneces al proyecto)
