@@ -14,7 +14,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     var precio_u = $(this).data('precio_u');
 
 
-
+    console.log(articuloId);
 $("#eliminar-clinica-id").val(articuloId);
     document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
     document.getElementById('form-eliminar').action = "artis/" + articuloId;
@@ -32,6 +32,8 @@ $("#eliminar-clinica-id").val(articuloId);
     var stock = $(this).data('stock');
     var fecha_cad = $(this).data('fecha_cad');
     var precio_u = $(this).data('precio_u');
+
+    console.log(articuloId);
 
 
         $("#editar-articulo-nombre").val(articuloNombre);

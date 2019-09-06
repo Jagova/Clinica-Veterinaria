@@ -14,7 +14,7 @@ class ArtisController extends Controller
      */
     public function index()
     {
-        $artis = \App\Artis::all();
+        $artis = \App\artis::all();
         return view('Artis.index',
         [
             'Artis' => $artis
@@ -85,12 +85,12 @@ class ArtisController extends Controller
      */
     public function update(Request $request, artis $artis)
     {
-        $artis->nombre =       $request->get('nombre');
-        $artis->precioCompra = $request->get('precioCompra');
-        $artis->marca =        $request->get('marca');
-        $artis->stock =        $request->get('stock');
-        $artis->fecha_cad =    $request->get('fecha_cad');
-        $artis->precio_u =     $request->get('precio_u');
+        $artis->nombre=$request->get('nombre');
+        $artis->precioCompra=$request->get('precioCompra');
+        $artis->marca=$request->get('marca');
+        $artis->stock=$request->get('stock');
+        $artis->fecha_cad=$request->get('fecha_cad');
+        $artis->precio_u=$request->get('precio_u');
         $artis->save();
         return redirect('/artis');
     }
@@ -101,9 +101,9 @@ class ArtisController extends Controller
      * @param  \App\artis  $artis
      * @return \Illuminate\Http\Response
      */
-    public function destroy(artis $artis)
+    public function destroy($id)
     {
-        dd($artis);
+        $artis = \App\artis::find($id);
         $artis->delete();
         return redirect('/artis');
     }
