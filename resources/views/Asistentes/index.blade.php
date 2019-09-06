@@ -39,7 +39,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Asistentes <i class="fas fa-hospital"></i> </h1></div>
+            <div class="row p-5"><h1 class="display-1">Asistentes <i class="fas fa-hands-helping"></i> </h1></div>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar asistente</button>
                 <table class="table" id="table1">
