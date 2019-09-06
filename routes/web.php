@@ -32,6 +32,17 @@ Route::resource('/doctores','DoctorController');
 //Pacientes
 Route::resource('/pacientes','PacienteController');
 
+//Articulo
+Route::resource('/artis','ArtisController');
+
+//Medicamentos
+//Route::resource('/articulos','PacienteController');
+
+//Sub Categoria
+//Route::resource('/articulos','PacienteController');
+
+//Categoria
+//Route::resource('/articulos','PacienteController');
 
 
 /*regresa una vista de las mascotas*/

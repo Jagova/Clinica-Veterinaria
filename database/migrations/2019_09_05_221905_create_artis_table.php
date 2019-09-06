@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class Medicamentos extends Migration
+/*Migracion para los articulos de la veterinaria */
+class CreateArtisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,20 @@ class Medicamentos extends Migration
      */
     public function up()
     {
-         Schema::create('meds', function (Blueprint $table) {
+        Schema::create('artis', function (Blueprint $table) {
+
             $table->bigIncrements('id');
 
             $table->string('nombre');
-            $table->string('presentacion');
-            $table->string('ml_mg');
-            $table->string('compuesto');
-            $table->string('precio');
-            $table->string('laboratorio');
-            $table->string('paq_unidad');
-            $table->string('controlado');
-            $table->string('fecha_caducidad');
-            $table->string('stock');
+            
+
+            $table->string('precioCompra');
+            $table->string('marca');
+           
+            $table->unsignedInteger('stock');
+            $table->string('fecha_cad');
+
+            $table->string('precio_u');
 
             $table->timestamps();
         });
@@ -38,6 +39,6 @@ class Medicamentos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('artis');
     }
 }
