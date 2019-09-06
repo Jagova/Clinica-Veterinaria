@@ -11,4 +11,8 @@ class Paciente extends Model
     {
         return $this->belongsTo('App\Dueno');
     }
+    public function Clinica()
+    {
+        return $this->belongsTo('App\Clinica');
+    }
 }
