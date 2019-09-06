@@ -45,7 +45,7 @@ class ArtisController extends Controller
 
         $articulo = new \App\artis;
         $articulo->nombre = $request->get('nombre');
-        $articulo->precioCompra = $request->get('precioCompra');
+        $articulo->preciocom = $request->get('preciocom');
         $articulo->marca = $request->get('marca');
         $articulo->stock = $request->get('stock');
         $articulo->fecha_cad = $request->get('fecha_cad');
@@ -83,10 +83,11 @@ class ArtisController extends Controller
      * @param  \App\artis  $artis
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, artis $artis)
+    public function update(Request $request,$id)
     {
+        $artis = \App\artis::find($id);
         $artis->nombre=$request->get('nombre');
-        $artis->precioCompra=$request->get('precioCompra');
+        $artis->precioCom=$request->get('preciocom');
         $artis->marca=$request->get('marca');
         $artis->stock=$request->get('stock');
         $artis->fecha_cad=$request->get('fecha_cad');

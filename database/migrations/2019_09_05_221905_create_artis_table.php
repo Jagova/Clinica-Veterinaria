@@ -20,7 +20,7 @@ class CreateArtisTable extends Migration
             $table->string('nombre');
             
 
-            $table->string('precioCompra');
+            $table->string('preciocom');
             $table->string('marca');
            
             $table->unsignedInteger('stock');

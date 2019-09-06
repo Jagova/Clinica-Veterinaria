@@ -7,14 +7,14 @@
 $(document).on("click", ".abrirEliminaModal", function (event) {
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
-    var precioCompra = $(this).data('precioCompra');
+    var preciocom = $(this).data('preciocom');
     var marca = $(this).data('marca');
     var stock = $(this).data('stock');
     var fecha_cad = $(this).data('fecha_cad');
     var precio_u = $(this).data('precio_u');
 
 
-    console.log(articuloId);
+    //console.log(articuloId);
 $("#eliminar-clinica-id").val(articuloId);
     document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
     document.getElementById('form-eliminar').action = "artis/" + articuloId;
@@ -27,7 +27,8 @@ $("#eliminar-clinica-id").val(articuloId);
 
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
-    var precioCompra = $(this).data('precioCompra');
+    var preciocom = $(this).data('preciocom');
+    console.log(preciocom);
     var marca = $(this).data('marca');
     var stock = $(this).data('stock');
     var fecha_cad = $(this).data('fecha_cad');
@@ -37,7 +38,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
 
         $("#editar-articulo-nombre").val(articuloNombre);
-        $("#editar-articulo-precio").val(precioCompra);
+        $("#editar-articulo-precio").val(preciocom);
         $("#editar-articulo-marca").val(marca);
 
         $("#editar-articulo-stock").val(stock);
@@ -73,7 +74,7 @@ $("#eliminar-clinica-id").val(articuloId);
                         <tr>
                         <td>{{$artis->id}}</td>
                         <td>{{$artis->nombre}}</td>   
-                        <td>{{$artis->precioCompra}}</td>
+                        <td>{{$artis->preciocom}}</td>
                         <td>{{$artis->marca}}</td>
                         <td>{{$artis->stock}}</td>
                         <td>{{$artis->fecha_cad}}</td>
@@ -84,7 +85,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                     data-target="#editarModal"
                                     data-id="{{$artis->id}}"
                                     data-nombre="{{$artis->nombre}}"
-                                    data-precioCompra="{{$artis->precioCompra}}"
+                                    data-preciocom="{{$artis->preciocom}}"
                                     data-marca="{{$artis->marca}}"
                                     data-stock="{{$artis->stock}}"
                                     data-fecha_cad="{{$artis->fecha_cad}}"
@@ -96,7 +97,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                     data-toggle="modal" data-target="#eliminarModal"
                                     data-id="{{$artis->id}}"
                                     data-nombre="{{$artis->nombre}}"
-                                    data-precioCompra="{{$artis->precioCompra}}"
+                                    data-preciocom="{{$artis->preciocom}}"
                                     data-marca="{{$artis->marca}}"
                                     data-stock="{{$artis->stock}}"
                                     data-fecha_cad="{{$artis->fecha_cad}}"
@@ -131,7 +132,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Precio Compra: </label>
-                                    <input type="text" class="form-control" id="precioCompra" name="precioCompra">
+                                    <input type="text" class="form-control" id="preciocom" name="preciocom">
                                 </div>
 
                                 <div class="form-group">
@@ -184,7 +185,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
                                     <div class="form-group">
                                         <label for="editar-articulo-precio">Precio Compra:</label>
-                                        <input type="text" class="form-control" id="editar-articulo-precio" name="precioCompra">
+                                        <input type="text" class="form-control" id="editar-articulo-precio" name="preciocom">
                                     </div>
 
                                     <div class="form-group">

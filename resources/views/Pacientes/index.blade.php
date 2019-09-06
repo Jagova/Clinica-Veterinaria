@@ -11,6 +11,7 @@
             document.getElementById('eliminar-paciente-nombre').innerHTML = pacienteNombre;
             document.getElementById('form-eliminar').action = "pacientes/" + pacienteId;
         });
+    var clinicaNombre = $(this).data('nombre');
 </script>
 
 <!--Script para editar un paciente-->

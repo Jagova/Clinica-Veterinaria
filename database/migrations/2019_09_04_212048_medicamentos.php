@@ -13,7 +13,8 @@ class Medicamentos extends Migration
      */
     public function up()
     {
-         Schema::create('meds', function (Blueprint $table) {
+/*
+         Schema::create('medicins', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('nombre');
@@ -29,6 +30,7 @@ class Medicamentos extends Migration
 
             $table->timestamps();
         });
+        */
     }
 
     /**
