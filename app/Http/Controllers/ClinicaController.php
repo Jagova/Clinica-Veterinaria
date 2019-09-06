@@ -30,8 +30,7 @@ class ClinicaController extends Controller
     public function create()
     {
         //
-        return view('Clinicas.create'
-    );
+        return view('Clinicas.create');
     }
 
     /**
@@ -99,7 +98,7 @@ class ClinicaController extends Controller
     {
         //
         //$clinica = \App\Clinica::find($clinica);
-        dd($clinica);
+        //dd($clinica);
         $clinica->delete();
         return redirect('/clinicas');
     }

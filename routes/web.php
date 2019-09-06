@@ -42,6 +42,8 @@ Route::resource('/artis','ArtisController');
 
 //Medicamentos
 Route::resource('/medicamentos','MedicsController');
+//Duenos
+Route::resource('/duenos','DuenoController');
 
 
 
