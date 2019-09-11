@@ -3,15 +3,15 @@
 @section('contenido')
 
 <script>
-$(document).on("click", ".abrirEliminaModal", function (event) {
-    var asistenteNombre = $(this).data('nombre');
-    var asistenteDoctor = $(this).data('asistente');
-    var asistenteId = $(this).data('id');
-    $("#eliminar-asistente-id").val(asistenteId);
-    document.getElementById('eliminar-asistente-nombre').innerHTML = asistenteNombre;
-    console.log(asistenteId);
-    document.getElementById('form-eliminar').action = "asistentes/" + asistenteId;
-});
+    $(document).on("click", ".abrirEliminaModal", function (event) {
+        var asistenteNombre = $(this).data('nombre');
+        var asistenteDoctor = $(this).data('asistente');
+        var asistenteId = $(this).data('id');
+        $("#eliminar-asistente-id").val(asistenteId);
+        document.getElementById('eliminar-asistente-nombre').innerHTML = asistenteNombre;
+        console.log(asistenteId);
+        document.getElementById('form-eliminar').action = "asistentes/" + asistenteId;
+    });
 </script>
 
 

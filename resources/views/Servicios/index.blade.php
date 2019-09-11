@@ -3,37 +3,28 @@
 @section('contenido')
 
 <script>
-/*$(document).on("click", ".abrirEliminaModal", function (event) {
-    var doctorNombre = $(this).data('nombre');
-    var doctorClinica = $(this).data('clinica');
-    var doctorId = $(this).data('id');
-    $("#eliminar-doctor-id").val(doctorId);
-    document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
-    console.log(doctorId);
-    document.getElementById('form-eliminar').action = "doctores/" + doctorId;
-});*/
+$(document).on("click", ".abrirEliminaModal", function (event) {
+    var servicioNombre = $(this).data('nombre');
+    var servicioId = $(this).data('id');
+    $("#eliminar-id").val(servicioId);
+    document.getElementById('eliminar-nombre').innerHTML = servicioNombre;
+    console.log(servicioNombre);
+    document.getElementById('form-eliminar').action = "servicios/" + servicioId;
+});
 </script>
 
 
 <script>
-   /* $(document).on("click", ".abrirEditaModal", function (event) {
-        var doctorNombre1 = $(this).data('nombre1');
-        var doctorNombre2 = $(this).data('nombre2');
-        var doctorApellido1 = $(this).data('apellido1');
-        var doctorApellido2 = $(this).data('apellido2');
-        var doctorEspecialidad1 = $(this).data('especialidad1');
-        var doctorEspecialidad2 = $(this).data('especialidad2');
-        var doctorClinica = $(this).data('clinica');
-        var doctorId = $(this).data('id');
-        $("#editar-doctor-nombre1").val(doctorNombre1);
-        $("#editar-doctor-nombre2").val(doctorNombre2);
-        $("#editar-doctor-apellido1").val(doctorApellido1);
-        $("#editar-doctor-apellido2").val(doctorApellido2);
-        $("#editar-doctor-especialidad1").val(doctorEspecialidad1);
-        $("#editar-doctor-especialidad2").val(doctorEspecialidad2);
-        $("#editar-doctor-clinica").val(doctorClinica);
-        document.getElementById('form-editar').action = "doctores/" + doctorId;
-    });*/
+   $(document).on("click", ".abrirEditaModal", function (event) {
+        var servicioNombre = $(this).data('nombre');
+        var servicioClinica = $(this).data('clinica');
+        var servicioPrecio = $(this).data('precio');
+        var servicioId = $(this).data('id');
+        $("#editar-nombre").val(servicioNombre);
+        $("#editar-precio").val(servicioPrecio);
+        $("#editar-clinica").val(servicioClinica);
+        document.getElementById('form-editar').action = "servicios/" + servicioId;
+    });
 </script>
 
 
@@ -46,12 +37,35 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Clinica</th>
+                            <th>Nombre del servicio</th>
+                            <th>Precio</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                            @foreach ($Servicios as $servicio)
+                            <tr>
+                            <td>{{$servicio->id}}</td>
+                            <td>{{$servicio->nombre}}</td>   
+                            <td>{{$servicio->precio}}</td>
+                            <td>
+                                    <div class="btn-group" role="group" aria-label="Acciones"> 
+                                        <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
+                                        data-target="#editarModal"
+                                        data-id="{{$servicio->id}}"
+                                        data-nombre="{{$servicio->nombre}}"
+                                        data-precio = "{{$servicio->precio}}"
+                                        data-clinica = "{{$servicio->clinica_id}}"
+                                        >Modificar <i class="fas fa-pencil-alt"></i> </button>
+                                        <button type="button" class="btn btn-danger abrirEliminaModal"
+                                        data-toggle="modal" data-target="#eliminarModal"
+                                        data-id="{{$servicio->id}}"
+                                        data-nombre="{{$servicio->nombre}}"
+                                        >Eliminar <i class="fas fa-trash-alt"></i> </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
                     </tbody>           
                 </table>
             </div>
@@ -67,43 +81,28 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/doctores" method="POST">
+                        <form action="/servicios" method="POST">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
                                 <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Primer nombre</label>
-                                                <input type="text" class="form-control" id="nombre1" name="nombre1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Segundo nombre</label>
-                                                <input type="text" class="form-control" id="direccion" name="nombre2">        
+                                        <div class="col-12">
+                                                <label for="in_atributo2">Nombre del servicio</label>
+                                                <input type="text" class="form-control" id="nombre" name="nombre">        
                                         </div>
                                     </div>
                                 <div class="form-group row">
-                                    <div class="col-6">
-                                            <label for="in_atributo2">Apellido Paterno</label>
-                                            <input type="text" class="form-control" id="direccion" name="ApPaterno">        
+                                    <div class="col-12">
+                                            <label for="in_atributo2">Precio</label>
+                                            <input type="text" class="form-control" id="precio" name="precio">        
                                     </div>
-                                    <div class="col-6">
-                                            <label for="in_atributo2">Apellido Materno</label>
-                                            <input type="text" class="form-control" id="direccion" name="ApMaterno">        
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Especialidad 1</label>
-                                                <input type="text" class="form-control" id="direccion" name="esp1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Especialidad 2</label>
-                                                <input type="text" class="form-control" id="direccion" name="esp2">        
-                                        </div>
                                 </div>
                                 <div class="form-group">
                                         <label for="in_atributo1">Clinica</label>
                                         <select class="form-control" name="clinica">
+                                            @foreach ($Clinicas as $clinica)                                  
+                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                            @endforeach
                                         </select>
                                 </div>
                         </div>
@@ -131,39 +130,23 @@
                                 @method('PUT')
                                 <div class="modal-body">                          
                                 <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="editar-doctor-nombre1">Primer nombre</label>
-                                                <input type="text" class="form-control" id="editar-doctor-nombre1" name="nombre1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="editar-doctor-nombre2">Segundo nombre</label>
-                                                <input type="text" class="form-control" id="editar-doctor-nombre2" name="nombre2">        
+                                        <div class="col-12">
+                                                <label for="editar-doctor-nombre1">Nombre del servicio</label>
+                                                <input type="text" class="form-control" id="editar-nombre" name="nombre">        
                                         </div>
                                     </div>
                                 <div class="form-group row">
-                                    <div class="col-6">
-                                            <label for="editar-doctor-apellido1">Apellido Paterno</label>
-                                            <input type="text" class="form-control" id="editar-doctor-apellido1" name="ApPaterno">        
-                                    </div>
-                                    <div class="col-6">
-                                            <label for="editar-doctor-apellido2">Apellido Materno</label>
-                                            <input type="text" class="form-control" id="editar-doctor-apellido2" name="ApMaterno">        
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="editar-doctor-especialidad1">Especialidad 1</label>
-                                                <input type="text" class="form-control" id="editar-doctor-especialidad1" name="esp1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="editar-doctor-especialidad2">Especialidad 2</label>
-                                                <input type="text" class="form-control" id="editar-doctor-especialidad2" name="esp2">        
-                                        </div>
+                                    <div class="col-12">
+                                            <label for="editar-doctor-apellido1">Precio</label>
+                                            <input type="text" class="form-control" id="editar-precio" name="precio">        
+                                    </div>                                   
                                 </div>
                                 <div class="form-group">
                                         <label for="editar-doctor-clinica">Clínica</label>
-                                        <select class="form-control" name="clinica" id="editar-doctor-clinica">
-                                        
+                                        <select class="form-control" name="clinica">
+                                                @foreach ($Clinicas as $clinica)                                  
+                                                    <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                                @endforeach
                                         </select>
                                 </div>
                         </div>
@@ -181,7 +164,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar doctor</h5>
+                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar servicio</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -190,7 +173,7 @@
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro de eliminar el doctor <span id="eliminar-doctor-nombre"></span>? 
+                                ¿Estás seguro de eliminar <span id="eliminar-nombre"></span> como servicio? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -201,5 +184,4 @@
                     </div>
             </div>
         </div>
-
 @endsection

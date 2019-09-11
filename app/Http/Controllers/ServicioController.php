@@ -15,13 +15,13 @@ class ServicioController extends Controller
     public function index()
     {
         //
-       /* $servicios = \App\Servicio::all();
-        $clinicas = \App\Clinica::all();*/
+        $servicios = \App\Servicio::all();
+        $clinicas = \App\Clinica::all();
        // dd($doctores[0]->clinica());
         return view('Servicios.index',
         [
-            /*'Servicios' => $servicios,
-            'Clinicas' => $clinicas*/
+            'Servicios' => $servicios,
+            'Clinicas' => $clinicas
         ]
         );
     }
@@ -45,6 +45,12 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         //
+        $nuevoServicio = new \App\Servicio;
+        $nuevoServicio->nombre = $request->get('nombre');
+        $nuevoServicio->precio = $request->get('precio');
+        $nuevoServicio->clinica_id = $request->get('clinica');
+        $nuevoServicio->save();
+        return redirect('/clinicas');
     }
 
     /**
@@ -79,6 +85,12 @@ class ServicioController extends Controller
     public function update(Request $request, Servicio $servicio)
     {
         //
+        //$doctor = \App\Doctor::find($id);
+        $servicio->nombre = $request->get('nombre');
+        $servicio->precio = $request->get('precio');
+        $servicio->clinica_id = $request->get('clinica');
+        $servicio->save();
+        return redirect('/servicios');
     }
 
     /**
@@ -90,5 +102,8 @@ class ServicioController extends Controller
     public function destroy(Servicio $servicio)
     {
         //
+        $servicio->delete();
+        //dd($doctor);
+        return redirect('/servicios');
     }
 }
