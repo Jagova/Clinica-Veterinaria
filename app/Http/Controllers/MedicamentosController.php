@@ -14,7 +14,12 @@ class MedicamentosController extends Controller
      */
     public function index()
     {
-        //
+        $medis = \App\medicamentos::all();
+        return view('Medicamentos.index',
+        [
+            'Medicamentos' => $medis
+        ]
+        );
     }
 
     /**
@@ -35,7 +40,19 @@ class MedicamentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $medis = new \App\Medicamentos;
+        $medis->nombre = $request->get('nombre');
+        $medis->presentacion = $request->get('presentacion');
+        $medis->ml_mg = $request->get('ml_mg');
+        $medis->compuesto = $request->get('compuesto');
+        $medis->precio = $request->get('precio');
+        $medis->laboratorio= $request->get('laboratorio');
+        $medis->paq_unidad= $request->get('paq_unidad');
+        $medis->controlado= $request->get('controlado');
+        $medis->fecha_caducidad= $request->get('fecha_caducidad');
+        $medis->stock= $request->get('stock');
+        $medis->save();
+        return redirect('/medicamentos');
     }
 
     /**
@@ -67,9 +84,21 @@ class MedicamentosController extends Controller
      * @param  \App\medicamentos  $medicamentos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, medicamentos $medicamentos)
+    public function update(Request $request, $id)
     {
-        //
+        $medis = \App\Medicamentos::find($id);
+        $medis->nombre = $request->get('nombre');
+        $medis->presentacion = $request->get('presentacion');
+        $medis->ml_mg = $request->get('ml_mg');
+        $medis->compuesto = $request->get('compuesto');
+        $medis->precio = $request->get('precio');
+        $medis->laboratorio= $request->get('laboratorio');
+        $medis->paq_unidad= $request->get('paq_unidad');
+        $medis->controlado= $request->get('controlado');
+        $medis->fecha_caducidad= $request->get('fecha_caducidad');
+        $medis->stock= $request->get('stock');
+        $medis->save();
+        return redirect('/medicamentos');
     }
 
     /**
@@ -80,6 +109,8 @@ class MedicamentosController extends Controller
      */
     public function destroy(medicamentos $medicamentos)
     {
-        //
+        $medis = \App\Medicamentos::find($id);
+        $medis->delete();
+        return redirect('/medicamentos');
     }
 }

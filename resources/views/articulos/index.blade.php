@@ -52,7 +52,9 @@ $("#eliminar-clinica-id").val(articuloId);
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-boxes"></i> </h1>
-            <h1>Articulos</h1></div>
+            </div>
+            <a href="articulos/">Articulos</a> <i class="fas fa-boxes"></i>
+            <a href="medicamentos/">Medicamentos</a> <i class="fas fa-boxes"></i>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
                 <table class="table" id="table1">
