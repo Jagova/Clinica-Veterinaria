@@ -34,7 +34,7 @@ Route::resource('/doctores','DoctorController');
 Route::resource('/pacientes','PacienteController');
 
 //Articulo
-Route::resource('/artis','ArtisController');
+Route::resource('/articulos','ArticulosController');
 
 //Medicamentos
 Route::resource('/medicamentos','MedicsController');

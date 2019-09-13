@@ -45,7 +45,7 @@ $("#eliminar-clinica-id").val(articuloId);
         $("#editar-articulo-fecha").val(fecha_cad);
         $("#editar-articulo-preciou").val(precio_u);
 
-        document.getElementById('form-editar').action = "artis/" + articuloId;
+        document.getElementById('form-editar').action = "articulos/" + articuloId;
     });
     </script>
 
@@ -71,7 +71,7 @@ $("#eliminar-clinica-id").val(articuloId);
                     </thead>
                     <tbody>
 
-                        @foreach ($Artis as $artis)
+                        @foreach ($Articulos as $artis)
                         <tr>
                         <td>{{$artis->id}}</td>
                         <td>{{$artis->nombre}}</td>   
@@ -123,7 +123,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/artis" method="POST">
+                        <form action="/articulos" method="POST">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          

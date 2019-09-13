@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Articulos extends Migration
+class CreateArticulosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,9 +17,9 @@ class Articulos extends Migration
             $table->bigIncrements('id');
 
             $table->string('nombre');
-            $table->string('direc');
+            
 
-            $table->string('precioCompra');
+            $table->string('preciocom');
             $table->string('marca');
            
             $table->unsignedInteger('stock');
