@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
          //$this->call(duenos_seeder::class);//
          $this->call('ArticulosSeeder');
+         $this->call('MedicamentosSeeder');
 
     }
 }
