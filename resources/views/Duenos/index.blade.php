@@ -43,23 +43,31 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Dueños <i class="fas fa-users icon-orange"></i> </h1></div>
-            <div class="row p-5">
-                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueno</button>
-                <table class="table" id="table1">
-                    <thead>
-                        <tr>
-                            <th >Id</th>
-                            <th >Nombre</th>
-                            <th >Direccion</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($Duenos as $dueno)
-                        <tr>
+    <div class="row p-5"><h1 class="display-1">Dueños <i class="fas fa-users icon-orange"></i> </h1></div>
+          
+    <div class="row p-5">
+        <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueno</button>
+        <table class="table" id="table1">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th >Id</th>
+                    <th >Nombre</th>
+                    <th >Direccion</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($Duenos as $dueno)
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_{{$dueno->id}}" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
+      
                         <td>{{$dueno->id}}</td>
-                        <td>{{$dueno->nombre}}</td>   
+                        <td>{{$dueno->nombre}} {{$dueno->apellido_paterno}} {{$dueno->apellido_materno}}</td>   
                         <td>{{$dueno->direccion}}</td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
@@ -85,6 +93,28 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                     </div>
                             </td>
+                        </tr>
+                        <tr class="collapse" id="collapse_{{$dueno->id}}">
+                            <td></td>
+                            <td></td>
+                            <td>{{$dueno->telefono}}</td>
+                            <td>{{$dueno->direccion}}</td>
+                            <td>{{$dueno->celular}}</td>
+
+                        </tr>
+                        <tr class="collapse" id="collapse_{{$dueno->id}}">
+                            <td></td>
+                            <td></td>
+                            <td>{{$dueno->correo}}</td>
+                            <td>{{$dueno->rfc}}</td>
+                            <td>{{$dueno->codigo_postal}}</td>
+                            
+                        </tr>
+                        <tr class="collapse" id="collapse_{{$dueno->id}}">
+                            <td></td>
+                            <td></td>
+                            <td>{{$dueno->razon_social}}</td>
+                            
                         </tr>
                         @endforeach
                         </tbody>           

@@ -43,7 +43,7 @@ Route::resource('/artis','ArtisController');
 //Medicamentos
 Route::resource('/medicamentos','MedicsController');
 //Duenos
-Route::resource('/dueños','DuenoController');
+Route::resource('/duenos','DuenoController');
 
 
 
