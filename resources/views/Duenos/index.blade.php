@@ -43,6 +43,15 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 
        
 <div class="container-fluid">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row p-5"><h1 class="display-1">Dueños <i class="fas fa-users icon-orange"></i> </h1></div>
           
     <div class="row p-5">
@@ -138,43 +147,43 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         <div class="modal-body">                          
                                 <div class="form-group">
                                     <label for="in_atributo1">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre">
+                                        <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Apellido Paterno</label>
-                                        <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno">
+                                        <input type="text" required class="form-control" id="apellido_paterno" name="apellido_paterno">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Apellido Materno</label>
-                                        <input type="text" class="form-control" id="apellido_materno" name="apellido_materno">
+                                        <input type="text" required class="form-control" id="apellido_materno" name="apellido_materno">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Teléfono</label>
-                                        <input type="text" class="form-control" id="telefono" name="telefono">
+                                        <input type="text" required class="form-control" id="telefono" name="telefono">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Dirección</label>
-                                    <input type="text" class="form-control" id="direccion" name="direccion">
+                                    <input type="text" required class="form-control" id="direccion" name="direccion">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Celular</label>
-                                        <input type="text" class="form-control" id="celular" name="celular">
+                                        <input type="text" required class="form-control" id="celular" name="celular">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Correo</label>
-                                        <input type="text" class="form-control" id="correo" name="correo">
+                                        <input type="email" required class="form-control" id="correo" name="correo">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">RFC</label>
-                                        <input type="text" class="form-control" id="rfc" name="rfc">
+                                        <input type="text" required class="form-control" id="rfc" name="rfc">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Código Postal</label>
-                                        <input type="text" class="form-control" id="codigp_postal" name="codigo_postal">
+                                        <input type="text" required class="form-control" id="codigp_postal" name="codigo_postal">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Razón Social</label>
-                                        <input type="text" class="form-control" id="razon_social" name="razon_social">
+                                        <input type="text" required class="form-control" id="razon_social" name="razon_social">
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -206,27 +215,27 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-apellido_paterno">Apellido Paterno</label>
-                                            <input type="text" class="form-control" id="editar-dueno-apellido_paterno" name="apellido_paterno">
+                                            <input type="text" required class="form-control" id="editar-dueno-apellido_paterno" name="apellido_paterno">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-apellido_materno">Apellido Materno</label>
-                                            <input type="text" class="form-control" id="editar-dueno-apellido_materno" name="apellido_materno">
+                                            <input type="text" required class="form-control" id="editar-dueno-apellido_materno" name="apellido_materno">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-telefono">Teléfono</label>
-                                            <input type="text" class="form-control" id="editar-dueno-telefono" name="telefono">
+                                            <input type="number" required class="form-control" id="editar-dueno-telefono" name="telefono">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-direccion">Dirección</label>
-                                        <input type="text" class="form-control" id="editar-dueno-direccion" name="direccion">
+                                        <input type="text" required class="form-control" id="editar-dueno-direccion" name="direccion">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-celular">Celular</label>
-                                            <input type="text" class="form-control" id="editar-dueno-celular" name="celular">
+                                            <input type="number" class="form-control" id="editar-dueno-celular" name="celular">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-correo">Correo</label>
-                                            <input type="text" class="form-control" id="editar-dueno-correo" name="correo">
+                                            <input type="email" required class="form-control" id="editar-dueno-correo" name="correo">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-rfc">RFC</label>
@@ -234,7 +243,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     </div>
                                     <div class="form-group">
                                     <label for="in_atributo1">Código Postal</label>
-                                        <input type="text" class="form-control" id="editar-dueno-codigo_postal" name="codigo_postal">
+                                        <input type="number" required class="form-control" id="editar-dueno-codigo_postal" name="codigo_postal">
                                 </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-razon_social">Razón Social</label>
