@@ -35,6 +35,15 @@
 </script>
 
 <div class="container-fluid">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
             <div class="row p-5"><h1 class="display-1">Pacientes <i class="fas fa-hospital"></i> </h1></div>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i>Agregar Paciente</button>
@@ -103,11 +112,11 @@
                                     <div class = "row">
                                         <div class = "col-6" >
                                             <label for="in_atributo1">Nombre</label>
-                                            <input type="text" class="form-control" id="nombre" name="nombre">
+                                            <input type="text" required class="form-control" id="nombre" name="nombre">
                                         </div>
                                         <div class = "col-6" >
                                             <label for="in_atributo2">Edad</label>
-                                            <input type="text" class="form-control" id="edad" name="edad">
+                                            <input type="number" required class="form-control" id="edad" name="edad">
                                         </div>
                                     </div>
                                 </div>
@@ -115,11 +124,11 @@
                                         <div class = "row">
                                             <div class = "col-6" >
                                                 <label for="in_atributo3">Especie</label>
-                                                <input type="text" class="form-control" id="especie" name="especie">
+                                                <input type="text" required class="form-control" id="especie" name="especie">
                                             </div>
                                             <div class = "col-6" >
                                                 <label for="in_atributo4">Raza</label>
-                                                <input type="text" class="form-control" id="raza" name="raza">
+                                                <input type="text" required class="form-control" id="raza" name="raza">
                                             </div>
                                         </div>
                                     </div>
@@ -163,11 +172,11 @@
                                             <div class = "row">
                                                 <div class = "col-6" >
                                                     <label for="in_atributo1">Nombre</label>
-                                                    <input type="text" class="form-control" id="editar-paciente-nombre" name="nombre">
+                                                    <input type="text" required class="form-control" id="editar-paciente-nombre" name="nombre">
                                                 </div>
                                                 <div class = "col-6" >
                                                     <label for="in_atributo2">Edad</label>
-                                                    <input type="text" class="form-control" id="editar-paciente-edad" name="edad">
+                                                    <input type="number" required class="form-control" id="editar-paciente-edad" name="edad">
                                                 </div>
                                             </div>
                                         </div>
@@ -175,11 +184,11 @@
                                                 <div class = "row">
                                                     <div class = "col-6" >
                                                         <label for="in_atributo3">Especie</label>
-                                                        <input type="text" class="form-control" id="editar-paciente-especie" name="especie">
+                                                        <input type="text" required class="form-control" id="editar-paciente-especie" name="especie">
                                                     </div>
                                                     <div class = "col-6" >
                                                         <label for="in_atributo4">Raza</label>
-                                                        <input type="text" class="form-control" id="editar-paciente-raza" name="raza">
+                                                        <input type="text" required class="form-control" id="editar-paciente-raza" name="raza">
                                                     </div>
                                                 </div>
                                             </div>
