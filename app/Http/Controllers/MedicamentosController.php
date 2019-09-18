@@ -107,7 +107,7 @@ class MedicamentosController extends Controller
      * @param  \App\medicamentos  $medicamentos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(medicamentos $medicamentos)
+    public function destroy($id)
     {
         $medis = \App\Medicamentos::find($id);
         $medis->delete();
