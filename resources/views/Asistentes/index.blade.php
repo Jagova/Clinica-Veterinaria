@@ -131,7 +131,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                         </div>
                                         <div class="col-6">
                                                 <label for="in_atributo2">Segundo nombre</label>
-                                                <input type="text" class="form-control {{$errors->has('title')?'is-danger':''}}"     id="direccion" name="nombre2" value="{{old('direccion')}}" >        
+                                                <input type="text" class="form-control {{$errors->has('title')?'is-danger':''}}"     id="direccion" name="nombre2" value="{{old('direccion')}}" required >        
                                         </div>
                                     </div>
                                 <div class="form-group row">
