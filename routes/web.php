@@ -39,6 +39,7 @@ Route::resource('/articulos','ArticulosController');
 //Medicamentos
 Route::resource('/medicamentos','MedicamentosController');
 
+Route::resource('/categorias','CategoriaController');
 
 
 /*regresa una vista de las mascotas*/

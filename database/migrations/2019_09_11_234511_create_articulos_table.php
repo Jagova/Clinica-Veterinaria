@@ -16,16 +16,16 @@ class CreateArticulosTable extends Migration
         Schema::create('articulos', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('nombre');
+            $table->string('nombre')->required();
             
 
-            $table->string('preciocom');
-            $table->string('marca');
+            $table->string('preciocom')->required();;
+            $table->string('marca')->required();;
            
-            $table->unsignedInteger('stock');
-            $table->string('fecha_cad');
+            $table->unsignedInteger('stock')->required();;
+            $table->string('fecha_cad')->required();;
 
-            $table->string('precio_u');
+            $table->string('precio_u')->required();;
 
             $table->timestamps();
         });
