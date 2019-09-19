@@ -66,7 +66,7 @@ $("#eliminar-clinica-id").val(medicinaId);
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-store"></i> </h1>
+            <div class="row p-5"><h1 class="display-1">Inventario  <i class="fas fa-pills"></i> </h1>
                 <div>             
                     <a href="articulos/">Articulos</a> <i class="fas fa-store"></i>
                 </div>
