@@ -42,6 +42,11 @@ class ClinicaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required'
+        ]);
+
         $nuevaClinica = new \App\Clinica;
         $nuevaClinica->nombre = $request->get('nombre');
         $nuevaClinica->direccion = $request->get('direccion');
@@ -81,7 +86,13 @@ class ClinicaController extends Controller
     public function update(Request $request, Clinica $clinica)
     {
         //El request toma los valores con el name en HTML
-        //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
+        //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí.
+        
+        $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required'
+        ]);
+        
         $clinica->nombre = $request->get('nombre');
         $clinica->direccion = $request->get('direccion');
         $clinica->save();

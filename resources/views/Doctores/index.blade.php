@@ -56,7 +56,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         <tr>
                         <td>{{$doctor->id}}</td>
                         <td>{{$doctor->primer_nombre}} {{$doctor->apellido_paterno}}</td>   
-                        <td>{{$doctor->clinica_id}}</td>
+                        <td>{{$doctor->Clinica->nombre}}</td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -103,31 +103,31 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <div class="form-group row">
                                         <div class="col-6">
                                                 <label for="in_atributo2">Primer nombre</label>
-                                                <input type="text" class="form-control" id="nombre1" name="nombre1">        
+                                                <input type="text" required class="form-control" id="nombre1" name="nombre1">        
                                         </div>
                                         <div class="col-6">
                                                 <label for="in_atributo2">Segundo nombre</label>
-                                                <input type="text" class="form-control" id="direccion" name="nombre2">        
+                                                <input type="text" required class="form-control" id="direccion" name="nombre2">        
                                         </div>
                                     </div>
                                 <div class="form-group row">
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Paterno</label>
-                                            <input type="text" class="form-control" id="direccion" name="ApPaterno">        
+                                            <input type="text" required class="form-control" id="direccion" name="ApPaterno">        
                                     </div>
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Materno</label>
-                                            <input type="text" class="form-control" id="direccion" name="ApMaterno">        
+                                            <input type="text" required class="form-control" id="direccion" name="ApMaterno">        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                         <div class="col-6">
                                                 <label for="in_atributo2">Especialidad 1</label>
-                                                <input type="text" class="form-control" id="direccion" name="esp1">        
+                                                <input type="text" required class="form-control" id="direccion" name="esp1">        
                                         </div>
                                         <div class="col-6">
                                                 <label for="in_atributo2">Especialidad 2</label>
-                                                <input type="text" class="form-control" id="direccion" name="esp2">        
+                                                <input type="text" required class="form-control" id="direccion" name="esp2">        
                                         </div>
                                 </div>
                                 <div class="form-group">
@@ -165,31 +165,31 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <div class="form-group row">
                                         <div class="col-6">
                                                 <label for="editar-doctor-nombre1">Primer nombre</label>
-                                                <input type="text" class="form-control" id="editar-doctor-nombre1" name="nombre1">        
+                                                <input type="text" required class="form-control" id="editar-doctor-nombre1" name="nombre1">        
                                         </div>
                                         <div class="col-6">
                                                 <label for="editar-doctor-nombre2">Segundo nombre</label>
-                                                <input type="text" class="form-control" id="editar-doctor-nombre2" name="nombre2">        
+                                                <input type="text" required class="form-control" id="editar-doctor-nombre2" name="nombre2">        
                                         </div>
                                     </div>
                                 <div class="form-group row">
                                     <div class="col-6">
                                             <label for="editar-doctor-apellido1">Apellido Paterno</label>
-                                            <input type="text" class="form-control" id="editar-doctor-apellido1" name="ApPaterno">        
+                                            <input type="text" required class="form-control" id="editar-doctor-apellido1" name="ApPaterno">        
                                     </div>
                                     <div class="col-6">
                                             <label for="editar-doctor-apellido2">Apellido Materno</label>
-                                            <input type="text" class="form-control" id="editar-doctor-apellido2" name="ApMaterno">        
+                                            <input type="text" required class="form-control" id="editar-doctor-apellido2" name="ApMaterno">        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                         <div class="col-6">
                                                 <label for="editar-doctor-especialidad1">Especialidad 1</label>
-                                                <input type="text" class="form-control" id="editar-doctor-especialidad1" name="esp1">        
+                                                <input type="text" required class="form-control" id="editar-doctor-especialidad1" name="esp1">        
                                         </div>
                                         <div class="col-6">
                                                 <label for="editar-doctor-especialidad2">Especialidad 2</label>
-                                                <input type="text" class="form-control" id="editar-doctor-especialidad2" name="esp2">        
+                                                <input type="text" required class="form-control" id="editar-doctor-especialidad2" name="esp2">        
                                         </div>
                                 </div>
                                 <div class="form-group">

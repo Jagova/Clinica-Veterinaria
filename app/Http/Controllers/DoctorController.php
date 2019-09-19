@@ -46,6 +46,16 @@ class DoctorController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nombre1' => 'required',
+            'nombre2' => 'required',
+            'ApPaterno' => 'required',
+            'ApMaterno' => 'required',
+            'esp1' => 'required',
+            'esp2' => 'required',
+            'clinica' => 'required',
+        ]);
+
         $nuevoDoctor = new \App\Doctor;
         $nuevoDoctor->primer_nombre = $request->get('nombre1');
         $nuevoDoctor->segundo_nombre = $request->get('nombre2');
@@ -90,6 +100,15 @@ class DoctorController extends Controller
 
    function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre1' => 'required',
+            'nombre2' => 'required',
+            'ApPaterno' => 'required',
+            'ApMaterno' => 'required',
+            'esp1' => 'required',
+            'esp2' => 'required',
+            'clinica' => 'required',
+        ]); 
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
         $doctor = \App\Doctor::find($id);

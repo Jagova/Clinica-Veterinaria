@@ -134,11 +134,15 @@
                                     </div>
                                 <div class="form-group">
                                     <label for="in_atributo6">Dueño</label>
-                                    <input type="text" class="form-control" id="duenio_id" name="duenio_id">
+                                    <select required class="form-control" name="duenio_id">
+                                        @foreach ($Duenios as $duenio)                                  
+                                            <option value="{{$duenio->id}}">{{$duenio->nombre}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo7">Doctor favorito</label>
-                                    <select class="form-control" name="doctor_id">
+                                    <select required class="form-control" name="doctor_id">
                                             @foreach ($Doctores as $doctor)                                  
                                                 <option value="{{$doctor->id}}">{{$doctor->primer_nombre}}</option>
                                             @endforeach

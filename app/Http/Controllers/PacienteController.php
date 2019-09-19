@@ -18,10 +18,11 @@ class PacienteController extends Controller
         $pacientes = \App\Paciente::all();
         //$duenios = \App\Duenios::all();
         $doctores = \App\Doctor::all();
+        $duenios = \App\Dueno::all();
         return view('Pacientes.index',
         [
             'Pacientes' => $pacientes,
-            //'Duenios' => $duenios,
+            'Duenios' => $duenios,
             'Doctores' => $doctores
         ]
         );       

@@ -159,7 +159,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Teléfono</label>
-                                        <input type="text" required class="form-control" id="telefono" name="telefono">
+                                        <input type="number" required class="form-control" id="telefono" name="telefono">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Dirección</label>
@@ -167,7 +167,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Celular</label>
-                                        <input type="text" required class="form-control" id="celular" name="celular">
+                                        <input type="number" required class="form-control" id="celular" name="celular">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Correo</label>
@@ -179,7 +179,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Código Postal</label>
-                                        <input type="text" required class="form-control" id="codigp_postal" name="codigo_postal">
+                                        <input type="number" required class="form-control" id="codigp_postal" name="codigo_postal">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Razón Social</label>
