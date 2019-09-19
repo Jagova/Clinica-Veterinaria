@@ -161,7 +161,7 @@
                                     </div>
                                     <div class="col-6">
                                             <label for="editar-asistente-especialidad2">Telefono</label>
-                                            <input type="tel" class="form-control" id="telefono" name="telefono" required>        
+                                            <input class="form-control" id="telefono" name="telefono" required input type="tel"  min="7" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
                                     </div>
                             </div>
                                 <div class="form-group">
@@ -233,7 +233,7 @@
                                     </div>
                                     <div class="col-6">
                                             <label for="editar-asistente-telefono">Telefono</label>
-                                            <input type="tel" class="form-control" id="editar-asistente-telefono" name="telefono" required>        
+                                            <input type="tel"  min="7" max="10" class="form-control" id="editar-asistente-telefono"  name="telefono" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
                                     </div>
                             </div>
                                 <div class="form-group">
