@@ -45,7 +45,29 @@ class AsistentesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+    request()->validate([
+            'nombre1' => ['required','max:20', 'min:3'],
+            'nombre2' => 'nullable',
+            'ApPaterno' =>'required',
+            'ApMaterno' =>'required',
+            'esp1'=>'required',
+            'esp2'=>'required',
+            'clinica'=>'required',
+            'correo'=>'required',
+            'telefono'=>'required|alpha_num'
+
+            
+        ]);
+        return [
+            'nombre1.required' => 'El campo "nombre" es requerido',
+            'apellido2.required'  => 'El campo "Apellido materno "es requerido',
+            'apellido1.required'  => 'El campo "Apellido paterno "es requerido',
+            'especialidad1.required'  => 'El campo "Especialidad 1" es requerido',
+            'telefono.required'=>'El campo "Telefono" es requerido',
+            'correo.required'=>'El campo "Correo" es requerido',
+            'clinica.required'=>'El campo "Clinica" es requerido'
+        ];
         $nuevoAsistente = new \App\Asistente;
         $nuevoAsistente->primer_nombre = $request->get('nombre1');
         $nuevoAsistente->segundo_nombre = $request->get('nombre2');
@@ -54,12 +76,23 @@ class AsistentesController extends Controller
         $nuevoAsistente->especialidad_1 = $request->get('esp1');
         $nuevoAsistente->especialidad_2 = $request->get('esp2');
         $nuevoAsistente->clinica_id = $request->get('clinica');
-        $nuevoAsistente->corrreo=$request->get('clinica');
-        $nuevoAsistente->telefono=$request->get('clinica');
+        $nuevoAsistente->correo=$request->get('correo');
+        $nuevoAsistente->telefono=$request->get('telefono');
         $nuevoAsistente->save();
         return redirect('/asistentes');
     }
-
+    public function messages()
+    {
+        return [
+            'nombre1.required' => 'El campo "nombre" es requerido',
+            'apellido2.required'  => 'El campo "Apellido materno "es requerido',
+            'apellido1.required'  => 'El campo "Apellido paterno "es requerido',
+            'especialidad1.required'  => 'El campo "Especialidad 1" es requerido',
+            'telefono.required'=>'El campo "Telefono" es requerido',
+            'correo.required'=>'El campo "Correo" es requerido',
+            'clinica.required'=>'El campo "Clinica" es requerido'
+        ];
+    }
     /**
      * Display the specified resource.
      *
@@ -92,7 +125,29 @@ class AsistentesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        request()->validate([
+            'nombre1' => ['required','max:20', 'min:3'],
+            'nombre2' => 'nullable',
+            'ApPaterno' =>'required',
+            'ApMaterno' =>'required',
+            'esp1'=>'required',
+            'esp2'=>'required',
+            'clinica'=>'required',
+            'correo'=>'required',
+            'telefono'=>'required|alpha_num'
+
+            
+        ]);
+        return [
+            'nombre1.required' => 'El campo "nombre" es requerido',
+            'apellido2.required'  => 'El campo "Apellido materno "es requerido',
+            'apellido1.required'  => 'El campo "Apellido paterno "es requerido',
+            'especialidad1.required'  => 'El campo "Especialidad 1" es requerido',
+            'telefono.required'=>'El campo "Telefono" es requerido',
+            'correo.required'=>'El campo "Correo" es requerido',
+            'clinica.required'=>'El campo "Clinica" es requerido'
+        ];
         $asistente = \App\Asistente::find($id);
         $asistente ->primer_nombre = $request->get('nombre1');
         $asistente ->segundo_nombre = $request->get('nombre2');
@@ -101,8 +156,8 @@ class AsistentesController extends Controller
         $asistente ->especialidad_1 = $request->get('esp1');
         $asistente->especialidad_2 = $request->get('esp2');
         $asistente->clinica_id = $request->get('clinica');
-        $Asistente->corrreo=$request->get('clinica');
-        $Asistente->telefono=$request->get('clinica');
+        $asistente->correo=$request->get('correo');
+        $asistente->telefono=$request->get('telefono');
         $asistente->save();
         return redirect('/asistentes');
     }
