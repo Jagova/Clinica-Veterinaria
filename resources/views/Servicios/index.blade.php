@@ -30,6 +30,15 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 
        
 <div class="container-fluid">
+    @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif  
             <div class="row p-5"><h1 class="display-1">Servicios <i class="fas fa-heartbeat"></i> </h1></div>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar servicio</button>
@@ -76,7 +85,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="agregarModalLabel">Agregar doctor</h5>
+                            <h5 class="modal-title" id="agregarModalLabel">Agregar servicio</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -84,17 +93,18 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         <form action="/servicios" method="POST">
                             @csrf
                             @method('POST')
-                        <div class="modal-body">                          
+                        <div class="modal-body">
+                                                        
                                 <div class="form-group row">
                                         <div class="col-12">
                                                 <label for="in_atributo2">Nombre del servicio</label>
-                                                <input type="text" class="form-control" id="nombre" name="nombre">        
+                                                <input type="text" required class="form-control" id="nombre" name="nombre">        
                                         </div>
                                     </div>
                                 <div class="form-group row">
                                     <div class="col-12">
                                             <label for="in_atributo2">Precio</label>
-                                            <input type="text" class="form-control" id="precio" name="precio">        
+                                            <input type="number" required class="form-control" id="precio" name="precio">        
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -120,7 +130,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar elemento</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar servicio</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

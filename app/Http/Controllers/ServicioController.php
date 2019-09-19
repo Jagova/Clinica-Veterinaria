@@ -45,12 +45,18 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nombre' => 'required',
+            'precio' => 'required|numeric',
+            'clinica' => 'required'
+        ]);
+
         $nuevoServicio = new \App\Servicio;
         $nuevoServicio->nombre = $request->get('nombre');
         $nuevoServicio->precio = $request->get('precio');
         $nuevoServicio->clinica_id = $request->get('clinica');
         $nuevoServicio->save();
-        return redirect('/clinicas');
+        return redirect('/servicios');
     }
 
     /**
@@ -86,6 +92,12 @@ class ServicioController extends Controller
     {
         //
         //$doctor = \App\Doctor::find($id);
+        $request->validate([
+            'nombre' => 'required',
+            'precio' => 'required|numeric',
+            'clinica' => 'required'
+        ]);
+        
         $servicio->nombre = $request->get('nombre');
         $servicio->precio = $request->get('precio');
         $servicio->clinica_id = $request->get('clinica');
