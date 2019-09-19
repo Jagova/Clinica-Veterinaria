@@ -53,7 +53,9 @@ $("#eliminar-clinica-id").val(articuloId);
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-boxes"></i> </h1>
                 <div>             
-                    <a href="medicamentos/">Medicamentos</a> <i class="fas fa-pills"></i>
+                    <a href="articulos/">Articulos</a> 
+                    <a href="categoria/">Categoria</a> 
+                    <a href="subcategoria/">Subcategoria</a> 
                 </div>
             </div>
             <div class="row p-5">
