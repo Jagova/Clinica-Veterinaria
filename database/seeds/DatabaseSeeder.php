@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
          $this->call('ArticulosSeeder');
          $this->call('MedicamentosSeeder');
 
+         $this->call(
+             [DuenosTableSeeder::class]
+         );
     }
 }
 

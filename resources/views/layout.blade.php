@@ -40,7 +40,7 @@
                               Asistentes</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="/dueños"><i class="fas fa-users icon-orange"></i>
+                          <a class="nav-link" href="/duenos"><i class="fas fa-users icon-orange"></i>
                               Dueños</a>
                       </li>
                       <li class="nav-item active">

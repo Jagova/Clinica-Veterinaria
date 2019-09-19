@@ -42,6 +42,9 @@ Route::resource('/articulos','ArticulosController');
 
 //Medicamentos
 Route::resource('/medicamentos','MedicamentosController');
+//Route::resource('/medicamentos','MedicsController');
+//Duenos
+Route::resource('/duenos','DuenoController');
 
 //Rutas paras las categorias
 Route::resource('/categorias','CategoriaController');
