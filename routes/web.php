@@ -38,13 +38,15 @@ Route::resource('/servicios','ServicioController');
 Route::resource('/asistentes','AsistentesController');
 
 //Articulo
-Route::resource('/artis','ArtisController');
+Route::resource('/articulos','ArticulosController');
 
 //Medicamentos
-Route::resource('/medicamentos','MedicsController');
-//Duenos
-Route::resource('/dueños','DuenoController');
+Route::resource('/medicamentos','MedicamentosController');
 
+//Rutas paras las categorias
+Route::resource('/categorias','CategoriaController');
+
+Route::resource('/subcategorias','SubcategoriasController');
 
 
 /*regresa una vista de las mascotas*/

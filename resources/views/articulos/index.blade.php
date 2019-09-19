@@ -17,7 +17,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     //console.log(articuloId);
 $("#eliminar-clinica-id").val(articuloId);
     document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
-    document.getElementById('form-eliminar').action = "artis/" + articuloId;
+    document.getElementById('form-eliminar').action = "articulos/" + articuloId;
 });
 </script>
 
@@ -45,14 +45,19 @@ $("#eliminar-clinica-id").val(articuloId);
         $("#editar-articulo-fecha").val(fecha_cad);
         $("#editar-articulo-preciou").val(precio_u);
 
-        document.getElementById('form-editar').action = "artis/" + articuloId;
+        document.getElementById('form-editar').action = "articulos/" + articuloId;
     });
     </script>
 
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-boxes"></i> </h1>
-            <h1>Articulos</h1></div>
+                <div>             
+                    <a href="articulos/">Articulos</a> 
+                    <a href="categoria/">Categoria</a> 
+                    <a href="subcategoria/">Subcategoria</a> 
+                </div>
+            </div>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
                 <table class="table" id="table1">
@@ -71,7 +76,7 @@ $("#eliminar-clinica-id").val(articuloId);
                     </thead>
                     <tbody>
 
-                        @foreach ($Artis as $artis)
+                        @foreach ($Articulos as $artis)
                         <tr>
                         <td>{{$artis->id}}</td>
                         <td>{{$artis->nombre}}</td>   
@@ -123,7 +128,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/artis" method="POST">
+                        <form action="/articulos" method="POST">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          

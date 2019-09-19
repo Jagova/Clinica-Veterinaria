@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CategoriaArti extends Migration
+class CreateSubcategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CategoriaArti extends Migration
      */
     public function up()
     {
-        Schema::create('cate', function (Blueprint $table) {
+        Schema::create('subcategorias', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('nombre');
-
             $table->timestamps();
         });
     }
@@ -29,7 +27,6 @@ class CategoriaArti extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cate');
-        //
+        Schema::dropIfExists('subcategorias');
     }
 }
