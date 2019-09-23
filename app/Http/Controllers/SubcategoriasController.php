@@ -40,6 +40,9 @@ class SubcategoriasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required', ]);
+
         $subcategorias = new \App\subcategorias;
         $subcategorias->nombre = $request->get('nombre');
         $subcategorias->save();
@@ -77,6 +80,8 @@ class SubcategoriasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required', ]);
         $subcategoria = \App\subcategorias::find($id);
         $subcategoria->nombre=$request->get('nombre');
         $subcategoria->save();

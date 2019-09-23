@@ -18,10 +18,11 @@ class PacienteController extends Controller
         $pacientes = \App\Paciente::all();
         //$duenios = \App\Duenios::all();
         $doctores = \App\Doctor::all();
+        $duenios = \App\Dueno::all();
         return view('Pacientes.index',
         [
             'Pacientes' => $pacientes,
-            //'Duenios' => $duenios,
+            'Duenios' => $duenios,
             'Doctores' => $doctores
         ]
         );       
@@ -45,6 +46,14 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required | max:200',
+            'edad' => 'required | integer ',
+            'especie' => 'required | max:200',
+            'raza' => 'required | max:200',
+            'duenio_id' => 'required',
+            'doctor_id' => 'required'
+        ]);
         $nuevoPaciente = new \App\Paciente;
         $nuevoPaciente->nombre = $request->get('nombre');
         $nuevoPaciente->edad = $request->get('edad');
@@ -87,6 +96,14 @@ class PacienteController extends Controller
      */
     public function update(Request $request, Paciente $paciente)
     {
+        $request->validate([
+            'nombre' => 'required | max:200',
+            'edad' => 'required | integer ',
+            'especie' => 'required | max:200',
+            'raza' => 'required | max:200',
+            'duenio_id' => 'required',
+            'doctor_id' => 'required'
+        ]);
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
         $paciente->nombre = $request->get('nombre');

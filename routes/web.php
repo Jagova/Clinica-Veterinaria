@@ -32,12 +32,19 @@ Route::resource('/clinicas','ClinicaController');
 Route::resource('/doctores','DoctorController');
 //Pacientes
 Route::resource('/pacientes','PacienteController');
+//Servicios
+Route::resource('/servicios','ServicioController');
+//Asistentes
+Route::resource('/asistentes','AsistentesController');
 
 //Articulo
 Route::resource('/articulos','ArticulosController');
 
 //Medicamentos
 Route::resource('/medicamentos','MedicamentosController');
+//Route::resource('/medicamentos','MedicsController');
+//Duenos
+Route::resource('/duenos','DuenoController');
 
 //Rutas paras las categorias
 Route::resource('/categorias','CategoriaController');

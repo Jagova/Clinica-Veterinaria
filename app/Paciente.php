@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Paciente extends Model
 {
     //
-    public function clinica()
+    public function dueno()
+    {
+        return $this->belongsTo('App\Dueno');
+    }
+    public function Clinica()
     {
         return $this->hasMany('App\Clinica');
     }

@@ -85,16 +85,16 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         <div class="modal-body">                          
                                 <div class="form-group">
                                     <label for="in_atributo1">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre">
+                                        <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Dirección</label>
-                                    <input type="text" class="form-control" id="direccion" name="direccion">
+                                    <input type="text" required class="form-control" id="direccion" name="direccion">
                                 </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Crear</button>
+                            <button type="submit" required class="btn btn-primary">Crear</button>
                         </div>
                     </form>
                     </div>
@@ -117,11 +117,11 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="editar-clinica-nombre">Nombre</label>
-                                            <input type="text" class="form-control" id="editar-clinica-nombre" name="nombre">
+                                            <input type="text" required class="form-control" id="editar-clinica-nombre" name="nombre">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-clinica-direccion">Dirección</label>
-                                        <input type="text" class="form-control" id="editar-clinica-direccion" name="direccion">
+                                        <input type="text" required class="form-control" id="editar-clinica-direccion" name="direccion">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

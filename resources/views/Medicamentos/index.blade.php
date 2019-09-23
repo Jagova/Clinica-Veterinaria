@@ -66,7 +66,7 @@ $("#eliminar-clinica-id").val(medicinaId);
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-store"></i> </h1>
+            <div class="row p-5"><h1 class="display-1">Inventario  <i class="fas fa-pills"></i> </h1>
                 <div>             
                     <a href="articulos/">Articulos</a> <i class="fas fa-store"></i>
                 </div>
@@ -167,51 +167,58 @@ $("#eliminar-clinica-id").val(medicinaId);
                         <div class="modal-body">                          
                                 <div class="form-group">
                                     <label for="in_atributo1">Nombre: </label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre">
+                                        <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Presentacion: </label>
-                                    <input type="text" class="form-control" id="presentacion" name="presentacion">
+                                    <input type="text" required class="form-control" id="presentacion" name="presentacion">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo3">ML MG: </label>
-                                    <input type="text" class="form-control" id="ml_mg" name="ml_mg">
+                                    <input type="number" step="any" min="1" max="1000" required class="form-control" id="ml_mg" name="ml_mg">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Compuesto: </label>
-                                    <input type="text" class="form-control" id="compuesto" name="compuesto">
+                                    <input type="text" required class="form-control" id="compuesto" name="compuesto">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Precio: </label>
-                                    <input type="text" class="form-control" id="precio" name="precio">
+                                    <input type="number" min="1" max="100000"  required class="form-control" id="precio" name="precio">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Laboratorio: </label>
-                                    <input type="text" class="form-control" id="laboratorio" name="laboratorio">
+                                    <input type="text" required class="form-control" id="laboratorio" name="laboratorio">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Paq Unidad: </label>
-                                    <input type="text" class="form-control" id="paq_unidad" name="paq_unidad">
+                                    <input type="number" min="1" max="1000" required class="form-control" id="paq_unidad" name="paq_unidad">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="in_atributo2">Controlado: </label>
-                                    <input type="text" class="form-control" id="controlado" name="controlado">
+                                    <label for="in_atributo2">Controlado: </label><br>
+                                    <label for="sel1">Seleccione una opcion:</label>
+                                    <select  type="text" requied class="form-control" id="controlado" name="controlado">
+                                        <option>Si</option>
+                                        <option>No</option>
+                                    </select>
+
+<!--                                    <input type="text" required class="form-control" id="controlado" name="controlado">-->
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Fecha Caducidad: </label>
-                                    <input type="text" class="form-control" id="fecha_caducidad" name="fecha_caducidad">
+                                    <input type="date" required class="form-control" id="fecha_caducidad" name="fecha_caducidad"
+                                      min="2019-01-01" max="2025-12-31">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Stock: </label>
-                                    <input type="text" class="form-control" id="stock" name="stock">
+                                    <input type="number" min="1" max="1000" required class="form-control" id="stock" name="stock">
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -240,51 +247,58 @@ $("#eliminar-clinica-id").val(medicinaId);
 
                                 <div class="form-group">
                                     <label for="in_atributo1">Nombre: </label>
-                                        <input type="text" class="form-control" id="editar-m-nombre" name="nombre">
+                                        <input type="text" required class="form-control" id="editar-m-nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Presentacion: </label>
-                                    <input type="text" class="form-control" id="editar-m-presentacion" name="presentacion">
+                                    <input type="text" required class="form-control" id="editar-m-presentacion" name="presentacion">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo3">ML MG: </label>
-                                    <input type="text" class="form-control" id="editar-m-mlmg" name="ml_mg">
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-mlmg" name="ml_mg">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Compuesto: </label>
-                                    <input type="text" class="form-control" id="editar-m-compuesto" name="compuesto">
+                                    <input type="text" required class="form-control" id="editar-m-compuesto" name="compuesto">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Precio: </label>
-                                    <input type="text" class="form-control" id="editar-m-precio" name="precio">
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-precio" name="precio">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Laboratorio: </label>
-                                    <input type="text" class="form-control" id="editar-m-laboratorio" name="laboratorio">
+                                    <input type="text" required class="form-control" id="editar-m-laboratorio" name="laboratorio">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Paq Unidad: </label>
-                                    <input type="text" class="form-control" id="editar-m-paqunidad" name="paq_unidad">
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-paqunidad" name="paq_unidad">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Controlado: </label>
-                                    <input type="text" class="form-control" id="editar-m-controlado" name="controlado">
+                            <!--        <input type="text" required class="form-control" id="editar-m-controlado" name="controlado">-->
+                                     <label for="sel1">Cambiar opción:</label>
+                                    <select  type="text" requied class="form-control" id="editar-m-controlado" name="controlado">
+                                        <option>Si</option>
+                                        <option>No</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Fecha Caducidad: </label>
-                                    <input type="text" class="form-control" id="editar-m-fechcad" name="fecha_caducidad">
+                                    <!--<input type="date" required class="form-control" id="editar-m-fechcad" name="fecha_caducidad">-->
+                                     <input type="date" required class="form-control" id="editar-m-fechcad" name="fecha_caducidad"
+                                      min="2019-01-01" max="2025-12-31">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Stock: </label>
-                                    <input type="text" class="form-control" id="editar-m-stock" name="stock">
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-stock" name="stock">
                                 </div>
 
                                 </div>

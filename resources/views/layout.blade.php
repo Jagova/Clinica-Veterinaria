@@ -36,11 +36,11 @@
                               Doctores</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-hands-helping"></i>
+                          <a class="nav-link" href="/asistentes"><i class="fas fa-hands-helping"></i>
                               Asistentes</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-users icon-orange"></i>
+                          <a class="nav-link" href="/duenos"><i class="fas fa-users icon-orange"></i>
                               Dueños</a>
                       </li>
                       <li class="nav-item active">
@@ -48,11 +48,11 @@
                               Pacientes</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-archive"></i>
+                          <a class="nav-link" href="/medicamentos"><i class="fas fa-archive"></i>
                               Inventario</a>
                       </li>
                       <li class="nav-item active">
-                          <a class="nav-link" href="#"><i class="fas fa-heartbeat"></i>
+                          <a class="nav-link" href="/servicios"><i class="fas fa-heartbeat"></i>
                               Servicios</a>
                       </li>
                   </ul>

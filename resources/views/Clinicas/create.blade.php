@@ -3,7 +3,7 @@
 @section('contenido')
 
 <h2>Crear clinica</h2>
-<form action="/clinicas" method="POST">
+<form action="/asistentes" method="POST">
     @csrf
     @method('POST')
     <label for="">Nombre</label>

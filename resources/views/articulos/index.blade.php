@@ -53,9 +53,11 @@ $("#eliminar-clinica-id").val(articuloId);
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-boxes"></i> </h1>
                 <div>             
-                    <a href="articulos/">Articulos</a> 
+              <!--      <a href="articulos/">Articulos</a> 
                     <a href="categoria/">Categoria</a> 
                     <a href="subcategoria/">Subcategoria</a> 
+                -->
+                
                 </div>
             </div>
             <div class="row p-5">
@@ -134,31 +136,32 @@ $("#eliminar-clinica-id").val(articuloId);
                         <div class="modal-body">                          
                                 <div class="form-group">
                                     <label for="in_atributo1">Nombre: </label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre">
+                                        <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Precio Compra: </label>
-                                    <input type="text" class="form-control" id="preciocom" name="preciocom">
+                                    <input type="number" min="1" max="1000" required class="form-control" id="preciocom" name="preciocom">
+
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo3">Marca: </label>
-                                    <input type="text" class="form-control" id="marca" name="marca">
+                                    <input type="text" required class="form-control" id="marca" name="marca">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Stock: </label>
-                                    <input type="text" class="form-control" id="stock" name="stock">
+                                    <input type="number" min="1" max="1000" required class="form-control" id="stock" name="stock">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Fecha Caducidad: </label>
-                                    <input type="text" class="form-control" id="fecha_cad" name="fecha_cad">
+                                    <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_cad" name="fecha_cad">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo2">Precio Ut: </label>
-                                    <input type="text" class="form-control" id="precio_u" name="precio_u">
+                                    <input type="number" min="1" max="1000" required class="form-control" id="precio_u" name="precio_u">
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -186,32 +189,32 @@ $("#eliminar-clinica-id").val(articuloId);
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="editar-nombre">Nombre:</label>
-                                            <input type="text" class="form-control" id="editar-articulo-nombre" name="nombre">
+                                            <input type="text" required class="form-control" id="editar-articulo-nombre" name="nombre">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="editar-articulo-precio">Precio Compra:</label>
-                                        <input type="text" class="form-control" id="editar-articulo-precio" name="preciocom">
+                                        <input type="text" required class="form-control" id="editar-articulo-precio" name="preciocom">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="editar-articulo-marca">Marca: </label>
-                                        <input type="text" class="form-control" id="editar-articulo-marca" name="marca">
+                                        <input type="text" required class="form-control" id="editar-articulo-marca" name="marca">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="editar-articulo-stock">Stock: </label>
-                                        <input type="text" class="form-control" id="editar-articulo-stock" name="stock">
+                                        <input type="number" min="1" max="1000" required class="form-control" id="editar-articulo-stock" name="stock">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="editar-articulo-fecha">Fecha Cad: </label>
-                                        <input type="text" class="form-control" id="editar-articulo-fecha" name="fecha_cad">
+                                        <input type="date" min="2019-01-01" max="2025-12-31" required class="form-control" id="editar-articulo-fecha" name="fecha_cad">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="editar-articulo-preciou">Precio Un</label>
-                                        <input type="text" class="form-control" id="editar-articulo-preciou" name="precio_u">
+                                        <input type="text" required class="form-control" id="editar-articulo-preciou" name="precio_u">
                                     </div>
 
                                 </div>

@@ -40,6 +40,8 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required', ]);
         $categorias = new \App\Categoria;
         $categorias->nombre = $request->get('nombre');
         $categorias->save();
@@ -77,6 +79,8 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required', ]);
         $categoria = \App\Categoria::find($id);
         $categoria->nombre=$request->get('nombre');
         $categoria->save();

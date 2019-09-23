@@ -3,45 +3,66 @@
 @section('contenido')
 
 <script>
-$(document).on("click", ".abrirEliminaModal", function (event) {
-    var doctorNombre = $(this).data('nombre');
-    var doctorClinica = $(this).data('clinica');
-    var doctorId = $(this).data('id');
-    $("#eliminar-doctor-id").val(doctorId);
-    document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
-    console.log(doctorId);
-    document.getElementById('form-eliminar').action = "doctores/" + doctorId;
-});
+    $(document).on("click", ".abrirEliminaModal", function (event) {
+        var asistenteNombre = $(this).data('nombre');
+        var asistenteDoctor = $(this).data('asistente');
+        var asistenteId = $(this).data('id');
+        $("#eliminar-asistente-id").val(asistenteId);
+        document.getElementById('eliminar-asistente-nombre').innerHTML = asistenteNombre;
+        console.log(asistenteId);
+        document.getElementById('form-eliminar').action = "asistentes/" + asistenteId;
+    });
 </script>
 
 
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
-        var doctorNombre1 = $(this).data('nombre1');
-        var doctorNombre2 = $(this).data('nombre2');
-        var doctorApellido1 = $(this).data('apellido1');
-        var doctorApellido2 = $(this).data('apellido2');
-        var doctorEspecialidad1 = $(this).data('especialidad1');
-        var doctorEspecialidad2 = $(this).data('especialidad2');
-        var doctorClinica = $(this).data('clinica');
-        var doctorId = $(this).data('id');
-        $("#editar-doctor-nombre1").val(doctorNombre1);
-        $("#editar-doctor-nombre2").val(doctorNombre2);
-        $("#editar-doctor-apellido1").val(doctorApellido1);
-        $("#editar-doctor-apellido2").val(doctorApellido2);
-        $("#editar-doctor-especialidad1").val(doctorEspecialidad1);
-        $("#editar-doctor-especialidad2").val(doctorEspecialidad2);
-        $("#editar-doctor-clinica").val(doctorClinica);
-        document.getElementById('form-editar').action = "doctores/" + doctorId;
+        var asistenteNombre1 = $(this).data('nombre1');
+        var asistenteNombre2 = $(this).data('nombre2');
+        var asistenteApellido1 = $(this).data('apellido1');
+        var asistenteApellido2 = $(this).data('apellido2');
+        var asistenteEspecialidad1 = $(this).data('especialidad1');
+        var asistenteEspecialidad2 = $(this).data('especialidad2');
+        var asistenteTelefono = $(this).data('telefono');
+        var asistenteCorreo=  $(this).data('correo');
+        var asistenteClinica = $(this).data('clinica');
+        var asistenteId = $(this).data('id');
+       
+        $("#editar-asistente-nombre1").val(asistenteNombre1);
+        $("#editar-asistente-nombre2").val(asistenteNombre2);
+        $("#editar-asistente-apellido1").val(asistenteApellido1);
+        $("#editar-asistente-apellido2").val(asistenteApellido2);
+        $("#editar-asistente-especialidad1").val(asistenteEspecialidad1);
+        $("#editar-asistente-especialidad2").val(asistenteEspecialidad2);
+        $("#editar-asistente-correo").val(asistenteCorreo);
+        $("#editar-asistente-telefono").val(asistenteTelefono);
+        $("#editar-asistente-clinica").val(asistenteClinica);
+
+        document.getElementById('form-editar').action = "asistentes/" + asistenteId;
+        console.log("asistentes/" + asistenteId);
     });
 </script>
 
+    
+        
+   
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Doctores <i class="fas fa-stethoscope"></i> </h1></div>
+        @if($errors->any())
+        <div class="notification is-danger"> 
+                <ul>
+            @foreach($errors->all() as $errorr)
+            <li> {{$errorr}}</li>
+            
+            @endforeach
+        </ul>
+        </div>
+        @endif
+        
+            <div class="row p-5"><h1 class="display-1">Asistentes <i class="fas fa-hands-helping"></i> </h1></div>
             <div class="row p-5">
-                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar doctor</button>
+                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar asistente</button>
                 <table class="table" id="table1">
                     <thead>
                         <tr>
@@ -52,30 +73,33 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Doctores as $doctor)
+                        @foreach ($Asistentes as $asistente)
                         <tr>
-                        <td>{{$doctor->id}}</td>
-                        <td>{{$doctor->primer_nombre}} {{$doctor->apellido_paterno}}</td>   
-                        <td>{{$doctor->Clinica->nombre}}</td>
+                        <td>{{$asistente->id}}</td>
+                        <td>{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}}</td>   
+                        <td>{{$asistente->clinica_id}}</td>
+                      
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
                                     data-target="#editarModal"
-                                    data-id="{{$doctor->id}}"
-                                    data-nombre1="{{$doctor->primer_nombre}}"
-                                    data-nombre2="{{$doctor->segundo_nombre}}"
-                                    data-apellido1="{{$doctor->apellido_paterno}}"
-                                    data-apellido2="{{$doctor->apellido_materno}}"
-                                    data-especialidad1="{{$doctor->especialidad_1}}"
-                                    data-especialidad2="{{$doctor->especialidad_2}}"
-                                    data-clinica="{{$doctor->clinica_id}}"
+                                    data-id="{{$asistente->id}}"
+                                    data-nombre1="{{$asistente->primer_nombre}}"
+                                    data-nombre2="{{$asistente->segundo_nombre}}"
+                                    data-apellido1="{{$asistente->apellido_paterno}}"
+                                    data-apellido2="{{$asistente->apellido_materno}}"
+                                    data-especialidad1="{{$asistente->especialidad_1}}"
+                                    data-especialidad2="{{$asistente->especialidad_2}}"
+                                    data-correo="{{$asistente->correo}}"
+                                    data-telefono="{{$asistente->telefono}}"
+                                    data-clinica="{{$asistente->clinica_id}}"
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
-                                data-id="{{$doctor->id}}"
-                                data-nombre="{{$doctor->primer_nombre}}"
-                                data-clinica="{{$doctor->clinica}}"
+                                data-id="{{$asistente->id}}"
+                                data-nombre="{{$asistente->primer_nombre}}"
+                                data-clinica="{{$asistente->clinica}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
                         </td>
@@ -91,45 +115,55 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="agregarModalLabel">Agregar doctor</h5>
+                            <h5 class="modal-title" id="agregarModalLabel">Agregar asistente</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/doctores" method="POST">
+                        <form action="/asistentes" method="POST">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
                                 <div class="form-group row">
                                         <div class="col-6">
                                                 <label for="in_atributo2">Primer nombre</label>
-                                                <input type="text" required class="form-control" id="nombre1" name="nombre1">        
+                                                <input type="text" class="form-control" id="nombre1" name="nombre1"  >        
                                         </div>
                                         <div class="col-6">
                                                 <label for="in_atributo2">Segundo nombre</label>
-                                                <input type="text" required class="form-control" id="direccion" name="nombre2">        
+                                                <input type="text" class="form-control {{$errors->has('title')?'is-danger':''}}"     id="direccion" name="nombre2" value="{{old('direccion')}}" required >        
                                         </div>
                                     </div>
                                 <div class="form-group row">
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Paterno</label>
-                                            <input type="text" required class="form-control" id="direccion" name="ApPaterno">        
+                                            <input type="text" class="form-control" id="direccion" name="ApPaterno" required>        
                                     </div>
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Materno</label>
-                                            <input type="text" required class="form-control" id="direccion" name="ApMaterno">        
+                                            <input type="text" class="form-control" id="direccion" name="ApMaterno" required>        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                         <div class="col-6">
                                                 <label for="in_atributo2">Especialidad 1</label>
-                                                <input type="text" required class="form-control" id="direccion" name="esp1">        
+                                                <input type="text" class="form-control" id="direccion" name="esp1" required>        
                                         </div>
                                         <div class="col-6">
                                                 <label for="in_atributo2">Especialidad 2</label>
-                                                <input type="text" required class="form-control" id="direccion" name="esp2">        
+                                                <input type="text" class="form-control" id="direccion" name="esp2">        
                                         </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-6">
+                                            <label for="editar-asistente-especialidad1">Correo</label>
+                                            <input type="email" class="form-control" id="correo" name="correo" required>        
+                                    </div>
+                                    <div class="col-6">
+                                            <label for="editar-asistente-especialidad2">Telefono</label>
+                                            <input type="tel" class="form-control" id="telefono" name="telefono" required>        
+                                    </div>
+                            </div>
                                 <div class="form-group">
                                         <label for="in_atributo1">Clinica</label>
                                         <select class="form-control" name="clinica">
@@ -164,37 +198,47 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <div class="modal-body">                          
                                 <div class="form-group row">
                                         <div class="col-6">
-                                                <label for="editar-doctor-nombre1">Primer nombre</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-nombre1" name="nombre1">        
+                                                <label for="editar-asistente-nombre1">Primer nombre</label>
+                                                <input type="text" class="form-control" id="editar-asistente-nombre1" name="nombre1" required>        
                                         </div>
                                         <div class="col-6">
-                                                <label for="editar-doctor-nombre2">Segundo nombre</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-nombre2" name="nombre2">        
+                                                <label for="editar-asistente-nombre2">Segundo nombre</label>
+                                                <input type="text" class="form-control" id="editar-asistente-nombre2" name="nombre2">        
                                         </div>
                                     </div>
                                 <div class="form-group row">
                                     <div class="col-6">
-                                            <label for="editar-doctor-apellido1">Apellido Paterno</label>
-                                            <input type="text" required class="form-control" id="editar-doctor-apellido1" name="ApPaterno">        
+                                            <label for="editar-asistente-apellido1">Apellido Paterno</label>
+                                            <input type="text" class="form-control" id="editar-asistente-apellido1" name="ApPaterno" required>        
                                     </div>
                                     <div class="col-6">
-                                            <label for="editar-doctor-apellido2">Apellido Materno</label>
-                                            <input type="text" required class="form-control" id="editar-doctor-apellido2" name="ApMaterno">        
+                                            <label for="editar-asistente-apellido2">Apellido Materno</label>
+                                            <input type="text" class="form-control" id="editar-asistente-apellido2" name="ApMaterno" required>        
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                         <div class="col-6">
-                                                <label for="editar-doctor-especialidad1">Especialidad 1</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-especialidad1" name="esp1">        
+                                                <label for="editar-asistente-especialidad1">Especialidad 1</label>
+                                                <input type="text" class="form-control" id="editar-asistente-especialidad1" name="esp1" required>        
                                         </div>
                                         <div class="col-6">
-                                                <label for="editar-doctor-especialidad2">Especialidad 2</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-especialidad2" name="esp2">        
+                                                <label for="editar-asistente-especialidad2">Especialidad 2</label>
+                                                <input type="text" class="form-control" id="editar-asistente-especialidad2" name="esp2">        
                                         </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-6">
+                                            <label for="editar-asistente-correo">Correo</label>
+                                            <input type="email" class="form-control" id="editar-asistente-correo" name="correo" required>        
+                                    </div>
+                                    <div class="col-6">
+                                            <label for="editar-asistente-telefono">Telefono</label>
+                                            <input type="tel" class="form-control" id="editar-asistente-telefono" name="telefono" required>        
+                                    </div>
+                            </div>
                                 <div class="form-group">
-                                        <label for="editar-doctor-clinica">Clínica</label>
-                                        <select class="form-control" name="clinica" id="editar-doctor-clinica">
+                                        <label for="editar-asistente-clinica">Clínica</label>
+                                        <select class="form-control" name="clinica" id="editar-asistente-clinica">
                                         @foreach ($Clinicas as $clinica)                                  
                                                 <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
                                             @endforeach
@@ -215,7 +259,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar doctor</h5>
+                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar asistente</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -224,7 +268,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro de eliminar el doctor <span id="eliminar-doctor-nombre"></span>? 
+                                ¿Estás seguro de eliminar el asistente <span id="eliminar-asistente-nombre"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

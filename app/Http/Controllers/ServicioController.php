@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Clinica;
+use App\Servicio;
 use Illuminate\Http\Request;
 
-class ClinicaController extends Controller
+class ServicioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,13 @@ class ClinicaController extends Controller
      */
     public function index()
     {
+        //
+        $servicios = \App\Servicio::all();
         $clinicas = \App\Clinica::all();
-        return view('Clinicas.index',
+       // dd($doctores[0]->clinica());
+        return view('Servicios.index',
         [
+            'Servicios' => $servicios,
             'Clinicas' => $clinicas
         ]
         );
@@ -30,7 +34,6 @@ class ClinicaController extends Controller
     public function create()
     {
         //
-        return view('Clinicas.create');
     }
 
     /**
@@ -44,23 +47,25 @@ class ClinicaController extends Controller
         //
         $request->validate([
             'nombre' => 'required',
-            'direccion' => 'required'
+            'precio' => 'required|numeric',
+            'clinica' => 'required'
         ]);
 
-        $nuevaClinica = new \App\Clinica;
-        $nuevaClinica->nombre = $request->get('nombre');
-        $nuevaClinica->direccion = $request->get('direccion');
-        $nuevaClinica->save();
-        return redirect('/clinicas');
+        $nuevoServicio = new \App\Servicio;
+        $nuevoServicio->nombre = $request->get('nombre');
+        $nuevoServicio->precio = $request->get('precio');
+        $nuevoServicio->clinica_id = $request->get('clinica');
+        $nuevoServicio->save();
+        return redirect('/servicios');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Clinica  $clinica
+     * @param  \App\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function show(Clinica $clinica)
+    public function show(Servicio $servicio)
     {
         //
     }
@@ -68,10 +73,10 @@ class ClinicaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Clinica  $clinica
+     * @param  \App\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clinica $clinica)
+    public function edit(Servicio $servicio)
     {
         //
     }
@@ -80,37 +85,37 @@ class ClinicaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Clinica  $clinica
+     * @param  \App\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clinica $clinica)
+    public function update(Request $request, Servicio $servicio)
     {
-        //El request toma los valores con el name en HTML
-        //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí.
-        
+        //
+        //$doctor = \App\Doctor::find($id);
         $request->validate([
             'nombre' => 'required',
-            'direccion' => 'required'
+            'precio' => 'required|numeric',
+            'clinica' => 'required'
         ]);
         
-        $clinica->nombre = $request->get('nombre');
-        $clinica->direccion = $request->get('direccion');
-        $clinica->save();
-        return redirect('/clinicas');
+        $servicio->nombre = $request->get('nombre');
+        $servicio->precio = $request->get('precio');
+        $servicio->clinica_id = $request->get('clinica');
+        $servicio->save();
+        return redirect('/servicios');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Clinica  $clinica
+     * @param  \App\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clinica $clinica)
+    public function destroy(Servicio $servicio)
     {
         //
-        //$clinica = \App\Clinica::find($clinica);
-        //dd($clinica);
-        $clinica->delete();
-        return redirect('/clinicas');
+        $servicio->delete();
+        //dd($doctor);
+        return redirect('/servicios');
     }
 }
