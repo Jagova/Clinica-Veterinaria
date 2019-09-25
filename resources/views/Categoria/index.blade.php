@@ -94,7 +94,7 @@ $("#eliminar-clinica-id").val(articuloId);
                         <div class="modal-body">                          
                                 <div class="form-group">
                                     <label for="in_atributo1">Nombre: </label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre">
+                                        <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
 
                         </div>
@@ -123,7 +123,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="editar-nombre">Nombre:</label>
-                                            <input type="text" class="form-control" id="editar-articulo-nombre" name="nombre">
+                                            <input type="text" required class="form-control" id="editar-articulo-nombre" name="nombre">
                                     </div>
 
                                     

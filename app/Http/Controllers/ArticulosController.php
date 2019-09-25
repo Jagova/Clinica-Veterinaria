@@ -40,7 +40,17 @@ class ArticulosController extends Controller
      */
     public function store(Request $request)
     {
-         $articulo = new \App\articulos;
+         $request->validate([
+            'nombre' => 'required',
+            'preciocom' => 'required',
+            'marca' => 'required',
+            'stock' => 'required',
+            'fecha_cad' => 'required',
+            'precio_u' => 'required',
+        ]);
+
+
+        $articulo = new \App\articulos;
         $articulo->nombre = $request->get('nombre');
         $articulo->preciocom = $request->get('preciocom');
         $articulo->marca = $request->get('marca');
@@ -82,6 +92,16 @@ class ArticulosController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+            $request->validate([
+            'nombre' => 'required',
+            'preciocom' => 'required',
+            'marca' => 'required',
+            'stock' => 'required',
+            'fecha_cad' => 'required',
+            'precio_u' => 'required',
+        ]);
+
         $artis = \App\articulos::find($id);
         $artis->nombre=$request->get('nombre');
         $artis->precioCom=$request->get('preciocom');

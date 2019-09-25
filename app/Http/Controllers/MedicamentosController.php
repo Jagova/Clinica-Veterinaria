@@ -40,6 +40,21 @@ class MedicamentosController extends Controller
      */
     public function store(Request $request)
     {
+
+         $request->validate([
+            'nombre' => 'required',
+            'presentacion' => 'required',
+            'ml_mg' => 'required',
+            'compuesto' => 'required',
+            'precio' => 'required',
+            'laboratorio' => 'required',
+            'paq_unidad' => 'required',
+            'controlado' => 'required',
+            'fecha_caducidad' => 'required',
+            'stock' => 'required',
+        ]);
+
+
         $medis = new \App\Medicamentos;
         $medis->nombre = $request->get('nombre');
         $medis->presentacion = $request->get('presentacion');
@@ -86,6 +101,19 @@ class MedicamentosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+        'nombre' => 'required',
+        'presentacion' => 'required',
+        'ml_mg' => 'required',
+        'compuesto' => 'required',
+        'precio' => 'required',
+        'laboratorio' => 'required',
+        'paq_unidad' => 'required',
+        'controlado' => 'required',
+        'fecha_caducidad' => 'required',
+        'stock' => 'required',
+        ]);
+
         $medis = \App\Medicamentos::find($id);
         $medis->nombre = $request->get('nombre');
         $medis->presentacion = $request->get('presentacion');

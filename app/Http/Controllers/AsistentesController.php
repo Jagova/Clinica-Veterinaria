@@ -73,7 +73,7 @@ class AsistentesController extends Controller
         $nuevoAsistente->save();
         return redirect('/asistentes');
     }
-   
+    
     /**
      * Display the specified resource.
      *
