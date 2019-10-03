@@ -69,6 +69,7 @@ $("#eliminar-clinica-id").val(articuloId);
                             <th >Nombre </th>
                             <th >Precio Compra </th>
                             <th >Marca </th>
+
                             <th >Stock </th>
                             <th >Fecha Caducidad</th>
                             <th >Precio Un </th>
@@ -134,15 +135,17 @@ $("#eliminar-clinica-id").val(articuloId);
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
-                                <div class="form-group">
+                                <div class="form-group row">
+                                    <div class="col-6">
                                     <label for="in_atributo1">Nombre: </label>
                                         <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo2">Precio Compra: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="preciocom" name="preciocom">
 
                                 </div>
+                            </div>
 
                                 <div class="form-group">
                                     <label for="in_atributo3">Marca: </label>
@@ -187,15 +190,17 @@ $("#eliminar-clinica-id").val(articuloId);
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
-                                    <div class="form-group">
+                                    <div class="form-group row ">
+                                        <div class="col-6">
                                         <label for="editar-nombre">Nombre:</label>
                                             <input type="text" required class="form-control" id="editar-articulo-nombre" name="nombre">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="col-6">
                                         <label for="editar-articulo-precio">Precio Compra:</label>
                                         <input type="text" required class="form-control" id="editar-articulo-precio" name="preciocom">
                                     </div>
+                                </div>
 
                                     <div class="form-group">
                                         <label for="editar-articulo-marca">Marca: </label>

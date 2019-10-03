@@ -20,7 +20,7 @@ class ArticulosSeeder extends Seeder
            				'preciocom'  => $faker->randomElement(['3','4','3']),
            'marca'  => $faker->randomElement(['perro feliz','GUAGUA','PETS']),
            'stock'  => $faker->randomElement([20,10,50]),
-           'fecha_cad'  => $faker->randomElement(['20.00','40.00','60.00']),
+           'fecha_cad'  => $faker->randomElement(['2019-02-06','2019-08-08','2019-07-07']),
            'precio_u'  => $faker->randomElement(['20.00','40.00','60.00']),
            'created_at' => date('Y-m-d H:m:s'),
            'updated_at' => date('Y-m-d H:m:s') ));
