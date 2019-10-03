@@ -24,6 +24,8 @@
             var pacienteDuenioId = $(this).data('duenioid');
             var pacienteDoctorId = $(this).data('doctorid');
             console.log(pacienteDoctorId);
+            console.log(pacienteEspecie);
+
             $("#editar-paciente-nombre").val(pacienteNombre);
             $("#editar-paciente-edad").val(pacienteEdad);
             $("#editar-paciente-especie").val(pacienteEspecie);
@@ -91,156 +93,12 @@
                         @endforeach
                         </tbody>           
                 </table>
-            </div>
-
-            
-            <!-- Modal Agregar -->
-            <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="agregarModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="agregarModalLabel">Nuevo paciente</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form action="/pacientes" method="POST">
-                            @csrf
-                            @method('POST')
-                        <div class="modal-body">                          
-                                <div class="form-group">
-                                    <div class = "row">
-                                        <div class = "col-6" >
-                                            <label for="in_atributo1">Nombre</label>
-                                            <input type="text" required class="form-control" id="nombre" name="nombre">
-                                        </div>
-                                        <div class = "col-6" >
-                                            <label for="in_atributo2">Edad</label>
-                                            <input type="number" required class="form-control" id="edad" name="edad">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                        <div class = "row">
-                                            <div class = "col-6" >
-                                                <label for="in_atributo3">Especie</label>
-                                                <input type="text" required class="form-control" id="especie" name="especie">
-                                            </div>
-                                            <div class = "col-6" >
-                                                <label for="in_atributo4">Raza</label>
-                                                <input type="text" required class="form-control" id="raza" name="raza">
-                                            </div>
-                                        </div>
-                                    </div>
-                                <div class="form-group">
-                                    <label for="in_atributo6">Dueño</label>
-                                    <select required class="form-control" name="duenio_id">
-                                        @foreach ($Duenios as $duenio)                                  
-                                            <option value="{{$duenio->id}}">{{$duenio->nombre}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo7">Doctor favorito</label>
-                                    <select required class="form-control" name="doctor_id">
-                                            @foreach ($Doctores as $doctor)                                  
-                                                <option value="{{$doctor->id}}">{{$doctor->primer_nombre}}</option>
-                                            @endforeach
-                                        </select>
-                                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Crear</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal editar -->
-            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar elemento</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form id="form-editar" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="modal-body">                          
-                                        <div class="form-group">
-                                            <div class = "row">
-                                                <div class = "col-6" >
-                                                    <label for="in_atributo1">Nombre</label>
-                                                    <input type="text" required class="form-control" id="editar-paciente-nombre" name="nombre">
-                                                </div>
-                                                <div class = "col-6" >
-                                                    <label for="in_atributo2">Edad</label>
-                                                    <input type="number" required class="form-control" id="editar-paciente-edad" name="edad">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                                <div class = "row">
-                                                    <div class = "col-6" >
-                                                        <label for="in_atributo3">Especie</label>
-                                                        <input type="text" required class="form-control" id="editar-paciente-especie" name="especie">
-                                                    </div>
-                                                    <div class = "col-6" >
-                                                        <label for="in_atributo4">Raza</label>
-                                                        <input type="text" required class="form-control" id="editar-paciente-raza" name="raza">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <div class="form-group">
-                                            <label for="in_atributo6">Dueño</label>
-                                            <input type="text" class="form-control" id="editar-paciente-duenio-id" name="duenio_id">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="in_atributo7">Doctor favorito</label>
-                                            <select class="form-control" id="editar-paciente-doctor-id" name="doctor_id">
-                                                    @foreach ($Doctores as $doctor)                                  
-                                                        <option value="{{$doctor->id}}">{{$doctor->primer_nombre}}</option>
-                                                    @endforeach
-                                                </select>
-                                        </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
-            <!-- Modal Eliminar -->
-            <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar paciente</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form id="form-eliminar" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                            <div class="modal-body">
-                                ¿Estás seguro de eliminar el paciente <span id="eliminar-paciente-nombre"></span>? 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
+            </div> 
+         
+            @include('Pacientes.modalAgregaPaciente')
+            @include('Pacientes.modalEditaPaciente')
+            @include('Pacientes.modalEliminaPaciente')
+ 
         </div>
 
 @endsection

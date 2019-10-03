@@ -108,8 +108,7 @@
                         </tbody>           
                 </table>
             </div>
-
-            
+           
             <!-- Modal Agregar -->
             <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="agregarModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">

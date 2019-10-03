@@ -19,11 +19,13 @@ class PacienteController extends Controller
         //$duenios = \App\Duenios::all();
         $doctores = \App\Doctor::all();
         $duenios = \App\Dueno::all();
+        $especies = ["Perro","Gato","Conejo","Reptil","Ave"];
         return view('Pacientes.index',
         [
             'Pacientes' => $pacientes,
             'Duenios' => $duenios,
-            'Doctores' => $doctores
+            'Doctores' => $doctores,
+            'Especies' =>$especies
         ]
         );       
     }
@@ -47,10 +49,10 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required | max:200',
-            'edad' => 'required | integer ',
-            'especie' => 'required | max:200',
-            'raza' => 'required | max:200',
+            'nombre' => 'required | max:200 | regex:/(^([a-zA-z- ]+$))/',
+            'edad' => 'required | integer | min:0 | max:50 |regex: /^[0-9]+$/',
+            'especie' => 'required ',
+            'raza' => 'required | max:200 | regex:/(^([a-zA-z- ]+$))/',
             'duenio_id' => 'required',
             'doctor_id' => 'required'
         ]);
@@ -97,10 +99,10 @@ class PacienteController extends Controller
     public function update(Request $request, Paciente $paciente)
     {
         $request->validate([
-            'nombre' => 'required | max:200',
-            'edad' => 'required | integer ',
-            'especie' => 'required | max:200',
-            'raza' => 'required | max:200',
+            'nombre' => 'required | max:200 | regex:/(^([a-zA-z- ]+$))/',
+            'edad' => 'required | integer | min:0 | max:50 |regex: /^[0-9]+$/',
+            'especie' => 'required ',
+            'raza' => 'required | max:200 | regex:/(^([a-zA-z- ]+$))/',
             'duenio_id' => 'required',
             'doctor_id' => 'required'
         ]);
