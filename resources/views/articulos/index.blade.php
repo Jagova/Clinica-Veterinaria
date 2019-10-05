@@ -5,6 +5,7 @@
 
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
+    var doctorClinica = $(this).data('clinica');
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
     var preciocom = $(this).data('preciocom');
@@ -25,6 +26,8 @@ $("#eliminar-clinica-id").val(articuloId);
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
 
+    var doctorClinica = $(this).data('clinica');
+
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
     var preciocom = $(this).data('preciocom');
@@ -34,7 +37,7 @@ $("#eliminar-clinica-id").val(articuloId);
     var fecha_cad = $(this).data('fecha_cad');
     var precio_u = $(this).data('precio_u');
 
-    console.log(articuloId);
+   // console.log(articuloId);
 
 
         $("#editar-articulo-nombre").val(articuloNombre);
@@ -44,6 +47,7 @@ $("#eliminar-clinica-id").val(articuloId);
         $("#editar-articulo-stock").val(stock);
         $("#editar-articulo-fecha").val(fecha_cad);
         $("#editar-articulo-preciou").val(precio_u);
+        $("#editar-doctor-clinica").val(doctorClinica);
 
         document.getElementById('form-editar').action = "articulos/" + articuloId;
     });
@@ -70,47 +74,53 @@ $("#eliminar-clinica-id").val(articuloId);
                             <th >Precio Compra </th>
                             <th >Marca </th>
 
+
                             <th >Stock </th>
                             <th >Fecha Caducidad</th>
                             <th >Precio Un </th>
+
+                            <th >Clinica </th>
 
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($Articulos as $artis)
+                        @foreach ($Articulos as $articulo)
                         <tr>
-                        <td>{{$artis->id}}</td>
-                        <td>{{$artis->nombre}}</td>   
-                        <td>{{$artis->preciocom}}</td>
-                        <td>{{$artis->marca}}</td>
-                        <td>{{$artis->stock}}</td>
-                        <td>{{$artis->fecha_cad}}</td>
-                        <td>{{$artis->precio_u}}</td>
+                        <td>{{$articulo->id}}</td>
+                        <td>{{$articulo->nombre}}</td>   
+                        <td>{{$articulo->preciocom}}</td>
+                        <td>{{$articulo->marca}}</td>
+                        <td>{{$articulo->stock}}</td>
+                        <td>{{$articulo->fecha_cad}}</td>
+                        <td>{{$articulo->precio_u}}</td>
+                        <td>{{$articulo->Clinica->nombre}}</td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
                                     data-target="#editarModal"
-                                    data-id="{{$artis->id}}"
-                                    data-nombre="{{$artis->nombre}}"
-                                    data-preciocom="{{$artis->preciocom}}"
-                                    data-marca="{{$artis->marca}}"
-                                    data-stock="{{$artis->stock}}"
-                                    data-fecha_cad="{{$artis->fecha_cad}}"
-                                    data-precio_u="{{$artis->precio_u}}"
+                                    data-id="{{$articulo->id}}"
+                                    data-nombre="{{$articulo->nombre}}"
+                                    data-preciocom="{{$articulo->preciocom}}"
+                                    data-marca="{{$articulo->marca}}"
+                                    data-stock="{{$articulo->stock}}"
+                                    data-fecha_cad="{{$articulo->fecha_cad}}"
+                                    data-precio_u="{{$articulo->precio_u}}"
+                                    data-clinica="{{$articulo->clinica_id}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
-                                    data-id="{{$artis->id}}"
-                                    data-nombre="{{$artis->nombre}}"
-                                    data-preciocom="{{$artis->preciocom}}"
-                                    data-marca="{{$artis->marca}}"
-                                    data-stock="{{$artis->stock}}"
-                                    data-fecha_cad="{{$artis->fecha_cad}}"
-                                    data-precio_u="{{$artis->precio_u}}"
+                                    data-id="{{$articulo->id}}"
+                                    data-nombre="{{$articulo->nombre}}"
+                                    data-preciocom="{{$articulo->preciocom}}"
+                                    data-marca="{{$articulo->marca}}"
+                                    data-stock="{{$articulo->stock}}"
+                                    data-fecha_cad="{{$articulo->fecha_cad}}"
+                                    data-precio_u="{{$articulo->precio_u}}"
+                                    data-clinica="{{$articulo->clinica}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
                             </td>
@@ -147,25 +157,41 @@ $("#eliminar-clinica-id").val(articuloId);
                                 </div>
                             </div>
 
-                                <div class="form-group">
+                                <div class="form-group row">
+                                    <div class="col-6">
                                     <label for="in_atributo3">Marca: </label>
                                     <input type="text" required class="form-control" id="marca" name="marca">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo2">Stock: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="stock" name="stock">
                                 </div>
+                            </div>
 
-                                <div class="form-group">
+                                <div class="form-group row">
+                                    <div class="col-6">
                                     <label for="in_atributo2">Fecha Caducidad: </label>
                                     <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_cad" name="fecha_cad">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo2">Precio Ut: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="precio_u" name="precio_u">
                                 </div>
+                            </div>
+
+
+                                <div class="form-group">
+                                        <label for="in_atributo1">Clinica</label>
+                                        <select class="form-control" name="clinica">
+                                            @foreach ($Clinicas as $clinica)                                  
+                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -202,25 +228,38 @@ $("#eliminar-clinica-id").val(articuloId);
                                     </div>
                                 </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
+                                        <div class="col-6">
                                         <label for="editar-articulo-marca">Marca: </label>
                                         <input type="text" required class="form-control" id="editar-articulo-marca" name="marca">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="col-6">
                                         <label for="editar-articulo-stock">Stock: </label>
                                         <input type="number" min="1" max="1000" required class="form-control" id="editar-articulo-stock" name="stock">
                                     </div>
+                                </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
+                                        <div class="col-6">
                                         <label for="editar-articulo-fecha">Fecha Cad: </label>
                                         <input type="date" min="2019-01-01" max="2025-12-31" required class="form-control" id="editar-articulo-fecha" name="fecha_cad">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="col-6">
                                         <label for="editar-articulo-preciou">Precio Un</label>
                                         <input type="text" required class="form-control" id="editar-articulo-preciou" name="precio_u">
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="editar-doctor-clinica">Clínica</label>
+                                    <select class="form-control" name="clinica" id="editar-doctor-clinica">
+                                        @foreach ($Clinicas as $clinica)                                  
+                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
 
                                 </div>
                                 <div class="modal-footer">
