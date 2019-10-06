@@ -15,11 +15,19 @@ class ArticulosController extends Controller
     public function index()
     {
         $articulo = \App\articulos::all();
+
         $clinicas = \App\Clinica::all();
+
+        $subcategoria = \App\categoria::all();
+
+        $categoria = \App\subcategorias::all();
+
         return view('Articulos.index',
         [
             'Articulos' => $articulo,
-            'Clinicas' => $clinicas
+            'Clinicas' => $clinicas,
+            'Subcategoria' => $subcategoria,
+            'Categoria' => $categoria 
         ]
         );
     }
@@ -49,6 +57,8 @@ class ArticulosController extends Controller
             'stock' => 'required',
             'fecha_cad' => 'required',
             'precio_u' => 'required',
+            'categoria'=> 'required',
+            'subcategoria' =>'required',
             'clinica' => 'required',
         ]);
 
@@ -60,6 +70,8 @@ class ArticulosController extends Controller
         $narticulo->stock = $request->get('stock');
         $narticulo->fecha_cad = $request->get('fecha_cad');
         $narticulo->precio_u = $request->get('precio_u');
+        $narticulo->categoria_id = $request->get('categoria');
+        $narticulo->subcategoria_id = $request->get('subcategoria');
         $narticulo->clinica_id = $request->get('clinica');
 
         $narticulo->save();
@@ -105,6 +117,8 @@ class ArticulosController extends Controller
             'stock' => 'required',
             'fecha_cad' => 'required',
             'precio_u' => 'required',
+            'categoria'=> 'required',
+            'subcategoria' =>'required',
             'clinica' => 'required',
         ]);
 
@@ -115,6 +129,8 @@ class ArticulosController extends Controller
         $articulo->stock=$request->get('stock');
         $articulo->fecha_cad=$request->get('fecha_cad');
         $articulo->precio_u=$request->get('precio_u');
+        $articulo->categoria_id = $request->get('categoria');
+        $articulo->subcategoria_id = $request->get('subcategoria');
         $articulo->clinica_id = $request->get('clinica');
         $articulo->save();
         return redirect('/articulos');

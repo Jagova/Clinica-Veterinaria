@@ -10,5 +10,15 @@ class articulos extends Model
     {
         return $this->belongsTo('App\Clinica');
     }
+
+        public function categoria()
+    {
+        return $this->belongsTo('App\categoria');
+    }
+
+            public function subcategoria()
+    {
+        return $this->belongsTo('App\subcategorias');
+    }
     
 }
