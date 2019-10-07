@@ -70,11 +70,21 @@ $("#eliminar-clinica-id").val(articuloId);
                     <a href="categoria/">Categoria</a> 
                     <a href="subcategoria/">Subcategoria</a> 
                 -->
+
+
                 
                 </div>
             </div>
             <div class="row p-5">
+                                
+
+
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
+
+
+
+
+
                 <table class="table" id="table1">
                     <thead>
                         <tr>
@@ -308,7 +318,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
                             <div class="col-6">
                                         <label for="editar-subcategoria">Subcategoria</label>
-                                        <select class="form-control" name="subcategoria" id="editar-subcategoria">
+                                        <select required class="form-control" name="subcategoria" id="editar-subcategoria">
                                             @foreach ($Subcategoria as $subcategoria)                                  
                                                 <option value="{{$subcategoria->id}}">{{$subcategoria->nombre}}</option>
                                             @endforeach

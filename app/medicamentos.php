@@ -8,6 +8,6 @@ class medicamentos extends Model
 {
     	public function clinica()
     {
-        return $this->hasMany('App\Clinica');
+        return $this->belongsTo('App\Clinica');
     }
 }

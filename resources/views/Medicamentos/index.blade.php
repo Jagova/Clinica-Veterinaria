@@ -5,6 +5,7 @@
 
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
+    var doctorClinica = $(this).data('clinica');
     var medicinaNombre = $(this).data('nombre');
     var medicinaId = $(this).data('id');
     var presentacion = $(this).data('presentacion');
@@ -27,7 +28,7 @@ $("#eliminar-clinica-id").val(medicinaId);
 <!--Script para editar un modal-->
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
-    
+    var doctorClinica = $(this).data('clinica');
     var medicinaId = $(this).data('id');
 
     var medicinaNombre = $(this).data('nombre');
@@ -72,12 +73,12 @@ $("#eliminar-clinica-id").val(medicinaId);
                 </div>
             </div>
 
-            <div class="row p-5">
+            <div class="row p-4">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Medicamento</button>
                 <table class="table" id="table1">
                     <thead>
                         <tr>
-                
+                            
                             <th >Id </th>
                             <th >Nombre </th>
                             <th >Presentacion </th>
@@ -89,6 +90,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                             <th >Controlado </th>
                             <th >Fecha </th>
                             <th >Stock </th>
+                            <th >Clinica </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -108,22 +110,19 @@ $("#eliminar-clinica-id").val(medicinaId);
                         <td>{{$medis->controlado}}</td>
                         <td>{{$medis->fecha_caducidad}}</td>
                         <td>{{$medis->stock}}</td>
+                        <td>{{$medis->Clinica->nombre}}</td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
                                     data-target="#editarModal"
 
-                                    data-id="{{$medis->id}}"
-                                    data-nombre="{{$medis->nombre}}"
-                                    data-presentacion="{{$medis->presentacion}}"
-                                    data-ml_mg="{{$medis->ml_mg}}"
-                                    data-compuesto="{{$medis->compuesto}}"
-                                    data-precio="{{$medis->precio}}"
-                                    data-laboratorio="{{$medis->laboratorio}}"
-                                    data-paq_unidad="{{$medis->paq_unidad}}"
+                                    data-id="{{$medis->id}}" data-nombre="{{$medis->nombre}}"
+                                    data-presentacion="{{$medis->presentacion}}" data-ml_mg="{{$medis->ml_mg}}"
+                                    data-compuesto="{{$medis->compuesto}}"data-precio="{{$medis->precio}}"
+                                    data-laboratorio="{{$medis->laboratorio}}"data-paq_unidad="{{$medis->paq_unidad}}"
                                     data-controlado="{{$medis->controlado}}"
                                     data-fecha_caducidad="{{$medis->fecha_caducidad}}"
-                                    data-stock="{{$medis->stock}}"
+                                    data-stock="{{$medis->stock}}"data-clinica="{{$medis->clinica_id}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
@@ -140,8 +139,9 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     data-controlado="{{$medis->controlado}}"
                                     data-fecha_caducidad="{{$medis->fecha_caducidad}}"
                                     data-stock="{{$medis->stock}}"
+                                    data-clinica="{{$medis->clinica}}"
 
-                                >Eliminar <i class="fas fa-trash-alt"></i> </button>
+                                >Eliminar <i class="fas fa-trash-alt"></i> </button>                                
                                 </div>
                             </td>
                         </tr>
@@ -172,14 +172,24 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 </div>
                                 <div class="col-6">
                                     <label for="in_atributo2">Presentacion: </label>
-                                    <input type="text" required class="form-control" id="presentacion" name="presentacion">
+                                    <select  type="text" requied class="form-control" id="presentacion" name="presentacion">
+                                        <option>Comprimido</option>
+                                        <option>Cápsula</option>
+                                        <option>Liquido Oral</option>
+                                        <option>Inyectable</option>
+                                        <option>Crema</option>
+                                        <option>Solución</option>
+                                        <option>Aerosol</option>
+                                    </select>
                                 </div>
+
+
                             </div>
 
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo3">ML MG: </label>
-                                    <input type="number" step="any" min="0"  required class="form-control" id="ml_mg" name="ml_mg">
+                                    <input type="number" step="any" min="1"  required class="form-control" id="ml_mg" name="ml_mg">
                                 </div>
 
                                 <div class="col-6">
@@ -201,20 +211,24 @@ $("#eliminar-clinica-id").val(medicinaId);
                             </div>
 
                                 <div class="form-group row">
-                                    <div class="col-6">
+                                    <div class="col-3">
                                     <label for="in_atributo2">Paq Unidad: </label>
-                                    <input type="number" min="0"  required class="form-control" id="paq_unidad" name="paq_unidad">
+                                    <input type="number" min="1"  required class="form-control" id="paq_unidad" name="paq_unidad">
                                 </div>
 
-                                <div class="col-6">
-                                    <label for="in_atributo2">Controlado: </label>
-                                    <!--<label for="sel1">Seleccione una opcion:</label>-->
+                                <div class="col-3">
+                                    <label for="in_atributo2">Controlado: </label><br>
                                     <select  type="text" requied class="form-control" id="controlado" name="controlado">
                                         <option>Si</option>
                                         <option>No</option>
                                     </select>
 
 <!--                                    <input type="text" required class="form-control" id="controlado" name="controlado">-->
+                                </div>
+
+                                                                <div class="col-6">
+                                    <label for="in_atributo2">Stock: </label>
+                                    <input type="number" min="1" max="1000" required class="form-control" id="stock" name="stock">
                                 </div>
                             </div>
 
@@ -225,13 +239,26 @@ $("#eliminar-clinica-id").val(medicinaId);
                                       min="2019-01-01" max="2025-12-31">
                                 </div>
 
-                                <div class="col-6">
-                                    <label for="in_atributo2">Stock: </label>
-                                    <input type="number" min="0"  required class="form-control" id="stock" name="stock">
+
+                                                      <div class="col-6">
+                                        <label for="in_atributo9">Clinica</label>
+                                        <select class="form-control" name="clinica">
+                                            @foreach ($Clinicas as $clinica)                                  
+                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
+
+
                             </div>
+
+
+
                         </div>
                         <div class="modal-footer">
+
+
+
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary">Crear</button>
                         </div>
@@ -262,14 +289,24 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 </div>
                                 <div class="col-6">
                                     <label for="in_atributo2">Presentacion: </label>
-                                    <input type="text" required class="form-control" id="editar-m-presentacion" name="presentacion">
+                                    <select  type="text" requied class="form-control" id="editar-m-presentacion" name="presentacion">
+                                        <option>Comprimido</option>
+                                        <option>Cápsula</option>
+                                        <option>Liquido Oral</option>
+                                        <option>Inyectable</option>
+                                        <option>Crema</option>
+                                        <option>Solución</option>
+                                        <option>Aerosol</option>
+                                    </select>
+
+
                                 </div>
                             </div>
 
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo3">ML MG: </label>
-                                    <input type="number" min="0"  required class="form-control" id="editar-m-mlmg" name="ml_mg">
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-mlmg" name="ml_mg">
                                 </div>
 
                                 <div class="col-6">
@@ -281,7 +318,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo2">Precio: </label>
-                                    <input type="number" min="0"  required class="form-control" id="editar-m-precio" name="precio">
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-precio" name="precio">
                                 </div>
 
                                 <div class="col-6">
@@ -291,23 +328,31 @@ $("#eliminar-clinica-id").val(medicinaId);
                             </div>
 
                                 <div class="form-group row">
-                                    <div class="col-6">
+                                    <div class="col-3">
                                     <label for="in_atributo2">Paq Unidad: </label>
-                                    <input type="number" min="0"  required class="form-control" id="editar-m-paqunidad" name="paq_unidad">
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-paqunidad" name="paq_unidad">
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-3">
                                     <label for="in_atributo2">Controlado: </label>
                             <!--        <input type="text" required class="form-control" id="editar-m-controlado" name="controlado">-->
-                                     <label for="sel1">Cambiar opción:</label>
                                     <select  type="text" requied class="form-control" id="editar-m-controlado" name="controlado">
                                         <option>Si</option>
                                         <option>No</option>
                                     </select>
                                 </div>
+
+
+                                <div class="col-6">
+                                    <label for="in_atributo2">Stock: </label>
+                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-stock" name="stock">
+                                </div>
+
+
+
                             </div>
 
-                            <div class="form-group row">
+                                <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo2">Fecha Caducidad: </label>
                                     <!--<input type="date" required class="form-control" id="editar-m-fechcad" name="fecha_caducidad">-->
@@ -315,14 +360,23 @@ $("#eliminar-clinica-id").val(medicinaId);
                                       min="2019-01-01" max="2025-12-31">
                                 </div>
 
-                                <div class="col-6">
-                                    <label for="in_atributo2">Stock: </label>
-                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-stock" name="stock">
+                                 <div class="col-6">
+                                    <label for="editar-doctor-clinica">Clínica</label>
+                                    <select class="form-control" name="clinica" id="editar-doctor-clinica">
+                                        @foreach ($Clinicas as $clinica)                                  
+                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
+
                             </div>
 
-                            
+                                </div>
                                 <div class="modal-footer">
+
+
+
+
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
