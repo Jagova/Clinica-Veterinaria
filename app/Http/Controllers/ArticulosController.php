@@ -18,9 +18,9 @@ class ArticulosController extends Controller
 
         $clinicas = \App\Clinica::all();
 
-        $subcategoria = \App\categoria::all();
+        $subcategoria = \App\subcategorias::all();
 
-        $categoria = \App\subcategorias::all();
+        $categoria = \App\categoria::all();
 
         return view('Articulos.index',
         [

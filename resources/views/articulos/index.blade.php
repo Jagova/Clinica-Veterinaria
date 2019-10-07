@@ -6,6 +6,8 @@
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
     var doctorClinica = $(this).data('clinica');
+    var categoria = $(this).data('categoria');
+    var subcategoria = $(this).data('subcategoria');
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
     var preciocom = $(this).data('preciocom');
@@ -13,11 +15,10 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     var stock = $(this).data('stock');
     var fecha_cad = $(this).data('fecha_cad');
     var precio_u = $(this).data('precio_u');
-    var categoria = $(this).data('categoria');
-    var subcategoria = $(this).data('subcategoria');
 
 
-    //console.log(articuloId);
+
+    
 $("#eliminar-clinica-id").val(articuloId);
     document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
     document.getElementById('form-eliminar').action = "articulos/" + articuloId;
@@ -33,7 +34,7 @@ $("#eliminar-clinica-id").val(articuloId);
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
     var preciocom = $(this).data('preciocom');
-    console.log(preciocom);
+ //   console.log(preciocom);
     var marca = $(this).data('marca');
     var stock = $(this).data('stock');
     var fecha_cad = $(this).data('fecha_cad');
@@ -41,8 +42,6 @@ $("#eliminar-clinica-id").val(articuloId);
 
     var categoria = $(this).data('categoria');
     var subcategoria = $(this).data('subcategoria');
-
-   // console.log(articuloId);
 
 
         $("#editar-articulo-nombre").val(articuloNombre);
@@ -52,6 +51,7 @@ $("#eliminar-clinica-id").val(articuloId);
         $("#editar-articulo-stock").val(stock);
         $("#editar-articulo-fecha").val(fecha_cad);
         $("#editar-articulo-preciou").val(precio_u);
+
 
         $("#editar-categoria").val(categoria);
         $("#editar-subcategoria").val(subcategoria);
@@ -88,11 +88,11 @@ $("#eliminar-clinica-id").val(articuloId);
                             <th >Fecha Caducidad</th>
                             <th >Precio Un </th>
 
-                            <th >Clinica </th>
-
                             <th >Categoria </th>
 
                             <th >SubCategoria </th>
+
+                            <th >Clinica </th>
 
                             <th></th>
                         </tr>
@@ -122,8 +122,8 @@ $("#eliminar-clinica-id").val(articuloId);
                                     data-stock="{{$articulo->stock}}"
                                     data-fecha_cad="{{$articulo->fecha_cad}}"
                                     data-precio_u="{{$articulo->precio_u}}"
-                                    data-precio_u="{{$articulo->categoria_id}}"
-                                    data-precio_u="{{$articulo->subcategoria_id}}"
+                                    data-categoria="{{$articulo->categoria_id}}"
+                                    data-subcategoria="{{$articulo->subcategoria_id}}"
                                     data-clinica="{{$articulo->clinica_id}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
@@ -137,8 +137,8 @@ $("#eliminar-clinica-id").val(articuloId);
                                     data-stock="{{$articulo->stock}}"
                                     data-fecha_cad="{{$articulo->fecha_cad}}"
                                     data-precio_u="{{$articulo->precio_u}}"
-                                    data-precio_u="{{$articulo->categoria}}"
-                                    data-precio_u="{{$articulo->subcategoria}}"
+                                    data-categoria="{{$articulo->categoria}}"
+                                    data-subcategoria="{{$articulo->subcategoria}}"
                                     data-clinica="{{$articulo->clinica}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
@@ -174,6 +174,8 @@ $("#eliminar-clinica-id").val(articuloId);
                                     <input type="number" min="1" max="1000" required class="form-control" id="preciocom" name="preciocom">
 
                                 </div>
+
+
                             </div>
 
                                 <div class="form-group row">
@@ -183,19 +185,19 @@ $("#eliminar-clinica-id").val(articuloId);
                                 </div>
 
                                 <div class="col-6">
-                                    <label for="in_atributo2">Stock: </label>
+                                    <label for="in_atributo4">Stock: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="stock" name="stock">
                                 </div>
                             </div>
 
                                 <div class="form-group row">
                                     <div class="col-6">
-                                    <label for="in_atributo2">Fecha Caducidad: </label>
+                                    <label for="in_atributo5">Fecha Caducidad: </label>
                                     <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_cad" name="fecha_cad">
                                 </div>
 
                                 <div class="col-6">
-                                    <label for="in_atributo2">Precio Ut: </label>
+                                    <label for="in_atributo6">Precio Ut: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="precio_u" name="precio_u">
                                 </div>
                             </div>
@@ -203,7 +205,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
                             <div class="form-group row ">
                                 <div class="col-6">
-                                        <label for="in_atributo1">Categoria</label>
+                                        <label for="in_atributo7">Categoria</label>
                                         <select class="form-control" name="categoria">
                                             @foreach ($Categoria as $categoria)                                  
                                                 <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
@@ -213,7 +215,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
 
                             <div class="col-6">
-                                        <label for="in_atributo1">Subcategoria</label>
+                                        <label for="in_atributo8">Subcategoria</label>
                                         <select class="form-control" name="subcategoria">
                                             @foreach ($Subcategoria as $subcategoria)                                  
                                                 <option value="{{$subcategoria->id}}">{{$subcategoria->nombre}}</option>
@@ -225,7 +227,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
 
                                 <div class="form-group">
-                                        <label for="in_atributo1">Clinica</label>
+                                        <label for="in_atributo9">Clinica</label>
                                         <select class="form-control" name="clinica">
                                             @foreach ($Clinicas as $clinica)                                  
                                                 <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
@@ -293,9 +295,9 @@ $("#eliminar-clinica-id").val(articuloId);
                                     </div>
                                 </div>
 
-                                 <div class="form-group row ">
+                            <div class="form-group row">
                                 <div class="col-6">
-                                        <label for="in_atributo1">Categoria</label>
+                                        <label for="editar-categoria">Categoria</label>
                                         <select required class="form-control" name="categoria" id="editar-categoria">
                                             @foreach ($Categoria as $categoria)                                  
                                                 <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
@@ -305,8 +307,8 @@ $("#eliminar-clinica-id").val(articuloId);
 
 
                             <div class="col-6">
-                                        <label for="in_atributo1">Subcategoria</label>
-                                        <select required class="form-control" name="subcategoria" id="editar-subcategoria">
+                                        <label for="editar-subcategoria">Subcategoria</label>
+                                        <select class="form-control" name="subcategoria" id="editar-subcategoria">
                                             @foreach ($Subcategoria as $subcategoria)                                  
                                                 <option value="{{$subcategoria->id}}">{{$subcategoria->nombre}}</option>
                                             @endforeach
@@ -317,7 +319,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
                                 <div class="form-group">
                                     <label for="editar-doctor-clinica">Clínica</label>
-                                    <select required class="form-control" name="clinica" id="editar-doctor-clinica">
+                                    <select class="form-control" name="clinica" id="editar-doctor-clinica">
                                         @foreach ($Clinicas as $clinica)                                  
                                                 <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
                                             @endforeach
