@@ -7,6 +7,7 @@
         var asistenteNombre = $(this).data('nombre');
         var asistenteDoctor = $(this).data('asistente');
         var asistenteId = $(this).data('id');
+        
         $("#eliminar-asistente-id").val(asistenteId);
         document.getElementById('eliminar-asistente-nombre').innerHTML = asistenteNombre;
         console.log(asistenteId);
@@ -76,8 +77,9 @@
                         @foreach ($Asistentes as $asistente)
                         <tr>
                         <td>{{$asistente->id}}</td>
-                        <td>{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}}</td>   
-                        <td>{{$asistente->clinica_id}}</td>
+                        <td>{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}}  {{$asistente->apellido_materno}}</td>   
+                        <td>
+                       </td>
                       
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
@@ -98,7 +100,7 @@
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
                                 data-id="{{$asistente->id}}"
-                                data-nombre="{{$asistente->primer_nombre}}"
+                                data-nombre="{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
                                 data-clinica="{{$asistente->clinica}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
@@ -137,7 +139,7 @@
                                 <div class="form-group row">
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Paterno</label>
-                                            <input type="text" class="form-control" id="direccion" name="ApPaterno" required>        
+                                            <input type="text" class="form-control" id="direccion" name="ApPaterno" requiredon keypress='return (event.charCode >= 65 && event.charCode <= 90)&&(event.charCode >= 65 && event.charCode <= 90)'>        
                                     </div>
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Materno</label>
@@ -161,7 +163,7 @@
                                     </div>
                                     <div class="col-6">
                                             <label for="editar-asistente-especialidad2">Telefono</label>
-                                            <input class="form-control" id="telefono" name="telefono" required input type="tel"  min="7" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
+                                            <input class="form-control" id="telefono" name="telefono" required input type="tel"  min="10" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
                                     </div>
                             </div>
                                 <div class="form-group">
