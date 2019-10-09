@@ -64,3 +64,6 @@ Route::get('/prueba2', function () {
 Route::resource('/prueba','EjemploController');
 
 Route::resource('/pruebaDos','EjemploDosController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
