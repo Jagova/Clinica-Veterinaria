@@ -5,6 +5,9 @@
 
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
+    var doctorClinica = $(this).data('clinica');
+    var categoria = $(this).data('categoria');
+    var subcategoria = $(this).data('subcategoria');
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
     var preciocom = $(this).data('preciocom');
@@ -14,7 +17,8 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     var precio_u = $(this).data('precio_u');
 
 
-    //console.log(articuloId);
+
+    
 $("#eliminar-clinica-id").val(articuloId);
     document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
     document.getElementById('form-eliminar').action = "articulos/" + articuloId;
@@ -25,16 +29,19 @@ $("#eliminar-clinica-id").val(articuloId);
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
 
+    var doctorClinica = $(this).data('clinica');
+
     var articuloNombre = $(this).data('nombre');
     var articuloId = $(this).data('id');
     var preciocom = $(this).data('preciocom');
-    console.log(preciocom);
+ //   console.log(preciocom);
     var marca = $(this).data('marca');
     var stock = $(this).data('stock');
     var fecha_cad = $(this).data('fecha_cad');
     var precio_u = $(this).data('precio_u');
 
-    console.log(articuloId);
+    var categoria = $(this).data('categoria');
+    var subcategoria = $(this).data('subcategoria');
 
 
         $("#editar-articulo-nombre").val(articuloNombre);
@@ -44,6 +51,12 @@ $("#eliminar-clinica-id").val(articuloId);
         $("#editar-articulo-stock").val(stock);
         $("#editar-articulo-fecha").val(fecha_cad);
         $("#editar-articulo-preciou").val(precio_u);
+
+
+        $("#editar-categoria").val(categoria);
+        $("#editar-subcategoria").val(subcategoria);
+
+        $("#editar-doctor-clinica").val(doctorClinica);
 
         document.getElementById('form-editar').action = "articulos/" + articuloId;
     });
@@ -57,11 +70,21 @@ $("#eliminar-clinica-id").val(articuloId);
                     <a href="categoria/">Categoria</a> 
                     <a href="subcategoria/">Subcategoria</a> 
                 -->
+
+
                 
                 </div>
             </div>
             <div class="row p-5">
+                                
+
+
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
+
+
+
+
+
                 <table class="table" id="table1">
                     <thead>
                         <tr>
@@ -69,47 +92,64 @@ $("#eliminar-clinica-id").val(articuloId);
                             <th >Nombre </th>
                             <th >Precio Compra </th>
                             <th >Marca </th>
+
+
                             <th >Stock </th>
                             <th >Fecha Caducidad</th>
                             <th >Precio Un </th>
+
+                            <th >Categoria </th>
+
+                            <th >SubCategoria </th>
+
+                            <th >Clinica </th>
 
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($Articulos as $artis)
+                        @foreach ($Articulos as $articulo)
                         <tr>
-                        <td>{{$artis->id}}</td>
-                        <td>{{$artis->nombre}}</td>   
-                        <td>{{$artis->preciocom}}</td>
-                        <td>{{$artis->marca}}</td>
-                        <td>{{$artis->stock}}</td>
-                        <td>{{$artis->fecha_cad}}</td>
-                        <td>{{$artis->precio_u}}</td>
+                        <td>{{$articulo->id}}</td>
+                        <td>{{$articulo->nombre}}</td>   
+                        <td>{{$articulo->preciocom}}</td>
+                        <td>{{$articulo->marca}}</td>
+                        <td>{{$articulo->stock}}</td>
+                        <td>{{$articulo->fecha_cad}}</td>
+                        <td>{{$articulo->precio_u}}</td>
+                        <td>{{$articulo->Categoria->nombre}}</td>
+                        <td>{{$articulo->Subcategoria->nombre}}</td>
+                        <td>{{$articulo->Clinica->nombre}}</td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
                                     data-target="#editarModal"
-                                    data-id="{{$artis->id}}"
-                                    data-nombre="{{$artis->nombre}}"
-                                    data-preciocom="{{$artis->preciocom}}"
-                                    data-marca="{{$artis->marca}}"
-                                    data-stock="{{$artis->stock}}"
-                                    data-fecha_cad="{{$artis->fecha_cad}}"
-                                    data-precio_u="{{$artis->precio_u}}"
+                                    data-id="{{$articulo->id}}"
+                                    data-nombre="{{$articulo->nombre}}"
+                                    data-preciocom="{{$articulo->preciocom}}"
+                                    data-marca="{{$articulo->marca}}"
+                                    data-stock="{{$articulo->stock}}"
+                                    data-fecha_cad="{{$articulo->fecha_cad}}"
+                                    data-precio_u="{{$articulo->precio_u}}"
+                                    data-categoria="{{$articulo->categoria_id}}"
+                                    data-subcategoria="{{$articulo->subcategoria_id}}"
+                                    data-clinica="{{$articulo->clinica_id}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
-                                    data-id="{{$artis->id}}"
-                                    data-nombre="{{$artis->nombre}}"
-                                    data-preciocom="{{$artis->preciocom}}"
-                                    data-marca="{{$artis->marca}}"
-                                    data-stock="{{$artis->stock}}"
-                                    data-fecha_cad="{{$artis->fecha_cad}}"
-                                    data-precio_u="{{$artis->precio_u}}"
+                                    data-id="{{$articulo->id}}"
+                                    data-nombre="{{$articulo->nombre}}"
+                                    data-preciocom="{{$articulo->preciocom}}"
+                                    data-marca="{{$articulo->marca}}"
+                                    data-stock="{{$articulo->stock}}"
+                                    data-fecha_cad="{{$articulo->fecha_cad}}"
+                                    data-precio_u="{{$articulo->precio_u}}"
+                                    data-categoria="{{$articulo->categoria}}"
+                                    data-subcategoria="{{$articulo->subcategoria}}"
+                                    data-clinica="{{$articulo->clinica}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
                             </td>
@@ -134,35 +174,77 @@ $("#eliminar-clinica-id").val(articuloId);
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
-                                <div class="form-group">
+                                <div class="form-group row">
+                                    <div class="col-6">
                                     <label for="in_atributo1">Nombre: </label>
                                         <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo2">Precio Compra: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="preciocom" name="preciocom">
 
                                 </div>
 
-                                <div class="form-group">
+
+                            </div>
+
+                                <div class="form-group row">
+                                    <div class="col-6">
                                     <label for="in_atributo3">Marca: </label>
                                     <input type="text" required class="form-control" id="marca" name="marca">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="in_atributo2">Stock: </label>
+                                <div class="col-6">
+                                    <label for="in_atributo4">Stock: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="stock" name="stock">
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="in_atributo2">Fecha Caducidad: </label>
+                                <div class="form-group row">
+                                    <div class="col-6">
+                                    <label for="in_atributo5">Fecha Caducidad: </label>
                                     <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_cad" name="fecha_cad">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="in_atributo2">Precio Ut: </label>
+                                <div class="col-6">
+                                    <label for="in_atributo6">Precio Ut: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="precio_u" name="precio_u">
                                 </div>
+                            </div>
+
+
+                            <div class="form-group row ">
+                                <div class="col-6">
+                                        <label for="in_atributo7">Categoria</label>
+                                        <select class="form-control" name="categoria">
+                                            @foreach ($Categoria as $categoria)                                  
+                                                <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+
+
+                            <div class="col-6">
+                                        <label for="in_atributo8">Subcategoria</label>
+                                        <select class="form-control" name="subcategoria">
+                                            @foreach ($Subcategoria as $subcategoria)                                  
+                                                <option value="{{$subcategoria->id}}">{{$subcategoria->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+
+                            </div>
+
+
+                                <div class="form-group">
+                                        <label for="in_atributo9">Clinica</label>
+                                        <select class="form-control" name="clinica">
+                                            @foreach ($Clinicas as $clinica)                                  
+                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -187,35 +269,72 @@ $("#eliminar-clinica-id").val(articuloId);
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
-                                    <div class="form-group">
+                                    <div class="form-group row ">
+                                        <div class="col-6">
                                         <label for="editar-nombre">Nombre:</label>
                                             <input type="text" required class="form-control" id="editar-articulo-nombre" name="nombre">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="col-6">
                                         <label for="editar-articulo-precio">Precio Compra:</label>
                                         <input type="text" required class="form-control" id="editar-articulo-precio" name="preciocom">
                                     </div>
+                                </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
+                                        <div class="col-6">
                                         <label for="editar-articulo-marca">Marca: </label>
                                         <input type="text" required class="form-control" id="editar-articulo-marca" name="marca">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="col-6">
                                         <label for="editar-articulo-stock">Stock: </label>
                                         <input type="number" min="1" max="1000" required class="form-control" id="editar-articulo-stock" name="stock">
                                     </div>
+                                </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
+                                        <div class="col-6">
                                         <label for="editar-articulo-fecha">Fecha Cad: </label>
                                         <input type="date" min="2019-01-01" max="2025-12-31" required class="form-control" id="editar-articulo-fecha" name="fecha_cad">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="col-6">
                                         <label for="editar-articulo-preciou">Precio Un</label>
                                         <input type="text" required class="form-control" id="editar-articulo-preciou" name="precio_u">
                                     </div>
+                                </div>
+
+                            <div class="form-group row">
+                                <div class="col-6">
+                                        <label for="editar-categoria">Categoria</label>
+                                        <select required class="form-control" name="categoria" id="editar-categoria">
+                                            @foreach ($Categoria as $categoria)                                  
+                                                <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+
+
+                            <div class="col-6">
+                                        <label for="editar-subcategoria">Subcategoria</label>
+                                        <select required class="form-control" name="subcategoria" id="editar-subcategoria">
+                                            @foreach ($Subcategoria as $subcategoria)                                  
+                                                <option value="{{$subcategoria->id}}">{{$subcategoria->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+
+                            </div>
+
+                                <div class="form-group">
+                                    <label for="editar-doctor-clinica">Clínica</label>
+                                    <select class="form-control" name="clinica" id="editar-doctor-clinica">
+                                        @foreach ($Clinicas as $clinica)                                  
+                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
 
                                 </div>
                                 <div class="modal-footer">

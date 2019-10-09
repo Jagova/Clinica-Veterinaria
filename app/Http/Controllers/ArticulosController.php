@@ -14,10 +14,20 @@ class ArticulosController extends Controller
      */
     public function index()
     {
-                $artis = \App\articulos::all();
+        $articulo = \App\articulos::all();
+
+        $clinicas = \App\Clinica::all();
+
+        $subcategoria = \App\subcategorias::all();
+
+        $categoria = \App\categoria::all();
+
         return view('Articulos.index',
         [
-            'Articulos' => $artis
+            'Articulos' => $articulo,
+            'Clinicas' => $clinicas,
+            'Subcategoria' => $subcategoria,
+            'Categoria' => $categoria 
         ]
         );
     }
@@ -47,17 +57,24 @@ class ArticulosController extends Controller
             'stock' => 'required',
             'fecha_cad' => 'required',
             'precio_u' => 'required',
+            'categoria'=> 'required',
+            'subcategoria' =>'required',
+            'clinica' => 'required',
         ]);
 
 
-        $articulo = new \App\articulos;
-        $articulo->nombre = $request->get('nombre');
-        $articulo->preciocom = $request->get('preciocom');
-        $articulo->marca = $request->get('marca');
-        $articulo->stock = $request->get('stock');
-        $articulo->fecha_cad = $request->get('fecha_cad');
-        $articulo->precio_u = $request->get('precio_u');
-        $articulo->save();
+        $narticulo = new \App\articulos;
+        $narticulo->nombre = $request->get('nombre');
+        $narticulo->preciocom = $request->get('preciocom');
+        $narticulo->marca = $request->get('marca');
+        $narticulo->stock = $request->get('stock');
+        $narticulo->fecha_cad = $request->get('fecha_cad');
+        $narticulo->precio_u = $request->get('precio_u');
+        $narticulo->categoria_id = $request->get('categoria');
+        $narticulo->subcategoria_id = $request->get('subcategoria');
+        $narticulo->clinica_id = $request->get('clinica');
+
+        $narticulo->save();
         return redirect('/articulos');
     }
 
@@ -100,16 +117,22 @@ class ArticulosController extends Controller
             'stock' => 'required',
             'fecha_cad' => 'required',
             'precio_u' => 'required',
+            'categoria'=> 'required',
+            'subcategoria' =>'required',
+            'clinica' => 'required',
         ]);
 
-        $artis = \App\articulos::find($id);
-        $artis->nombre=$request->get('nombre');
-        $artis->precioCom=$request->get('preciocom');
-        $artis->marca=$request->get('marca');
-        $artis->stock=$request->get('stock');
-        $artis->fecha_cad=$request->get('fecha_cad');
-        $artis->precio_u=$request->get('precio_u');
-        $artis->save();
+        $articulo = \App\articulos::find($id);
+        $articulo->nombre=$request->get('nombre');
+        $articulo->precioCom=$request->get('preciocom');
+        $articulo->marca=$request->get('marca');
+        $articulo->stock=$request->get('stock');
+        $articulo->fecha_cad=$request->get('fecha_cad');
+        $articulo->precio_u=$request->get('precio_u');
+        $articulo->categoria_id = $request->get('categoria');
+        $articulo->subcategoria_id = $request->get('subcategoria');
+        $articulo->clinica_id = $request->get('clinica');
+        $articulo->save();
         return redirect('/articulos');
     }
 
@@ -121,8 +144,8 @@ class ArticulosController extends Controller
      */
     public function destroy($id)
     {
-         $artis = \App\articulos::find($id);
-        $artis->delete();
+         $articulo = \App\articulos::find($id);
+        $articulo->delete();
         return redirect('/articulos');
     }
 }

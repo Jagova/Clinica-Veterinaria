@@ -27,6 +27,14 @@ class CreateArticulosTable extends Migration
 
             $table->string('precio_u')->required();;
 
+            $table->unsignedInteger('categoria_id')->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+
+            $table->unsignedInteger('subcategoria_id')->foreign('subcategoria_id')->references('id')->on('subcategorias')->onDelete('cascade');
+
+            $table->unsignedInteger('clinica_id')->foreign('clinica_id')->references('id')->on('clinicas')->onDelete('cascade');
+
+
+
             $table->timestamps();
         });
     }

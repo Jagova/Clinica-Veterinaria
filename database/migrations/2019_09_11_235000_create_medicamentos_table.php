@@ -27,6 +27,8 @@ class CreateMedicamentosTable extends Migration
             $table->string('fecha_caducidad');
             $table->string('stock');
             
+            $table->unsignedInteger('clinica_id')->foreign('clinica_id')->references('id')->on('clinicas')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

@@ -15,9 +15,11 @@ class MedicamentosController extends Controller
     public function index()
     {
         $medis = \App\medicamentos::all();
+        $clinicas = \App\Clinica::all();
         return view('Medicamentos.index',
         [
-            'Medicamentos' => $medis
+            'Medicamentos' => $medis,
+            'Clinicas' => $clinicas
         ]
         );
     }
@@ -52,6 +54,7 @@ class MedicamentosController extends Controller
             'controlado' => 'required',
             'fecha_caducidad' => 'required',
             'stock' => 'required',
+            'clinica' => 'required',
         ]);
 
 
@@ -66,6 +69,8 @@ class MedicamentosController extends Controller
         $medis->controlado= $request->get('controlado');
         $medis->fecha_caducidad= $request->get('fecha_caducidad');
         $medis->stock= $request->get('stock');
+        $medis->clinica_id = $request->get('clinica');
+
         $medis->save();
         return redirect('/medicamentos');
     }
@@ -112,6 +117,7 @@ class MedicamentosController extends Controller
         'controlado' => 'required',
         'fecha_caducidad' => 'required',
         'stock' => 'required',
+        'clinica' => 'required',
         ]);
 
         $medis = \App\Medicamentos::find($id);
@@ -124,7 +130,8 @@ class MedicamentosController extends Controller
         $medis->paq_unidad= $request->get('paq_unidad');
         $medis->controlado= $request->get('controlado');
         $medis->fecha_caducidad= $request->get('fecha_caducidad');
-        $medis->stock= $request->get('stock');
+        $medis->stock = $request->get('stock');
+        $medis->clinica_id = $request->get('clinica');
         $medis->save();
         return redirect('/medicamentos');
     }
