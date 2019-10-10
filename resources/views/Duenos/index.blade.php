@@ -39,10 +39,42 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         $("#editar-dueno-razon_social").val(duenoRazonSocial);
         document.getElementById('form-editar').action = "duenos/" + duenoId;
     });
-    </script>
+</script>
+
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var duenoNombre = $(this).data('nombre');
+        var duenoId = $(this).data('id');
+        var duenoApPaterno = $(this).data('apellido_paterno');
+        var duenoApMaterno = $(this).data('apellido_materno');
+        var duenoTelefono = $(this).data('telefono');
+        var duenoDireccion = $(this).data('direccion');
+        var duenoCelular = $(this).data('celular');
+        var duenoCorreo = $(this).data('correo');
+        var duenoRFC = $(this).data('rfc');
+        var duenoCP = $(this).data('codigo_postal');
+        var duenoRazonSocial = $(this).data('razon_social');
+        $("#consultar-dueno-nombre").val(duenoNombre);
+        $("#consultar-dueno-apellido_paterno").val(duenoApPaterno);
+        $("#consultar-dueno-apellido_materno").val(duenoApMaterno);
+        $("#consultar-dueno-telefono").val(duenoTelefono);
+        $("#consultar-dueno-direccion").val(duenoDireccion);
+        $("#consultar-dueno-celular").val(duenoCelular);
+        $("#consultar-dueno-correo").val(duenoCorreo);
+        $("#consultar-dueno-rfc").val(duenoRFC);
+        $("#consultar-dueno-codigo_postal").val(duenoCP);
+        $("#consultar-dueno-razon_social").val(duenoRazonSocial);
+        document.getElementById('form-editar').action = "duenos/" + duenoId;
+    });
+</script>
 
        
+
+
 <div class="container-fluid">
+
+<!--Muestra los errores-->
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -54,6 +86,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 @endif
     <div class="row p-5"><h1 class="display-1">Dueños <i class="fas fa-users icon-orange"></i> </h1></div>
           
+    <!--Consultar-->
     <div class="row p-5">
         <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueno</button>
         <table class="table" id="table1">
@@ -70,7 +103,20 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 @foreach ($Duenos as $dueno)
                     <tr>
                         <td>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_{{$dueno->id}}" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$dueno->id}}"
+                            data-nombre="{{$dueno->nombre}}"
+                            data-apellido_paterno="{{$dueno->apellido_paterno}}"
+                            data-apellido_materno="{{$dueno->apellido_materno}}"
+                            data-telefono="{{$dueno->telefono}}"
+                            data-direccion="{{$dueno->direccion}}"
+                            data-celular="{{$dueno->celular}}"
+                            data-correo="{{$dueno->correo}}"
+                            data-rfc="{{$dueno->rfc}}"
+                            data-codigo_postal="{{$dueno->codigo_postal}}"
+                            data-razon_social="{{$dueno->razon_social}}"
+                            >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
                         </td>
@@ -99,35 +145,79 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     data-toggle="modal" data-target="#eliminarModal"
                                     data-id="{{$dueno->id}}"
                                     data-nombre="{{$dueno->nombre}}"
+                                    data-apellido_paterno="{{$dueno->apellido_paterno}}"
                                     >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                     </div>
                             </td>
                         </tr>
-                        <tr class="collapse" id="collapse_{{$dueno->id}}">
-                            <td></td>
-                            <td></td>
-                            <td>{{$dueno->telefono}}</td>
-                            <td>{{$dueno->direccion}}</td>
-                            <td>{{$dueno->celular}}</td>
-
-                        </tr>
-                        <tr class="collapse" id="collapse_{{$dueno->id}}">
-                            <td></td>
-                            <td></td>
-                            <td>{{$dueno->correo}}</td>
-                            <td>{{$dueno->rfc}}</td>
-                            <td>{{$dueno->codigo_postal}}</td>
-                            
-                        </tr>
-                        <tr class="collapse" id="collapse_{{$dueno->id}}">
-                            <td></td>
-                            <td></td>
-                            <td>{{$dueno->razon_social}}</td>
-                            
-                        </tr>
+                        
                         @endforeach
                         </tbody>           
                 </table>
+            </div>
+
+
+            <!-- Modal Consultar -->
+            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar dueño</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="/duenos" method="POST">
+                            @csrf
+                            @method('POST')
+                        <div class="modal-body">                          
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Nombre</label>
+                                    <p id="nombre" name="nombre">{{$dueno->nombre}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Apellido Paterno</label>
+                                    <p id="apellido_paterno" name="apellido_paterno">{{$dueno->apellido_paterno}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Apellido Materno</label>
+                                    <p id="apellido_materno" name="apellido_materno">{{$dueno->apellido_materno}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Teléfono</label>
+                                    <p id="telefono" name="telefono">{{$dueno->telefono}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo2" style="font-weight:bold" >Dirección</label>
+                                    <p id="direccion" name="direccion">{{$dueno->direccion}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Celular</label>
+                                    <p id="celular" name="celular">{{$dueno->celular}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Correo</label>
+                                    <p id="correo" name="correo">{{$dueno->correo}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >RFC</label>
+                                    <p id="rfc" name="rfc" style="text-transform: uppercase">{{$dueno->rfc}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Código Postal</label>
+                                    <p id="codigp_postal" name="codigo_postal">{{$dueno->codigo_postal}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="in_atributo1" style="font-weight:bold" >Razón Social</label>
+                                    <p id="razon_social" name="razon_social">{{$dueno->razon_social}}</p>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
             </div>
 
             
@@ -159,7 +249,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Teléfono</label>
-                                        <input type="number" required class="form-control" id="telefono" name="telefono">
+                                        <input type="number" maxlength="10" required class="form-control" id="telefono" name="telefono">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo2">Dirección</label>
@@ -167,19 +257,19 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Celular</label>
-                                        <input type="number" required class="form-control" id="celular" name="celular">
+                                        <input type="number" maxlength="10" required class="form-control" id="celular" name="celular">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Correo</label>
-                                        <input type="email" required class="form-control" id="correo" name="correo">
+                                        <input type="email" maxlength="100" required class="form-control" id="correo" name="correo">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">RFC</label>
-                                        <input type="text" required class="form-control" id="rfc" name="rfc">
+                                        <input type="text" maxlength="13" required class="form-control" id="rfc" name="rfc" style="text-transform: uppercase">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Código Postal</label>
-                                        <input type="number" required class="form-control" id="codigp_postal" name="codigo_postal">
+                                        <input type="number" maxlength="5" required class="form-control" id="codigp_postal" name="codigo_postal">
                                 </div>
                                 <div class="form-group">
                                     <label for="in_atributo1">Razón Social</label>
@@ -223,7 +313,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-telefono">Teléfono</label>
-                                            <input type="number" required class="form-control" id="editar-dueno-telefono" name="telefono">
+                                            <input type="number" maxlength="10" required class="form-control" id="editar-dueno-telefono" name="telefono">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-direccion">Dirección</label>
@@ -231,7 +321,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-celular">Celular</label>
-                                            <input type="number" class="form-control" id="editar-dueno-celular" name="celular">
+                                            <input type="number" maxlength="10" class="form-control" id="editar-dueno-celular" name="celular">
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-correo">Correo</label>
@@ -239,11 +329,11 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-rfc">RFC</label>
-                                            <input type="text" class="form-control" id="editar-dueno-rfc" name="rfc">
+                                            <input type="text" maxlength="13" class="form-control" id="editar-dueno-rfc" name="rfc">
                                     </div>
                                     <div class="form-group">
                                     <label for="in_atributo1">Código Postal</label>
-                                        <input type="number" required class="form-control" id="editar-dueno-codigo_postal" name="codigo_postal">
+                                        <input type="number" maxlength="5" required class="form-control" id="editar-dueno-codigo_postal" name="codigo_postal">
                                 </div>
                                     <div class="form-group">
                                         <label for="editar-dueno-razon_social">Razón Social</label>
@@ -272,10 +362,10 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro de eliminar al dueno <span id="eliminar-dueno-nombre"></span>? 
+                                ¿Estás seguro de eliminar al dueño <span id="eliminar-dueno-nombre">{{$dueno->nombre}} {{$dueno->apellido_paterno}}</span>? 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Eliminar</button>
                             </div>
                             </form>
