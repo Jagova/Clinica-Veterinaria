@@ -65,6 +65,44 @@ $("#eliminar-clinica-id").val(medicinaId);
     });
     </script>
 
+    <!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var doctorClinica = $(this).data('clinica');
+    var medicinaId = $(this).data('id');
+
+    var medicinaNombre = $(this).data('nombre');
+    var presentacion = $(this).data('presentacion');
+
+    var ml_mg = $(this).data('ml_mg');
+    var compuesto = $(this).data('compuesto');
+
+    var precio = $(this).data('precio');
+    var laboratorio = $(this).data('laboratorio');
+
+    var paq_unidad = $(this).data('paq_unidad');
+    var controlado = $(this).data('controlado');
+
+    var fecha_caducidad = $(this).data('fecha_caducidad');
+    var stock = $(this).data('stock');
+
+        $("#consultar-m-nombre").val(medicinaNombre);
+        $("#consultar-m-presentacion").val(presentacion);
+
+        $("#consultar-m-mlmg").val(ml_mg);
+        $("#consultar-m-compuesto").val(compuesto);
+
+        $("#consultar-m-precio").val(precio);
+        $("#consultar-m-laboratorio").val(laboratorio);
+
+        $("#consultar-m-paqunidad").val(paq_unidad);
+        $("#consultar-m-controlado").val(controlado);
+
+        $("#consultar-m-fechcad").val(fecha_caducidad);
+        $("#consultar-m-stock").val(stock);
+    });
+</script>
+
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Inventario  <i class="fas fa-pills"></i> </h1>

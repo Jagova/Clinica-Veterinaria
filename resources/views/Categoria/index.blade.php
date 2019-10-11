@@ -20,16 +20,25 @@ $("#eliminar-clinica-id").val(articuloId);
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
     var articuloNombre = $(this).data('nombre');
-        var articuloId = $(this).data('id');
+    var articuloId = $(this).data('id');
 
     console.log(articuloId);
 
 
-        $("#editar-articulo-nombre").val(articuloNombre);
+    $("#editar-articulo-nombre").val(articuloNombre);
 
         document.getElementById('form-editar').action = "categorias/" + articuloId;
     });
     </script>
+
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+    var articuloNombre = $(this).data('nombre');
+    var articuloId = $(this).data('id');
+    $("#consultar-articulo-nombre").val(articuloNombre);
+    });
+</script>
 
        
 <div class="container-fluid">

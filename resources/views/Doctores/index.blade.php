@@ -35,6 +35,26 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         document.getElementById('form-editar').action = "doctores/" + doctorId;
     });
 </script>
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var doctorNombre1 = $(this).data('nombre1');
+        var doctorNombre2 = $(this).data('nombre2');
+        var doctorApellido1 = $(this).data('apellido1');
+        var doctorApellido2 = $(this).data('apellido2');
+        var doctorEspecialidad1 = $(this).data('especialidad1');
+        var doctorEspecialidad2 = $(this).data('especialidad2');
+        var doctorClinica = $(this).data('clinica');
+        var doctorId = $(this).data('id');
+        $("#consultar-doctor-nombre1").val(doctorNombre1);
+        $("#consultar-doctor-nombre2").val(doctorNombre2);
+        $("#consultar-doctor-apellido1").val(doctorApellido1);
+        $("#consultar-doctor-apellido2").val(doctorApellido2);
+        $("#consultar-doctor-especialidad1").val(doctorEspecialidad1);
+        $("#consultar-doctor-especialidad2").val(doctorEspecialidad2);
+        $("#consultar-doctor-clinica").val(doctorClinica);
+    });
+</script>
 
 
        

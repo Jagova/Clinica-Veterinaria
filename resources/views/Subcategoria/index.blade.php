@@ -31,6 +31,15 @@ $("#eliminar-clinica-id").val(articuloId);
     });
     </script>
 
+    <!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var articuloNombre = $(this).data('nombre');
+        var articuloId = $(this).data('id');
+        $("#consultar-articulo-nombre").val(articuloNombre);
+    });
+</script>
+
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">SubCategorias <i class="fas fa-boxes"></i> </h1>

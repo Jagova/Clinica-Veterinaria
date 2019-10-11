@@ -27,6 +27,18 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     });
 </script>
 
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var servicioNombre = $(this).data('nombre');
+        var servicioClinica = $(this).data('clinica');
+        var servicioPrecio = $(this).data('precio');
+        var servicioId = $(this).data('id');
+        $("#consultar-nombre").val(servicioNombre);
+        $("#consultar-precio").val(servicioPrecio);
+        $("#consultar-clinica").val(servicioClinica);
+    });
+</script>
 
        
 <div class="container-fluid">

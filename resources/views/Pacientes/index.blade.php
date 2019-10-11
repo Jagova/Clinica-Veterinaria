@@ -36,6 +36,28 @@
         });
 </script>
 
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var pacienteId = $(this).data('id');
+            var pacienteNombre = $(this).data('nombre');
+            var pacienteEdad = $(this).data('edad');
+            var pacienteEspecie = $(this).data('especie');
+            var pacienteRaza = $(this).data('raza');
+            var pacienteDuenioId = $(this).data('duenioid');
+            var pacienteDoctorId = $(this).data('doctorid');
+            console.log(pacienteDoctorId);
+            console.log(pacienteEspecie);
+
+            $("#consultar-paciente-nombre").val(pacienteNombre);
+            $("#consultar-paciente-edad").val(pacienteEdad);
+            $("#consultar-paciente-especie").val(pacienteEspecie);
+            $("#consultar-paciente-raza").val(pacienteRaza);
+            $("#consultar-paciente-duenio-id").val(pacienteDuenioId);
+            $("#consultar-paciente-doctor-id").val(pacienteDoctorId);
+    });
+</script>
+
 <div class="container-fluid">
         @if ($errors->any())
         <div class="alert alert-danger">
