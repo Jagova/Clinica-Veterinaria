@@ -66,7 +66,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     data-nombre2="{{$doctor->segundo_nombre}}"
                                     data-apellido1="{{$doctor->apellido_paterno}}"
                                     data-apellido2="{{$doctor->apellido_materno}}"
-                                    data-especialidad1="{{$doctor->especialidad_1}}"
+                                    data-especialidad1="{       {$doctor->especialidad_1}}"
                                     data-especialidad2="{{$doctor->especialidad_2}}"
                                     data-clinica="{{$doctor->clinica_id}}"
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
