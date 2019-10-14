@@ -31,6 +31,15 @@ $("#eliminar-clinica-id").val(articuloId);
     });
     </script>
 
+    <!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var articuloNombre = $(this).data('nombre');
+        var articuloId = $(this).data('id');
+        $("#consultar-articulo-nombre").val(articuloNombre);
+    });
+</script>
+
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">SubCategorias <i class="fas fa-boxes"></i> </h1>
@@ -53,6 +62,15 @@ $("#eliminar-clinica-id").val(articuloId);
 
                         @foreach ($Subcategoria as $subcategoria)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$subcategoria->id}}"
+                                    data-nombre="{{$subcategoria->nombre}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$subcategoria->id}}</td>
                         <td>{{$subcategoria->nombre}}</td>   
                         <td>

@@ -3,15 +3,15 @@
 @section('contenido')
 
 <script>
-$(document).on("click", ".abrirEliminaModal", function (event) {
-    var doctorNombre = $(this).data('nombre');
-    var doctorClinica = $(this).data('clinica');
-    var doctorId = $(this).data('id');
-    $("#eliminar-doctor-id").val(doctorId);
-    document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
-    console.log(doctorId);
-    document.getElementById('form-eliminar').action = "doctores/" + doctorId;
-});
+    $(document).on("click", ".abrirEliminaModal", function (event) {
+        var doctorNombre = $(this).data('nombre');
+        var doctorClinica = $(this).data('clinica');
+        var doctorId = $(this).data('id');
+        $("#eliminar-doctor-id").val(doctorId);
+        document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
+        console.log(doctorId);
+        document.getElementById('form-eliminar').action = "doctores/" + doctorId;
+    });
 </script>
 
 
@@ -36,6 +36,27 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     });
 </script>
 
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var doctorNombre1 = $(this).data('nombre1');
+        var doctorNombre2 = $(this).data('nombre2');
+        var doctorApellido1 = $(this).data('apellido1');
+        var doctorApellido2 = $(this).data('apellido2');
+        var doctorEspecialidad1 = $(this).data('especialidad1');
+        var doctorEspecialidad2 = $(this).data('especialidad2');
+        var doctorClinica = $(this).data('clinica');
+        var doctorId = $(this).data('id');
+        $("#consultar-doctor-nombre1").val(doctorNombre1);
+        $("#consultar-doctor-nombre2").val(doctorNombre2);
+        $("#consultar-doctor-apellido1").val(doctorApellido1);
+        $("#consultar-doctor-apellido2").val(doctorApellido2);
+        $("#consultar-doctor-especialidad1").val(doctorEspecialidad1);
+        $("#consultar-doctor-especialidad2").val(doctorEspecialidad2);
+        $("#consultar-doctor-clinica").val(doctorClinica);
+    });
+</script>
+
 
        
 <div class="container-fluid">
@@ -54,6 +75,21 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <tbody>
                         @foreach ($Doctores as $doctor)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$doctor->id}}"
+                            data-nombre1="{{$doctor->primer_nombre}}"
+                            data-nombre2="{{$doctor->segundo_nombre}}"
+                            data-apellido1="{{$doctor->apellido_paterno}}"
+                            data-apellido2="{{$doctor->apellido_materno}}"
+                                    data-especialidad1="{{$doctor->especialidad_1}}"
+                                    data-especialidad2="{{$doctor->especialidad_2}}"
+                                    data-clinica="{{$doctor->clinica_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$doctor->id}}</td>
                         <td>{{$doctor->primer_nombre}} {{$doctor->apellido_paterno}}</td>   
                         <td>{{$doctor->Clinica->nombre}}</td>

@@ -20,16 +20,26 @@ $("#eliminar-clinica-id").val(articuloId);
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
     var articuloNombre = $(this).data('nombre');
-        var articuloId = $(this).data('id');
+    var articuloId = $(this).data('id');
 
     console.log(articuloId);
 
 
-        $("#editar-articulo-nombre").val(articuloNombre);
+    $("#editar-articulo-nombre").val(articuloNombre);
 
         document.getElementById('form-editar').action = "categorias/" + articuloId;
     });
     </script>
+
+
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+    var articuloNombre = $(this).data('nombre');
+    var articuloId = $(this).data('id');
+    $("#consultar-articulo-nombre").val(articuloNombre);
+    });
+</script>
 
        
 <div class="container-fluid">
@@ -53,6 +63,15 @@ $("#eliminar-clinica-id").val(articuloId);
 
                         @foreach ($Categoria as $categoria)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$categoria->id}}"
+                                    data-nombre="{{$categoria->nombre}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$categoria->id}}</td>
                         <td>{{$categoria->nombre}}</td>   
                         <td>

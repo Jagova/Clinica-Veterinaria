@@ -65,7 +65,6 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         $("#consultar-dueno-rfc").val(duenoRFC);
         $("#consultar-dueno-codigo_postal").val(duenoCP);
         $("#consultar-dueno-razon_social").val(duenoRazonSocial);
-        document.getElementById('form-editar').action = "duenos/" + duenoId;
     });
 </script>
 

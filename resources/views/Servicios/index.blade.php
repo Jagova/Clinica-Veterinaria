@@ -27,6 +27,18 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     });
 </script>
 
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var servicioNombre = $(this).data('nombre');
+        var servicioClinica = $(this).data('clinica');
+        var servicioPrecio = $(this).data('precio');
+        var servicioId = $(this).data('id');
+        $("#consultar-nombre").val(servicioNombre);
+        $("#consultar-precio").val(servicioPrecio);
+        $("#consultar-clinica").val(servicioClinica);
+    });
+</script>
 
        
 <div class="container-fluid">
@@ -54,6 +66,17 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <tbody>
                             @foreach ($Servicios as $servicio)
                             <tr>
+                            <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$servicio->id}}"
+                                        data-nombre="{{$servicio->nombre}}"
+                                        data-precio = "{{$servicio->precio}}"
+                                        data-clinica = "{{$servicio->clinica_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                             <td>{{$servicio->id}}</td>
                             <td>{{$servicio->nombre}}</td>   
                             <td>{{$servicio->precio}}</td>

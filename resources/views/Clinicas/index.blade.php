@@ -25,6 +25,17 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     });
     </script>
 
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var clinicaNombre = $(this).data('nombre');
+        var clinicaId = $(this).data('id');
+        var clinicaDireccion = $(this).data('direccion');
+        $("#consultar-clinica-nombre").val(clinicaNombre);
+        $("#consultar-clinica-direccion").val(clinicaDireccion);
+    });
+</script>
+
        
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Cli­nicas <i class="fas fa-hospital"></i> </h1></div>
