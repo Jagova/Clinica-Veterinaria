@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +49,8 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
         $request->validate([
             'nombre1' => 'required',
             'nombre2' => 'required',

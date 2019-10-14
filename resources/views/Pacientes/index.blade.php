@@ -57,6 +57,7 @@
                             <th >Edad</th>
                             <th >Especie</th>
                             <th >Raza</th>
+                            <th> Imagen </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -68,6 +69,7 @@
                         <td>{{$paciente->edad}}</td>
                         <td>{{$paciente->especie}}</td>
                         <td>{{$paciente->raza}}</td>
+                        <td><img  src="{{URL::asset($paciente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
 
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 

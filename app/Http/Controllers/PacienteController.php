@@ -48,6 +48,22 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
+        //Se pone una imagen por defecto
+        
+
+        
+ /*
+        if($request->hasfile('imagen')) 
+        { 
+        $file = $request->file('imagen');
+        $extension = $file->getClientOriginalExtension(); // getting image extension
+        $filename =time().'.'.$extension;
+        $file->move('Pacientes/', $filename);
+        }
+*/
+
+        
+
         $request->validate([
             'nombre' => 'required | max:200 | regex:/(^([a-zA-z- ]+$))/',
             'edad' => 'required | integer | min:0 | max:50 |regex: /^[0-9]+$/',
@@ -56,11 +72,20 @@ class PacienteController extends Controller
             'duenio_id' => 'required',
             'doctor_id' => 'required'
         ]);
+
+        $ruta = "Pacientes/circulos_estado-05.png"; 
+        //Se revisa si se cargo una imagen     
+        if ($request->hasFile('imagen')) {
+            $ruta = $request->imagen->store('Pacientes','public');
+        }
+
+
         $nuevoPaciente = new \App\Paciente;
         $nuevoPaciente->nombre = $request->get('nombre');
         $nuevoPaciente->edad = $request->get('edad');
         $nuevoPaciente->especie = $request->get('especie');
         $nuevoPaciente->raza = $request->get('raza');
+        $nuevoPaciente->urlImagen = "/storage/".$ruta;
         $nuevoPaciente->duenio_id = $request->get('duenio_id');
         $nuevoPaciente->doctor_id = $request->get('doctor_id');
         $nuevoPaciente->save();
