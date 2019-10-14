@@ -62,6 +62,15 @@ $("#eliminar-clinica-id").val(articuloId);
 
                         @foreach ($Subcategoria as $subcategoria)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$subcategoria->id}}"
+                                    data-nombre="{{$subcategoria->nombre}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$subcategoria->id}}</td>
                         <td>{{$subcategoria->nombre}}</td>   
                         <td>

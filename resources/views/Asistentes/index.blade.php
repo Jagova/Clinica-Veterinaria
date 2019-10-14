@@ -43,8 +43,31 @@
     });
 </script>
 
-    
-        
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var asistenteNombre1 = $(this).data('nombre1');
+        var asistenteNombre2 = $(this).data('nombre2');
+        var asistenteApellido1 = $(this).data('apellido1');
+        var asistenteApellido2 = $(this).data('apellido2');
+        var asistenteEspecialidad1 = $(this).data('especialidad1');
+        var asistenteEspecialidad2 = $(this).data('especialidad2');
+        var asistenteTelefono = $(this).data('telefono');
+        var asistenteCorreo=  $(this).data('correo');
+        var asistenteClinica = $(this).data('clinica');
+        var asistenteId = $(this).data('id');
+       
+        $("#consultar-asistente-nombre1").val(asistenteNombre1);
+        $("#consultar-asistente-nombre2").val(asistenteNombre2);
+        $("#consultar-asistente-apellido1").val(asistenteApellido1);
+        $("#consultar-asistente-apellido2").val(asistenteApellido2);
+        $("#consultar-asistente-especialidad1").val(asistenteEspecialidad1);
+        $("#consultar-asistente-especialidad2").val(asistenteEspecialidad2);
+        $("#consultar-asistente-correo").val(asistenteCorreo);
+        $("#consultar-asistente-telefono").val(asistenteTelefono);
+        $("#consultar-asistente-clinica").val(asistenteClinica);
+    });
+</script> 
    
 
        
@@ -75,6 +98,23 @@
                     <tbody>
                         @foreach ($Asistentes as $asistente)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$asistente->id}}"
+                                    data-nombre1="{{$asistente->primer_nombre}}"
+                                    data-nombre2="{{$asistente->segundo_nombre}}"
+                                    data-apellido1="{{$asistente->apellido_paterno}}"
+                                    data-apellido2="{{$asistente->apellido_materno}}"
+                                    data-especialidad1="{{$asistente->especialidad_1}}"
+                                    data-especialidad2="{{$asistente->especialidad_2}}"
+                                    data-correo="{{$asistente->correo}}"
+                                    data-telefono="{{$asistente->telefono}}"
+                                    data-clinica="{{$asistente->clinica_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$asistente->id}}</td>
                         <td>{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}}</td>   
                         <td>{{$asistente->clinica_id}}</td>

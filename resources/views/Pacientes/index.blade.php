@@ -92,6 +92,20 @@
                         <td>{{$paciente->raza}}</td>
 
                         <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$paciente->id}}"
+                                    data-nombre="{{$paciente->nombre}}"
+                                    data-edad = "{{$paciente->edad}}"
+                                    data-especie = "{{$paciente->especie}}"
+                                    data-raza = "{{$paciente->raza}}"
+                                    data-duenioid="{{$paciente->duenio_id}}"
+                                    data-doctorid = "{{$paciente->doctor_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
+                        <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
                                     data-target="#editarModal"

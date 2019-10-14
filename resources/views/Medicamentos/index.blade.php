@@ -137,6 +137,20 @@ $("#eliminar-clinica-id").val(medicinaId);
 
                         @foreach ($Medicamentos as $medis)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$medis->id}}" data-nombre="{{$medis->nombre}}"
+                                    data-presentacion="{{$medis->presentacion}}" data-ml_mg="{{$medis->ml_mg}}"
+                                    data-compuesto="{{$medis->compuesto}}"data-precio="{{$medis->precio}}"
+                                    data-laboratorio="{{$medis->laboratorio}}"data-paq_unidad="{{$medis->paq_unidad}}"
+                                    data-controlado="{{$medis->controlado}}"
+                                    data-fecha_caducidad="{{$medis->fecha_caducidad}}"
+                                    data-stock="{{$medis->stock}}"data-clinica="{{$medis->clinica_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$medis->id}}</td>
                         <td>{{$medis->nombre}}</td>   
                         <td>{{$medis->presentacion}}</td>

@@ -66,6 +66,17 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <tbody>
                             @foreach ($Servicios as $servicio)
                             <tr>
+                            <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$servicio->id}}"
+                                        data-nombre="{{$servicio->nombre}}"
+                                        data-precio = "{{$servicio->precio}}"
+                                        data-clinica = "{{$servicio->clinica_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                             <td>{{$servicio->id}}</td>
                             <td>{{$servicio->nombre}}</td>   
                             <td>{{$servicio->precio}}</td>

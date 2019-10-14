@@ -4,44 +4,39 @@
 
 
 <script>
-$(document).on("click", ".abrirEliminaModal", function (event) {
-    var doctorClinica = $(this).data('clinica');
-    var categoria = $(this).data('categoria');
-    var subcategoria = $(this).data('subcategoria');
-    var articuloNombre = $(this).data('nombre');
-    var articuloId = $(this).data('id');
-    var preciocom = $(this).data('preciocom');
-    var marca = $(this).data('marca');
-    var stock = $(this).data('stock');
-    var fecha_cad = $(this).data('fecha_cad');
-    var precio_u = $(this).data('precio_u');
-
-
-
-    
-$("#eliminar-clinica-id").val(articuloId);
-    document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
-    document.getElementById('form-eliminar').action = "articulos/" + articuloId;
-});
+    $(document).on("click", ".abrirEliminaModal", function (event) {
+        var doctorClinica = $(this).data('clinica');
+        var categoria = $(this).data('categoria');
+        var subcategoria = $(this).data('subcategoria');
+        var articuloNombre = $(this).data('nombre');
+        var articuloId = $(this).data('id');
+        var preciocom = $(this).data('preciocom');
+        var marca = $(this).data('marca');
+        var stock = $(this).data('stock');
+        var fecha_cad = $(this).data('fecha_cad');
+        var precio_u = $(this).data('precio_u');
+        $("#eliminar-clinica-id").val(articuloId);
+        document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
+        document.getElementById('form-eliminar').action = "articulos/" + articuloId;
+    });
 </script>
 
 <!--Script para editar un modal-->
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
 
-    var doctorClinica = $(this).data('clinica');
+        var doctorClinica = $(this).data('clinica');
 
-    var articuloNombre = $(this).data('nombre');
-    var articuloId = $(this).data('id');
-    var preciocom = $(this).data('preciocom');
- //   console.log(preciocom);
-    var marca = $(this).data('marca');
-    var stock = $(this).data('stock');
-    var fecha_cad = $(this).data('fecha_cad');
-    var precio_u = $(this).data('precio_u');
+        var articuloNombre = $(this).data('nombre');
+        var articuloId = $(this).data('id');
+        var preciocom = $(this).data('preciocom');
+        var marca = $(this).data('marca');
+        var stock = $(this).data('stock');
+        var fecha_cad = $(this).data('fecha_cad');
+        var precio_u = $(this).data('precio_u');
 
-    var categoria = $(this).data('categoria');
-    var subcategoria = $(this).data('subcategoria');
+        var categoria = $(this).data('categoria');
+        var subcategoria = $(this).data('subcategoria');
 
 
         $("#editar-articulo-nombre").val(articuloNombre);
@@ -63,6 +58,37 @@ $("#eliminar-clinica-id").val(articuloId);
     </script>
 
        
+
+
+
+<!--Script para abrir el modal consultar-->
+<script>
+    $(document).on("click", ".abrirConsultaModal", function (event) {
+        var doctorClinica = $(this).data('clinica');
+        var articuloNombre = $(this).data('nombre');
+        var articuloId = $(this).data('id');
+        var preciocom = $(this).data('preciocom');
+        var marca = $(this).data('marca');
+        var stock = $(this).data('stock');
+        var fecha_cad = $(this).data('fecha_cad');
+        var precio_u = $(this).data('precio_u');
+        var categoria = $(this).data('categoria');
+        var subcategoria = $(this).data('subcategoria');
+
+
+        $("#consultar-articulo-nombre").val(articuloNombre);
+        $("#consultar-articulo-precio").val(preciocom);
+        $("#consultar-articulo-marca").val(marca);
+        $("#consultar-articulo-stock").val(stock);
+        $("#consultar-articulo-fecha").val(fecha_cad);
+        $("#consultar-articulo-preciou").val(precio_u);
+        $("#consultar-categoria").val(categoria);
+        $("#consultar-subcategoria").val(subcategoria);
+        $("#consultar-doctor-clinica").val(doctorClinica);
+    });
+</script>
+
+
 <div class="container-fluid">
             <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-boxes"></i> </h1>
                 <div>             
@@ -111,6 +137,23 @@ $("#eliminar-clinica-id").val(articuloId);
 
                         @foreach ($Articulos as $articulo)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$articulo->id}}"
+                                    data-nombre="{{$articulo->nombre}}"
+                                    data-preciocom="{{$articulo->preciocom}}"
+                                    data-marca="{{$articulo->marca}}"
+                                    data-stock="{{$articulo->stock}}"
+                                    data-fecha_cad="{{$articulo->fecha_cad}}"
+                                    data-precio_u="{{$articulo->precio_u}}"
+                                    data-categoria="{{$articulo->categoria_id}}"
+                                    data-subcategoria="{{$articulo->subcategoria_id}}"
+                                    data-clinica="{{$articulo->clinica_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$articulo->id}}</td>
                         <td>{{$articulo->nombre}}</td>   
                         <td>{{$articulo->preciocom}}</td>

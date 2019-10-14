@@ -3,15 +3,15 @@
 @section('contenido')
 
 <script>
-$(document).on("click", ".abrirEliminaModal", function (event) {
-    var doctorNombre = $(this).data('nombre');
-    var doctorClinica = $(this).data('clinica');
-    var doctorId = $(this).data('id');
-    $("#eliminar-doctor-id").val(doctorId);
-    document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
-    console.log(doctorId);
-    document.getElementById('form-eliminar').action = "doctores/" + doctorId;
-});
+    $(document).on("click", ".abrirEliminaModal", function (event) {
+        var doctorNombre = $(this).data('nombre');
+        var doctorClinica = $(this).data('clinica');
+        var doctorId = $(this).data('id');
+        $("#eliminar-doctor-id").val(doctorId);
+        document.getElementById('eliminar-doctor-nombre').innerHTML = doctorNombre;
+        console.log(doctorId);
+        document.getElementById('form-eliminar').action = "doctores/" + doctorId;
+    });
 </script>
 
 
@@ -35,6 +35,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         document.getElementById('form-editar').action = "doctores/" + doctorId;
     });
 </script>
+
 <!--Script para abrir el modal consultar-->
 <script>
     $(document).on("click", ".abrirConsultaModal", function (event) {
@@ -74,6 +75,21 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <tbody>
                         @foreach ($Doctores as $doctor)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$doctor->id}}"
+                            data-nombre1="{{$doctor->primer_nombre}}"
+                            data-nombre2="{{$doctor->segundo_nombre}}"
+                            data-apellido1="{{$doctor->apellido_paterno}}"
+                            data-apellido2="{{$doctor->apellido_materno}}"
+                                    data-especialidad1="{{$doctor->especialidad_1}}"
+                                    data-especialidad2="{{$doctor->especialidad_2}}"
+                                    data-clinica="{{$doctor->clinica_id}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$doctor->id}}</td>
                         <td>{{$doctor->primer_nombre}} {{$doctor->apellido_paterno}}</td>   
                         <td>{{$doctor->Clinica->nombre}}</td>

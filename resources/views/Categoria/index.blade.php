@@ -31,6 +31,7 @@ $("#eliminar-clinica-id").val(articuloId);
     });
     </script>
 
+
 <!--Script para abrir el modal consultar-->
 <script>
     $(document).on("click", ".abrirConsultaModal", function (event) {
@@ -62,6 +63,15 @@ $("#eliminar-clinica-id").val(articuloId);
 
                         @foreach ($Categoria as $categoria)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                            data-toggle="modal"
+                            data-id="{{$categoria->id}}"
+                                    data-nombre="{{$categoria->nombre}}"
+                            >
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$categoria->id}}</td>
                         <td>{{$categoria->nombre}}</td>   
                         <td>
