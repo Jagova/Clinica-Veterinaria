@@ -166,50 +166,60 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/duenos" method="POST">
-                            @csrf
-                            @method('POST')
-                        <div class="modal-body">                          
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Nombre</label>
-                                    <p id="nombre" name="nombre">{{$dueno->nombre}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Apellido Paterno</label>
-                                    <p id="apellido_paterno" name="apellido_paterno">{{$dueno->apellido_paterno}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Apellido Materno</label>
-                                    <p id="apellido_materno" name="apellido_materno">{{$dueno->apellido_materno}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Teléfono</label>
-                                    <p id="telefono" name="telefono">{{$dueno->telefono}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo2" style="font-weight:bold" >Dirección</label>
-                                    <p id="direccion" name="direccion">{{$dueno->direccion}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Celular</label>
-                                    <p id="celular" name="celular">{{$dueno->celular}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Correo</label>
-                                    <p id="correo" name="correo">{{$dueno->correo}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >RFC</label>
-                                    <p id="rfc" name="rfc" style="text-transform: uppercase">{{$dueno->rfc}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Código Postal</label>
-                                    <p id="codigp_postal" name="codigo_postal">{{$dueno->codigo_postal}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="in_atributo1" style="font-weight:bold" >Razón Social</label>
-                                    <p id="razon_social" name="razon_social">{{$dueno->razon_social}}</p>
-                                </div>
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Nombre</label>
+                                        <p id="nombre" name="nombre">{{$dueno->nombre}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Apellido Paterno</label>
+                                        <p id="apellido_paterno" name="apellido_paterno">{{$dueno->apellido_paterno}}</p>
+                                    </td>
+                                </tr>                      
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Apellido Materno</label>
+                                        <p id="apellido_materno" name="apellido_materno">{{$dueno->apellido_materno}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Teléfono</label>
+                                        <p id="telefono" name="telefono">{{$dueno->telefono}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold" >Dirección</label>
+                                        <p id="direccion" name="direccion">{{$dueno->direccion}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Celular</label>
+                                        <p id="celular" name="celular">{{$dueno->celular}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Correo</label>
+                                        <p id="correo" name="correo">{{$dueno->correo}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >RFC</label>
+                                        <p id="rfc" name="rfc" style="text-transform: uppercase">{{$dueno->rfc}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Código Postal</label>
+                                        <p id="codigp_postal" name="codigo_postal">{{$dueno->codigo_postal}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Razón Social</label>
+                                        <p id="razon_social" name="razon_social">{{$dueno->razon_social}}</p>
+                                    </td>
+                                </tr>
+                                
+                            </table>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>

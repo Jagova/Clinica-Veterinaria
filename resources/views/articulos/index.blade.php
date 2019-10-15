@@ -298,6 +298,80 @@
                 </div>
             </div>
 
+            <!-- Modal Consultar -->
+            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar artículo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-nombre" style="font-weight:bold">Nombre:</label>
+                                        <p id="consultar-articulo-nombre" name="nombre">{{$articulo->nombre}}</p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-precio" style="font-weight:bold">Precio Compra:</label>
+                                        <p id="consultar-articulo-precio" name="preciocom">{{$articulo->preciocom}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-marca" style="font-weight:bold">Marca: </label>
+                                        <p id="consultar-articulo-marca" name="marca">{{$articulo->marca}}</p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-stock" style="font-weight:bold">Stock: </label>
+                                        <p id="consultar-articulo-stock" name="stock">{{$articulo->stock}}</p>
+                                    </td>
+                                </tr>
+                                    
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-fecha" style="font-weight:bold">Fecha Cad: </label>
+                                        <p id="consultar-articulo-fecha" name="fecha_cad">{{$articulo->fecha_cad}}</p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-preciou" style="font-weight:bold">Precio Un</label>
+                                        <p id="consultar-articulo-preciou" name="precio_u">{{$articulo->precio_u}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-categoria">Categoria</label>
+                                        <p name="categoria" id="consultar-categoria">{{$articulo->categoria_id->nombre}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="consultar-subcategoria" tyle="font-weight:bold">Subcategoria</label>
+                                        <p name="subcategoria" id="consultar-subcategoria">{{$articulo->subcategoria_id->nombre}}</p>
+                                    </div>
+                                      
+                                </tr>
+                                    <td class="form-group">
+                                        <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
+                                        <p name="clinica" id="consultar-doctor-clinica">{{$articulo->clinica_id->nombre}}</p>
+                                    </td>   
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal editar -->
             <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
