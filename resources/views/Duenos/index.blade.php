@@ -83,10 +83,10 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         </ul>
     </div>
 @endif
-    <div class="row p-5"><h1 class="display-1">Dueños <i class="fas fa-users icon-orange"></i> </h1></div>
+    <div class="row span-5"><h1 class="display-1">Dueños <i class="fas fa-users icon-orange"></i> </h1></div>
           
     <!--Consultar-->
-    <div class="row p-5">
+    <div class="row span-5">
         <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueno</button>
         <table class="table" id="table1">
             <thead>
@@ -170,52 +170,52 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                             <table class="table"> 
                                 <tr>
                                     <td class="form-group">
-                                        <label for="in_atributo1" style="font-weight:bold" >Nombre</label>
-                                        <p id="nombre" name="nombre">{{$dueno->nombre}}</p>
+                                        <label for="consultar-dueno-nombre" style="font-weight:bold" >Nombre</label>
+                                        <span id="consultar-dueno-nombre" name="consultar-dueno-nombre"></span>
                                     </td>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >Apellido Paterno</label>
-                                        <p id="apellido_paterno" name="apellido_paterno">{{$dueno->apellido_paterno}}</p>
+                                        <span id="consultar-dueno-apellido_paterno" name="apellido_paterno"></span>
                                     </td>
                                 </tr>                      
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >Apellido Materno</label>
-                                        <p id="apellido_materno" name="apellido_materno">{{$dueno->apellido_materno}}</p>
+                                        <span id="consultar-dueno-apellido_materno" name="apellido_materno"></span>
                                     </td>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >Teléfono</label>
-                                        <p id="telefono" name="telefono">{{$dueno->telefono}}</p>
+                                        <span id="consultar-dueno-telefono" name="telefono"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold" >Dirección</label>
-                                        <p id="direccion" name="direccion">{{$dueno->direccion}}</p>
+                                        <span id="consultar-dueno-direccion" name="direccion"></span>
                                     </td>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >Celular</label>
-                                        <p id="celular" name="celular">{{$dueno->celular}}</p>
+                                        <span id="consultar-dueno-celular" name="celular"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >Correo</label>
-                                        <p id="correo" name="correo">{{$dueno->correo}}</p>
+                                        <span id="consultar-dueno-correo" name="correo"></span>
                                     </td>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >RFC</label>
-                                        <p id="rfc" name="rfc" style="text-transform: uppercase">{{$dueno->rfc}}</p>
+                                        <span id="consultar-dueno-rfc" name="rfc" style="text-transform: uppercase"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >Código Postal</label>
-                                        <p id="codigp_postal" name="codigo_postal">{{$dueno->codigo_postal}}</p>
+                                        <span id="codigp_postal" name="codigo_postal"></span>
                                     </td>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold" >Razón Social</label>
-                                        <p id="razon_social" name="razon_social">{{$dueno->razon_social}}</p>
+                                        <span id="razon_social" name="razon_social"></span>
                                     </td>
                                 </tr>
                                 
@@ -371,7 +371,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro de eliminar al dueño <span id="eliminar-dueno-nombre">{{$dueno->nombre}} {{$dueno->apellido_paterno}}</span>? 
+                                ¿Estás seguro de eliminar al dueño <span id="eliminar-dueno-nombre"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
