@@ -126,6 +126,38 @@ $("#eliminar-clinica-id").val(articuloId);
                 </div>
             </div>
 
+            <!-- Modal Consultar -->
+            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar categoría</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <td class="form-group"  style="font-weight:bold">
+                                        <label for="consultar-nombre">Nombre:</label>
+                                        <p id="consultar-articulo-nombre" name="nombre">{{$categoria->nombre}}</p>
+                                    </td>
+                                    
+                                </tr>
+                                
+                               
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal editar -->
             <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

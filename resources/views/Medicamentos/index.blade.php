@@ -275,7 +275,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                         <option>No</option>
                                     </select>
 
-<!--                                    <input type="text" required class="form-control" id="controlado" name="controlado">-->
+                                    <!--<input type="text" required class="form-control" id="controlado" name="controlado">-->
                                 </div>
 
                                                                 <div class="col-6">
@@ -313,6 +313,88 @@ $("#eliminar-clinica-id").val(medicinaId);
 
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary">Crear</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Consultar -->
+            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar medicamento</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold">Nombre: </label>
+                                        <p id="consultar-m-nombre" name="nombre">{{$medis->nombre}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Presentacion: </label>
+                                        <p id="consultar-m-presentacion" name="presentacion">{{$medis->presentacion}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo3" style="font-weight:bold">ML MG: </label>
+                                        <p id="consultar-m-mlmg" name="ml_mg">{{$medis->ml_mg}}</p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Compuesto: </label>
+                                        <p id="consultar-m-compuesto" name="compuesto">{{$medis->compuesto}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Precio: </label>
+                                        <p id="consultar-m-precio" name="precio">{{$medis->precio}}</p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Laboratorio: </label>
+                                        <p id="consultar-m-laboratorio" name="laboratorio">{{$medis->laboratorio}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Paq Unidad: </label>
+                                        <p id="consultar-m-paqunidad" name="paq_unidad">{{$medis->paq_unidad}}</p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Controlado: </label>
+                                        <p  id="consultar-m-controlado" name="controlado">{{$medis->controlado}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Stock: </label>
+                                        <p id="consultar-m-stock" name="stock">{{$medis->stock}}</p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold">Fecha Caducidad: </label>
+                                        <p id="consultar-m-fechcad" name="fecha_caducidad">{{$medis->fecha_caducidad}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
+                                        <p name="clinica" id="consultar-doctor-clinica">{{$medis->Clinica->nombre}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
                         </div>
                     </form>
                     </div>

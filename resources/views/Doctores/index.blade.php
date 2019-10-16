@@ -214,7 +214,7 @@
                                     </td>
                                     <td class="form-group">
                                             <label for="consultar-doctor-apellido2" style="font-weight:bold">Apellido Materno</label>
-                                            <p id="conultar-doctor-apellido2" name="ApMaterno">{{$doctor->apellido_materno}}</p>      
+                                            <p id="consultar-doctor-apellido2" name="ApMaterno">{{$doctor->apellido_materno}}</p>      
                                     </td>
                                 </tr>
                                 <tr>

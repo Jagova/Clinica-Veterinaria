@@ -112,6 +112,40 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 </div>
             </div>
 
+            <!-- Modal Consultar -->
+            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar asistente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <div class="form-group">
+                                        <label for="consultar-clinica-nombre" style="font-weight:bold">Nombre</label>
+                                            <p id="consultar-clinica-nombre" name="nombre">{{$clinica->nombre}}</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="consultar-clinica-direccion" style="font-weight:bold">Dirección</label>
+                                        <p id="consultar-clinica-direccion" name="direccion">{{$clinica->direccion}}</p>
+                                    </div>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal editar -->
             <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
