@@ -148,6 +148,45 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 </div>
             </div>
 
+            <!-- Modal Consultar -->
+            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar servicio</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-nombre" style="font-weight:bold">Nombre del servicio</label>
+                                        <p id="consultar-nombre" name="nombre">{{$servicio->nombre}}</p>      
+                                    </td>
+                                    <td class="form-group">
+                                            <label for="consultar-precio style="font-weight:bold">Precio</label>
+                                            <p id="consultar-precio" name="precio">{{$servicio->precio}}</p>    
+                                    </td>                                   
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
+                                        <p name="clinica" id="consultar-doctor-clinica">{{$servicio->clinica_id->nombre}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
             <!-- Modal editar -->
             <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
