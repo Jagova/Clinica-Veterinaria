@@ -86,20 +86,20 @@ $("#eliminar-clinica-id").val(medicinaId);
     var fecha_caducidad = $(this).data('fecha_caducidad');
     var stock = $(this).data('stock');
 
-        $("#consultar-m-nombre").val(medicinaNombre);
-        $("#consultar-m-presentacion").val(presentacion);
+    document.getElementById("consultar-m-nombre").innerHTML = medicinaNombre;
+    document.getElementById("consultar-m-presentacion").innerHTML = presentacion;
 
-        $("#consultar-m-mlmg").val(ml_mg);
-        $("#consultar-m-compuesto").val(compuesto);
+    document.getElementById("consultar-m-mlmg").innerHTML = ml_mg;
+    document.getElementById("consultar-m-compuesto").innerHTML = compuesto;
 
-        $("#consultar-m-precio").val(precio);
-        $("#consultar-m-laboratorio").val(laboratorio);
+    document.getElementById("consultar-m-precio").innerHTML = precio;
+    document.getElementById("consultar-m-laboratorio").innerHTML = laboratorio;
 
-        $("#consultar-m-paqunidad").val(paq_unidad);
-        $("#consultar-m-controlado").val(controlado);
+    document.getElementById("consultar-m-paqunidad").innerHTML = paq_unidad;
+    document.getElementById("consultar-m-controlado").innerHTML = controlado;
 
-        $("#consultar-m-fechcad").val(fecha_caducidad);
-        $("#consultar-m-stock").val(stock);
+    document.getElementById("consultar-m-fechcad").innerHTML = fecha_caducidad
+    document.getElementById("consultar-m-stock").innerHTML = stock;
     });
 </script>
 
@@ -335,60 +335,60 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold">Nombre: </label>
-                                        <p id="consultar-m-nombre" name="nombre">{{$medis->nombre}}</p>
+                                        <p id="consultar-m-nombre" name="nombre"></p>
                                     </td>
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Presentacion: </label>
-                                        <p id="consultar-m-presentacion" name="presentacion">{{$medis->presentacion}}</p>
+                                        <p id="consultar-m-presentacion" name="presentacion"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo3" style="font-weight:bold">ML MG: </label>
-                                        <p id="consultar-m-mlmg" name="ml_mg">{{$medis->ml_mg}}</p>
+                                        <p id="consultar-m-mlmg" name="ml_mg"></p>
                                     </td>
 
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Compuesto: </label>
-                                        <p id="consultar-m-compuesto" name="compuesto">{{$medis->compuesto}}</p>
+                                        <p id="consultar-m-compuesto" name="compuesto"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Precio: </label>
-                                        <p id="consultar-m-precio" name="precio">{{$medis->precio}}</p>
+                                        <p id="consultar-m-precio" name="precio"></p>
                                     </td>
 
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Laboratorio: </label>
-                                        <p id="consultar-m-laboratorio" name="laboratorio">{{$medis->laboratorio}}</p>
+                                        <p id="consultar-m-laboratorio" name="laboratorio"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Paq Unidad: </label>
-                                        <p id="consultar-m-paqunidad" name="paq_unidad">{{$medis->paq_unidad}}</p>
+                                        <p id="consultar-m-paqunidad" name="paq_unidad"></p>
                                     </td>
 
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Controlado: </label>
-                                        <p  id="consultar-m-controlado" name="controlado">{{$medis->controlado}}</p>
+                                        <p  id="consultar-m-controlado" name="controlado"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Stock: </label>
-                                        <p id="consultar-m-stock" name="stock">{{$medis->stock}}</p>
+                                        <p id="consultar-m-stock" name="stock"></p>
                                     </td>
                                     <td class="form-group">
                                         <label for="in_atributo2" style="font-weight:bold">Fecha Caducidad: </label>
-                                        <p id="consultar-m-fechcad" name="fecha_caducidad">{{$medis->fecha_caducidad}}</p>
+                                        <p id="consultar-m-fechcad" name="fecha_caducidad"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
-                                        <p name="clinica" id="consultar-doctor-clinica">{{$medis->Clinica->nombre}}</p>
+                                        <p name="clinica" id="consultar-doctor-clinica"></p>
                                     </td>
                                 </tr>
                             </table>

@@ -58,15 +58,15 @@
         var asistenteClinica = $(this).data('clinica');
         var asistenteId = $(this).data('id');
        
-        $("#consultar-asistente-nombre1").val(asistenteNombre1);
-        $("#consultar-asistente-nombre2").val(asistenteNombre2);
-        $("#consultar-asistente-apellido1").val(asistenteApellido1);
-        $("#consultar-asistente-apellido2").val(asistenteApellido2);
-        $("#consultar-asistente-especialidad1").val(asistenteEspecialidad1);
-        $("#consultar-asistente-especialidad2").val(asistenteEspecialidad2);
-        $("#consultar-asistente-correo").val(asistenteCorreo);
-        $("#consultar-asistente-telefono").val(asistenteTelefono);
-        $("#consultar-asistente-clinica").val(asistenteClinica);
+        document.getElementById("#consultar-asistente-nombre1").innerHTML = asistenteNombre1;
+        document.getElementById("#consultar-asistente-nombre2").innerHTML = asistenteNombre2;
+        document.getElementById("#consultar-asistente-apellido1").innerHTML = asistenteApellido1;
+        document.getElementById("#consultar-asistente-apellido2").innerHTML = asistenteApellido2;
+        document.getElementById("#consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
+        document.getElementById("#consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
+        document.getElementById("#consultar-asistente-correo").innerHTML = asistenteCorreo;
+        document.getElementById("#consultar-asistente-telefono").innerHTML = asistenteTelefono;
+        document.getElementById("#consultar-asistente-clinica").innerHTML = asistenteClinica;
     });
 </script> 
    
@@ -238,47 +238,47 @@
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-asistente-nombre1" style="font-weight:bold">Primer nombre</label>
-                                        <p id="consultar-asistente-nombre1" name="nombre1">{{$asistente->primer_nombre}}</p>       
+                                        <p id="consultar-asistente-nombre1" name="nombre1"></p>       
                                     </td>
                                     <td class="form-group">
                                         <label for="consultar-asistente-nombre2" style="font-weight:bold">Segundo nombre</label>
-                                        <p id="consultar-asistente-nombre2" name="nombre2">{{$asistente->segundo_nombre}}</p>
+                                        <p id="consultar-asistente-nombre2" name="nombre2"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                             <label for="consultar-asistente-apellido1" style="font-weight:bold">Apellido Paterno</label>
-                                            <p id="consultar-asistente-apellido1" name="ApPaterno">{{$asistente->apellido_paterno}}</p>        
+                                            <p id="consultar-asistente-apellido1" name="ApPaterno"></p>        
                                     </td>
                                     <td class="form-group">
                                             <label for="consultar-asistente-apellido2" style="font-weight:bold">Apellido Materno</label>
-                                            <p id="consultar-asistente-apellido2" name="ApMaterno">{{$asistente->apellido_materno}}</p>    
+                                            <p id="consultar-asistente-apellido2" name="ApMaterno"></p>    
                                     </td>
                                 </tr>
                                 <tr>
                                         <td class="form-group">
                                                 <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>
-                                                <p id="consultar-asistente-especialidad1" name="esp1">{{$asistente->especialidad_1}}</p>        
+                                                <p id="consultar-asistente-especialidad1" name="esp1"></p>        
                                         </td>
                                         <td class="form-group">
                                                 <label for="consultar-asistente-especialidad2" style="font-weight:bold">Especialidad 2</label>
-                                                <p id="consultar-asistente-especialidad2" name="esp2">{{$asistente->especialidad_2}}</p>      
+                                                <p id="consultar-asistente-especialidad2" name="esp2"></p>      
                                         </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                             <label for="consultar-asistente-correo" style="font-weight:bold">Correo</label>
-                                            <p id="consultar-asistente-correo" name="correo">{{$asistente->correo}}</p>        
+                                            <p id="consultar-asistente-correo" name="correo"></p>        
                                     </td>
                                     <td class="form-group">
                                             <label for="consultar-asistente-telefono" style="font-weight:bold">Telefono</label>
-                                            <p id="telefono" name="telefono">{{$asistente->telefono}}</p>
+                                            <p id="consultar-asistente-telefono" name="telefono"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-asistente-clinica" style="font-weight:bold">Clínica</label>
-                                        <p name="clinica" id="consultar-asistente-clinica">{{$asistente->clinica->nombre}}</p>
+                                        <p name="clinica" id="consultar-asistente-clinica"></p>
                                     </td>
                                 </tr>
                             </table>

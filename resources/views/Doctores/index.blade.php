@@ -47,13 +47,13 @@
         var doctorEspecialidad2 = $(this).data('especialidad2');
         var doctorClinica = $(this).data('clinica');
         var doctorId = $(this).data('id');
-        $("#consultar-doctor-nombre1").val(doctorNombre1);
-        $("#consultar-doctor-nombre2").val(doctorNombre2);
-        $("#consultar-doctor-apellido1").val(doctorApellido1);
-        $("#consultar-doctor-apellido2").val(doctorApellido2);
-        $("#consultar-doctor-especialidad1").val(doctorEspecialidad1);
-        $("#consultar-doctor-especialidad2").val(doctorEspecialidad2);
-        $("#consultar-doctor-clinica").val(doctorClinica);
+        document.getElementById("consultar-doctor-nombre1").innerHTML = doctorNombre1;
+        document.getElementById("consultar-doctor-nombre2").innerHTML = doctorNombre2;
+        document.getElementById("consultar-doctor-apellido1").innerHTML = doctorApellido1;
+        document.getElementById("consultar-doctor-apellido2").innerHTML = doctorApellido2;
+        document.getElementById("consultar-doctor-especialidad1").innerHTML = doctorEspecialidad1;
+        document.getElementById("consultar-doctor-especialidad2").innerHTML = doctorEspecialidad2;
+        document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
     });
 </script>
 
@@ -85,7 +85,7 @@
                             data-apellido2="{{$doctor->apellido_materno}}"
                                     data-especialidad1="{{$doctor->especialidad_1}}"
                                     data-especialidad2="{{$doctor->especialidad_2}}"
-                                    data-clinica="{{$doctor->clinica_id}}"
+                                    data-clinica="{{$doctor->clinica_id->nombre}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -200,36 +200,36 @@
                                 <tr>
                                     <td class="form-group">
                                             <label for="consultar-doctor-nombre1" style="font-weight:bold">Primer nombre</label>
-                                            <p id="consultar-doctor-nombre1" name="nombre1">{{$doctor->primer_nombre}}</p>      
+                                            <p id="consultar-doctor-nombre1" name="nombre1"></p>      
                                     </td>
                                     <td class="form-group">
                                             <label for="consultar-doctor-nombre2" style="font-weight:bold">Segundo nombre</label>
-                                            <td id="consultar-doctor-nombre2" name="nombre2">{{$doctor->segundo_nombre}}</p>       
+                                            <td id="consultar-doctor-nombre2" name="nombre2"></p>       
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                             <label for="consultar-doctor-apellido1" style="font-weight:bold">Apellido Paterno</label>
-                                            <p id="consultar-doctor-apellido1" name="ApPaterno">{{$doctor->apellido_paterno}}</p>      
+                                            <p id="consultar-doctor-apellido1" name="ApPaterno"></p>      
                                     </td>
                                     <td class="form-group">
                                             <label for="consultar-doctor-apellido2" style="font-weight:bold">Apellido Materno</label>
-                                            <p id="consultar-doctor-apellido2" name="ApMaterno">{{$doctor->apellido_materno}}</p>      
+                                            <p id="consultar-doctor-apellido2" name="ApMaterno"></p>      
                                     </td>
                                 </tr>
                                 <tr>
                                         <td class="form-group">
                                                 <label for="consultar-doctor-especialidad1" style="font-weight:bold">Especialidad 1</label>
-                                                <p id="consultar-doctor-especialidad1" name="esp1">{{$doctor->especialidad_1}}</p>       
+                                                <p id="consultar-doctor-especialidad1" name="esp1"></p>       
                                         </td>
                                         <td class="form-group">
                                                 <label for="consultar-doctor-especialidad2" style="font-weight:bold">Especialidad 2</label>
-                                                <p id="consultar-doctor-especialidad2" name="esp2">{{$doctor->especialidad_2}}</p>        
+                                                <p id="consultar-doctor-especialidad2" name="esp2"></p>        
                                         </td>
                                 </tr>
                                 <tr>
                                         <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
-                                        <p name="clinica" id="consultar-doctor-clinica">{{$doctor->clinica_id->nombre}}</p>
+                                        <p name="clinica" id="consultar-doctor-clinica"></p>
                                 </tr>
                                
                             </table>

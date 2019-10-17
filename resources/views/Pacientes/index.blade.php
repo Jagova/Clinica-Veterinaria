@@ -49,12 +49,12 @@
             console.log(pacienteDoctorId);
             console.log(pacienteEspecie);
 
-            $("#consultar-paciente-nombre").val(pacienteNombre);
-            $("#consultar-paciente-edad").val(pacienteEdad);
-            $("#consultar-paciente-especie").val(pacienteEspecie);
-            $("#consultar-paciente-raza").val(pacienteRaza);
-            $("#consultar-paciente-duenio-id").val(pacienteDuenioId);
-            $("#consultar-paciente-doctor-id").val(pacienteDoctorId);
+            document.getElementById("consultar-paciente-nombre").innerHTML = pacienteNombre;
+            document.getElementById("consultar-paciente-edad").innerHTML = pacienteEdad;
+            document.getElementById("consultar-paciente-especie").innerHTML = pacienteEspecie;
+            document.getElementById("consultar-paciente-raza").innerHTML = pacienteRaza;
+            document.getElementById("consultar-paciente-duenio-id").innerHTML = pacienteDuenioId;
+            document.getElementById("consultar-paciente-doctor-id").innerHTML = pacienteDoctorId;
     });
 </script>
 
@@ -101,8 +101,8 @@
                                     data-edad = "{{$paciente->edad}}"
                                     data-especie = "{{$paciente->especie}}"
                                     data-raza = "{{$paciente->raza}}"
-                                    data-duenioid="{{$paciente->duenio_id}}"
-                                    data-doctorid = "{{$paciente->doctor_id}}"
+                                    data-duenioid="{{$paciente->duenio_id->nombre}} {{$paciente->duenio_id->apellido_paterno}}"
+                                    data-doctorid = "{{$paciente->doctor_id->nombre}} {{$paciente->doctor_id->apellido_paterno}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -149,31 +149,31 @@
                                 <tr>
                                     <td class = "form-group" >
                                         <label for="in_atributo1" style="font-weight:bold">Nombre</label>
-                                        <p id="consultar-paciente-nombre" name="nombre">{{$paciente->nombre}}</p>
+                                        <p id="consultar-paciente-nombre" name="nombre"></p>
                                     </td>
                                     <td class = "form-group" >
                                         <label for="in_atributo2" style="font-weight:bold">Edad</label>
-                                        <p id="consultar-paciente-edad" name="edad">{{$paciente->edad}}</p>
+                                        <p id="consultar-paciente-edad" name="edad"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class = "form-group" >
                                         <label for="in_atributo3" style="font-weight:bold">Especie</label>
-                                        <p id = "consultar-paciente-especie" name="especie">{{$paciente->especie}}</p>  
+                                        <p id = "consultar-paciente-especie" name="especie"></p>  
                                     </td>
                                     <td class = "form-group" >
                                         <label for="in_atributo4" style="font-weight:bold">Raza</label>
-                                        <p id="consultar-paciente-raza" name="raza">{{$paciente->raza}}</p>
+                                        <p id="consultar-paciente-raza" name="raza"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo6" style="font-weight:bold">Dueño</label>
-                                        <p id="consultar-paciente-duenio-id" name="duenio_id">{{$paciente->duenio_id->nombre}} {{$paciente->duenio_id->apellido_paterno}}</p>
+                                        <p id="consultar-paciente-duenio-id" name="duenio_id"></p>
                                     </div>
                                     <td class="form-group">
                                         <label for="in_atributo7" style="font-weight:bold">Doctor favorito</label>
-                                        <p id="consultar-paciente-doctor-id" name="doctor_id">{{$paciente->doctor_id->nombre}} {{$paciente->doctor_id->apellido_paterno}}</p>
+                                        <p id="consultar-paciente-doctor-id" name="doctor_id"></p>
                                     </td>
                                 </tr>
                                 

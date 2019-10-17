@@ -31,8 +31,8 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         var clinicaNombre = $(this).data('nombre');
         var clinicaId = $(this).data('id');
         var clinicaDireccion = $(this).data('direccion');
-        $("#consultar-clinica-nombre").val(clinicaNombre);
-        $("#consultar-clinica-direccion").val(clinicaDireccion);
+        document.getElementById("consultar-clinica-nombre").innerHTML = clinicaNombre;
+        document.getElementById("consultar-clinica-direccion").innerHTML = clinicaDireccion;
     });
 </script>
 

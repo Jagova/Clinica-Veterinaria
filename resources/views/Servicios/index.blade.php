@@ -34,9 +34,9 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         var servicioClinica = $(this).data('clinica');
         var servicioPrecio = $(this).data('precio');
         var servicioId = $(this).data('id');
-        $("#consultar-nombre").val(servicioNombre);
-        $("#consultar-precio").val(servicioPrecio);
-        $("#consultar-clinica").val(servicioClinica);
+        document.getElementById("consultar-nombre").innerHTML = servicioNombre;
+        document.getElementById("consultar-precio").innerHTML = servicioPrecio;
+        document.getElementById("consultar-clinica").innerHTML = servicioClinica;
     });
 </script>
 
@@ -164,17 +164,17 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-nombre" style="font-weight:bold">Nombre del servicio</label>
-                                        <p id="consultar-nombre" name="nombre">{{$servicio->nombre}}</p>      
+                                        <p id="consultar-nombre" name="nombre"></p>      
                                     </td>
                                     <td class="form-group">
                                             <label for="consultar-precio style="font-weight:bold">Precio</label>
-                                            <p id="consultar-precio" name="precio">{{$servicio->precio}}</p>    
+                                            <p id="consultar-precio" name="precio"></p>    
                                     </td>                                   
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
-                                        <p name="clinica" id="consultar-doctor-clinica">{{$servicio->clinica_id->nombre}}</p>
+                                        <p name="clinica" id="consultar-doctor-clinica"></p>
                                     </td>
                                 </tr>
                             </table>

@@ -36,7 +36,7 @@ $("#eliminar-clinica-id").val(articuloId);
     $(document).on("click", ".abrirConsultaModal", function (event) {
         var articuloNombre = $(this).data('nombre');
         var articuloId = $(this).data('id');
-        $("#consultar-articulo-nombre").val(articuloNombre);
+        document.getElementById("consultar-articulo-nombre").innerHTML = articuloNombre;
     });
 </script>
 
@@ -141,7 +141,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-nombre" style="font-weight:bold">Nombre:</label>
-                                        <p id="consultar-articulo-nombre" name="nombre">{{$subcategoria->nombre}}</p>
+                                        <p id="consultar-articulo-nombre" name="nombre"></p>
                                     </td>
                                 </tr>
                                
