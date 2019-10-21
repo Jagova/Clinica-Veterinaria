@@ -93,6 +93,7 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Clinica</th>
+                            <th> Fotográfia </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -112,6 +113,7 @@
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
                                     data-clinica="{{$asistente->clinica_id}}"
+                                    <td><img  src="{{URL::asset($sistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -161,7 +163,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/asistentes" method="POST">
+                        <form action="/asistentes" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
@@ -183,6 +185,14 @@
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Materno</label>
                                             <input type="text" class="form-control" id="direccion" name="ApMaterno" required>        
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class="col-5">
+                                        <div>
+                                            Foto
+                                            <input type="file" name="imagen" id=imagen>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
