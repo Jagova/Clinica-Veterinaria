@@ -101,8 +101,8 @@
                                     data-edad = "{{$paciente->edad}}"
                                     data-especie = "{{$paciente->especie}}"
                                     data-raza = "{{$paciente->raza}}"
-                                    data-duenioid="{{$paciente->duenio_id->nombre}} {{$paciente->duenio_id->apellido_paterno}}"
-                                    data-doctorid = "{{$paciente->doctor_id->nombre}} {{$paciente->doctor_id->apellido_paterno}}"
+                                    data-duenioid="{{$paciente->duenio_id}}"
+                                    data-doctorid = "{{$paciente->doctor_id}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>

@@ -85,7 +85,7 @@
                             data-apellido2="{{$doctor->apellido_materno}}"
                                     data-especialidad1="{{$doctor->especialidad_1}}"
                                     data-especialidad2="{{$doctor->especialidad_2}}"
-                                    data-clinica="{{$doctor->clinica_id->nombre}}"
+                                    data-clinica="{{$doctor->clinica_id}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
