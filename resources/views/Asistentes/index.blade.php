@@ -58,15 +58,15 @@
         var asistenteClinica = $(this).data('clinica');
         var asistenteId = $(this).data('id');
        
-        document.getElementById("#consultar-asistente-nombre1").innerHTML = asistenteNombre1;
-        document.getElementById("#consultar-asistente-nombre2").innerHTML = asistenteNombre2;
-        document.getElementById("#consultar-asistente-apellido1").innerHTML = asistenteApellido1;
-        document.getElementById("#consultar-asistente-apellido2").innerHTML = asistenteApellido2;
-        document.getElementById("#consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
-        document.getElementById("#consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
-        document.getElementById("#consultar-asistente-correo").innerHTML = asistenteCorreo;
-        document.getElementById("#consultar-asistente-telefono").innerHTML = asistenteTelefono;
-        document.getElementById("#consultar-asistente-clinica").innerHTML = asistenteClinica;
+        document.getElementById("consultar-asistente-nombre1").innerHTML = asistenteNombre1;
+        document.getElementById("consultar-asistente-nombre2").innerHTML = asistenteNombre2;
+        document.getElementById("consultar-asistente-apellido1").innerHTML = asistenteApellido1;
+        document.getElementById("consultar-asistente-apellido2").innerHTML = asistenteApellido2;
+        document.getElementById("consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
+        document.getElementById("consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
+        document.getElementById("consultar-asistente-correo").innerHTML = asistenteCorreo;
+        document.getElementById("consultar-asistente-telefono").innerHTML = asistenteTelefono;
+        document.getElementById("consultar-asistente-clinica").innerHTML = asistenteClinica;
     });
 </script> 
    
@@ -101,7 +101,9 @@
                         @foreach ($Asistentes as $asistente)
                         <tr>
                         <td>
+                                <div>
                             <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                                
                             data-toggle="modal"
                             data-id="{{$asistente->id}}"
                                     data-nombre1="{{$asistente->primer_nombre}}"
@@ -113,11 +115,11 @@
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
                                     data-clinica="{{$asistente->clinica_id}}"
-                                    <td><img  src="{{URL::asset($sistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
+                                   
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
-                        </td>
+                        </div></td>
                         <td>{{$asistente->id}}</td>
                         <td>{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}}  {{$asistente->apellido_materno}}</td>   
                         <td>

@@ -49,13 +49,7 @@ class AsistentesController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasfile('imagen')) 
-        { 
-        $file = $request->file('imagen');
-        $extension = $file->getClientOriginalExtension(); // getting image extension
-        $filename =time().'.'.$extension;
-        $file->move('Pacientes/', $filename);
-        }
+       
     request()->validate([
             'nombre1' => ['required','max:20', 'min:3'],
             'nombre2' => 'nullable',
