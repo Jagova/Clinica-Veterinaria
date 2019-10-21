@@ -371,7 +371,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro de eliminar al dueño <span id="eliminar-dueno-nombre">{{$dueno->nombre}} {{$dueno->apellido_paterno}}</span>? 
+                                ¿Estás seguro de eliminar al dueño <span id="eliminar-dueno-nombre"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

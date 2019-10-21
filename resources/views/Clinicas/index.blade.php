@@ -128,11 +128,11 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <tr>
                                     <div class="form-group">
                                         <label for="consultar-clinica-nombre" style="font-weight:bold">Nombre</label>
-                                            <p id="consultar-clinica-nombre" name="nombre">{{$clinica->nombre}}</p>
+                                            <p id="consultar-clinica-nombre" name="nombre"></p>
                                     </div>
                                     <div class="form-group">
                                         <label for="consultar-clinica-direccion" style="font-weight:bold">Dirección</label>
-                                        <p id="consultar-clinica-direccion" name="direccion">{{$clinica->direccion}}</p>
+                                        <p id="consultar-clinica-direccion" name="direccion"></p>
                                     </div>
                                 </tr>
                                 
