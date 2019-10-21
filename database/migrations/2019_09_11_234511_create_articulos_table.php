@@ -33,7 +33,7 @@ class CreateArticulosTable extends Migration
 
             $table->unsignedInteger('clinica_id')->foreign('clinica_id')->references('id')->on('clinicas')->onDelete('cascade');
 
-
+            $table->string('urlImagen');
 
             $table->timestamps();
         });

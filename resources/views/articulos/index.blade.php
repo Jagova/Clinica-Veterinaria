@@ -76,15 +76,17 @@
         var subcategoria = $(this).data('subcategoria');
 
 
-        $("#consultar-articulo-nombre").val(articuloNombre);
-        $("#consultar-articulo-precio").val(preciocom);
-        $("#consultar-articulo-marca").val(marca);
-        $("#consultar-articulo-stock").val(stock);
-        $("#consultar-articulo-fecha").val(fecha_cad);
-        $("#consultar-articulo-preciou").val(precio_u);
-        $("#consultar-categoria").val(categoria);
-        $("#consultar-subcategoria").val(subcategoria);
-        $("#consultar-doctor-clinica").val(doctorClinica);
+        document.getElementById("consultar-articulo-nombre").innerHTML = articuloNombre;
+        document.getElementById("consultar-articulo-precio").innerHTML = preciocom;
+        document.getElementById("consultar-articulo-marca").innerHTML = marca;
+        document.getElementById("consultar-articulo-stock").innerHTML = stock;
+        document.getElementById("consultar-articulo-fecha").innerHTML = fecha_cad;
+        document.getElementById("consultar-articulo-preciou").innerHTML = precio_u;
+        document.getElementById("consultar-categoria").innerHTML = categoria;
+        document.getElementById("consultar-subcategoria").innerHTML = subcategoria;
+        document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
+
+
     });
 </script>
 
@@ -95,10 +97,7 @@
               <!--      <a href="articulos/">Articulos</a> 
                     <a href="categoria/">Categoria</a> 
                     <a href="subcategoria/">Subcategoria</a> 
-                -->
-
-
-                
+                -->           
                 </div>
             </div>
             <div class="row p-5">
@@ -107,13 +106,10 @@
 
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
 
-
-
-
-
                 <table class="table" id="table1">
                     <thead>
                         <tr>
+                            <td></td>
                             <th >Id </th>
                             <th >Nombre </th>
                             <th >Precio Compra </th>
@@ -129,6 +125,7 @@
                             <th >SubCategoria </th>
 
                             <th >Clinica </th>
+                            <th>Imagen </th>
 
                             <th></th>
                         </tr>
@@ -164,6 +161,7 @@
                         <td>{{$articulo->Categoria->nombre}}</td>
                         <td>{{$articulo->Subcategoria->nombre}}</td>
                         <td>{{$articulo->Clinica->nombre}}</td>
+                        <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -229,6 +227,11 @@
                                 </div>
 
 
+                            </div>
+
+                            <div>
+                                Foto
+                                <input type="file" name="imagen" id=imagen>
                             </div>
 
                                 <div class="form-group row">
@@ -314,51 +317,51 @@
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-nombre" style="font-weight:bold">Nombre:</label>
-                                        <p id="consultar-articulo-nombre" name="nombre">{{$articulo->nombre}}</p>
+                                        <p id="consultar-articulo-nombre" name="nombre"></p>
                                     </td>
 
                                     <td class="form-group">
                                         <label for="consultar-articulo-precio" style="font-weight:bold">Precio Compra:</label>
-                                        <p id="consultar-articulo-precio" name="preciocom">{{$articulo->preciocom}}</p>
+                                        <p id="consultar-articulo-precio" name="preciocom"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-articulo-marca" style="font-weight:bold">Marca: </label>
-                                        <p id="consultar-articulo-marca" name="marca">{{$articulo->marca}}</p>
+                                        <p id="consultar-articulo-marca" name="marca"></p>
                                     </td>
 
                                     <td class="form-group">
                                         <label for="consultar-articulo-stock" style="font-weight:bold">Stock: </label>
-                                        <p id="consultar-articulo-stock" name="stock">{{$articulo->stock}}</p>
+                                        <p id="consultar-articulo-stock" name="stock"></p>
                                     </td>
                                 </tr>
                                     
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-articulo-fecha" style="font-weight:bold">Fecha Cad: </label>
-                                        <p id="consultar-articulo-fecha" name="fecha_cad">{{$articulo->fecha_cad}}</p>
+                                        <p id="consultar-articulo-fecha" name="fecha_cad"></p>
                                     </td>
 
                                     <td class="form-group">
                                         <label for="consultar-articulo-preciou" style="font-weight:bold">Precio Un</label>
-                                        <p id="consultar-articulo-preciou" name="precio_u">{{$articulo->precio_u}}</p>
+                                        <p id="consultar-articulo-preciou" name="precio_u"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-categoria">Categoria</label>
-                                        <p name="categoria" id="consultar-categoria">{{$articulo->categoria_id->nombre}}</p>
+                                        <p name="categoria" id="consultar-categoria"></p>
                                     </td>
                                     <td class="form-group">
                                         <label for="consultar-subcategoria" tyle="font-weight:bold">Subcategoria</label>
-                                        <p name="subcategoria" id="consultar-subcategoria">{{$articulo->subcategoria_id->nombre}}</p>
+                                        <p name="subcategoria" id="consultar-subcategoria"></p>
                                     </div>
                                       
                                 </tr>
                                     <td class="form-group">
                                         <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
-                                        <p name="clinica" id="consultar-doctor-clinica">{{$articulo->clinica_id->nombre}}</p>
+                                        <p name="clinica" id="consultar-doctor-clinica"></p>
                                     </td>   
                                 <tr>
                                 </tr>
