@@ -8,7 +8,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form id="form-editar" method="POST">
+                    <form id="form-editar" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">                          
@@ -21,6 +21,14 @@
                                         <div class = "col-6" >
                                             <label for="in_atributo2">Edad</label>
                                             <input required class="form-control" id="editar-paciente-edad" name="edad" type="edad"  min="1" max="3"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                        </div>
+                                    </div>
+                                    <div class = "row">
+                                        <div class="col-5">
+                                            <div>
+                                                Foto
+                                                <input type="file" name="imagen" id="editar-paciente-imagen">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
