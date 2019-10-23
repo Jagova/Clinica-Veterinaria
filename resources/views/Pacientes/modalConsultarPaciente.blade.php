@@ -21,6 +21,7 @@
                                         <p id="consultar-paciente-edad" name="edad"></p>
                                     </td>
                                 </tr>
+                                <!-- Foto del paciente -->
                                 <tr>
                                      <div class = "container" > 
                                         <img id="imagen" height="300" class="d-block w-100" alt="..." >

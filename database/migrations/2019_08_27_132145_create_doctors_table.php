@@ -21,7 +21,8 @@ class CreateDoctorsTable extends Migration
             $table->string('apellido_materno');
             $table->string('especialidad_1');
             $table->string('especialidad_2');
-            
+            //Foto del doctor
+            $table->string('urlImagen');
             $table->unsignedInteger('clinica_id')->foreign('clinica_id')->references('id')->on('clinicas')->onDelete('cascade');
             $table->timestamps();
         });
