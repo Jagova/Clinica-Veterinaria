@@ -93,7 +93,7 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Clinica</th>
-                            <th> Fotográfia </th>
+                            <th> Fotografía </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -119,10 +119,12 @@
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
-                        </div></td>
+</div></td>
                         <td>{{$asistente->id}}</td>
                         <td>{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}}  {{$asistente->apellido_materno}}</td>   
                         <td>
+                                                    <td><img  src="{{URL::asset($asistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
+                        
                        </td>
                       
                         <td>
@@ -192,7 +194,7 @@
                                 <div class = "row">
                                     <div class="col-5">
                                         <div>
-                                            Foto
+                                            Fotografía
                                             <input type="file" name="imagen" id=imagen>
                                         </div>
                                     </div>
@@ -267,6 +269,13 @@
                                             <p id="consultar-asistente-apellido2" name="ApMaterno"></p>    
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td class="form-group">
+                                            Fotografía
+                                            <td><img  src="{{URL::asset($asistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>                                       
+                                    </td>
+                                </tr>
                                 <tr>
                                         <td class="form-group">
                                                 <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>
@@ -335,6 +344,14 @@
                                     <div class="col-6">
                                             <label for="editar-asistente-apellido2">Apellido Materno</label>
                                             <input type="text" class="form-control" id="editar-asistente-apellido2" name="ApMaterno" required>        
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class="col-5">
+                                        <div>
+                                            Fotografía
+                                            <input type="file" name="imagen" id=imagen>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
