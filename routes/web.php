@@ -21,10 +21,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    if( Auth::user() ) 
+        if( Auth::user()->rol =='ADMINISTRADOR') 
+            return redirect('/clinicas');
+        else
+            return view('welcome');
+    else
+       return view('welcome');
 });
+
+Route::post('logoutuser','UserController@logout');
+
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
 
 //Clinicas
 Route::resource('/clinicas','ClinicaController');
@@ -64,6 +75,7 @@ Route::get('/prueba2', function () {
 Route::resource('/prueba','EjemploController');
 
 Route::resource('/pruebaDos','EjemploDosController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

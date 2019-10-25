@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Clinica;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class ClinicaController extends Controller
 {
@@ -18,6 +19,13 @@ class ClinicaController extends Controller
      */
     public function index()
     {
+
+        if( Auth::user()->rol !='ADMINISTRADOR') 
+        {
+            return redirect('/');
+        }
+
+
         $clinicas = \App\Clinica::all();
         return view('Clinicas.index',
         [
