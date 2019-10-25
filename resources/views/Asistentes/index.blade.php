@@ -22,6 +22,7 @@
         var asistenteNombre2 = $(this).data('nombre2');
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
+        var asistenteFoto = $(this).data('foto');
         var asistenteEspecialidad1 = $(this).data('especialidad1');
         var asistenteEspecialidad2 = $(this).data('especialidad2');
         var asistenteTelefono = $(this).data('telefono');
@@ -51,6 +52,7 @@
         var asistenteNombre2 = $(this).data('nombre2');
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
+        var asistenteFoto = $(this).data('foto');
         var asistenteEspecialidad1 = $(this).data('especialidad1');
         var asistenteEspecialidad2 = $(this).data('especialidad2');
         var asistenteTelefono = $(this).data('telefono');
@@ -62,6 +64,7 @@
         document.getElementById("consultar-asistente-nombre2").innerHTML = asistenteNombre2;
         document.getElementById("consultar-asistente-apellido1").innerHTML = asistenteApellido1;
         document.getElementById("consultar-asistente-apellido2").innerHTML = asistenteApellido2;
+        document.getElementById("consultar-asistente-foto").innerHTML = asistenteFoto;
         document.getElementById("consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
         document.getElementById("consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
         document.getElementById("consultar-asistente-correo").innerHTML = asistenteCorreo;
@@ -110,6 +113,7 @@
                                     data-nombre2="{{$asistente->segundo_nombre}}"
                                     data-apellido1="{{$asistente->apellido_paterno}}"
                                     data-apellido2="{{$asistente->apellido_materno}}"
+                                    data-foto="{{$asistente->urlImagen}}"
                                     data-especialidad1="{{$asistente->especialidad_1}}"
                                     data-especialidad2="{{$asistente->especialidad_2}}"
                                     data-correo="{{$asistente->correo}}"
@@ -236,186 +240,11 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal Consultar -->
-            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="consultarModalLabel">Consultar asistente</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        
-                        <div class="modal-body">  
-                            <table class="table"> 
-                                <tr>
-                                    <td class="form-group">
-                                        <label for="consultar-asistente-nombre1" style="font-weight:bold">Primer nombre</label>
-                                        <p id="consultar-asistente-nombre1" name="nombre1"></p>       
-                                    </td>
-                                    <td class="form-group">
-                                        <label for="consultar-asistente-nombre2" style="font-weight:bold">Segundo nombre</label>
-                                        <p id="consultar-asistente-nombre2" name="nombre2"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-group">
-                                            <label for="consultar-asistente-apellido1" style="font-weight:bold">Apellido Paterno</label>
-                                            <p id="consultar-asistente-apellido1" name="ApPaterno"></p>        
-                                    </td>
-                                    <td class="form-group">
-                                            <label for="consultar-asistente-apellido2" style="font-weight:bold">Apellido Materno</label>
-                                            <p id="consultar-asistente-apellido2" name="ApMaterno"></p>    
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="form-group">
-                                            Fotografía
-                                            <td><img  src="{{URL::asset($asistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>                                       
-                                    </td>
-                                </tr>
-                                <tr>
-                                        <td class="form-group">
-                                                <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>
-                                                <p id="consultar-asistente-especialidad1" name="esp1"></p>        
-                                        </td>
-                                        <td class="form-group">
-                                                <label for="consultar-asistente-especialidad2" style="font-weight:bold">Especialidad 2</label>
-                                                <p id="consultar-asistente-especialidad2" name="esp2"></p>      
-                                        </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-group">
-                                            <label for="consultar-asistente-correo" style="font-weight:bold">Correo</label>
-                                            <p id="consultar-asistente-correo" name="correo"></p>        
-                                    </td>
-                                    <td class="form-group">
-                                            <label for="consultar-asistente-telefono" style="font-weight:bold">Telefono</label>
-                                            <p id="consultar-asistente-telefono" name="telefono"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-group">
-                                        <label for="consultar-asistente-clinica" style="font-weight:bold">Clínica</label>
-                                        <p name="clinica" id="consultar-asistente-clinica"></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal editar -->
-            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar elemento</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form id="form-editar" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="modal-body">                          
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="editar-asistente-nombre1">Primer nombre</label>
-                                                <input type="text" class="form-control" id="editar-asistente-nombre1" name="nombre1" required>        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="editar-asistente-nombre2">Segundo nombre</label>
-                                                <input type="text" class="form-control" id="editar-asistente-nombre2" name="nombre2">        
-                                        </div>
-                                    </div>
-                                <div class="form-group row">
-                                    <div class="col-6">
-                                            <label for="editar-asistente-apellido1">Apellido Paterno</label>
-                                            <input type="text" class="form-control" id="editar-asistente-apellido1" name="ApPaterno" required>        
-                                    </div>
-                                    <div class="col-6">
-                                            <label for="editar-asistente-apellido2">Apellido Materno</label>
-                                            <input type="text" class="form-control" id="editar-asistente-apellido2" name="ApMaterno" required>        
-                                    </div>
-                                </div>
-                                <div class = "row">
-                                    <div class="col-5">
-                                        <div>
-                                            Fotografía
-                                            <input type="file" name="imagen" id=imagen>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="editar-asistente-especialidad1">Especialidad 1</label>
-                                                <input type="text" class="form-control" id="editar-asistente-especialidad1" name="esp1" required>        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="editar-asistente-especialidad2">Especialidad 2</label>
-                                                <input type="text" class="form-control" id="editar-asistente-especialidad2" name="esp2">        
-                                        </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-6">
-                                            <label for="editar-asistente-correo">Correo</label>
-                                            <input type="email" class="form-control" id="editar-asistente-correo" name="correo" required>        
-                                    </div>
-                                    <div class="col-6">
-                                            <label for="editar-asistente-telefono">Telefono</label>
-                                            <input class="form-control" id="telefono" name="telefono" required input type="tel"  min="7" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                                         </div>
-                            </div>
-                                <div class="form-group">
-                                        <label for="editar-asistente-clinica">Clínica</label>
-                                        <select class="form-control" name="clinica" id="editar-asistente-clinica">
-                                        @foreach ($Clinicas as $clinica)                                  
-                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
-                                            @endforeach
-                                        </select>
-                                </div>
-                        </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
-
-            <!-- Modal Eliminar -->
-            <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar asistente</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form id="form-eliminar" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                            <div class="modal-body">
-                                ¿Estás seguro de eliminar el asistente <span id="eliminar-asistente-nombre"></span>? 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
-        </div>
-
+            
+            
+            
+            @include('Asistentes.modalEliminarPaciente')
+            @include('Asistentes.modalEditarPaciente')
+            @include('Asistentes.modalConsultarAsistentes')
+           
 @endsection
