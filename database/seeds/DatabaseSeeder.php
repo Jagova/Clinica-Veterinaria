@@ -13,12 +13,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          //$this->call(duenos_seeder::class);//
-         $this->call('ArticulosSeeder');
-         $this->call('MedicamentosSeeder');
+         //$this->call('ArticulosSeeder');
+         //$this->call('MedicamentosSeeder');
 
-         $this->call(
+         /*$this->call(
              [DuenosTableSeeder::class]
-         );
+         );*/
+
+         $this->call(UsersTableSeeder::class);
     }
 }
 
