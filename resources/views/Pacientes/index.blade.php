@@ -23,8 +23,10 @@
             var pacienteRaza = $(this).data('raza');
             var pacienteDuenioId = $(this).data('duenioid');
             var pacienteDoctorId = $(this).data('doctorid');
-            console.log(pacienteDoctorId);
-            console.log(pacienteEspecie);
+            
+            var pacienteUrlImagen = $(this).data('urlimagen');
+
+            console.log(pacienteUrlImagen);
 
             $("#editar-paciente-nombre").val(pacienteNombre);
             $("#editar-paciente-edad").val(pacienteEdad);
@@ -32,6 +34,11 @@
             $("#editar-paciente-raza").val(pacienteRaza);
             $("#editar-paciente-duenio-id").val(pacienteDuenioId);
             $("#editar-paciente-doctor-id").val(pacienteDoctorId);
+
+
+
+            console.log(pacienteId);
+
             document.getElementById('form-editar').action = "pacientes/" + pacienteId;
         });
 </script>
@@ -46,6 +53,10 @@
             var pacienteRaza = $(this).data('raza');
             var pacienteDuenioId = $(this).data('duenioid');
             var pacienteDoctorId = $(this).data('doctorid');
+
+            var pacienteUrlImagen = $(this).data('urlimagen');
+
+
             console.log(pacienteDoctorId);
             console.log(pacienteEspecie);
 
@@ -55,6 +66,11 @@
             document.getElementById("consultar-paciente-raza").innerHTML = pacienteRaza;
             document.getElementById("consultar-paciente-duenio-id").innerHTML = pacienteDuenioId;
             document.getElementById("consultar-paciente-doctor-id").innerHTML = pacienteDoctorId;
+
+            console.log(pacienteUrlImagen);
+
+
+            document.getElementById("imagen").src = pacienteUrlImagen;
     });
 </script>
 
@@ -79,7 +95,6 @@
                             <th >Edad</th>
                             <th >Especie</th>
                             <th >Raza</th>
-                            <th> Imagen </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -91,7 +106,6 @@
                         <td>{{$paciente->edad}}</td>
                         <td>{{$paciente->especie}}</td>
                         <td>{{$paciente->raza}}</td>
-                        <td><img  src="{{URL::asset($paciente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
 
                         <td>
                             <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
@@ -103,6 +117,7 @@
                                     data-raza = "{{$paciente->raza}}"
                                     data-duenioid="{{$paciente->duenio_id}}"
                                     data-doctorid = "{{$paciente->doctor_id}}"
+                                    data-urlimagen = "{{$paciente->urlImagen}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -118,6 +133,7 @@
                                     data-raza = "{{$paciente->raza}}"
                                     data-duenioid="{{$paciente->duenio_id}}"
                                     data-doctorid = "{{$paciente->doctor_id}}"
+                                    data-urlimagen = "{{$paciente->urlImagen}}"
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
@@ -133,60 +149,7 @@
                 </table>
             </div> 
 
-            <!-- Modal Consultar -->
-            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="consultarModalLabel">Consultar asistente</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        
-                        <div class="modal-body">  
-                            <table class="table"> 
-                                <tr>
-                                    <td class = "form-group" >
-                                        <label for="in_atributo1" style="font-weight:bold">Nombre</label>
-                                        <p id="consultar-paciente-nombre" name="nombre"></p>
-                                    </td>
-                                    <td class = "form-group" >
-                                        <label for="in_atributo2" style="font-weight:bold">Edad</label>
-                                        <p id="consultar-paciente-edad" name="edad"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = "form-group" >
-                                        <label for="in_atributo3" style="font-weight:bold">Especie</label>
-                                        <p id = "consultar-paciente-especie" name="especie"></p>  
-                                    </td>
-                                    <td class = "form-group" >
-                                        <label for="in_atributo4" style="font-weight:bold">Raza</label>
-                                        <p id="consultar-paciente-raza" name="raza"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="form-group">
-                                        <label for="in_atributo6" style="font-weight:bold">Dueño</label>
-                                        <p id="consultar-paciente-duenio-id" name="duenio_id"></p>
-                                    </div>
-                                    <td class="form-group">
-                                        <label for="in_atributo7" style="font-weight:bold">Doctor favorito</label>
-                                        <p id="consultar-paciente-doctor-id" name="doctor_id"></p>
-                                    </td>
-                                </tr>
-                                
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-         
+            @include('Pacientes.modalConsultarPaciente')
             @include('Pacientes.modalAgregaPaciente')
             @include('Pacientes.modalEditaPaciente')
             @include('Pacientes.modalEliminaPaciente')
