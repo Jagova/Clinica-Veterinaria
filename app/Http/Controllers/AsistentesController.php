@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AsistentesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +49,7 @@ class AsistentesController extends Controller
      */
     public function store(Request $request)
     {
-    
+       
     request()->validate([
             'nombre1' => ['required','max:20', 'min:3'],
             'nombre2' => 'nullable',
@@ -60,11 +64,18 @@ class AsistentesController extends Controller
             
         ]);
        
+        $ruta = "Asistentes/circulos_estado-05.png"; 
+        //Se revisa si se cargo una imagen     
+        if ($request->hasFile('imagen')) {
+            $ruta = $request->imagen->store('Asistentes','public');
+        }
+
         $nuevoAsistente = new \App\Asistente;
         $nuevoAsistente->primer_nombre = $request->get('nombre1');
         $nuevoAsistente->segundo_nombre = $request->get('nombre2');
         $nuevoAsistente->apellido_paterno = $request->get('ApPaterno');
         $nuevoAsistente->apellido_materno = $request->get('ApMaterno');
+        $nuevoAsistente->urlImagen = "/storage/".$ruta;
         $nuevoAsistente->especialidad_1 = $request->get('esp1');
         $nuevoAsistente->especialidad_2 = $request->get('esp2');
         $nuevoAsistente->clinica_id = $request->get('clinica');

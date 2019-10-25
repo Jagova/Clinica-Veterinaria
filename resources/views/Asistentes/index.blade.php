@@ -58,15 +58,15 @@
         var asistenteClinica = $(this).data('clinica');
         var asistenteId = $(this).data('id');
        
-        document.getElementById("#consultar-asistente-nombre1").innerHTML = asistenteNombre1;
-        document.getElementById("#consultar-asistente-nombre2").innerHTML = asistenteNombre2;
-        document.getElementById("#consultar-asistente-apellido1").innerHTML = asistenteApellido1;
-        document.getElementById("#consultar-asistente-apellido2").innerHTML = asistenteApellido2;
-        document.getElementById("#consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
-        document.getElementById("#consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
-        document.getElementById("#consultar-asistente-correo").innerHTML = asistenteCorreo;
-        document.getElementById("#consultar-asistente-telefono").innerHTML = asistenteTelefono;
-        document.getElementById("#consultar-asistente-clinica").innerHTML = asistenteClinica;
+        document.getElementById("consultar-asistente-nombre1").innerHTML = asistenteNombre1;
+        document.getElementById("consultar-asistente-nombre2").innerHTML = asistenteNombre2;
+        document.getElementById("consultar-asistente-apellido1").innerHTML = asistenteApellido1;
+        document.getElementById("consultar-asistente-apellido2").innerHTML = asistenteApellido2;
+        document.getElementById("consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
+        document.getElementById("consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
+        document.getElementById("consultar-asistente-correo").innerHTML = asistenteCorreo;
+        document.getElementById("consultar-asistente-telefono").innerHTML = asistenteTelefono;
+        document.getElementById("consultar-asistente-clinica").innerHTML = asistenteClinica;
     });
 </script> 
    
@@ -93,6 +93,7 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Clinica</th>
+                            <th> Fotografía </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -100,7 +101,9 @@
                         @foreach ($Asistentes as $asistente)
                         <tr>
                         <td>
+                                <div>
                             <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                                
                             data-toggle="modal"
                             data-id="{{$asistente->id}}"
                                     data-nombre1="{{$asistente->primer_nombre}}"
@@ -112,13 +115,16 @@
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
                                     data-clinica="{{$asistente->clinica_id}}"
+                                   
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
-                        </td>
+</div></td>
                         <td>{{$asistente->id}}</td>
                         <td>{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}}  {{$asistente->apellido_materno}}</td>   
                         <td>
+                                                    <td><img  src="{{URL::asset($asistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
+                        
                        </td>
                       
                         <td>
@@ -161,7 +167,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/asistentes" method="POST">
+                        <form action="/asistentes" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
@@ -183,6 +189,14 @@
                                     <div class="col-6">
                                             <label for="in_atributo2">Apellido Materno</label>
                                             <input type="text" class="form-control" id="direccion" name="ApMaterno" required>        
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class="col-5">
+                                        <div>
+                                            Fotografía
+                                            <input type="file" name="imagen" id=imagen>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -255,6 +269,13 @@
                                             <p id="consultar-asistente-apellido2" name="ApMaterno"></p>    
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td class="form-group">
+                                            Fotografía
+                                            <td><img  src="{{URL::asset($asistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>                                       
+                                    </td>
+                                </tr>
                                 <tr>
                                         <td class="form-group">
                                                 <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>
@@ -323,6 +344,14 @@
                                     <div class="col-6">
                                             <label for="editar-asistente-apellido2">Apellido Materno</label>
                                             <input type="text" class="form-control" id="editar-asistente-apellido2" name="ApMaterno" required>        
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class="col-5">
+                                        <div>
+                                            Fotografía
+                                            <input type="file" name="imagen" id=imagen>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
