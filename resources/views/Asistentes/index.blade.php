@@ -243,8 +243,8 @@
             
             
             
-            @include('Asistentes.modalEliminarPaciente')
-            @include('Asistentes.modalEditarPaciente')
-            @include('Asistentes.modalConsultarAsistentes')
+            @include('Asistentes.modalEliminarAsistente')
+            @include('Asistentes.modalEditarAsistente')
+            @include('Asistentes.modalConsultarAsistente') 
            
 @endsection
