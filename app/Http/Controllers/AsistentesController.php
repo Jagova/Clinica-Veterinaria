@@ -118,10 +118,12 @@ class AsistentesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ruta = "Asistentes/circulos_estado-05.png"; 
-        //Se revisa si se cargo una imagen     
+        $doctor = \App\Doctor::find($id);
+        //Imagen por defecto
+        //Se revisa si se cargo una imagen, si no se cargo ninguna imagen, entonces deja almacenada la que ya se tenía 
         if ($request->hasFile('imagen')) {
             $ruta = $request->imagen->store('Asistentes','public');
+            $doctor->urlImagen = "/storage/".$ruta;
         }
        
         request()->validate([
@@ -138,7 +140,7 @@ class AsistentesController extends Controller
             
         ]);
        
-        $asistente = \App\Asistente::find($id);
+        
         $asistente ->primer_nombre = $request->get('nombre1');
         $asistente ->segundo_nombre = $request->get('nombre2');
         $asistente ->apellido_paterno = $request->get('ApPaterno');

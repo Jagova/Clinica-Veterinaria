@@ -22,7 +22,7 @@
         var asistenteNombre2 = $(this).data('nombre2');
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
-        var asistenteFoto = $(this).data('foto');
+        var asistenteFoto = $(this).data('urlimagen');
         var asistenteEspecialidad1 = $(this).data('especialidad1');
         var asistenteEspecialidad2 = $(this).data('especialidad2');
         var asistenteTelefono = $(this).data('telefono');
@@ -52,7 +52,7 @@
         var asistenteNombre2 = $(this).data('nombre2');
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
-        var asistenteFoto = $(this).data('foto');
+        var asistenteUrlImagen = $(this).data('urlimagen');
         var asistenteEspecialidad1 = $(this).data('especialidad1');
         var asistenteEspecialidad2 = $(this).data('especialidad2');
         var asistenteTelefono = $(this).data('telefono');
@@ -64,7 +64,7 @@
         document.getElementById("consultar-asistente-nombre2").innerHTML = asistenteNombre2;
         document.getElementById("consultar-asistente-apellido1").innerHTML = asistenteApellido1;
         document.getElementById("consultar-asistente-apellido2").innerHTML = asistenteApellido2;
-        document.getElementById("consultar-asistente-foto").innerHTML = asistenteFoto;
+        document.getElementById("imagen").src  = asistenteFoto;
         document.getElementById("consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
         document.getElementById("consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
         document.getElementById("consultar-asistente-correo").innerHTML = asistenteCorreo;
@@ -93,6 +93,7 @@
                 <table class="table" id="table1">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Clinica</th>
@@ -113,7 +114,7 @@
                                     data-nombre2="{{$asistente->segundo_nombre}}"
                                     data-apellido1="{{$asistente->apellido_paterno}}"
                                     data-apellido2="{{$asistente->apellido_materno}}"
-                                    data-foto="{{$asistente->urlImagen}}"
+                                    data-urlimagen="{{$asistente->urlImagen}}"
                                     data-especialidad1="{{$asistente->especialidad_1}}"
                                     data-especialidad2="{{$asistente->especialidad_2}}"
                                     data-correo="{{$asistente->correo}}"
@@ -140,6 +141,7 @@
                                     data-nombre2="{{$asistente->segundo_nombre}}"
                                     data-apellido1="{{$asistente->apellido_paterno}}"
                                     data-apellido2="{{$asistente->apellido_materno}}"
+                                    data-urlimagen = "{{$asistente->urlImagen}}"
                                     data-especialidad1="{{$asistente->especialidad_1}}"
                                     data-especialidad2="{{$asistente->especialidad_2}}"
                                     data-correo="{{$asistente->correo}}"

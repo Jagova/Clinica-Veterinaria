@@ -33,11 +33,11 @@
                     </tr>
 
                     <tr>
-                        <td class="form-group">
-                                Fotografía
-                                <td><img  src="{{URL::asset($asistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>                                       
-                        </td>
-                    </tr>
+                        <div class = "container" > 
+                           <img id="imagen" height="300" class="d-block w-100" alt="..." >
+                           </div>
+
+                   </tr>
                     <tr>
                             <td class="form-group">
                                     <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>
