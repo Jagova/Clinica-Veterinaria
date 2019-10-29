@@ -3,7 +3,6 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="consultarModalLabel">Consultar doctor</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -18,7 +17,7 @@
                                     </td>
                                     <td class="form-group">
                                             <label for="consultar-doctor-nombre2" style="font-weight:bold">Segundo nombre</label>
-                                            <td id="consultar-doctor-nombre2" name="nombre2"></p>       
+                                            <p id="consultar-doctor-nombre2" name="nombre2"></p>       
                                     </td>
                                 </tr>
                                 <tr>
