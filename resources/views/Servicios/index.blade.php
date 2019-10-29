@@ -20,6 +20,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         var servicioClinica = $(this).data('clinica');
         var servicioPrecio = $(this).data('precio');
         var servicioId = $(this).data('id');
+        document.getElementById('editar-nombre-servicio').innerHTML = servicioNombre;
         $("#editar-nombre").val(servicioNombre);
         $("#editar-precio").val(servicioPrecio);
         $("#editar-clinica").val(servicioClinica);
@@ -43,20 +44,21 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
        
 <div class="container-fluid">
     @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif  
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif  
             <div class="row p-5"><h1 class="display-1">Servicios <i class="fas fa-heartbeat"></i> </h1></div>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar servicio</button>
                 <table class="table" id="table1">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Id</th>
                             <th>Nombre del servicio</th>
                             <th>Precio</th>
@@ -153,7 +155,6 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="consultarModalLabel">Consultar servicio</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -167,14 +168,14 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                         <p id="consultar-nombre" name="nombre"></p>      
                                     </td>
                                     <td class="form-group">
-                                            <label for="consultar-precio style="font-weight:bold">Precio</label>
+                                            <label for="consultar-precio" style="font-weight:bold">Precio</label>
                                             <p id="consultar-precio" name="precio"></p>    
                                     </td>                                   
                                 </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
-                                        <p name="clinica" id="consultar-doctor-clinica"></p>
+                                        <p name="clinica" id="consultar-clinica"></p>
                                     </td>
                                 </tr>
                             </table>
@@ -192,7 +193,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar servicio</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar <span id="editar-nombre-servicio"></span></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

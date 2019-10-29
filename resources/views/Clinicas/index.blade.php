@@ -19,6 +19,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         var clinicaNombre = $(this).data('nombre');
         var clinicaId = $(this).data('id');
         var clinicaDireccion = $(this).data('direccion');
+        document.getElementById('editarmo-clinica-nombre').innerHTML = clinicaNombre;
         $("#editar-clinica-nombre").val(clinicaNombre);
         $("#editar-clinica-direccion").val(clinicaDireccion);
         document.getElementById('form-editar').action = "clinicas/" + clinicaId;
@@ -85,7 +86,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="agregarModalLabel">Crear clínica</h5>
+                            <h5 class="modal-title" id="agregarModalLabel">Agregar clínica</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -117,7 +118,6 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="consultarModalLabel">Consultar asistente</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -151,7 +151,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar elemento</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar <span id="editarmo-clinica-nombre"></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
