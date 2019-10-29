@@ -54,7 +54,7 @@ Route::resource('/subcategorias','SubcategoriasController');
 //Rutas para la tienda
 //Route::resource('/shop','Shop\ShopController');
 Route::get('/shop', function () {
-    return view('/shop/layout');
+    return view('/shop/index');
 });
 
 
