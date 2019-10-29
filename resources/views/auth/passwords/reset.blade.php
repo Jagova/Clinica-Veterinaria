@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
 <h1 class="text-center">Recupera tu contraseña</h1>
-=======
-<h1>Hay que editar este archivo</h1>
->>>>>>> master
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

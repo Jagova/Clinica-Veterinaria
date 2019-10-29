@@ -76,17 +76,6 @@
         var subcategoria = $(this).data('subcategoria');
 
 
-<<<<<<< HEAD
-        $("#consultar-articulo-nombre").innerHTML = articuloNombre;
-        $("#consultar-articulo-precio").val(preciocom);
-        $("#consultar-articulo-marca").val(marca);
-        $("#consultar-articulo-stock").val(stock);
-        $("#consultar-articulo-fecha").val(fecha_cad);
-        $("#consultar-articulo-preciou").val(precio_u);
-        $("#consultar-categoria").val(categoria);
-        $("#consultar-subcategoria").val(subcategoria);
-        $("#consultar-doctor-clinica").val(doctorClinica);
-=======
         document.getElementById("consultar-articulo-nombre").innerHTML = articuloNombre;
         document.getElementById("consultar-articulo-precio").innerHTML = preciocom;
         document.getElementById("consultar-articulo-marca").innerHTML = marca;
@@ -98,7 +87,6 @@
         document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
 
 
->>>>>>> master
     });
 </script>
 
