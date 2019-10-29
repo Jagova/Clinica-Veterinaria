@@ -169,47 +169,57 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                         <form action="/duenos" method="POST">
                             @csrf
                             @method('POST')
-                        <div class="modal-body">                          
-                                <div class="form-group">
+                        <div class="modal-body">  
+                            <div class="form-group row">
+                                <div class="col-6">                        
                                     <label for="in_atributo1" style="font-weight:bold" >Nombre</label>
                                     <p id="nombre" name="nombre">{{$dueno->nombre}}</p>
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >Apellido Paterno</label>
                                     <p id="apellido_paterno" name="apellido_paterno">{{$dueno->apellido_paterno}}</p>
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >Apellido Materno</label>
                                     <p id="apellido_materno" name="apellido_materno">{{$dueno->apellido_materno}}</p>
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >Teléfono</label>
                                     <p id="telefono" name="telefono">{{$dueno->telefono}}</p>
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo2" style="font-weight:bold" >Dirección</label>
                                     <p id="direccion" name="direccion">{{$dueno->direccion}}</p>
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >Celular</label>
                                     <p id="celular" name="celular">{{$dueno->celular}}</p>
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >Correo</label>
                                     <p id="correo" name="correo">{{$dueno->correo}}</p>
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >RFC</label>
                                     <p id="rfc" name="rfc" style="text-transform: uppercase">{{$dueno->rfc}}</p>
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >Código Postal</label>
                                     <p id="codigp_postal" name="codigo_postal">{{$dueno->codigo_postal}}</p>
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1" style="font-weight:bold" >Razón Social</label>
                                     <p id="razon_social" name="razon_social">{{$dueno->razon_social}}</p>
                                 </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
@@ -234,46 +244,56 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
-                                <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo1">Nombre</label>
                                         <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1">Apellido Paterno</label>
                                         <input type="text" required class="form-control" id="apellido_paterno" name="apellido_paterno">
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo1">Apellido Materno</label>
                                         <input type="text" required class="form-control" id="apellido_materno" name="apellido_materno">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1">Teléfono</label>
                                         <input type="number" maxlength="10" required class="form-control" id="telefono" name="telefono">
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo2">Dirección</label>
                                     <input type="text" required class="form-control" id="direccion" name="direccion">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1">Celular</label>
                                         <input type="number" maxlength="10" required class="form-control" id="celular" name="celular">
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo1">Correo</label>
                                         <input type="email" maxlength="100" required class="form-control" id="correo" name="correo">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1">RFC</label>
                                         <input type="text" maxlength="13" required class="form-control" id="rfc" name="rfc" style="text-transform: uppercase">
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
                                     <label for="in_atributo1">Código Postal</label>
                                         <input type="number" maxlength="5" required class="form-control" id="codigp_postal" name="codigo_postal">
                                 </div>
-                                <div class="form-group">
+                                <div class="col-6">
                                     <label for="in_atributo1">Razón Social</label>
                                         <input type="text" required class="form-control" id="razon_social" name="razon_social">
                                 </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

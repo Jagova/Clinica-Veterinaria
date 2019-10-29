@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Dueno;
 use Illuminate\Http\Request;
 
+
 class DuenoController extends Controller
 {
     /**
@@ -15,6 +16,10 @@ class DuenoController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return \redirect('/');
+        }
         $duenos = \App\Dueno::all();
         return view('Duenos.index',
         [
