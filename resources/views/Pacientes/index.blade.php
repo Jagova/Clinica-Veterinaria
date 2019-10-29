@@ -23,8 +23,10 @@
             var pacienteRaza = $(this).data('raza');
             var pacienteDuenioId = $(this).data('duenioid');
             var pacienteDoctorId = $(this).data('doctorid');
-            console.log(pacienteDoctorId);
-            console.log(pacienteEspecie);
+            
+            var pacienteUrlImagen = $(this).data('urlimagen');
+
+            console.log(pacienteUrlImagen);
 
             $("#editar-paciente-nombre").val(pacienteNombre);
             $("#editar-paciente-edad").val(pacienteEdad);
@@ -32,6 +34,11 @@
             $("#editar-paciente-raza").val(pacienteRaza);
             $("#editar-paciente-duenio-id").val(pacienteDuenioId);
             $("#editar-paciente-doctor-id").val(pacienteDoctorId);
+
+
+
+            console.log(pacienteId);
+
             document.getElementById('form-editar').action = "pacientes/" + pacienteId;
         });
 </script>
@@ -46,15 +53,24 @@
             var pacienteRaza = $(this).data('raza');
             var pacienteDuenioId = $(this).data('duenioid');
             var pacienteDoctorId = $(this).data('doctorid');
+
+            var pacienteUrlImagen = $(this).data('urlimagen');
+
+
             console.log(pacienteDoctorId);
             console.log(pacienteEspecie);
 
-            $("#consultar-paciente-nombre").val(pacienteNombre);
-            $("#consultar-paciente-edad").val(pacienteEdad);
-            $("#consultar-paciente-especie").val(pacienteEspecie);
-            $("#consultar-paciente-raza").val(pacienteRaza);
-            $("#consultar-paciente-duenio-id").val(pacienteDuenioId);
-            $("#consultar-paciente-doctor-id").val(pacienteDoctorId);
+            document.getElementById("consultar-paciente-nombre").innerHTML = pacienteNombre;
+            document.getElementById("consultar-paciente-edad").innerHTML = pacienteEdad;
+            document.getElementById("consultar-paciente-especie").innerHTML = pacienteEspecie;
+            document.getElementById("consultar-paciente-raza").innerHTML = pacienteRaza;
+            document.getElementById("consultar-paciente-duenio-id").innerHTML = pacienteDuenioId;
+            document.getElementById("consultar-paciente-doctor-id").innerHTML = pacienteDoctorId;
+
+            console.log(pacienteUrlImagen);
+
+
+            document.getElementById("imagen").src = pacienteUrlImagen;
     });
 </script>
 
@@ -101,6 +117,7 @@
                                     data-raza = "{{$paciente->raza}}"
                                     data-duenioid="{{$paciente->duenio_id}}"
                                     data-doctorid = "{{$paciente->doctor_id}}"
+                                    data-urlimagen = "{{$paciente->urlImagen}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -116,6 +133,7 @@
                                     data-raza = "{{$paciente->raza}}"
                                     data-duenioid="{{$paciente->duenio_id}}"
                                     data-doctorid = "{{$paciente->doctor_id}}"
+                                    data-urlimagen = "{{$paciente->urlImagen}}"
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
@@ -130,7 +148,8 @@
                         </tbody>           
                 </table>
             </div> 
-         
+
+            @include('Pacientes.modalConsultarPaciente')
             @include('Pacientes.modalAgregaPaciente')
             @include('Pacientes.modalEditaPaciente')
             @include('Pacientes.modalEliminaPaciente')

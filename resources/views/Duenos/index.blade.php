@@ -55,16 +55,16 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         var duenoRFC = $(this).data('rfc');
         var duenoCP = $(this).data('codigo_postal');
         var duenoRazonSocial = $(this).data('razon_social');
-        $("#consultar-dueno-nombre").val(duenoNombre);
-        $("#consultar-dueno-apellido_paterno").val(duenoApPaterno);
-        $("#consultar-dueno-apellido_materno").val(duenoApMaterno);
-        $("#consultar-dueno-telefono").val(duenoTelefono);
-        $("#consultar-dueno-direccion").val(duenoDireccion);
-        $("#consultar-dueno-celular").val(duenoCelular);
-        $("#consultar-dueno-correo").val(duenoCorreo);
-        $("#consultar-dueno-rfc").val(duenoRFC);
-        $("#consultar-dueno-codigo_postal").val(duenoCP);
-        $("#consultar-dueno-razon_social").val(duenoRazonSocial);
+        document.getElementById("consultar-dueno-nombre").innerHTML = duenoNombre;
+        document.getElementById("consultar-dueno-apellido_paterno").innerHTML = duenoApPaterno;
+        document.getElementById("consultar-dueno-apellido_materno").innerHTML = duenoApMaterno;
+        document.getElementById("consultar-dueno-telefono").innerHTML = duenoTelefono;
+        document.getElementById("consultar-dueno-direccion").innerHTML = duenoDireccion;
+        document.getElementById("consultar-dueno-celular").innerHTML = duenoCelular;
+        document.getElementById("consultar-dueno-correo").innerHTML = duenoCorreo;
+        document.getElementById("consultar-dueno-rfc").innerHTML = duenoRFC;
+        document.getElementById("consultar-dueno-codigo_postal").innerHTML = duenoCP;
+        document.getElementById("consultar-dueno-razon_social").innerHTML = duenoRazonSocial;
     });
 </script>
 
@@ -166,6 +166,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+<<<<<<< HEAD
                         <form action="/duenos" method="POST">
                             @csrf
                             @method('POST')
@@ -220,6 +221,62 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     <p id="razon_social" name="razon_social">{{$dueno->razon_social}}</p>
                                 </div>
                             </div>
+=======
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Nombre</label>
+                                        <p id="consultar-dueno-nombre" name="nombre"></p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Apellido Paterno</label>
+                                        <p id="consultar-dueno-apellido_paterno" name="apellido_paterno"></p>
+                                    </td>
+                                </tr>                      
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Apellido Materno</label>
+                                        <p id="consultar-dueno-apellido_materno" name="apellido_materno"></p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Teléfono</label>
+                                        <p id="consultar-dueno-telefono" name="telefono"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo2" style="font-weight:bold" >Dirección</label>
+                                        <p id="consultar-dueno-direccion" name="direccion"></p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Celular</label>
+                                        <p id="consultar-dueno-celular" name="celular"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Correo</label>
+                                        <p id="consultar-dueno-correo" name="correo"></p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >RFC</label>
+                                        <p id="consultar-dueno-rfc" name="rfc" style="text-transform: uppercase"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Código Postal</label>
+                                        <p id="consultar-dueno-codigo_postal" name="codigo_postal"></p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="in_atributo1" style="font-weight:bold" >Razón Social</label>
+                                        <p id="consultar-dueno-razon_social" name="razon_social"></p>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+>>>>>>> master
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
@@ -381,7 +438,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro de eliminar al dueño <span id="eliminar-dueno-nombre">{{$dueno->nombre}} {{$dueno->apellido_paterno}}</span>? 
+                                ¿Estás seguro de eliminar al dueño <span id="eliminar-dueno-nombre"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

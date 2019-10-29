@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +49,8 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
         $request->validate([
             'nombre1' => 'required',
             'nombre2' => 'required',
@@ -56,6 +61,14 @@ class DoctorController extends Controller
             'clinica' => 'required',
         ]);
 
+        //Imagen por defecto
+        $ruta = "Pacientes/circulos_estado-05.png"; 
+        //Se revisa si se cargo una imagen     
+        if ($request->hasFile('imagen')) {
+            $ruta = $request->imagen->store('Pacientes','public');
+        }
+
+
         $nuevoDoctor = new \App\Doctor;
         $nuevoDoctor->primer_nombre = $request->get('nombre1');
         $nuevoDoctor->segundo_nombre = $request->get('nombre2');
@@ -64,6 +77,11 @@ class DoctorController extends Controller
         $nuevoDoctor->especialidad_1 = $request->get('esp1');
         $nuevoDoctor->especialidad_2 = $request->get('esp2');
         $nuevoDoctor->clinica_id = $request->get('clinica');
+
+        //Foto
+        $nuevoDoctor->urlImagen = "/storage/".$ruta;
+
+
         $nuevoDoctor->save();
         return redirect('/doctores');
     }
@@ -109,9 +127,18 @@ class DoctorController extends Controller
             'esp2' => 'required',
             'clinica' => 'required',
         ]); 
+
+        $doctor = \App\Doctor::find($id);
+
+        //Imagen por defecto
+        //Se revisa si se cargo una imagen, si no se cargo ninguna imagen, entonces deja almacenada la que ya se tenía 
+        if ($request->hasFile('imagen')) {
+            $ruta = $request->imagen->store('Doctores','public');
+            $doctor->urlImagen = "/storage/".$ruta;
+        }
+
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
-        $doctor = \App\Doctor::find($id);
         $doctor->primer_nombre = $request->get('nombre1');
         $doctor->segundo_nombre = $request->get('nombre2');
         $doctor->apellido_paterno = $request->get('ApPaterno');

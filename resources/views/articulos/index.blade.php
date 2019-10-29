@@ -76,6 +76,7 @@
         var subcategoria = $(this).data('subcategoria');
 
 
+<<<<<<< HEAD
         $("#consultar-articulo-nombre").innerHTML = articuloNombre;
         $("#consultar-articulo-precio").val(preciocom);
         $("#consultar-articulo-marca").val(marca);
@@ -85,6 +86,19 @@
         $("#consultar-categoria").val(categoria);
         $("#consultar-subcategoria").val(subcategoria);
         $("#consultar-doctor-clinica").val(doctorClinica);
+=======
+        document.getElementById("consultar-articulo-nombre").innerHTML = articuloNombre;
+        document.getElementById("consultar-articulo-precio").innerHTML = preciocom;
+        document.getElementById("consultar-articulo-marca").innerHTML = marca;
+        document.getElementById("consultar-articulo-stock").innerHTML = stock;
+        document.getElementById("consultar-articulo-fecha").innerHTML = fecha_cad;
+        document.getElementById("consultar-articulo-preciou").innerHTML = precio_u;
+        document.getElementById("consultar-categoria").innerHTML = categoria;
+        document.getElementById("consultar-subcategoria").innerHTML = subcategoria;
+        document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
+
+
+>>>>>>> master
     });
 </script>
 
@@ -95,10 +109,7 @@
               <!--      <a href="articulos/">Articulos</a> 
                     <a href="categoria/">Categoria</a> 
                     <a href="subcategoria/">Subcategoria</a> 
-                -->
-
-
-                
+                -->           
                 </div>
             </div>
             <div class="row p-5">
@@ -107,13 +118,10 @@
 
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
 
-
-
-
-
                 <table class="table" id="table1">
                     <thead>
                         <tr>
+                            <td></td>
                             <th >Id </th>
                             <th >Nombre </th>
                             <th >Precio Compra </th>
@@ -129,6 +137,7 @@
                             <th >SubCategoria </th>
 
                             <th >Clinica </th>
+                            <th>Imagen </th>
 
                             <th></th>
                         </tr>
@@ -164,6 +173,7 @@
                         <td>{{$articulo->Categoria->nombre}}</td>
                         <td>{{$articulo->Subcategoria->nombre}}</td>
                         <td>{{$articulo->Clinica->nombre}}</td>
+                        <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -231,6 +241,11 @@
 
                             </div>
 
+                            <div>
+                                Foto
+                                <input type="file" name="imagen" id=imagen>
+                            </div>
+
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo3">Marca: </label>
@@ -292,6 +307,80 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary">Crear</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Consultar -->
+            <div class="modal fade" id="consultarModal" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar artículo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">  
+                            <table class="table"> 
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-nombre" style="font-weight:bold">Nombre:</label>
+                                        <p id="consultar-articulo-nombre" name="nombre"></p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-precio" style="font-weight:bold">Precio Compra:</label>
+                                        <p id="consultar-articulo-precio" name="preciocom"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-marca" style="font-weight:bold">Marca: </label>
+                                        <p id="consultar-articulo-marca" name="marca"></p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-stock" style="font-weight:bold">Stock: </label>
+                                        <p id="consultar-articulo-stock" name="stock"></p>
+                                    </td>
+                                </tr>
+                                    
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-fecha" style="font-weight:bold">Fecha Cad: </label>
+                                        <p id="consultar-articulo-fecha" name="fecha_cad"></p>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <label for="consultar-articulo-preciou" style="font-weight:bold">Precio Un</label>
+                                        <p id="consultar-articulo-preciou" name="precio_u"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-group">
+                                        <label for="consultar-categoria">Categoria</label>
+                                        <p name="categoria" id="consultar-categoria"></p>
+                                    </td>
+                                    <td class="form-group">
+                                        <label for="consultar-subcategoria" tyle="font-weight:bold">Subcategoria</label>
+                                        <p name="subcategoria" id="consultar-subcategoria"></p>
+                                    </div>
+                                      
+                                </tr>
+                                    <td class="form-group">
+                                        <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
+                                        <p name="clinica" id="consultar-doctor-clinica"></p>
+                                    </td>   
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Salir</button>
                         </div>
                     </form>
                     </div>

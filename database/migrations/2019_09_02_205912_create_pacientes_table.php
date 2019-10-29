@@ -20,7 +20,7 @@ class CreatePacientesTable extends Migration
             $table->string('especie');
             $table->string('raza');
             //No sé cómo se define la foto
-
+            $table->string('urlImagen');
             //Llave foránea al dueño de la mascota
             $table->unsignedInteger('duenio_id')->foreign('duenio_id')->references('id')->on('duenios')->onDelete('cascade'); 
             //Llave foránea a su doctor favorito

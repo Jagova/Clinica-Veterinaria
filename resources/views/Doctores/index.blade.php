@@ -2,6 +2,7 @@
 
 @section('contenido')
 
+<!--Script para abrir el modal elimina-->
 <script>
     $(document).on("click", ".abrirEliminaModal", function (event) {
         var doctorNombre = $(this).data('nombre');
@@ -14,7 +15,7 @@
     });
 </script>
 
-
+<!--Script para abrir el modal edita-->
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
         var doctorNombre1 = $(this).data('nombre1');
@@ -25,6 +26,9 @@
         var doctorEspecialidad2 = $(this).data('especialidad2');
         var doctorClinica = $(this).data('clinica');
         var doctorId = $(this).data('id');
+
+        var doctorUrlImagen = $(this).data('urlimagen');
+
         $("#editar-doctor-nombre1").val(doctorNombre1);
         $("#editar-doctor-nombre2").val(doctorNombre2);
         $("#editar-doctor-apellido1").val(doctorApellido1);
@@ -32,7 +36,9 @@
         $("#editar-doctor-especialidad1").val(doctorEspecialidad1);
         $("#editar-doctor-especialidad2").val(doctorEspecialidad2);
         $("#editar-doctor-clinica").val(doctorClinica);
+
         document.getElementById('form-editar').action = "doctores/" + doctorId;
+
     });
 </script>
 
@@ -47,13 +53,21 @@
         var doctorEspecialidad2 = $(this).data('especialidad2');
         var doctorClinica = $(this).data('clinica');
         var doctorId = $(this).data('id');
-        $("#consultar-doctor-nombre1").val(doctorNombre1);
-        $("#consultar-doctor-nombre2").val(doctorNombre2);
-        $("#consultar-doctor-apellido1").val(doctorApellido1);
-        $("#consultar-doctor-apellido2").val(doctorApellido2);
-        $("#consultar-doctor-especialidad1").val(doctorEspecialidad1);
-        $("#consultar-doctor-especialidad2").val(doctorEspecialidad2);
-        $("#consultar-doctor-clinica").val(doctorClinica);
+
+        var doctorUrlImagen = $(this).data('urlimagen');
+
+
+
+        document.getElementById("consultar-doctor-nombre1").innerHTML = doctorNombre1;
+        document.getElementById("consultar-doctor-nombre2").innerHTML = doctorNombre2;
+        document.getElementById("consultar-doctor-apellido1").innerHTML = doctorApellido1;
+        document.getElementById("consultar-doctor-apellido2").innerHTML = doctorApellido2;
+        document.getElementById("consultar-doctor-especialidad1").innerHTML = doctorEspecialidad1;
+        document.getElementById("consultar-doctor-especialidad2").innerHTML = doctorEspecialidad2;
+        document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
+
+        document.getElementById("imagen").src = doctorUrlImagen;
+
     });
 </script>
 
@@ -77,15 +91,16 @@
                         <tr>
                         <td>
                             <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
-                            data-toggle="modal"
-                            data-id="{{$doctor->id}}"
-                            data-nombre1="{{$doctor->primer_nombre}}"
-                            data-nombre2="{{$doctor->segundo_nombre}}"
-                            data-apellido1="{{$doctor->apellido_paterno}}"
-                            data-apellido2="{{$doctor->apellido_materno}}"
-                                    data-especialidad1="{{$doctor->especialidad_1}}"
-                                    data-especialidad2="{{$doctor->especialidad_2}}"
-                                    data-clinica="{{$doctor->clinica_id}}"
+                                data-toggle="modal"
+                                data-id="{{$doctor->id}}"
+                                data-nombre1="{{$doctor->primer_nombre}}"
+                                data-nombre2="{{$doctor->segundo_nombre}}"
+                                data-apellido1="{{$doctor->apellido_paterno}}"
+                                data-apellido2="{{$doctor->apellido_materno}}"
+                                data-especialidad1="{{$doctor->especialidad_1}}"
+                                data-especialidad2="{{$doctor->especialidad_2}}"
+                                data-clinica="{{$doctor->clinica_id}}"
+                                data-urlimagen="{{$doctor->urlImagen}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -105,9 +120,11 @@
                                     data-especialidad1="{{$doctor->especialidad_1}}"
                                     data-especialidad2="{{$doctor->especialidad_2}}"
                                     data-clinica="{{$doctor->clinica_id}}"
+                                    data-urlimagen = "{{$doctor->urlImagen}}"
+
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
-                                    <button type="button" class="btn btn-danger abrirEliminaModal"
+                                <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
                                 data-id="{{$doctor->id}}"
                                 data-nombre="{{$doctor->primer_nombre}}"
@@ -121,155 +138,13 @@
                 </table>
             </div>
 
-            
-            <!-- Modal Agregar -->
-            <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="agregarModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="agregarModalLabel">Agregar doctor</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form action="/doctores" method="POST">
-                            @csrf
-                            @method('POST')
-                        <div class="modal-body">                          
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Primer nombre</label>
-                                                <input type="text" required class="form-control" id="nombre1" name="nombre1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Segundo nombre</label>
-                                                <input type="text" required class="form-control" id="direccion" name="nombre2">        
-                                        </div>
-                                    </div>
-                                <div class="form-group row">
-                                    <div class="col-6">
-                                            <label for="in_atributo2">Apellido Paterno</label>
-                                            <input type="text" required class="form-control" id="direccion" name="ApPaterno">        
-                                    </div>
-                                    <div class="col-6">
-                                            <label for="in_atributo2">Apellido Materno</label>
-                                            <input type="text" required class="form-control" id="direccion" name="ApMaterno">        
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Especialidad 1</label>
-                                                <input type="text" required class="form-control" id="direccion" name="esp1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Especialidad 2</label>
-                                                <input type="text" required class="form-control" id="direccion" name="esp2">        
-                                        </div>
-                                </div>
-                                <div class="form-group">
-                                        <label for="in_atributo1">Clinica</label>
-                                        <select class="form-control" name="clinica">
-                                            @foreach ($Clinicas as $clinica)                                  
-                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
-                                            @endforeach
-                                        </select>
-                                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Crear</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Modal editar -->
-            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar elemento</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form id="form-editar" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="modal-body">                          
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="editar-doctor-nombre1">Primer nombre</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-nombre1" name="nombre1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="editar-doctor-nombre2">Segundo nombre</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-nombre2" name="nombre2">        
-                                        </div>
-                                    </div>
-                                <div class="form-group row">
-                                    <div class="col-6">
-                                            <label for="editar-doctor-apellido1">Apellido Paterno</label>
-                                            <input type="text" required class="form-control" id="editar-doctor-apellido1" name="ApPaterno">        
-                                    </div>
-                                    <div class="col-6">
-                                            <label for="editar-doctor-apellido2">Apellido Materno</label>
-                                            <input type="text" required class="form-control" id="editar-doctor-apellido2" name="ApMaterno">        
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                        <div class="col-6">
-                                                <label for="editar-doctor-especialidad1">Especialidad 1</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-especialidad1" name="esp1">        
-                                        </div>
-                                        <div class="col-6">
-                                                <label for="editar-doctor-especialidad2">Especialidad 2</label>
-                                                <input type="text" required class="form-control" id="editar-doctor-especialidad2" name="esp2">        
-                                        </div>
-                                </div>
-                                <div class="form-group">
-                                        <label for="editar-doctor-clinica">Clínica</label>
-                                        <select class="form-control" name="clinica" id="editar-doctor-clinica">
-                                        @foreach ($Clinicas as $clinica)                                  
-                                                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
-                                            @endforeach
-                                        </select>
-                                </div>
-                        </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
 
-            <!-- Modal Eliminar -->
-            <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar doctor</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form id="form-eliminar" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                            <div class="modal-body">
-                                ¿Estás seguro de eliminar el doctor <span id="eliminar-doctor-nombre"></span>? 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
+            @include('Doctores.modalConsultaDoctor')
+            @include('Doctores.modalAgregaDoctor')
+            @include('Doctores.modalEditaDoctor')
+            @include('Doctores.modalEliminaDoctor')
+        
         </div>
 
 @endsection
