@@ -105,10 +105,12 @@ $("#eliminar-clinica-id").val(medicinaId);
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Inventario  <i class="fas fa-pills"></i> </h1>
-                <div>             
-                    <a href="articulos/">Articulos</a> <i class="fas fa-store"></i>
-                </div>
+            <div class="row p-5"><h1 class="display-1">Inventario 
+                <i class="fas fa-dolly-flatbed"></i> &nbsp
+            </h1>
+
+            @include('Medicamentos.areaLinks')
+
             </div>
 
             <div class="row p-4">
@@ -117,18 +119,19 @@ $("#eliminar-clinica-id").val(medicinaId);
                     <thead>
                         <tr>
                             
-                            <th >Id </th>
+<!--                            <th >Id </th> -->
                             <th >Nombre </th>
                             <th >Presentacion </th>
-                            <th >ML MG </th>
-                            <th >Compuesto </th>
+<!--                            <th >ML MG </th>
+                            <th >Compuesto </th>-->
                             <th >Precio </th>
                             <th >Laboratorio </th>
                             <th >Paq Unidad </th>
-                            <th >Controlado </th>
+<!--                            <th >Controlado </th>
                             <th >Fecha </th>
-                            <th >Stock </th>
-                            <th >Clinica </th>
+                            <th >Stock </th>-->
+                            <th >Clinica </th> 
+                            <th> Imagen </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -151,18 +154,19 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <i class="fas fa-plus-circle"></i>
                             </button>
                         </td>
-                        <td>{{$medis->id}}</td>
+                    <!--    <td>{{$medis->id}}</td>-->
                         <td>{{$medis->nombre}}</td>   
                         <td>{{$medis->presentacion}}</td>
-                        <td>{{$medis->ml_mg}}</td>
-                        <td>{{$medis->compuesto}}</td>
+               <!--         <td>{{$medis->ml_mg}}</td>
+                        <td>{{$medis->compuesto}}</td>-->
                         <td>{{$medis->precio}}</td>
                         <td>{{$medis->laboratorio}}</td>
                         <td>{{$medis->paq_unidad}}</td>
-                        <td>{{$medis->controlado}}</td>
+                   <!--     <td>{{$medis->controlado}}</td>
                         <td>{{$medis->fecha_caducidad}}</td>
-                        <td>{{$medis->stock}}</td>
+                        <td>{{$medis->stock}}</td>-->
                         <td>{{$medis->Clinica->nombre}}</td>
+                        <td><img  src="{{URL::asset($medis->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -241,7 +245,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo3">ML MG: </label>
-                                    <input type="number" step="any" min="1"  required class="form-control" id="ml_mg" name="ml_mg">
+                                    <input type="number" step="any" min="0"  required class="form-control" id="ml_mg" name="ml_mg">
                                 </div>
 
                                 <div class="col-6">
@@ -287,8 +291,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo2">Fecha Caducidad: </label>
-                                    <input type="date" required class="form-control" id="fecha_caducidad" name="fecha_caducidad"
-                                      min="2019-01-01" max="2025-12-31">
+                                    <input type="date" required class="form-control" id="fecha_caducidad" name="fecha_caducidad">
                                 </div>
 
 

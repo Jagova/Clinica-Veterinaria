@@ -92,18 +92,11 @@
 
 
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-boxes"></i> </h1>
-                <div>             
-              <!--      <a href="articulos/">Articulos</a> 
-                    <a href="categoria/">Categoria</a> 
-                    <a href="subcategoria/">Subcategoria</a> 
-                -->           
-                </div>
+            <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-dolly-flatbed"></i> &nbsp </h1> 
+                @include('articulos.areaLinks')
             </div>
             <div class="row p-5">
                                 
-
-
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Articulo</button>
 
                 <table class="table" id="table1">
@@ -113,12 +106,12 @@
                             <th >Id </th>
                             <th >Nombre </th>
                             <th >Precio Compra </th>
-                            <th >Marca </th>
+                         <!--   <th >Marca </th>
 
 
                             <th >Stock </th>
                             <th >Fecha Caducidad</th>
-                            <th >Precio Un </th>
+                            <th >Precio Un </th> -->
 
                             <th >Categoria </th>
 
@@ -154,10 +147,10 @@
                         <td>{{$articulo->id}}</td>
                         <td>{{$articulo->nombre}}</td>   
                         <td>{{$articulo->preciocom}}</td>
-                        <td>{{$articulo->marca}}</td>
+                    <!--    <td>{{$articulo->marca}}</td>
                         <td>{{$articulo->stock}}</td>
                         <td>{{$articulo->fecha_cad}}</td>
-                        <td>{{$articulo->precio_u}}</td>
+                        <td>{{$articulo->precio_u}}</td> -->
                         <td>{{$articulo->Categoria->nombre}}</td>
                         <td>{{$articulo->Subcategoria->nombre}}</td>
                         <td>{{$articulo->Clinica->nombre}}</td>
@@ -380,7 +373,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar Articulo</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

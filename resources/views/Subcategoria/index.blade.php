@@ -42,13 +42,11 @@ $("#eliminar-clinica-id").val(articuloId);
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">SubCategorias <i class="fas fa-boxes"></i> </h1>
-                <div>             
-                    <a href="articulos/">articulos</a>
-                </div>
+            <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-dolly-flatbed"></i> &nbsp </h1>
+                @include('Subcategoria.areaLinks')
             </div>
             <div class="row p-5">
-                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Categoria  Articulo</button>
+                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear SubCategoria  Articulo</button>
                 <table class="table" id="table1">
                     <thead>
                         <tr>

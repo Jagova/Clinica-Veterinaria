@@ -58,6 +58,12 @@ class MedicamentosController extends Controller
         ]);
 
 
+            $ruta = "Articulos/circulos_estado-05.png"; 
+        //Se revisa si se cargo una imagen     
+        if ($request->hasFile('imagen')) { $ruta = $request->imagen->store('Articulos','public'); }
+
+
+
         $medis = new \App\Medicamentos;
         $medis->nombre = $request->get('nombre');
         $medis->presentacion = $request->get('presentacion');
@@ -70,6 +76,7 @@ class MedicamentosController extends Controller
         $medis->fecha_caducidad= $request->get('fecha_caducidad');
         $medis->stock= $request->get('stock');
         $medis->clinica_id = $request->get('clinica');
+        $medis->urlImagen = "/storage/".$ruta;
 
         $medis->save();
         return redirect('/medicamentos');

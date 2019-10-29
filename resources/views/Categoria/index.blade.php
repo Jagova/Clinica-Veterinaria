@@ -43,10 +43,10 @@ $("#eliminar-clinica-id").val(articuloId);
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Categorias <i class="fas fa-boxes"></i> </h1>
-                <div>             
-                    <a href="medicamentos/">Categorias</a> <i class="fas fa-pills"></i>
-                </div>
+            <div class="row p-5"><h1 class="display-1">Inventario <i class="fas fa-dolly-flatbed"></i> &nbsp </h1>
+                
+                    @include('Categoria.areaLinks')
+                
             </div>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Categoria  Articulo</button>
@@ -63,15 +63,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
                         @foreach ($Categoria as $categoria)
                         <tr>
-                        <td>
-                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
-                            data-toggle="modal"
-                            data-id="{{$categoria->id}}"
-                                    data-nombre="{{$categoria->nombre}}"
-                            >
-                                <i class="fas fa-plus-circle"></i>
-                            </button>
-                        </td>
+                        
                         <td>{{$categoria->id}}</td>
                         <td>{{$categoria->nombre}}</td>   
                         <td>
@@ -163,7 +155,7 @@ $("#eliminar-clinica-id").val(articuloId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar Articulo</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
