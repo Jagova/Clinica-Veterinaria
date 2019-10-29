@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="consultarModalLabel">Consultar asistente</h5>
+                <h5 class="modal-title" id="consultarModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -33,11 +33,11 @@
                     </tr>
 
                     <tr>
-                        <div class = "container" > 
-                           <img id="imagen" height="300" class="d-block w-100" alt="..." >
-                           </div>
-
-                   </tr>
+                        <td class="form-group">
+                                Fotografía
+                               
+                        </td>
+                    </tr>
                     <tr>
                             <td class="form-group">
                                     <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>

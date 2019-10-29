@@ -145,7 +145,7 @@ class AsistentesController extends Controller
         $asistente ->segundo_nombre = $request->get('nombre2');
         $asistente ->apellido_paterno = $request->get('ApPaterno');
         $asistente ->apellido_materno = $request->get('ApMaterno');
-        $nuevoAsistente->urlImagen = "/storage/".$ruta;
+        $asistente->urlImagen = "/storage/".$ruta;
         $asistente ->especialidad_1 = $request->get('esp1');
         $asistente->especialidad_2 = $request->get('esp2');
         $asistente->clinica_id = $request->get('clinica');
