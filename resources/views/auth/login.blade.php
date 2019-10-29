@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div style="background-color:blue height:40px width:100px position:absolute z-index:100"></div>
-<h1 style="background-color:green">Bienvenido</h1>
-<div class="container"  style="background-color:red">
+
+<h1 class="text-center">Inicia sesión</h1>
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card bg-light mb-3">
                 <div class="card-header">{{ __('Entrar') }}</div>
 
                 <div class="card-body">

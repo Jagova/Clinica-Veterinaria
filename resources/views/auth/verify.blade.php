@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Verificación de correo electrónico</h1>
+
+<h1 class="text-center">Verifica tu correo electrónico</h1>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card bg-light mb-3">
                 <div class="card-header">{{ __('Verifica tu dirección de correo electrónico') }}</div>
 
                 <div class="card-body">

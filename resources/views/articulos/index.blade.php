@@ -76,7 +76,7 @@
         var subcategoria = $(this).data('subcategoria');
 
 
-        $("#consultar-articulo-nombre").val(articuloNombre);
+        $("#consultar-articulo-nombre").innerHTML = articuloNombre;
         $("#consultar-articulo-precio").val(preciocom);
         $("#consultar-articulo-marca").val(marca);
         $("#consultar-articulo-stock").val(stock);

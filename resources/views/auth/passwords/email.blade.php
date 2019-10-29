@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Recuperar contraseña</h1>
+<h1 class="text-center">Recupera tu contraseña</h1>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card bg-light mb-3">
                 <div class="card-header">{{ __('Recuperar contraseña') }}</div>
 
                 <div class="card-body">
