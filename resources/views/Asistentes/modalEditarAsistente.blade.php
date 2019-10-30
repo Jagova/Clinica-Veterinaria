@@ -3,7 +3,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editarModalLabel">Editar elemento</h5>
+                <h5 class="modal-title" id="editarModalLabel">
+                        <div class="modal-body">
+                               Editando información del asistente<b> <span id="editar-asistente-nombre"></span> </b>
+                             </div></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -34,10 +37,10 @@
                 </div>
                 <div class = "row">
                     <div class="col-5">
-                        <div>
-                            Fotografía
-                            <input type="file" name="imagen" id=imagen>
-                        </div>
+                            <div>
+                                    Foto
+                                    <input type="file" name="imagen" id="editar-asistente-imagen">
+                                </div>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -57,7 +60,7 @@
                     </div>
                     <div class="col-6">
                             <label for="editar-asistente-telefono">Telefono</label>
-                            <input class="form-control" id="telefono" name="telefono" required input type="tel"  min="7" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                            <input class="form-control" id="consultar-asistente-telefono" name="telefono" required input type="tel"  min="7" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                          </div>
             </div>
                 <div class="form-group">

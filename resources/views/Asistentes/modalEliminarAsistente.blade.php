@@ -13,7 +13,7 @@
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro de eliminar el asistente <span id="eliminar-asistente-nombre"></span>? 
+                                ¿Estás seguro de eliminar el asistente <b><span id="eliminar-asistente-nombre"></span></b>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
