@@ -27,7 +27,7 @@
 </head>
 <body>
   <div id="app">
-          <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+          <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm sticky-top">
                   <a class="navbar-brand" href="/"><img class="img-fluid" width="70" src="{{URL::asset('images/logo-prueba.png')}}"/></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#MenuAdmin"
                   aria-controls="MenuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
               <div class="collapse navbar-collapse" id="MenuAdmin">
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                       <li class="nav-item active">
-                          <a class="nav-link" href=""><i class="fas fa-dog "></i>
+                          <a class="nav-link" href="/shop/perros"><i class="fas fa-dog "></i>
                               Perros</a>
                       </li>
                       <li class="nav-item active">
