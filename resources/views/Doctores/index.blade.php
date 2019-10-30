@@ -29,7 +29,7 @@
 
         var doctorUrlImagen = $(this).data('urlimagen');
         
-        var nombreCompleto = doctorNombre1 + doctorNombre2;
+        var nombreCompleto = doctorNombre1 +" "+ doctorNombre2;
 
         document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
 

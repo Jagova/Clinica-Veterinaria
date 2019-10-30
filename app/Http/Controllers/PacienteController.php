@@ -61,7 +61,7 @@ class PacienteController extends Controller
     
         $request->validate([
             'nombre' => 'required | max:200 | regex:/(^[a-zA-z- ]+$)+/',
-            'edad' => 'required | integer | min:0 | max:50 | regex: /^[0-9]+$/',
+            'edad' => 'required | integer | min:0 | regex: /^[0-9]+$/',
             'especie' => 'required ',
             'raza' => 'required | max:200 | regex:/(^[a-zA-z- ]+$)+/',
             'duenio_id' => 'required',
@@ -120,7 +120,7 @@ class PacienteController extends Controller
     {
         $request->validate([
             'nombre' => 'required | max:200 |  regex:/(^[a-zA-z- ]+$)+/',
-            'edad' => 'required | integer | min:0 | max:200 |regex: /^[0-9]+$/',
+            'edad' => 'required | integer | min:0 |regex: /^[0-9]+$/',
             'especie' => 'required ',
             'raza' => 'required | max:200 |  regex:/(^[a-zA-z- ]+$)+/',
             'duenio_id' => 'required',
