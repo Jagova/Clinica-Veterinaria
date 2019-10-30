@@ -68,6 +68,9 @@ Route::get('/shop', function () {
     return view('/shop/index');
 });
 
+Route::get('/shop/perros', function () {
+    return view('/shop/perros/index');
+});
 
 /*regresa una vista de las mascotas*/
 Route::get('mascotas',function(){ });
