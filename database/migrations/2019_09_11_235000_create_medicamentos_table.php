@@ -28,6 +28,8 @@ class CreateMedicamentosTable extends Migration
             $table->string('stock');
             
             $table->unsignedInteger('clinica_id')->foreign('clinica_id')->references('id')->on('clinicas')->onDelete('cascade');
+
+            $table->string('urlImagen');
             
             $table->timestamps();
         });

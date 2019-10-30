@@ -105,10 +105,12 @@ $("#eliminar-clinica-id").val(medicinaId);
 
        
 <div class="container-fluid">
-            <div class="row p-5"><h1 class="display-1">Inventario  <i class="fas fa-pills"></i> </h1>
-                <div>             
-                    <a href="articulos/">Articulos</a> <i class="fas fa-store"></i>
-                </div>
+            <div class="row p-5"><h1 class="display-1">Inventario 
+                <i class="fas fa-dolly-flatbed"></i> &nbsp
+            </h1>
+
+            @include('Medicamentos.areaLinks')
+
             </div>
 
             <div class="row p-4">
@@ -116,19 +118,20 @@ $("#eliminar-clinica-id").val(medicinaId);
                 <table class="table" id="table1">
                     <thead>
                         <tr>
-                            
-                            <th >Id </th>
+                            <td></td>
+<!--                            <th >Id </th> -->
                             <th >Nombre </th>
-                            <th >Presentacion </th>
-                            <th >ML MG </th>
-                            <th >Compuesto </th>
+<!--                            <th >Presentacion </th>-->
+<!--                            <th >ML MG </th>
+                            <th >Compuesto </th>-->
                             <th >Precio </th>
-                            <th >Laboratorio </th>
+     <!--                       <th >Laboratorio </th>-->
                             <th >Paq Unidad </th>
-                            <th >Controlado </th>
+<!--                            <th >Controlado </th>
                             <th >Fecha </th>
-                            <th >Stock </th>
-                            <th >Clinica </th>
+                            <th >Stock </th>-->
+                            <th >Clinica </th> 
+                            <th> Imagen </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -137,6 +140,7 @@ $("#eliminar-clinica-id").val(medicinaId);
 
                         @foreach ($Medicamentos as $medis)
                         <tr>
+
                         <td>
                             <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
                             data-toggle="modal"
@@ -150,19 +154,21 @@ $("#eliminar-clinica-id").val(medicinaId);
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
+
                         </td>
-                        <td>{{$medis->id}}</td>
+                    <!--    <td>{{$medis->id}}</td>-->
                         <td>{{$medis->nombre}}</td>   
-                        <td>{{$medis->presentacion}}</td>
-                        <td>{{$medis->ml_mg}}</td>
-                        <td>{{$medis->compuesto}}</td>
+                <!--        <td>{{$medis->presentacion}}</td>-->
+               <!--         <td>{{$medis->ml_mg}}</td>
+                        <td>{{$medis->compuesto}}</td>-->
                         <td>{{$medis->precio}}</td>
-                        <td>{{$medis->laboratorio}}</td>
+                 <!--       <td>{{$medis->laboratorio}}</td>-->
                         <td>{{$medis->paq_unidad}}</td>
-                        <td>{{$medis->controlado}}</td>
+                   <!--     <td>{{$medis->controlado}}</td>
                         <td>{{$medis->fecha_caducidad}}</td>
-                        <td>{{$medis->stock}}</td>
+                        <td>{{$medis->stock}}</td>-->
                         <td>{{$medis->Clinica->nombre}}</td>
+                        <td><img  src="{{URL::asset($medis->urlImagen)}}" height="100" class="d-block w" alt="..."></td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -223,7 +229,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                         <input type="text" required class="form-control" id="nombre" name="nombre">
                                 </div>
                                 <div class="col-6">
-                                    <label for="in_atributo2">Presentacion: </label>
+                                    <label for="in_atributo2">Presentación: </label>
                                     <select  type="text" requied class="form-control" id="presentacion" name="presentacion">
                                         <option>Comprimido</option>
                                         <option>Cápsula</option>
@@ -238,10 +244,19 @@ $("#eliminar-clinica-id").val(medicinaId);
 
                             </div>
 
+                            <div class = "row">
+                        <div class="col-5">
+                            <div>
+                                Foto
+                                <input type="file" name="imagen" id=imagen>
+                            </div>
+                        </div>
+                    </div>
+
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo3">ML MG: </label>
-                                    <input type="number" step="any" min="1"  required class="form-control" id="ml_mg" name="ml_mg">
+                                    <input type="number" step="any" min="0"  required class="form-control" id="ml_mg" name="ml_mg">
                                 </div>
 
                                 <div class="col-6">
@@ -287,8 +302,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo2">Fecha Caducidad: </label>
-                                    <input type="date" required class="form-control" id="fecha_caducidad" name="fecha_caducidad"
-                                      min="2019-01-01" max="2025-12-31">
+                                    <input type="date" required class="form-control" id="fecha_caducidad" name="fecha_caducidad">
                                 </div>
 
 
@@ -324,7 +338,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="consultarModalLabel">Consultar medicamento</h5>
+                            <h5 class="modal-title" id="consultarModalLabel">Consultar </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -338,7 +352,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                         <p id="consultar-m-nombre" name="nombre"></p>
                                     </td>
                                     <td class="form-group">
-                                        <label for="in_atributo2" style="font-weight:bold">Presentacion: </label>
+                                        <label for="in_atributo2" style="font-weight:bold">Presentación: </label>
                                         <p id="consultar-m-presentacion" name="presentacion"></p>
                                     </td>
                                 </tr>
@@ -385,12 +399,13 @@ $("#eliminar-clinica-id").val(medicinaId);
                                         <p id="consultar-m-fechcad" name="fecha_caducidad"></p>
                                     </td>
                                 </tr>
-                                <tr>
+                               <!-- <tr>
                                     <td class="form-group">
                                         <label for="consultar-doctor-clinica" style="font-weight:bold">Clínica</label>
                                         <p name="clinica" id="consultar-doctor-clinica"></p>
                                     </td>
                                 </tr>
+                            -->
                             </table>
                         </div>
                         <div class="modal-footer">
@@ -406,7 +421,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar Medicamento</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -422,7 +437,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                         <input type="text" required class="form-control" id="editar-m-nombre" name="nombre">
                                 </div>
                                 <div class="col-6">
-                                    <label for="in_atributo2">Presentacion: </label>
+                                    <label for="in_atributo2">Presentación: </label>
                                     <select  type="text" requied class="form-control" id="editar-m-presentacion" name="presentacion">
                                         <option>Comprimido</option>
                                         <option>Cápsula</option>
@@ -523,7 +538,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar Medicina</h5>
+                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -532,7 +547,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro que desea eliminar Medicina <span id="eliminar-nombre-m"></span>? 
+                                ¿Estás seguro que desea eliminar <span id="eliminar-nombre-m"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
