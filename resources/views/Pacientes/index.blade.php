@@ -27,6 +27,7 @@
             var pacienteUrlImagen = $(this).data('urlimagen');
 
             console.log(pacienteUrlImagen);
+            document.getElementById('editarmo-paciente-nombre').innerHTML = pacienteNombre;
 
             $("#editar-paciente-nombre").val(pacienteNombre);
             $("#editar-paciente-edad").val(pacienteEdad);
@@ -57,17 +58,12 @@
             var pacienteUrlImagen = $(this).data('urlimagen');
 
 
-            console.log(pacienteDoctorId);
-            console.log(pacienteEspecie);
-
             document.getElementById("consultar-paciente-nombre").innerHTML = pacienteNombre;
             document.getElementById("consultar-paciente-edad").innerHTML = pacienteEdad;
             document.getElementById("consultar-paciente-especie").innerHTML = pacienteEspecie;
             document.getElementById("consultar-paciente-raza").innerHTML = pacienteRaza;
             document.getElementById("consultar-paciente-duenio-id").innerHTML = pacienteDuenioId;
             document.getElementById("consultar-paciente-doctor-id").innerHTML = pacienteDoctorId;
-
-            console.log(pacienteUrlImagen);
 
 
             document.getElementById("imagen").src = pacienteUrlImagen;
@@ -90,6 +86,7 @@
                 <table class="table" id="table1">
                     <thead>
                         <tr>
+                            <th></th>
                             <th >Id</th>
                             <th >Nombre</th>
                             <th >Edad</th>
@@ -101,27 +98,27 @@
                     <tbody>
                         @foreach ($Pacientes as $paciente)
                         <tr>
+                        <td>
+                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
+                                data-toggle="modal"
+                                data-id="{{$paciente->id}}"
+                                        data-nombre="{{$paciente->nombre}}"
+                                        data-edad = "{{$paciente->edad}}"
+                                        data-especie = "{{$paciente->especie}}"
+                                        data-raza = "{{$paciente->raza}}"
+                                        data-duenioid="{{$paciente->duenio_id}}"
+                                        data-doctorid = "{{$paciente->doctor_id}}"
+                                        data-urlimagen = "{{$paciente->urlImagen}}"
+                                >
+                                    <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </td>
                         <td>{{$paciente->id}}</td>
                         <td>{{$paciente->nombre}}</td>
                         <td>{{$paciente->edad}}</td>
                         <td>{{$paciente->especie}}</td>
                         <td>{{$paciente->raza}}</td>
 
-                        <td>
-                            <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
-                            data-toggle="modal"
-                            data-id="{{$paciente->id}}"
-                                    data-nombre="{{$paciente->nombre}}"
-                                    data-edad = "{{$paciente->edad}}"
-                                    data-especie = "{{$paciente->especie}}"
-                                    data-raza = "{{$paciente->raza}}"
-                                    data-duenioid="{{$paciente->duenio_id}}"
-                                    data-doctorid = "{{$paciente->doctor_id}}"
-                                    data-urlimagen = "{{$paciente->urlImagen}}"
-                            >
-                                <i class="fas fa-plus-circle"></i>
-                            </button>
-                        </td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 

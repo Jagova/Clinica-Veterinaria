@@ -62,7 +62,7 @@ class DoctorController extends Controller
         ]);
 
         //Imagen por defecto
-        $ruta = "Pacientes/circulos_estado-05.png"; 
+        $ruta = "Doctores/doctor.jpg"; 
         //Se revisa si se cargo una imagen     
         if ($request->hasFile('imagen')) {
             $ruta = $request->imagen->store('Pacientes','public');

@@ -28,6 +28,10 @@
         var doctorId = $(this).data('id');
 
         var doctorUrlImagen = $(this).data('urlimagen');
+        
+        var nombreCompleto = doctorNombre1 + doctorNombre2;
+
+        document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
 
         $("#editar-doctor-nombre1").val(doctorNombre1);
         $("#editar-doctor-nombre2").val(doctorNombre2);
@@ -80,6 +84,7 @@
                 <table class="table" id="table1">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Clinica</th>
