@@ -463,7 +463,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar Articulo</h5>
+                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -472,7 +472,7 @@
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro que desea eliminar Artículo <span id="eliminar-nombre-articulo"></span>? 
+                                ¿Estás seguro que desea eliminar <span id="eliminar-nombre-articulo"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

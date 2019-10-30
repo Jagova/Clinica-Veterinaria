@@ -12,7 +12,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     //console.log(articuloId);
 $("#eliminar-clinica-id").val(articuloId);
     document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
-    document.getElementById('form-eliminar').action = "categorias/" + articuloId;
+    document.getElementById('form-eliminar').action = "/categorias/" + articuloId;
 });
 </script>
 
@@ -27,7 +27,7 @@ $("#eliminar-clinica-id").val(articuloId);
 
     $("#editar-articulo-nombre").val(articuloNombre);
 
-        document.getElementById('form-editar').action = "categorias/" + articuloId;
+        document.getElementById('form-editar').action = "/categorias/" + articuloId;
     });
     </script>
 
@@ -49,12 +49,12 @@ $("#eliminar-clinica-id").val(articuloId);
                 
             </div>
             <div class="row p-5">
-                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear Categoria  Articulo</button>
+                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear categoría</button>
                 <table class="table" id="table1">
                     <thead>
                         <tr>
-                            <th >Id </th>
-                            <th >Nombres </th>
+                        <!--    <th >Id </th> -->
+                            <th >Nombre: </th>
                
                             <th></th>
                         </tr>
@@ -64,7 +64,7 @@ $("#eliminar-clinica-id").val(articuloId);
                         @foreach ($Categoria as $categoria)
                         <tr>
                         
-                        <td>{{$categoria->id}}</td>
+                        <!--<td>{{$categoria->id}}</td>-->
                         <td>{{$categoria->nombre}}</td>   
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
@@ -94,12 +94,12 @@ $("#eliminar-clinica-id").val(articuloId);
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="agregarModalLabel">Crear Articulo</h5>
+                            <h5 class="modal-title" id="agregarModalLabel">Crear</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/categorias" method="POST">
+                        <form action="/categorias/" method="POST">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
@@ -155,7 +155,7 @@ $("#eliminar-clinica-id").val(articuloId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Modificar</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -184,7 +184,7 @@ $("#eliminar-clinica-id").val(articuloId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar Categoria Articulo</h5>
+                                <h5 class="modal-title" id="eliminarModalLabel">Eliminar</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -193,7 +193,7 @@ $("#eliminar-clinica-id").val(articuloId);
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro que desea eliminar Categoria Artículo <span id="eliminar-nombre-articulo"></span>? 
+                                ¿Estás seguro que desea eliminar <span id="eliminar-nombre-articulo"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

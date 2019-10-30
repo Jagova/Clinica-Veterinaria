@@ -58,9 +58,9 @@ class MedicamentosController extends Controller
         ]);
 
 
-            $ruta = "Articulos/circulos_estado-05.png"; 
+            $ruta = "Medicamentos/medicamentos_ima.png"; 
         //Se revisa si se cargo una imagen     
-        if ($request->hasFile('imagen')) { $ruta = $request->imagen->store('Articulos','public'); }
+        if ($request->hasFile('imagen')) { $ruta = $request->imagen->store('Medicamentos','public'); }
 
 
 
