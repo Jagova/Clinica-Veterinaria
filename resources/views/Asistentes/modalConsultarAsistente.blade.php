@@ -3,13 +3,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="consultarModalLabel">Consultar asistente</h5>
+                <h5 class="modal-title" id="consultarModalLabel">
+                        <div class="modal-body">
+                               Infomación del asistente <b><span id="consultar-asistente-nombre"></span> </b>
+                            </div>
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             
             <div class="modal-body">  
+                
                 <table class="table"> 
                     <tr>
                         <td class="form-group">
@@ -33,11 +38,11 @@
                     </tr>
 
                     <tr>
-                        <td class="form-group">
-                                Fotografía
-                                <td><img  src="{{URL::asset($asistente->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>                                       
-                        </td>
-                    </tr>
+                        <div class = "container" > 
+                           <img id="imagen" height="300" class="d-block w-100" alt="..." >
+                           </div>
+
+                   </tr>
                     <tr>
                             <td class="form-group">
                                     <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>
