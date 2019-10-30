@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\asistentes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class AsistentesController extends Controller
 {
@@ -18,6 +19,11 @@ class AsistentesController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
+        
         $asistentes = \App\Asistente::all();
         $clinicas = \App\Clinica::all();
         $doctores = \App\Doctor::all();

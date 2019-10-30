@@ -20,7 +20,13 @@ class DatabaseSeeder extends Seeder
              [DuenosTableSeeder::class]
          );*/
 
-         $this->call(UsersTableSeeder::class);
+         //$this->call(UsersTableSeeder::class);
+         $this->call(ClinicasTableSeeder::class);
+         $this->call(ArticulosSeeder::class);
+         //$this->call(DoctoresTableSeeder::class);
+         //$this->call(PacientesTable::class);
+         $this->call(duenos_seeder::class);
+         $this->call(MedicamentosSeeder::class);
     }
 }
 

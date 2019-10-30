@@ -8,6 +8,7 @@ class MedicamentosSeeder extends Seeder
 
     public function run()
     {
+        /*
          $faker = Faker::create();
         for ($i=0; $i < 10; $i++) {
         	\DB::table('medicamentos')->insert(array(
@@ -23,7 +24,7 @@ class MedicamentosSeeder extends Seeder
            'stock'  => $faker->randomElement(['9','6','100', '40','1','10']),
            'created_at' => date('Y-m-d H:m:s'),
            'updated_at' => date('Y-m-d H:m:s') ));
-        }
+        }*/
     }
 }
 

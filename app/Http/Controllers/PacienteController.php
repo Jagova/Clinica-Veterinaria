@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class PacienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,10 @@ class PacienteController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
         //
         $pacientes = \App\Paciente::all();
         //$duenios = \App\Duenios::all();

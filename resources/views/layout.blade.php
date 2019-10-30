@@ -59,6 +59,38 @@
                       </li>
                   </ul>
                   <hr />
+
+                  <!-- Right Side Of Navbar -->
+              <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Acceder') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                        </li>
+                    @endif
+                @else
+                <li class="nav-item">
+                <a class="nav-link" href="/home">
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Salir') }}
+                            </a>
+                        </li>
+
+                            <form id="logout-form" action="logoutuser" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                @endguest
+            </ul>
               </div>
 
           </nav>

@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Servicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class ServicioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,10 @@ class ServicioController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
         //
         $servicios = \App\Servicio::all();
         $clinicas = \App\Clinica::all();

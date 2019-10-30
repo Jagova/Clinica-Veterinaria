@@ -12,23 +12,20 @@ class duenos_seeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        for($i =0; i <10; i++)
-        {
+
             DB::table('duenos')->insert([
                 
-            'Nombre' =>"Emmanuel",
-            'Ap_M' => "Escobar",
-            'Ap_P' =>"Chavez",
-            'Tel'  =>"233445",
-            'Dir' =>"Centro",
-            'Cel'=>"23244",
-            'Correo'=>"emma@gmail.com",
-            'RFC'=>"223ASF",
-            'CP'=>"223324",
+            'nombre' =>"Emmanuel",
+            'apellido_paterno' => "Escobar",
+            'apellido_materno' =>"Chavez",
+            'telefono'  =>"233445",
+            'direccion' =>"Centro",
+            'celular'=>"23244",
+            'correo'=>"emma@gmail.com",
+            'rfc'=>"223ASF",
+            'codigo_postal'=>"223324",
+            'razon_social' =>"GENERAL"
             ]);
-        }
-
         
     }
 }

@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\medics;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class MedicsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,12 @@ class MedicsController extends Controller
      */
     public function index()
     {
+
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
+
                 $medis = \App\medics::all();
         return view('Medis.index',
         [

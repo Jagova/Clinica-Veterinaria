@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class DoctorController extends Controller
 {
@@ -18,6 +19,10 @@ class DoctorController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
         //
         $doctores = \App\Doctor::all();
         $clinicas = \App\Clinica::all();

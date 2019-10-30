@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Dueno;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth; 
 
 class DuenoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +22,7 @@ class DuenoController extends Controller
         //
         if(Auth::user()->rol != "ADMINISTRADOR")
         {
-            return \redirect('/');
+            return redirect('/');
         }
         $duenos = \App\Dueno::all();
         return view('Duenos.index',

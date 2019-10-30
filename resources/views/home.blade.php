@@ -2,22 +2,29 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+                
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+
+                    <header class="masthead bg-primary text-white text-center">
+                        <div class="container d-flex align-items-center flex-column">
+                    
+                          <!-- Masthead Avatar Image -->
+                          <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
+                    
+                          <!-- Masthead Heading -->
+                          <h1 class="masthead-heading text-uppercase mb-3">Bienvenido {{ Auth::user()->name }}</h1>
+                    
+                          <div class="container row mt-3 mb-4">
+                              <div class="col-6"> <a class="text-decoration-none text-white h3" href="/clinicas">Administración</a> </div>
+                              <div class="col-6"> <a class="text-decoration-none text-white h3" href="">Control de usuarios</a>  </div>
+                          </div>
+                    
+                          
                         </div>
-                    @endif
-
-                    Iniciaste sesión!
-                </div>
-            </div>
-        </div>
-    </div>
+                      </header>
+                
+            
+        
+    
 </div>
 @endsection

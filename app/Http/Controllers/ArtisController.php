@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\artis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class ArtisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,11 @@ class ArtisController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
+
         $artis = \App\artis::all();
         return view('Artis.index',
         [

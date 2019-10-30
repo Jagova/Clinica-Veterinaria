@@ -26,9 +26,9 @@ Route::get('/', function () {
         if( Auth::user()->rol =='ADMINISTRADOR') 
             return redirect('/clinicas');
         else
-            return view('welcome');
+            return redirect('/shop');
     else
-       return view('welcome');
+       return redirect('/shop');
 });
 
 Route::post('logoutuser','UserController@logout');

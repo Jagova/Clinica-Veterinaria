@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class CategoriaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,11 @@ class CategoriaController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
+        
         $categoria = \App\Categoria::all();
         return view('Categoria.index',
         [

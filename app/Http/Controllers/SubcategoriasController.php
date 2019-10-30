@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\subcategorias;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class SubcategoriasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,11 @@ class SubcategoriasController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
+
          $subcategoria = \App\subcategorias::all();
         return view('Subcategoria.index',
         [
