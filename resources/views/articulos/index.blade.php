@@ -15,8 +15,6 @@
         var stock = $(this).data('stock');
         var fecha_cad = $(this).data('fecha_cad');
         var precio_u = $(this).data('precio_u');
-        var url = $(this).data('imagen');
-        
 
         $("#eliminar-clinica-id").val(articuloId);
         document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
@@ -106,7 +104,7 @@
                     <thead>
                         <tr>
                             <td></td>
-                            <th >Id </th>
+                           <!-- <th >Id </th> -->
                             <th >Nombre </th>
                             <th >Precio Compra </th>
                          <!--   <th >Marca </th>
@@ -147,7 +145,8 @@
                                 <i class="fas fa-plus-circle"></i>
                             </button>
                         </td>
-                        <td>{{$articulo->id}}</td>
+                        
+                     <!--   <td>{{$articulo->id}}</td>-->
                         <td>{{$articulo->nombre}}</td>   
                         <td>{{$articulo->preciocom}}</td>
                     <!--    <td>{{$articulo->marca}}</td>
