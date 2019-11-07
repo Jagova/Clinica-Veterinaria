@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Hash;
 
 class DoctorController extends Controller
 {
@@ -66,6 +67,14 @@ class DoctorController extends Controller
             'clinica' => 'required',
         ]);
 
+        $nuevoUser = new \App\User;
+        $nuevoUser->name = $request->get('nombre1');
+        $nuevoUser->email = 'doctor@gmail.com';
+        $nuevoUser->rol = 'DOCTOR';
+        $nuevoUser->password = Hash::make('12345678');
+
+        $nuevoUser->save();
+
         //Imagen por defecto
         $ruta = "Doctores/doctor.jpg"; 
         //Se revisa si se cargo una imagen     
@@ -82,12 +91,16 @@ class DoctorController extends Controller
         $nuevoDoctor->especialidad_1 = $request->get('esp1');
         $nuevoDoctor->especialidad_2 = $request->get('esp2');
         $nuevoDoctor->clinica_id = $request->get('clinica');
+        $nuevoDoctor->user_id = $nuevoUser->id;
 
         //Foto
         $nuevoDoctor->urlImagen = "/storage/".$ruta;
 
 
         $nuevoDoctor->save();
+
+        
+
         return redirect('/doctores');
     }
 
