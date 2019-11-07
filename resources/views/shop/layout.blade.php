@@ -27,49 +27,48 @@
     <title> Clinica veterinaria </title>
 </head>
 <body>
-  <div id="app">
-          <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm sticky-top">
-                  <a class="navbar-brand" href="/"><img class="img-fluid" width="70" src="{{URL::asset('images/logo-prueba.png')}}"/></a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#MenuAdmin"
-                  aria-controls="MenuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="MenuAdmin">
-                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                      <li class="nav-item active">
-                          <a class="nav-link" href="/shop/perros"><i class="fas fa-dog "></i>
-                              Perros</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link" href=""><i class="fas fa-cat"></i>
-                              Gatos</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link" href=""><i class="fas fa-otter"></i>
-                              Mamíferos</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link" href=""><i class="fas fa-kiwi-bird"></i>
-                              Aves</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link" href=""><i class="fas fa-frog"></i>
-                              Reptiles</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link" href=""><i class="fas fa-fish"></i>
-                              Peces</a>
-                      </li>
-                      <li class="nav-item active">
-                          <a class="nav-link" href=""><i class="fas fa-heartbeat"></i>
-                              Servicios</a>
-                      </li>
-                  </ul>
-                  <hr />
-                  
-              </div>
-              <!-- Right Side Of Navbar -->
-              <ul class="navbar-nav ml-auto">
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm sticky-top">
+            <a class="navbar-brand" href="/"><img class="img-fluid" width="70" src="{{URL::asset('images/logo-prueba.png')}}"/></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#MenuAdmin"
+                aria-controls="MenuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="MenuAdmin">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/shop/perros"><i class="fas fa-dog "></i>
+                            Perros</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><i class="fas fa-cat"></i>
+                            Gatos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><i class="fas fa-otter"></i>
+                            Mamíferos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><i class="fas fa-kiwi-bird"></i>
+                            Aves</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><i class="fas fa-frog"></i>
+                            Reptiles</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><i class="fas fa-fish"></i>
+                            Peces</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><i class="fas fa-heartbeat"></i>
+                            Servicios</a>
+                    </li>
+                </ul>
+                <hr />
+            </div>
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -80,28 +79,28 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                         </li>
                     @endif
-                @else
-                <li class="nav-item">
-                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
                                 {{ __('Salir') }}
                             </a>
                         </li>
 
-                            <form id="logout-form" action="logoutuser" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                        <form id="logout-form" action="logoutuser" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                 @endguest
             </ul>
         </div>
         
-          </nav>
+    </nav>
 
           
         @yield('contenido')
