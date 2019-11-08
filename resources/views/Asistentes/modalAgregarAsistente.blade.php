@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-6">
-                                    <label for="editar-asistente-especialidad1">Correo</label>
+                                    <label for="editar-asistente-especialidad1">Correo electrónico</label>
                                     <input type="email" class="form-control" id="correo" name="correo" required>        
                             </div>
                             <div class="col-6">
@@ -67,6 +67,16 @@
                                         <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
                                     @endforeach
                                 </select>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-6">
+                                    <label for="in_atributo2">Contraseña</label>
+                                    <input type="password" required class="form-control" id="password" name="password">        
+                            </div>
+                            <div class="col-6">
+                                    <label for="in_atributo2">Confirmar contraseña</label>
+                                    <input type="password" required class="form-control" id="confirmapassword" name="confirmapassword">        
+                            </div>
                         </div>
                 </div>
                 <div class="modal-footer">

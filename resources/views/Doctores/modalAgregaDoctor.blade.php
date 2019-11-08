@@ -59,6 +59,22 @@
                                             @endforeach
                                         </select>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                            <label for="in_atributo2">Correo electrónico</label>
+                                            <input type="email" required class="form-control" id="email" name="email">        
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-6">
+                                            <label for="in_atributo2">Contraseña</label>
+                                            <input type="password" required class="form-control" id="password" name="password">        
+                                    </div>
+                                    <div class="col-6">
+                                            <label for="in_atributo2">Confirmar contraseña</label>
+                                            <input type="password" required class="form-control" id="confirmapassword" name="confirmapassword">        
+                                    </div>
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

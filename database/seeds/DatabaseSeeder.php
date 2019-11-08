@@ -20,7 +20,14 @@ class DatabaseSeeder extends Seeder
              [DuenosTableSeeder::class]
          );*/
 
-         $this->call(UsersTableSeeder::class);
+         DB::table('users')->insert([
+            'name' => 'Administrador',
+            'email' => 'administrador@gmail.com',
+            'rol' => 'ADMINISTRADOR',
+            'password' => Hash::make('12345678')
+        ]);
+
+         //$this->call(UsersTableSeeder::class);
          $this->call(ClinicasTableSeeder::class);
          $this->call(ArticulosSeeder::class);
          //$this->call(DoctoresTableSeeder::class);
