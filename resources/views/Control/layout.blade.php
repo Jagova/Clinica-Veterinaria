@@ -37,33 +37,42 @@
             <div class="collapse navbar-collapse" id="MenuAdmin">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/shop/perros"><i class="fas fa-dog "></i>
-                            Perros</a>
+                        <a class="nav-link" href="/control/buscar"></i>
+                            Buscar</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-cat"></i>
-                            Gatos</a>
+                        <a class="nav-link" href="/control/registro_dueno"></i>
+                            Registrar Dueño</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-otter"></i>
-                            Mamíferos</a>
+                        <a class="nav-link" href="/control/registro_mascota"></i>
+                            Registrar Mascota</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-kiwi-bird"></i>
-                            Aves</a>
+                        <a class="nav-link" href="/control/agendar"></i>
+                            Agendar servicio</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-frog"></i>
-                            Reptiles</a>
+                        <a class="nav-link" href="/control/registro_vacunas"></i>
+                            Registro de vacunas</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-fish"></i>
-                            Peces</a>
+                        <a class="nav-link" href="/control/registro_vacunas"></i>
+                            Registro de ventas</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-heartbeat"></i>
-                            Servicios</a>
+                        <a class="nav-link" href="/control/registro_compras"></i>
+                            Registro de compras</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/control/historial_mascota"></i>
+                            Historial de mascota</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/control/historial_personal"></i>
+                            Historial del personal</a>
+                    </li>
+                    
                 </ul>
                 <hr />
             </div>
@@ -71,20 +80,6 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Acceder') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                        </li>
-                    @endif
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
