@@ -80,6 +80,13 @@ Route::get('/control/buscar', function () {
     return view('/control/buscar/index');
 });
 
+Route::get('/control/buscar/dueno', function () {
+    return view('/control/buscar/dueno/index');
+});
+Route::get('/control/buscar/mascota', function () {
+    return view('/control/buscar/mascota/index');
+});
+
 Route::get('/control/registro_dueno', function () {
     return view('/control/registro_dueno/index');
 });
