@@ -72,9 +72,12 @@ class ArticulosController extends Controller
             'clinica' => 'required',
         ]);
 
-         $ruta = "Articulos/circulos_estado-05.png"; 
+        $ruta = "Articulos/circulos_estado-05.png"; 
         //Se revisa si se cargo una imagen     
-        if ($request->hasFile('imagen')) { $ruta = $request->imagen->store('Articulos','public'); }
+        if ($request->hasFile('imagen')) 
+        { 
+            $ruta = $request->imagen->store('Articulos','public'); 
+        }
 
 
         $narticulo = new \App\articulos;

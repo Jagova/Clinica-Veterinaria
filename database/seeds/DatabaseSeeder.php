@@ -12,9 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         //$this->call(duenos_seeder::class);//
-         //$this->call('ArticulosSeeder');
-         //$this->call('MedicamentosSeeder');
+         $this->call('ClinicasTableSeeder');
+         $this->call('CategoriasSeeder');
+         $this->call('SubCategoriaSeeder');
+         $this->call('ArticulosSeeder');
+         $this->call('MedicamentosSeeder');
+         $this->call('PacientesSeeder');
+         $this->call('AsistentesSeeder');
+         $this->call('ServiciosSeeder');
+         $this->call('DoctoresSeeder');
 
          /*$this->call(
              [DuenosTableSeeder::class]

@@ -6,19 +6,20 @@ class CategoriasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Seeder encargado de 
      * @return void
      */
     public function run()
     {
-         $faker = Faker::create();
-        for ($i=0; $i < 10; $i++) {
-        	\DB::table('categorias')->insert(array(
-           				'nombre' => $faker->randomElement(['Ropa',
-           					                                'Peluche',
-           					                                'Juguete',
-           					                                'Alimento',
-           					                                '']),
-                        'created_at' => date('Y-m-d H:m:s'), 'updated_at' => date('Y-m-d H:m:s') )); }
+
+      DB::table('categorias')->insert([ 'nombre' => 'Gatos']);
+      DB::table('categorias')->insert([ 'nombre' => 'Perros']);
+      DB::table('categorias')->insert([ 'nombre' => 'Aves']);
+      DB::table('categorias')->insert([ 'nombre' => 'Reptiles']);
+      DB::table('categorias')->insert([ 'nombre' => 'Peces']);
+      DB::table('categorias')->insert([ 'nombre' => 'Pequeñas especies']);
+      DB::table('categorias')->insert([ 'nombre' => 'Insectos']);
+
+
     }
 }

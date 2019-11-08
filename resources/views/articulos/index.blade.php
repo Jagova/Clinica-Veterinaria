@@ -15,6 +15,7 @@
         var stock = $(this).data('stock');
         var fecha_cad = $(this).data('fecha_cad');
         var precio_u = $(this).data('precio_u');
+
         $("#eliminar-clinica-id").val(articuloId);
         document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
         document.getElementById('form-eliminar').action = "articulos/" + articuloId;
@@ -103,7 +104,7 @@
                     <thead>
                         <tr>
                             <td></td>
-                            <th >Id </th>
+                           <!-- <th >Id </th> -->
                             <th >Nombre </th>
                             <th >Precio Compra </th>
                          <!--   <th >Marca </th>
@@ -144,7 +145,8 @@
                                 <i class="fas fa-plus-circle"></i>
                             </button>
                         </td>
-                        <td>{{$articulo->id}}</td>
+                        
+                     <!--   <td>{{$articulo->id}}</td>-->
                         <td>{{$articulo->nombre}}</td>   
                         <td>{{$articulo->preciocom}}</td>
                     <!--    <td>{{$articulo->marca}}</td>
@@ -154,7 +156,7 @@
                         <td>{{$articulo->Categoria->nombre}}</td>
                         <td>{{$articulo->Subcategoria->nombre}}</td>
                         <td>{{$articulo->Clinica->nombre}}</td>
-                        <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="300" class="d-block w-100" alt="..."></td>
+                        <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="100" class="d-block w-1" alt="..."></td>
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -221,11 +223,14 @@
 
 
                             </div>
-
-                            <div>
-                                Foto
+                            <div class = "row">
+                                <div class="col-5">
+                                    <div>
+                                Fotos
                                 <input type="file" name="imagen" id=imagen>
                             </div>
+                        </div>
+                    </div>
 
                                 <div class="form-group row">
                                     <div class="col-6">
