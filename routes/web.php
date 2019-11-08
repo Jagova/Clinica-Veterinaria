@@ -72,6 +72,18 @@ Route::get('/shop/perros', function () {
     return view('/shop/perros/index');
 });
 
+Route::get('/control', function () {
+    return view('/control/index');
+});
+
+Route::get('/control/buscar', function () {
+    return view('/control/buscar/index');
+});
+
+Route::get('/control/buscar', function () {
+    return view('/control/buscar/index');
+});
+
 /*regresa una vista de las mascotas*/
 Route::get('mascotas',function(){ });
 
