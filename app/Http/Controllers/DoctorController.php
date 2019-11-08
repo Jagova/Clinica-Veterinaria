@@ -67,11 +67,18 @@ class DoctorController extends Controller
             'clinica' => 'required',
         ]);
 
+        /*Agregado Usuario a la tabla Users con la información del doctor*/
+        $nombreCompleto = "";
+        $nombreUsuario =  $request->get('nombre1');
+        $apellidoUsuario = $request->get('ApPaterno');
+        $nombreCompleto = $nombreUsuario . ' ' . $apellidoUsuario;
         $nuevoUser = new \App\User;
-        $nuevoUser->name = $request->get('nombre1');
-        $nuevoUser->email = 'doctor@gmail.com';
+        $nuevoUser->name = $nombreCompleto;
+        $nuevoUser->email = $request->get('email');
         $nuevoUser->rol = 'DOCTOR';
-        $nuevoUser->password = Hash::make('12345678');
+        $nuevoUser->password = Hash::make($request->get('password'));
+
+        
 
         $nuevoUser->save();
 

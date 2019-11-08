@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\asistentes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Hash;
 
 class AsistentesController extends Controller
 {
@@ -65,11 +66,22 @@ class AsistentesController extends Controller
             'esp2'=>'required',
             'clinica'=>'required',
             'correo'=>'required',
-            'telefono'=>'required|alpha_num'
-
-            
+            'telefono'=>'required|alpha_num'         
         ]);
        
+        /*Agregado Usuario a la tabla Users con la información del asistente*/
+        $nombreCompleto = "";
+        $nombreUsuario =  $request->get('nombre1');
+        $apellidoUsuario = $request->get('ApPaterno');
+        $nombreCompleto = $nombreUsuario . ' ' . $apellidoUsuario;
+        $nuevoUser = new \App\User;
+        $nuevoUser->name = $nombreCompleto;
+        $nuevoUser->email = $request->get('correo');
+        $nuevoUser->rol = 'ASISTENTE';
+        $nuevoUser->password = Hash::make($request->get('password'));
+        
+        $nuevoUser->save();
+
         $ruta = "Asistentes/asistente.png"; 
         //Se revisa si se cargo una imagen     
         if ($request->hasFile('imagen')) {
