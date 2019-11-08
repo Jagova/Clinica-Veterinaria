@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
          $this->call('SubCategoriaSeeder');
          $this->call('ArticulosSeeder');
          $this->call('MedicamentosSeeder');
-
+         $this->call('PacientesSeeder');
+         $this->call('AsistentesSeeder');
+         $this->call('ServiciosSeeder');
+         $this->call('DoctoresSeeder');
 
          $this->call(
              [DuenosTableSeeder::class]
