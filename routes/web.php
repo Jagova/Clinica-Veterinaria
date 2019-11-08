@@ -80,8 +80,36 @@ Route::get('/control/buscar', function () {
     return view('/control/buscar/index');
 });
 
-Route::get('/control/buscar', function () {
-    return view('/control/buscar/index');
+Route::get('/control/registro_dueno', function () {
+    return view('/control/registro_dueno/index');
+});
+
+Route::get('/control/registro_mascota', function () {
+    return view('/control/registro_mascota/index');
+});
+
+Route::get('/control/agendar', function () {
+    return view('/control/agendar/index');
+});
+
+Route::get('/control/registro_vacunas', function () {
+    return view('/control/registro_vacunas/index');
+});
+
+Route::get('/control/registro_ventas', function () {
+    return view('/control/registro_ventas/index');
+});
+
+Route::get('/control/registro_compras', function () {
+    return view('/control/registro_compras/index');
+});
+
+Route::get('/control/historial_mascota', function () {
+    return view('/control/historial_mascota/index');
+});
+
+Route::get('/control/historial_personal', function () {
+    return view('/control/historial_personal/index');
 });
 
 /*regresa una vista de las mascotas*/

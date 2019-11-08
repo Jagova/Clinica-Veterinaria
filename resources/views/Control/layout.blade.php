@@ -37,39 +37,39 @@
             <div class="collapse navbar-collapse" id="MenuAdmin">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/buscar"></i>
                             Buscar</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/registro_dueno"></i>
                             Registrar Dueño</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/registro_mascota"></i>
                             Registrar Mascota</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/agendar"></i>
                             Agendar servicio</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/registro_vacunas"></i>
                             Registro de vacunas</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/registro_vacunas"></i>
                             Registro de ventas</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/registro_compras"></i>
                             Registro de compras</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/historial_mascota"></i>
                             Historial de mascota</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""></i>
+                        <a class="nav-link" href="/control/historial_personal"></i>
                             Historial del personal</a>
                     </li>
                     
