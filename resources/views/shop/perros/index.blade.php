@@ -36,55 +36,22 @@
 
   <!--Empiezan tarjetas de productos-->
   <div class="row">
-        <div class="col-sm m-0 p-0">
+  @foreach ($articulosPerros as $articulo)
+<div class="col-sm m-0 p-0">
             <div class="card w-100 h-100" style="width: 18rem;">
               <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete1.jpg') }}" alt="articulo">
+                <img class="card-img-top" src="{{ asset($articulo->urlImagen) }}" alt="articulo">
               </div>
               <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
+              <h5 class="card-title">{{$articulo->nombre}}</h5>
                 <p class="card-text">$10.00</p>
                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
               </div>
             </div>
         </div>
-
-        <div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete4.jpg') }}" alt="articulo">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete2.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete3.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
+  @endforeach
   </div>
-
+{{--
   <div class="row">
         <div class="col-sm m-0 p-0">
             <div class="card w-100 h-100" style="width: 18rem;">
@@ -184,6 +151,57 @@
             </div>
         </div>
   </div>
+
+  <div class="row">
+        <div class="col-sm m-0 p-0">
+            <div class="card w-100 h-100" style="width: 18rem;">
+              <div class="h-100">
+                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete1.jpg') }}" alt="articulo">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Artículo</h5>
+                <p class="card-text">$10.00</p>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm m-0 p-0">
+            <div class="card w-100 h-100" style="width: 18rem;">
+              <div class="h-100">
+                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete4.jpg') }}" alt="articulo">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Artículo</h5>
+                <p class="card-text">$10.00</p>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm m-0 p-0 w-100">
+            <div class="card w-100 h-100" style="width: 18rem;">
+              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete2.jpg') }}" alt="articulo">
+              <div class="card-body">
+                <h5 class="card-title">Artículo</h5>
+                <p class="card-text">$10.00</p>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm m-0 p-0 w-100">
+            <div class="card w-100 h-100" style="width: 18rem;">
+              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete3.jpg') }}" alt="articulo">
+              <div class="card-body">
+                <h5 class="card-title">Artículo</h5>
+                <p class="card-text">$10.00</p>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
+              </div>
+            </div>
+        </div>
+  </div>
+  --}}
 
 </div>
 

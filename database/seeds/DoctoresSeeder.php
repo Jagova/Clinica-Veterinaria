@@ -14,16 +14,17 @@ class DoctoresSeeder extends Seeder
        
 
             DB::table('doctors')->insert([
-            'primer_nombre' => 'Vicente',
-            'segundo nombre' => 'Juan',
-            'apellido_paterno' => 'Fernandez',
-            'apellido_materno' => 'Soto',
+            'primer_nombre' => 'Doctor',
+            'segundo_nombre' => 'Doctor',
+            'apellido_paterno' => 'Doctor',
+            'apellido_materno' => 'Doctor',
             'especialidad_1' => 'Cirugano',
             'especialidad_2' => 'Anestesiologo',
-            'clinica_id' => 1
+            'clinica_id' => 1,
+            'user_id' => 2
         ]);   
 
-               DB::table('doctors')->insert([
+         /*      DB::table('doctors')->insert([
             'primer_nombre' => 'Luis',
             'segundo nombre' => 'Angel',
             'apellido_paterno' => 'Carrisales',
@@ -75,6 +76,6 @@ class DoctoresSeeder extends Seeder
             'especialidad_1' => 'Traumatología',
             'especialidad_2' => 'Cuidados intensivos',
             'clinica_id' => 1
-        ]);
+        ]);*/
     }
 }

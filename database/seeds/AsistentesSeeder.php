@@ -14,17 +14,18 @@ class AsistentesSeeder extends Seeder
        
         DB::table('asistentes')->insert([
             'primer_nombre' => 'Jose',
-            'segundo nombre' => 'Juan',
+            'segundo_nombre' => 'Juan',
             'apellido_paterno' => 'Alfaro',
             'apellido_materno' => 'Buendia',
             'especialidad_1' => 'Cambiar',
             'especialidad_2' => 'Cambiar',
             'correo' => 'Cambiar',
             'telefono' => 'Cambiar',
-            'clinica_id' => 1
+            'clinica_id' => 1,
+            'user_id' => 3
         ]);
 
-
+/*
         DB::table('asistentes')->insert([
             'primer_nombre' => 'Rosolina',
             'segundo nombre' => 'Mercedes',
@@ -35,6 +36,6 @@ class AsistentesSeeder extends Seeder
             'correo' => 'Cambiar',
             'telefono' => 'Cambiar',
             'clinica_id' => 1
-        ]);
+        ]);*/
     }
 }

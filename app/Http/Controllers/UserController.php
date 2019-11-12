@@ -13,4 +13,16 @@ class UserController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function shopPerros()
+    {
+        //Categoria perros
+        $articulosPerros = \App\articulos::where('categoria_id', '=', 1 )->get();
+        
+        return view('shop.perros.index',
+        [
+            'articulosPerros'=>$articulosPerros,
+        ]
+        );
+    }
 }

@@ -68,9 +68,12 @@ Route::get('/shop', function () {
     return view('/shop/index');
 });
 
+Route::get('/shop/perros','UserController@shopPerros');
+
+/*
 Route::get('/shop/perros', function () {
     return view('/shop/perros/index');
-});
+});*/
 
 Route::get('/control', function () {
     return view('/control/index');
