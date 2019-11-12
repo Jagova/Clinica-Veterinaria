@@ -19,8 +19,8 @@ class DoctoresTableSeeder extends Seeder
             'especialidad_1' => 'Cirugano',
             'especialidad_2' => 'Anestesiologo',
             'clinica_id' => 1,
-            'urlImagen' => '/storage/Doctores/doctor.jpg',
-            'user_id' => 2
+            'urlImagen' => '/storage/Doctores/doctor.png',
+            'user_id' => 1
         ]);  
     }
 }

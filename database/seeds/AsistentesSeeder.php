@@ -22,7 +22,8 @@ class AsistentesSeeder extends Seeder
             'correo' => 'Cambiar',
             'telefono' => 'Cambiar',
             'clinica_id' => 1,
-            'user_id' => 3
+            'urlImagen' => '/storage/Asistentes/asistente.png',
+            'user_id' => 2
         ]);
 
 /*

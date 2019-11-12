@@ -18,7 +18,7 @@ class PacientesSeeder extends Seeder
             'edad' => '1',
             'especie' => 'Ave',
             'raza' => 'Guacamaya Azul',
-            'urlImagen' => '/storage/Pacientes/Rio.jpg',
+            'urlImagen' => '/storage/Pacientes/pet.jpg',
             'duenio_id' => 1,
             'doctor_id' => 1
         ]);  
@@ -29,7 +29,7 @@ class PacientesSeeder extends Seeder
             'edad' => '1',
             'especie' => 'Perro',
             'raza' => 'Inushiba',
-            'urlImagen' => '/storage/Pacientes/hachiko.jpg',
+            'urlImagen' => '/storage/Pacientes/pet.jpg',
             'duenio_id' => 1,
             'doctor_id' => 1
         ]);  
@@ -40,7 +40,7 @@ class PacientesSeeder extends Seeder
             'edad' => '1',
             'especie' => 'Perro',
             'raza' => 'Collie Pelo Largo',
-            'urlImagen' => '/storage/Pacientes/lassie.jpg',
+            'urlImagen' => '/storage/Pacientes/pet.jpg',
             'duenio_id' => 1,
             'doctor_id' => 1
         ]);  
@@ -51,7 +51,7 @@ class PacientesSeeder extends Seeder
             'edad' => '2',
             'especie' => 'Gato',
             'raza' => 'Collie Pelo Largo',
-            'urlImagen' => '/storage/Pacientes/gatito.png',
+            'urlImagen' => '/storage/Pacientes/pet.png',
             'duenio_id' => 1,
             'doctor_id' => 1
         ]);      
@@ -61,7 +61,7 @@ class PacientesSeeder extends Seeder
             'edad' => '2',
             'especie' => 'Reptil',
             'raza' => 'Camaleon',
-            'urlImagen' => '/storage/Pacientes/rango.jpg',
+            'urlImagen' => '/storage/Pacientes/pet.jpg',
             'duenio_id' => 1,
             'doctor_id' => 1
         ]);            
@@ -71,7 +71,7 @@ class PacientesSeeder extends Seeder
             'edad' => '2',
             'especie' => 'Perro',
             'raza' => 'Pug',
-            'urlImagen' => '/storage/Pacientes/frank.jpg',
+            'urlImagen' => '/storage/Pacientes/pet.jpg',
             'duenio_id' => 1,
             'doctor_id' => 1
         ]);
