@@ -119,6 +119,22 @@ Route::get('/control/historial_personal', function () {
     return view('/control/historial_personal/index');
 });
 
+Route::get('/control/buscar/mascota/encontrado', function () {
+    return view('/control/buscar/mascota/encontrado/index');
+});
+
+Route::get('/control/buscar/mascota/resultados', function () {
+    return view('/control/buscar/mascota/resultados/index');
+});
+
+Route::get('/control/buscar/dueno/encontrado', function () {
+    return view('/control/buscar/dueno/encontrado/index');
+});
+
+Route::get('/control/buscar/dueno/resultados', function () {
+    return view('/control/buscar/dueno/resultados/index');
+});
+
 /*regresa una vista de las mascotas*/
 Route::get('mascotas',function(){ });
 

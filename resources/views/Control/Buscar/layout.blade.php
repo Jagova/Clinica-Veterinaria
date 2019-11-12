@@ -7,8 +7,8 @@
     <h1>Buscar</h1>
   </div> 
   <div class="row">
-    <nav class="navbar navbar-expand-lg navbar-light shadow-md d-flex justify-content-between height-auto">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-md navbar-light shadow-md d-flex justify-content-between height-auto mx-auto">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuBuscar" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menuBuscar">
