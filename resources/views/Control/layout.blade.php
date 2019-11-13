@@ -22,6 +22,26 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- JQuery Link -->
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!--FullCalendar-->
+    <link href="{{ asset('fullcalendar/core/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('fullcalendar/daygrid/main.css') }}" rel='stylesheet' />
+    <script src="{{ asset('fullcalendar/core/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/daygrid/main.js') }}"></script>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'dayGrid' ]
+        });
+
+        calendar.render();
+      });
+
+    </script>
  
  
     <title> Clinica veterinaria </title>
