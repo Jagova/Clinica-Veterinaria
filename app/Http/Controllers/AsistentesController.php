@@ -96,6 +96,8 @@ class AsistentesController extends Controller
         $nuevoAsistente->correo=$request->get('correo');
         $nuevoAsistente->telefono=$request->get('telefono');
         $nuevoAsistente->save();
+        $nuevoAsistente->user_id = $nuevoUser->id;
+
         return redirect('/asistentes');
     }
     
