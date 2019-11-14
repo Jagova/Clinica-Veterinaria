@@ -40,16 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                                <div class="col-6">
-                                        <label for="in_atributo2">Especialidad 1</label>
-                                        <input type="text" class="form-control" id="direccion" name="esp1" required>        
-                                </div>
-                                <div class="col-6">
-                                        <label for="in_atributo2">Especialidad 2</label>
-                                        <input type="text" class="form-control" id="direccion" name="esp2">        
-                                </div>
-                        </div>
+                       
                         <div class="form-group row">
                             <div class="col-6">
                                     <label for="editar-asistente-especialidad1">Correo electrónico</label>

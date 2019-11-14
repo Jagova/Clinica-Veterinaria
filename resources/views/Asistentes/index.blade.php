@@ -23,8 +23,7 @@
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
         var asitenteUrlImagen = $(this).data('urlimagen');
-        var asistenteEspecialidad1 = $(this).data('especialidad1');
-        var asistenteEspecialidad2 = $(this).data('especialidad2');
+      
         var asistenteTelefono = $(this).data('telefono');
         var asistenteCorreo=  $(this).data('correo');
         var asistenteClinica = $(this).data('clinica');
@@ -35,9 +34,7 @@
         $("#editar-asistente-nombre2").val(asistenteNombre2);
         $("#editar-asistente-apellido1").val(asistenteApellido1);
         $("#editar-asistente-apellido2").val(asistenteApellido2);
-        $("#editar-asistente-especialidad1").val(asistenteEspecialidad1);
-        $("#editar-asistente-especialidad2").val(asistenteEspecialidad2);
-        $("#editar-asistente-correo").val(asistenteCorreo);
+       $("#editar-asistente-correo").val(asistenteCorreo);
         $("#editar-asistente-telefono").val(asistenteTelefono);
         $("#editar-asistente-clinica").val(asistenteClinica);
 
@@ -56,8 +53,7 @@
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
         var asistenteUrlImagen = $(this).data('urlImagen');
-        var asistenteEspecialidad1 = $(this).data('especialidad1');
-        var asistenteEspecialidad2 = $(this).data('especialidad2');
+
         var asistenteTelefono = $(this).data('telefono');
         var asistenteCorreo=  $(this).data('correo');
         var asistenteClinica = $(this).data('clinica');
@@ -68,8 +64,6 @@
         document.getElementById("consultar-asistente-apellido1").innerHTML = asistenteApellido1;
         document.getElementById("consultar-asistente-apellido2").innerHTML = asistenteApellido2;
      
-        document.getElementById("consultar-asistente-especialidad1").innerHTML = asistenteEspecialidad1;
-        document.getElementById("consultar-asistente-especialidad2").innerHTML = asistenteEspecialidad2;
         document.getElementById("consultar-asistente-correo").innerHTML = asistenteCorreo;
         document.getElementById("consultar-asistente-telefono").innerHTML = asistenteTelefono;
         document.getElementById("consultar-asistente-clinica").innerHTML = asistenteClinica;
@@ -102,7 +96,7 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Clinica</th>
-                            <th> Fotografía </th>
+                        
                             <th></th>
                         </tr>
                     </thead>
@@ -120,8 +114,7 @@
                                     data-apellido1="{{$asistente->apellido_paterno}}"
                                     data-apellido2="{{$asistente->apellido_materno}}"
                                     data-urlimagen="{{$asistente->urlImagen}}"
-                                    data-especialidad1="{{$asistente->especialidad_1}}"
-                                    data-especialidad2="{{$asistente->especialidad_2}}"
+                                   
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
                                     data-clinica="{{$asistente->clinica_id}}"
@@ -136,11 +129,6 @@
                         <td>{{$asistente->Clinica->nombre}}</td>
                         <td>
                             
-                                                    <td>
-                                                        <img  src="{{URL::asset($asistente->urlImagen)}}" height="200" class="d-block w-100" alt="..."></td>
-                        
-                       </td>
-                      
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -151,8 +139,7 @@
                                     data-apellido1="{{$asistente->apellido_paterno}}"
                                     data-apellido2="{{$asistente->apellido_materno}}"
                                     data-urlimagen = "{{$asistente->urlImagen}}"
-                                    data-especialidad1="{{$asistente->especialidad_1}}"
-                                    data-especialidad2="{{$asistente->especialidad_2}}"
+                             
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
                                     data-clinica="{{$asistente->clinica_id}}"

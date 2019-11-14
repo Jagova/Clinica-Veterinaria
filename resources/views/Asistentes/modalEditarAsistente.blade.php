@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="editarModalLabel">
                         <div class="modal-body">
-                               Editando información del asistente<b> <span id="editar-asistente-nombre"></span> </b>
+                               Edición de <b> <span id="editar-asistente-nombre"></span> </b>
                              </div></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -43,16 +43,7 @@
                                 </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                        <div class="col-6">
-                                <label for="editar-asistente-especialidad1">Especialidad 1</label>
-                                <input type="text" class="form-control" id="editar-asistente-especialidad1" name="esp1" required>        
-                        </div>
-                        <div class="col-6">
-                                <label for="editar-asistente-especialidad2">Especialidad 2</label>
-                                <input type="text" class="form-control" id="editar-asistente-especialidad2" name="esp2">        
-                        </div>
-                </div>
+               
                 <div class="form-group row">
                     <div class="col-6">
                             <label for="editar-asistente-correo">Correo</label>
@@ -60,7 +51,7 @@
                     </div>
                     <div class="col-6">
                             <label for="editar-asistente-telefono">Telefono</label>
-                            <input class="form-control" id="consultar-asistente-telefono" name="telefono" required input type="tel"  min="7" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                            <input class="form-control" id="editar-asistente-telefono" name="telefono" required input type="tel"  min="7" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                          </div>
             </div>
                 <div class="form-group">
