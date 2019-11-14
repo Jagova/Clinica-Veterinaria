@@ -69,6 +69,12 @@ Route::get('/shop', function () {
 });
 
 Route::get('/shop/perros','UserController@shopPerros');
+Route::get('/shop/gatos','UserController@shopGatos');
+Route::get('/shop/mamiferos','UserController@shopMamiferos');
+Route::get('/shop/aves','UserController@shopAves');
+Route::get('/shop/reptiles','UserController@shopReptiles');
+Route::get('/shop/peces','UserController@shopPeces');
+Route::get('/shop/servicios','UserController@shopServicios');
 
 /*
 Route::get('/shop/perros', function () {
