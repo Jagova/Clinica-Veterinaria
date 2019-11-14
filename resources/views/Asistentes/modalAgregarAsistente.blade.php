@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-6">
                                     <label for="editar-asistente-especialidad2">Telefono</label>
-                                    <input class="form-control" id="telefono" name="telefono" required input type="tel"  min="10" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
+                                    <input class="form-control" id="telefono" name="telefono" required  type="tel"  min="10" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
                             </div>
                     </div>
                         <div class="form-group">
