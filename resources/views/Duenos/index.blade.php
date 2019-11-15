@@ -159,9 +159,9 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
           
            
 
-        @include('Asistentes.modalAgregarDueno')
-        @include('Asistentes.modalConsultarDueno')
-        @include('Asistentes.modalEliminarDueno')
-        @include('Asistentes.modalEditarDueno')
+        @include('Duenos.modalAgregarDueno')
+        @include('Duenos.modalConsultarDueno')
+        @include('Duenos.modalEliminarDueno')
+        @include('Duenos.modalEditarDueno')
 
 @endsection
