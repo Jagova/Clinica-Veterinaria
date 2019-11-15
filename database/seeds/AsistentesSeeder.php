@@ -17,10 +17,9 @@ class AsistentesSeeder extends Seeder
             'segundo_nombre' => 'Juan',
             'apellido_paterno' => 'Alfaro',
             'apellido_materno' => 'Buendia',
-            'especialidad_1' => 'Cambiar',
-            'especialidad_2' => 'Cambiar',
+          
             'correo' => 'Cambiar',
-            'telefono' => 'Cambiar',
+            'telefono' => '1234567890',
             'clinica_id' => 1,
             'urlImagen' => '/storage/Asistentes/asistente.png',
             'user_id' => 2
@@ -32,8 +31,7 @@ class AsistentesSeeder extends Seeder
             'segundo nombre' => 'Mercedes',
             'apellido_paterno' => 'Buenavista',
             'apellido_materno' => 'Rueda',
-            'especialidad_1' => 'Cambiar',
-            'especialidad_2' => 'Cambiar',
+            
             'correo' => 'Cambiar',
             'telefono' => 'Cambiar',
             'clinica_id' => 1

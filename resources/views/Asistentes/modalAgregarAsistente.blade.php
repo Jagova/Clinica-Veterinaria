@@ -40,16 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                                <div class="col-6">
-                                        <label for="in_atributo2">Especialidad 1</label>
-                                        <input type="text" class="form-control" id="direccion" name="esp1" required>        
-                                </div>
-                                <div class="col-6">
-                                        <label for="in_atributo2">Especialidad 2</label>
-                                        <input type="text" class="form-control" id="direccion" name="esp2">        
-                                </div>
-                        </div>
+                       
                         <div class="form-group row">
                             <div class="col-6">
                                     <label for="editar-asistente-especialidad1">Correo electrónico</label>
@@ -57,7 +48,7 @@
                             </div>
                             <div class="col-6">
                                     <label for="editar-asistente-especialidad2">Telefono</label>
-                                    <input class="form-control" id="telefono" name="telefono" required input type="tel"  min="10" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
+                                    <input class="form-control" id="telefono" name="telefono" required  type="tel"  min="10" max="10"onkeypress='return event.charCode >= 48 && event.charCode <= 57'>        
                             </div>
                     </div>
                         <div class="form-group">
