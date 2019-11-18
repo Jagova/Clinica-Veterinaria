@@ -24,10 +24,18 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <!--FullCalendar-->
-    <link href="{{ asset('fullcalendar/core/main.css') }}" rel='stylesheet' />
-    <link href="{{ asset('fullcalendar/daygrid/main.css') }}" rel='stylesheet' />
-    <script src="{{ asset('fullcalendar/core/main.js') }}"></script>
-    <script src="{{ asset('fullcalendar/daygrid/main.js') }}"></script>
+    <link href="{{ asset('fullcalendar/packages/core/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('fullcalendar/packages/daygrid/main.css') }}" rel='stylesheet' />
+    <script src="{{ asset('fullcalendar/packages/core/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/packages/daygrid/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/packages/timegrid/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/packages/core/locales/es.js') }}"></script>
+    <link href="{{ asset('fullcalendar/bootstrap/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('fullcalendar/packages/timegrid/main.css')}}" rel='stylesheet'/>
+
+    <?php
+        $mytime = date('Y-m-d');
+    ?>
 
     <script>
 
@@ -35,7 +43,19 @@
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          plugins: [ 'dayGrid' ]
+            timeGrid: {
+            // options apply to timeGridWeek and timeGridDay views
+            },
+            
+            plugins: [ 'timeGrid' ],
+            defaultView: 'timeGridWeek',
+            
+            nowDate : "{{$mytime}}",
+
+            validRange: {
+                start: "{{$mytime}}"
+            },
+            locale : 'es',
         });
 
         calendar.render();
