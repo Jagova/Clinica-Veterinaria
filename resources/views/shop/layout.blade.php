@@ -41,27 +41,27 @@
                             Perros</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-cat"></i>
+                        <a class="nav-link" href="/shop/gatos"><i class="fas fa-cat"></i>
                             Gatos</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-otter"></i>
+                        <a class="nav-link" href="/shop/mamiferos"><i class="fas fa-otter"></i>
                             Mamíferos</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-kiwi-bird"></i>
+                        <a class="nav-link" href="/shop/aves"><i class="fas fa-kiwi-bird"></i>
                             Aves</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-frog"></i>
+                        <a class="nav-link" href="/shop/reptiles"><i class="fas fa-frog"></i>
                             Reptiles</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-fish"></i>
+                        <a class="nav-link" href="/shop/peces"><i class="fas fa-fish"></i>
                             Peces</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-heartbeat"></i>
+                        <a class="nav-link" href="/shop/servicios"><i class="fas fa-heartbeat"></i>
                             Servicios</a>
                     </li>
                 </ul>
