@@ -15,10 +15,7 @@
                                             <label for="consultar-doctor-nombre1" style="font-weight:bold">Primer nombre</label>
                                             <p id="consultar-doctor-nombre1" name="nombre1"></p>      
                                     </td>
-                                    <td class="form-group">
-                                            <label for="consultar-doctor-nombre2" style="font-weight:bold">Segundo nombre</label>
-                                            <p id="consultar-doctor-nombre2" name="nombre2"></p>       
-                                    </td>
+                                   
                                 </tr>
                                 <tr>
                                     <td class="form-group">

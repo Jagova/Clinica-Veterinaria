@@ -19,7 +19,6 @@
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
         var asistenteNombre1 = $(this).data('nombre1');
-        var asistenteNombre2 = $(this).data('nombre2');
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
         var asitenteUrlImagen = $(this).data('urlimagen');
@@ -30,7 +29,6 @@
         var asistenteNombre = $(this).data('nombre');
        
         $("#editar-asistente-nombre1").val(asistenteNombre1);
-        $("#editar-asistente-nombre2").val(asistenteNombre2);
         $("#editar-asistente-apellido1").val(asistenteApellido1);
         $("#editar-asistente-apellido2").val(asistenteApellido2);
        $("#editar-asistente-correo").val(asistenteCorreo);
@@ -46,9 +44,9 @@
 <!--Script para abrir el modal consultar-->
 <script>
     $(document).on("click", ".abrirConsultaModal", function (event) {
-        var asistenteNombre = $(this).data('nombre');
+       
         var asistenteNombre1 = $(this).data('nombre1');
-        var asistenteNombre2 = $(this).data('nombre2');
+     
         var asistenteApellido1 = $(this).data('apellido1');
         var asistenteApellido2 = $(this).data('apellido2');
         var asistenteUrlImagen = $(this).data('urlImagen');
@@ -57,7 +55,6 @@
         var asistenteClinica = $(this).data('clinica');
         var asistenteId = $(this).data('id');
         document.getElementById("consultar-asistente-nombre1").innerHTML = asistenteNombre1;
-        document.getElementById("consultar-asistente-nombre2").innerHTML = asistenteNombre2;
         document.getElementById("consultar-asistente-apellido1").innerHTML = asistenteApellido1;
         document.getElementById("consultar-asistente-apellido2").innerHTML = asistenteApellido2;
         document.getElementById("consultar-asistente-correo").innerHTML = asistenteCorreo;
@@ -106,21 +103,20 @@
                             data-toggle="modal"
                             data-id="{{$asistente->id}}"
                                     data-nombre1="{{$asistente->primer_nombre}}"
-                                    data-nombre2="{{$asistente->segundo_nombre}}"
                                     data-apellido1="{{$asistente->apellido_paterno}}"
                                     data-apellido2="{{$asistente->apellido_materno}}"
                                     data-urlimagen="{{$asistente->urlImagen}}"
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
                                     data-clinica="{{$asistente->clinica_id}}"
-                                    data-nombre="{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
+                                    data-nombre="{{$asistente->primer_nombre}}  {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
                                    
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
 </div></td>
                         <td>{{$asistente->id}}</td>
-                        <td>{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}}  {{$asistente->apellido_materno}}</td>   
+                        <td>{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}}  {{$asistente->apellido_materno}}</td>   
                         <td>{{$asistente->Clinica->nombre}}</td>
                         <td>
                         <td>
@@ -129,21 +125,20 @@
                                     data-target="#editarModal"
                                     data-id="{{$asistente->id}}"
                                     data-nombre1="{{$asistente->primer_nombre}}"
-                                    data-nombre2="{{$asistente->segundo_nombre}}"
                                     data-apellido1="{{$asistente->apellido_paterno}}"
                                     data-apellido2="{{$asistente->apellido_materno}}"
                                     data-urlimagen = "{{$asistente->urlImagen}}"
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
                                     data-clinica="{{$asistente->clinica_id}}"
-                                    data-nombre="{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
+                                    data-nombre="{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
                                 data-id="{{$asistente->id}}"
-                                data-nombre="{{$asistente->primer_nombre}} {{$asistente->segundo_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
+                                data-nombre="{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
                                 data-clinica="{{$asistente->clinica}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>

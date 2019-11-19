@@ -19,7 +19,6 @@
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
         var doctorNombre1 = $(this).data('nombre1');
-        var doctorNombre2 = $(this).data('nombre2');
         var doctorApellido1 = $(this).data('apellido1');
         var doctorApellido2 = $(this).data('apellido2');
         var doctorEspecialidad1 = $(this).data('especialidad1');
@@ -34,7 +33,6 @@
         document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
 
         $("#editar-doctor-nombre1").val(doctorNombre1);
-        $("#editar-doctor-nombre2").val(doctorNombre2);
         $("#editar-doctor-apellido1").val(doctorApellido1);
         $("#editar-doctor-apellido2").val(doctorApellido2);
         $("#editar-doctor-especialidad1").val(doctorEspecialidad1);
@@ -50,7 +48,6 @@
 <script>
     $(document).on("click", ".abrirConsultaModal", function (event) {
         var doctorNombre1 = $(this).data('nombre1');
-        var doctorNombre2 = $(this).data('nombre2');
         var doctorApellido1 = $(this).data('apellido1');
         var doctorApellido2 = $(this).data('apellido2');
         var doctorEspecialidad1 = $(this).data('especialidad1');
@@ -63,7 +60,6 @@
 
 
         document.getElementById("consultar-doctor-nombre1").innerHTML = doctorNombre1;
-        document.getElementById("consultar-doctor-nombre2").innerHTML = doctorNombre2;
         document.getElementById("consultar-doctor-apellido1").innerHTML = doctorApellido1;
         document.getElementById("consultar-doctor-apellido2").innerHTML = doctorApellido2;
         document.getElementById("consultar-doctor-especialidad1").innerHTML = doctorEspecialidad1;
@@ -99,7 +95,6 @@
                                 data-toggle="modal"
                                 data-id="{{$doctor->id}}"
                                 data-nombre1="{{$doctor->primer_nombre}}"
-                                data-nombre2="{{$doctor->segundo_nombre}}"
                                 data-apellido1="{{$doctor->apellido_paterno}}"
                                 data-apellido2="{{$doctor->apellido_materno}}"
                                 data-especialidad1="{{$doctor->especialidad_1}}"
@@ -119,7 +114,6 @@
                                     data-target="#editarModal"
                                     data-id="{{$doctor->id}}"
                                     data-nombre1="{{$doctor->primer_nombre}}"
-                                    data-nombre2="{{$doctor->segundo_nombre}}"
                                     data-apellido1="{{$doctor->apellido_paterno}}"
                                     data-apellido2="{{$doctor->apellido_materno}}"
                                     data-especialidad1="{{$doctor->especialidad_1}}"
@@ -152,4 +146,4 @@
         
         </div>
 
-@endsection
+@endsection 

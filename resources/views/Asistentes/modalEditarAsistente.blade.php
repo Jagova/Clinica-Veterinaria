@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="editarModalLabel">
                         <div class="modal-body">
-                               Edición de <b> <span id="editar-asistente-nombre"></span> </b>
+                               Editando asistente
                              </div></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -16,14 +16,11 @@
                 @method('PUT')
                 <div class="modal-body">                          
                 <div class="form-group row">
-                        <div class="col-6">
+                        <div class="col-12">
                                 <label for="editar-asistente-nombre1">Primer nombre</label>
                                 <input type="text" class="form-control" id="editar-asistente-nombre1" name="nombre1" required>        
                         </div>
-                        <div class="col-6">
-                                <label for="editar-asistente-nombre2">Segundo nombre</label>
-                                <input type="text" class="form-control" id="editar-asistente-nombre2" name="nombre2">        
-                        </div>
+                       
                     </div>
                 <div class="form-group row">
                     <div class="col-6">

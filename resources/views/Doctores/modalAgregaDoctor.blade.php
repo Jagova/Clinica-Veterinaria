@@ -14,14 +14,11 @@
                             @method('POST')
                         <div class="modal-body">                          
                                 <div class="form-group row">
-                                        <div class="col-6">
+                                        <div class="col-12">
                                                 <label for="in_atributo2">Primer nombre</label>
                                                 <input type="text" required class="form-control" id="nombre1" name="nombre1">        
                                         </div>
-                                        <div class="col-6">
-                                                <label for="in_atributo2">Segundo nombre</label>
-                                                <input type="text" required class="form-control" id="direccion" name="nombre2">        
-                                        </div>
+                                       
                                     </div>
                                 <div class="form-group row">
                                     <div class="col-6">
