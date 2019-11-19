@@ -1,6 +1,24 @@
 @extends('shop.layout')
 
 @section('contenido')
+
+<!--Script para abrir el modal-->
+<script>
+    $(document).on("click", ".abrirVerMas", function (event) {
+        var articuloId = $(this).data('id');
+        var articuloNombre = $(this).data('nombre');
+        var articuloMarca = $(this).data('marca');
+        var articuloStock = $(this).data('stock');
+        var articuloPrecio = $(this).data('precio');
+        
+
+
+            document.getElementById("articulo_nombre").innerHTML = articuloNombre;
+            document.getElementById("articulo_marca").innerHTML = articuloMarca;
+            document.getElementById("articulo_cantidad").innerHTML = articuloStock;
+            document.getElementById("articulo_precio").innerHTML = articuloPrecio;
+    });
+</script>
        
 <div class="container-fluid p-0 m-0">     
   <div class="row justify-content-center m-3">
@@ -45,7 +63,13 @@
         <div class="card-body" style="20vh">
           <h5 class="card-title">{{$articulo->nombre}}</h5>
           <p class="card-text">{{$articulo->precio_u}}</p>
-          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
+          <a href="#" class="btn btn-primary abrirVerMas" data-toggle="modal" data-target="#modalVerMas"
+            data-id="{{$articulo->id}}"
+            data-nombre="{{$articulo->nombre}}"
+            data-marca="{{$articulo->marca}}"
+            data-stock="{{$articulo->stock}}"
+            data-precio="{{$articulo->precio_u}}"
+            >Ver más</a>
         </div>
       </div>
     </div>
@@ -60,7 +84,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalVerMasTitulo">Nombre del Artículo</h5>
+        <h5 class="modal-title" id="articulo_nombre">Nombre del Artículo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -81,11 +105,6 @@
             <td class="form-group">
               <label for="articulo_precio" style="font-weight:bold" >Precio</label>
               <p id="articulo_precio" name="precio"></p>
-            </td>
-            <td class="form-group">
-              <label for="articulo_clinica" style="font-weight:bold" >Clinica
-              </label>
-              <p id="articulo_clinica" name="clinica"></p>
             </td>
           </tr>                      
         </table>
