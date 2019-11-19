@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Dueno;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DuenoController extends Controller
 {
@@ -59,12 +60,25 @@ class DuenoController extends Controller
             'telefono' => 'required|numeric',
             'direccion' => 'required',
             'celular' => 'required|numeric',
-            'correo' => 'required',
             'rfc' => 'required',
             'codigo_postal' => 'required|numeric',
             'razon_social' => 'required'
         ]);
 
+
+        //Registro usuario
+        $nombreCompleto = "";
+        $nombreUsuario =  $request->get('nombre1');
+        $apellidoUsuario = $request->get('ApPaterno');
+        $nombreCompleto = $nombreUsuario . ' ' . $apellidoUsuario;
+        $nuevoUser = new \App\User;
+        $nuevoUser->name = $nombreCompleto;
+        $nuevoUser->email = $request->get('email');
+        $nuevoUser->rol = 'CLIENTE';
+        $nuevoUser->password = Hash::make($request->get('password'));
+        $nuevoUser->save();
+
+        //REgistro dueño
         $nuevoDueno = new \App\Dueno;
         $nuevoDueno->nombre = $request->get('nombre');
         $nuevoDueno->apellido_paterno = $request->get('apellido_paterno');
@@ -72,13 +86,15 @@ class DuenoController extends Controller
         $nuevoDueno->telefono = $request->get('telefono');
         $nuevoDueno->direccion = $request->get('direccion');
         $nuevoDueno->celular = $request->get('celular');
-        $nuevoDueno->correo = $request->get('correo');
         $nuevoDueno->rfc = $request->get('rfc');
         $nuevoDueno->codigo_postal = $request->get('codigo_postal');
-        $nuevoDueno->razon_social = $request->get('razon_social');
+        $nuevoDueno->razon_social = $request->get('razon_social');     
+        //Se crea la relacion
+        $nuevoDueno->user_id = $nuevoUser->id;
         
-    
+        
         $nuevoDueno->save();
+
         return redirect('/duenos');
     }
 
@@ -122,7 +138,6 @@ class DuenoController extends Controller
             'telefono' => 'required|max:255|numeric',
             'direccion' => 'required',
             'celular' => 'required|numeric',
-            'correo' => 'required',
             'rfc' => 'required',
             'codigo_postal' => 'required|numeric',
             'razon_social' => 'required'
@@ -134,7 +149,6 @@ class DuenoController extends Controller
         $dueno->telefono = $request->get('telefono');
         $dueno->direccion = $request->get('direccion');
         $dueno->celular = $request->get('celular');
-        $dueno->correo = $request->get('correo');
         $dueno->rfc = $request->get('rfc');
         $dueno->codigo_postal = $request->get('codigo_postal');
         $dueno->razon_social = $request->get('razon_social');

@@ -22,11 +22,11 @@ class CreateDuenosTable extends Migration
             $table->string('telefono');
             $table->string('direccion');
             $table->string('celular');
-            $table->string('correo');
             $table->string('rfc');
             $table->string('codigo_postal');
             $table->string('razon_social');
-
+            //Id usuario
+            $table->unsignedInteger('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade');                   
             $table->timestamps();
 
         });

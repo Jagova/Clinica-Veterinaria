@@ -45,7 +45,7 @@
                 <div class="form-group row">
                     <div class="col-6">
                         <label for="in_atributo1">Correo</label>
-                            <input type="email" maxlength="100" required class="form-control" id="correo" name="correo">
+                            <input type="email" maxlength="100" required class="form-control" id="correo" name="email">
                     </div>
                     <div class="col-6">
                         <label for="in_atributo1">RFC</label>
@@ -60,6 +60,16 @@
                     <div class="col-6">
                         <label for="in_atributo1">Razón Social</label>
                             <input type="text" required class="form-control" id="razon_social" name="razon_social">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-6">
+                            <label for="in_atributo2">Contraseña</label>
+                            <input type="password" required class="form-control" id="password" name="password">        
+                    </div>
+                    <div class="col-6">
+                            <label for="in_atributo2">Confirmar contraseña</label>
+                            <input type="password" required class="form-control" id="confirmapassword" name="confirmapassword">        
                     </div>
                 </div>
             </div>

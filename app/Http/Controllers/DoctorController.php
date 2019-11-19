@@ -78,8 +78,6 @@ class DoctorController extends Controller
         $nuevoUser->rol = 'DOCTOR';
         $nuevoUser->password = Hash::make($request->get('password'));
 
-        
-
         $nuevoUser->save();
 
         //Imagen por defecto
