@@ -170,6 +170,23 @@ class DoctorController extends Controller
         return redirect('/doctores');
     }
 
+    function updatePassword(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required',
+            'confirmapassword' => 'required',
+        ]); 
+
+        $doctor = \App\Doctor::find($id);
+        $usuario = \App\User::find($doctor->user_id);
+        //El request toma los valores con el name en HTML
+        //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
+        $usuario-> Hash::make($request->get('password'));
+        $usuario->save();
+
+        return redirect('/doctores');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

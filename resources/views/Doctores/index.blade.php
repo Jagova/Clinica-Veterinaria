@@ -44,6 +44,17 @@
     });
 </script>
 
+<!--Script para abrir el modal editar contraseña-->
+<script>
+    $(document).on("click", ".abrirEditaContraseñaModal", function (event) {
+        var doctorId = $(this).data('id');
+        document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
+
+        document.getElementById('form-editar-contraseña').action = "doctoreseditapass/" + doctorId;
+
+    });
+</script>
+
 <!--Script para abrir el modal consultar-->
 <script>
     $(document).on("click", ".abrirConsultaModal", function (event) {
@@ -122,6 +133,10 @@
                                     data-urlimagen = "{{$doctor->urlImagen}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
+                                    <button type="button" class="btn btn-primary mx-2 abrirEditaContraseñaModal" data-toggle="modal" 
+                                    data-target="#editarContraseñaModal"
+                                    data-id="{{$doctor->id}}"
+                                    >Modificar Contraseña <i class="fas fa-pencil-alt"></i> </button>
 
                                 <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
@@ -143,7 +158,7 @@
             @include('Doctores.modalAgregaDoctor')
             @include('Doctores.modalEditaDoctor')
             @include('Doctores.modalEliminaDoctor')
-        
+            @include('Doctores.modalEditarContraseña')
         </div>
 
 @endsection 

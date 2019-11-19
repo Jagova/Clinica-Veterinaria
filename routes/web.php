@@ -160,3 +160,7 @@ Route::resource('/pruebaDos','EjemploDosController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Rutas para editar contraseñas
+Route::post('/doctoreseditapass/{id}','DoctorController@updatePassword');
