@@ -14,7 +14,6 @@ class AsistentesSeeder extends Seeder
        
         DB::table('asistentes')->insert([
             'primer_nombre' => 'Jose',
-            'segundo_nombre' => 'Juan',
             'apellido_paterno' => 'Alfaro',
             'apellido_materno' => 'Buendia',
           

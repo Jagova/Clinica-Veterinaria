@@ -16,13 +16,10 @@
                 <table class="table"> 
                     <tr>
                         <td class="form-group">
-                            <label for="consultar-asistente-nombre1" style="font-weight:bold">Primer nombre</label>
+                            <label for="consultar-asistente-nombre1" style="font-weight:bold">Nombre</label>
                             <p id="consultar-asistente-nombre1" name="nombre1"></p>       
                         </td>
-                        <td class="form-group">
-                            <label for="consultar-asistente-nombre2" style="font-weight:bold">Segundo nombre</label>
-                            <p id="consultar-asistente-nombre2" name="nombre2"></p>
-                        </td>
+                      
                     </tr>
                     <tr>
                         <td class="form-group">

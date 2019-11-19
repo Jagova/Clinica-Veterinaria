@@ -13,14 +13,11 @@
                 @method('PUT')
                 <div class="modal-body">                          
                 <div class="form-group row">
-                        <div class="col-6">
-                                <label for="editar-doctor-nombre1">Primer nombre</label>
+                        <div class="col-12">
+                                <label for="editar-doctor-nombre1">Nombre</label>
                                 <input type="text" required class="form-control" id="editar-doctor-nombre1" name="nombre1">        
                         </div>
-                        <div class="col-6">
-                                <label for="editar-doctor-nombre2">Segundo nombre</label>
-                                <input type="text" required class="form-control" id="editar-doctor-nombre2" name="nombre2">        
-                        </div>
+                        
                     </div>
                 <div class="form-group row">
                     <div class="col-6">
