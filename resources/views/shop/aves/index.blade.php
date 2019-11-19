@@ -1,10 +1,28 @@
 @extends('shop.layout')
 
 @section('contenido')
+
+<!--Script para abrir el modal-->
+<script>
+    $(document).on("click", ".abrirVerMas", function (event) {
+        var articuloId = $(this).data('id');
+        var articuloNombre = $(this).data('nombre');
+        var articuloMarca = $(this).data('marca');
+        var articuloStock = $(this).data('stock');
+        var articuloPrecio = $(this).data('precio');
+        
+
+
+            document.getElementById("articulo_nombre").innerHTML = articuloNombre;
+            document.getElementById("articulo_marca").innerHTML = articuloMarca;
+            document.getElementById("articulo_cantidad").innerHTML = articuloStock;
+            document.getElementById("articulo_precio").innerHTML = articuloPrecio;
+    });
+</script>
        
 <div class="container-fluid p-0 m-0">     
   <div class="row justify-content-center m-3">
-    <h1>Artículos para perros</h1>
+    <h1>Artículos para aves</h1>
   </div> 
   <div>
     <nav class="navbar navbar-expand-lg navbar-light shadow-md d-flex justify-content-between height-auto">
@@ -35,173 +53,29 @@
   </div>
 
   <!--Empiezan tarjetas de productos-->
-  <div class="row">
+  <div class="row" style="height:60vh">
   @foreach ($articulosAves as $articulo)
-<div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset($articulo->urlImagen) }}" alt="articulo">
-              </div>
-              <div class="card-body">
-              <h5 class="card-title">{{$articulo->nombre}}</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
+    <div class="col-3 m-0 p-0 h-100 mh-100">
+      <div class="card w-100 h-100" style="width: 18rem;">
+        <div style="height:40vh">
+          <img class="card-img-top mh-100" src="{{ asset($articulo->urlImagen) }}" alt="articulo">
         </div>
+        <div class="card-body" style="20vh">
+          <h5 class="card-title">{{$articulo->nombre}}</h5>
+          <p class="card-text">{{$articulo->precio_u}}</p>
+          <a href="#" class="btn btn-primary abrirVerMas" data-toggle="modal" data-target="#modalVerMas"
+            data-id="{{$articulo->id}}"
+            data-nombre="{{$articulo->nombre}}"
+            data-marca="{{$articulo->marca}}"
+            data-stock="{{$articulo->stock}}"
+            data-precio="{{$articulo->precio_u}}"
+            >Ver más</a>
+        </div>
+      </div>
+    </div>
   @endforeach
   </div>
-{{--
-  <div class="row">
-        <div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete1.jpg') }}" alt="articulo">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
 
-        <div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete4.jpg') }}" alt="articulo">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete2.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete3.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-  </div>
-
-  <div class="row">
-        <div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete1.jpg') }}" alt="articulo">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete4.jpg') }}" alt="articulo">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete2.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete3.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-  </div>
-
-  <div class="row">
-        <div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete1.jpg') }}" alt="articulo">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <div class="h-100">
-                <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete4.jpg') }}" alt="articulo">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete2.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-sm m-0 p-0 w-100">
-            <div class="card w-100 h-100" style="width: 18rem;">
-              <img class="card-img-top" src="{{ asset('images/Tienda/juguetes/juguete3.jpg') }}" alt="articulo">
-              <div class="card-body">
-                <h5 class="card-title">Artículo</h5>
-                <p class="card-text">$10.00</p>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalVerMas">Ver más</a>
-              </div>
-            </div>
-        </div>
-  </div>
-  --}}
 
 </div>
 
@@ -210,7 +84,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalVerMasTitulo">Nombre del Artículo</h5>
+        <h5 class="modal-title" id="articulo_nombre">Nombre del Artículo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -231,11 +105,6 @@
             <td class="form-group">
               <label for="articulo_precio" style="font-weight:bold" >Precio</label>
               <p id="articulo_precio" name="precio"></p>
-            </td>
-            <td class="form-group">
-              <label for="articulo_clinica" style="font-weight:bold" >Clinica
-              </label>
-              <p id="articulo_clinica" name="clinica"></p>
             </td>
           </tr>                      
         </table>
