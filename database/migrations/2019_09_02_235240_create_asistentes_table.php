@@ -17,11 +17,9 @@ class CreateAsistentesTable extends Migration
             $table->bigIncrements('id');
           
             $table->string('primer_nombre');
-            $table->string('segundo_nombre');
+            
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
-            $table->string('especialidad_1');
-            $table->string('especialidad_2');
             $table->string('correo');
             $table->string('telefono');
             $table->string('urlImagen');

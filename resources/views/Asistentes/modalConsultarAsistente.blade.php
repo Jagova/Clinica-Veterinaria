@@ -4,9 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="consultarModalLabel">
-                        <div class="modal-body">
-                               Infomación del asistente <b><span id="consultar-asistente-nombre"></span> </b>
-                            </div>
+                        
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -18,13 +16,10 @@
                 <table class="table"> 
                     <tr>
                         <td class="form-group">
-                            <label for="consultar-asistente-nombre1" style="font-weight:bold">Primer nombre</label>
+                            <label for="consultar-asistente-nombre1" style="font-weight:bold">Nombre</label>
                             <p id="consultar-asistente-nombre1" name="nombre1"></p>       
                         </td>
-                        <td class="form-group">
-                            <label for="consultar-asistente-nombre2" style="font-weight:bold">Segundo nombre</label>
-                            <p id="consultar-asistente-nombre2" name="nombre2"></p>
-                        </td>
+                      
                     </tr>
                     <tr>
                         <td class="form-group">
@@ -43,16 +38,7 @@
                            </div>
 
                    </tr>
-                    <tr>
-                            <td class="form-group">
-                                    <label for="consultar-asistente-especialidad1" style="font-weight:bold">Especialidad 1</label>
-                                    <p id="consultar-asistente-especialidad1" name="esp1"></p>        
-                            </td>
-                            <td class="form-group">
-                                    <label for="consultar-asistente-especialidad2" style="font-weight:bold">Especialidad 2</label>
-                                    <p id="consultar-asistente-especialidad2" name="esp2"></p>      
-                            </td>
-                    </tr>
+                  
                     <tr>
                         <td class="form-group">
                                 <label for="consultar-asistente-correo" style="font-weight:bold">Correo</label>

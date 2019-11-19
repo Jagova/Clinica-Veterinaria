@@ -59,7 +59,7 @@ class DoctorController extends Controller
 
         $request->validate([
             'nombre1' => 'required',
-            'nombre2' => 'required',
+     
             'ApPaterno' => 'required',
             'ApMaterno' => 'required',
             'esp1' => 'required',
@@ -92,7 +92,6 @@ class DoctorController extends Controller
 
         $nuevoDoctor = new \App\Doctor;
         $nuevoDoctor->primer_nombre = $request->get('nombre1');
-        $nuevoDoctor->segundo_nombre = $request->get('nombre2');
         $nuevoDoctor->apellido_paterno = $request->get('ApPaterno');
         $nuevoDoctor->apellido_materno = $request->get('ApMaterno');
         $nuevoDoctor->especialidad_1 = $request->get('esp1');
@@ -145,7 +144,6 @@ class DoctorController extends Controller
     {
         $request->validate([
             'nombre1' => 'required',
-            'nombre2' => 'required',
             'ApPaterno' => 'required',
             'ApMaterno' => 'required',
             'esp1' => 'required',
@@ -165,7 +163,6 @@ class DoctorController extends Controller
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
         $doctor->primer_nombre = $request->get('nombre1');
-        $doctor->segundo_nombre = $request->get('nombre2');
         $doctor->apellido_paterno = $request->get('ApPaterno');
         $doctor->apellido_materno = $request->get('ApMaterno');
         $doctor->especialidad_1 = $request->get('esp1');

@@ -62,8 +62,6 @@ class AsistentesController extends Controller
             'nombre2' => 'nullable',
             'ApPaterno' =>'required',
             'ApMaterno' =>'required',
-            'esp1'=>'required',
-            'esp2'=>'required',
             'clinica'=>'required',
             'correo'=>'required',
             'telefono'=>'required|alpha_num'         
@@ -94,13 +92,13 @@ class AsistentesController extends Controller
         $nuevoAsistente->apellido_paterno = $request->get('ApPaterno');
         $nuevoAsistente->apellido_materno = $request->get('ApMaterno');
         $nuevoAsistente->urlImagen = "/storage/".$ruta;
-
-        $nuevoAsistente->especialidad_1 = $request->get('esp1');
-        $nuevoAsistente->especialidad_2 = $request->get('esp2');
         $nuevoAsistente->clinica_id = $request->get('clinica');
         $nuevoAsistente->correo=$request->get('correo');
         $nuevoAsistente->telefono=$request->get('telefono');
+        $nuevoAsistente->user_id = $nuevoUser->id;
         $nuevoAsistente->save();
+      
+
         return redirect('/asistentes');
     }
     
@@ -141,8 +139,6 @@ class AsistentesController extends Controller
             'nombre2' => 'nullable',
             'ApPaterno' =>'required',
             'ApMaterno' =>'required',
-            'esp1'=>'required',
-            'esp2'=>'required',
             'clinica'=>'required',
             'correo'=>'required',
             'telefono'=>'required|alpha_num'
@@ -164,8 +160,6 @@ class AsistentesController extends Controller
         $asistente ->segundo_nombre = $request->get('nombre2');
         $asistente ->apellido_paterno = $request->get('ApPaterno');
         $asistente ->apellido_materno = $request->get('ApMaterno');
-        $asistente ->especialidad_1 = $request->get('esp1');
-        $asistente->especialidad_2 = $request->get('esp2');
         $asistente->clinica_id = $request->get('clinica');
         $asistente->correo=$request->get('correo');
         $asistente->telefono=$request->get('telefono');
