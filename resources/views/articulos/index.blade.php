@@ -40,6 +40,9 @@
         var subcategoria = $(this).data('subcategoria');
 
 
+         document.getElementById('editarmo-articulo-nombreM').innerHTML = articuloNombre;
+
+
         $("#editar-articulo-nombre").val(articuloNombre);
         $("#editar-articulo-precio").val(preciocom);
         $("#editar-articulo-marca").val(marca);
@@ -77,6 +80,8 @@
         var subcategoria = $(this).data('subcategoria');
 
 
+        var articuloUrlImagen = $(this).data('urlimagen');
+
         document.getElementById("consultar-articulo-nombre").innerHTML = articuloNombre;
         document.getElementById("consultar-articulo-precio").innerHTML = preciocom;
         document.getElementById("consultar-articulo-marca").innerHTML = marca;
@@ -86,6 +91,8 @@
         document.getElementById("consultar-categoria").innerHTML = categoria;
         document.getElementById("consultar-subcategoria").innerHTML = subcategoria;
         document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
+
+        document.getElementById("imagen").src = articuloUrlImagen;
 
 
     });
@@ -119,7 +126,7 @@
                             <th >SubCategoria </th>
 
                             <th >Clinica </th>
-                            <th>Imagen </th>
+                            
 
                             <th></th>
                         </tr>
@@ -141,6 +148,7 @@
                                     data-categoria="{{$articulo->categoria_id}}"
                                     data-subcategoria="{{$articulo->subcategoria_id}}"
                                     data-clinica="{{$articulo->clinica_id}}"
+                                    data-urlImagen="{{$articulo->urlImagen}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -156,7 +164,7 @@
                         <td>{{$articulo->Categoria->nombre}}</td>
                         <td>{{$articulo->Subcategoria->nombre}}</td>
                         <td>{{$articulo->Clinica->nombre}}</td>
-                        <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="100" class="d-block w-1" alt="..."></td>
+                     <!--   <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="100" class="d-block w-1" alt="..."></td>-->
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -171,6 +179,7 @@
                                     data-categoria="{{$articulo->categoria_id}}"
                                     data-subcategoria="{{$articulo->subcategoria_id}}"
                                     data-clinica="{{$articulo->clinica_id}}"
+                                    data-urlimagen = "{{$articulo->urlImagen}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
@@ -324,6 +333,12 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                     <div class = "container" > 
+                                        <img id="imagen" height="300" class="d-block w-100" alt="..." >
+                                        </div>
+                                   
+                                </tr>
+                                <tr>
                                     <td class="form-group">
                                         <label for="consultar-articulo-marca" style="font-weight:bold">Marca: </label>
                                         <p id="consultar-articulo-marca" name="marca"></p>
@@ -348,11 +363,11 @@
                                 </tr>
                                 <tr>
                                     <td class="form-group">
-                                        <label for="consultar-categoria">Categoria</label>
+                                        <label for="consultar-categoria" style="font-weight:bold">Categoria</label>
                                         <p name="categoria" id="consultar-categoria"></p>
                                     </td>
                                     <td class="form-group">
-                                        <label for="consultar-subcategoria" tyle="font-weight:bold">Subcategoria</label>
+                                        <label for="consultar-subcategoria" style="font-weight:bold">Subcategoria</label>
                                         <p name="subcategoria" id="consultar-subcategoria"></p>
                                     </div>
                                       
@@ -378,7 +393,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar </h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar <span id="editarmo-articulo-nombreM"> </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

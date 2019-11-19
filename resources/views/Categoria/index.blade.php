@@ -23,7 +23,8 @@ $("#eliminar-clinica-id").val(articuloId);
     var articuloId = $(this).data('id');
 
     console.log(articuloId);
-
+    
+    document.getElementById('editarmo-articulo-categoria').innerHTML = articuloNombre;
 
     $("#editar-articulo-nombre").val(articuloNombre);
 
@@ -155,7 +156,7 @@ $("#eliminar-clinica-id").val(articuloId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Modificar</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar <span id="editarmo-articulo-categoria"> </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

@@ -24,5 +24,8 @@ class SubCategoriaSeeder extends Seeder
       DB::table('subcategorias')->insert([ 'nombre' => 'Premios para gato']);
       DB::table('subcategorias')->insert([ 'nombre' => 'Arena para gato']);
       DB::table('subcategorias')->insert([ 'nombre' => 'Muebles para gato']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Ropa para gato']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Ropa para perro']);
+
     }
 }

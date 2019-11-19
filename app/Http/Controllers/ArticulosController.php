@@ -72,7 +72,9 @@ class ArticulosController extends Controller
             'clinica' => 'required',
         ]);
 
-        $ruta = "Articulos/circulos_estado-05.png"; 
+        $ruta = "public\Articulos\circulos_estado-05.png"; 
+
+
         //Se revisa si se cargo una imagen     
         if ($request->hasFile('imagen')) 
         { 
@@ -90,7 +92,7 @@ class ArticulosController extends Controller
         $narticulo->categoria_id = $request->get('categoria');
         $narticulo->subcategoria_id = $request->get('subcategoria');
         $narticulo->clinica_id = $request->get('clinica');
-        $narticulo->urlImagen = "/storage/".$ruta;
+        $narticulo->urlImagen = "storage/".$ruta;
 
         $narticulo->save();
         return redirect('/articulos');

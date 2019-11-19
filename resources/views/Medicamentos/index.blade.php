@@ -60,6 +60,8 @@ $("#eliminar-clinica-id").val(medicinaId);
 
         $("#editar-m-fechcad").val(fecha_caducidad);
         $("#editar-m-stock").val(stock);
+
+         document.getElementById('editarmo-articulo-medicamentoM').innerHTML = medicinaNombre;
         
         document.getElementById('form-editar').action = "medicamentos/" + medicinaId;
     });
@@ -100,6 +102,11 @@ $("#eliminar-clinica-id").val(medicinaId);
 
     document.getElementById("consultar-m-fechcad").innerHTML = fecha_caducidad
     document.getElementById("consultar-m-stock").innerHTML = stock;
+
+            var medicamentoUrlImagen = $(this).data('urlimagen');
+
+            document.getElementById("imagen").src = medicamentoUrlImagen;
+
     });
 </script>
 
@@ -131,7 +138,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                             <th >Fecha </th>
                             <th >Stock </th>-->
                             <th >Clinica </th> 
-                            <th> Imagen </th>
+                          <!--  <th> Imagen </th>-->
                             <th></th>
                         </tr>
                     </thead>
@@ -151,6 +158,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     data-controlado="{{$medis->controlado}}"
                                     data-fecha_caducidad="{{$medis->fecha_caducidad}}"
                                     data-stock="{{$medis->stock}}"data-clinica="{{$medis->clinica_id}}"
+                                    data-urlImagen="{{$medis->urlImagen}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -168,7 +176,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                         <td>{{$medis->fecha_caducidad}}</td>
                         <td>{{$medis->stock}}</td>-->
                         <td>{{$medis->Clinica->nombre}}</td>
-                        <td><img  src="{{URL::asset($medis->urlImagen)}}" height="100" class="d-block w" alt="..."></td>
+                       <!-- <td><img  src="{{URL::asset($medis->urlImagen)}}" height="100" class="d-block w" alt="..."></td>-->
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -181,6 +189,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     data-controlado="{{$medis->controlado}}"
                                     data-fecha_caducidad="{{$medis->fecha_caducidad}}"
                                     data-stock="{{$medis->stock}}"data-clinica="{{$medis->clinica_id}}"
+                                    data-urlImagen="{{$medis->urlImagen}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
@@ -356,6 +365,12 @@ $("#eliminar-clinica-id").val(medicinaId);
                                         <p id="consultar-m-presentacion" name="presentacion"></p>
                                     </td>
                                 </tr>
+                                <!-- Foto del medicamento -->
+                                <tr>
+                                     <div class = "container" > 
+                                        <img id="imagen" height="300" class="d-block w-100" alt="..." >
+                                        </div>
+                                </tr>
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo3" style="font-weight:bold">ML MG: </label>
@@ -421,7 +436,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editarModalLabel">Editar</h5>
+                                <h5 class="modal-title" id="editarModalLabel">Editar  <span id="editarmo-articulo-medicamentoM"></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

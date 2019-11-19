@@ -27,7 +27,7 @@ class CreateAsistentesTable extends Migration
             $table->string('urlImagen');
 
             $table->unsignedInteger('clinica_id')->foreign('clinica_id')->references('id')->on('clinicas')->onDelete('cascade');
-            $table->unsignedInteger('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }
