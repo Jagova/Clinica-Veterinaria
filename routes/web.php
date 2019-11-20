@@ -69,12 +69,44 @@ Route::get('/shop', function () {
 });
 
 Route::get('/shop/perros','UserController@shopPerros');
+Route::get('/shop/perros/alimento','UserController@shopPerrosAlimento');
+Route::get('/shop/perros/suplementos','UserController@shopPerrosSuplementos');
+Route::get('/shop/perros/camas','UserController@shopPerrosCamas');
+Route::get('/shop/perros/juguetes','UserController@shopPerrosJuguetes');
+Route::get('/shop/perros/transportadoras','UserController@shopPerrosTransportadoras');
+Route::get('/shop/perros/ropa','UserController@shopPerrosRopa');
+Route::get('/shop/perros/higiene','UserController@shopPerrosHigiene');
+
 Route::get('/shop/gatos','UserController@shopGatos');
+Route::get('/shop/gatos/alimento','UserController@shopGatosAlimento');
+Route::get('/shop/gatos/premios','UserController@shopGatosPremios');
+Route::get('/shop/gatos/suplementos','UserController@shopGatosSuplementos');
+Route::get('/shop/gatos/camas','UserController@shopGatosCamas');
+Route::get('/shop/gatos/juguetes','UserController@shopGatosJuguetes');
+Route::get('/shop/gatos/transportadoras','UserController@shopGatosTransportadoras');
+Route::get('/shop/gatos/muebles','UserController@shopGatosMuebles');
+Route::get('/shop/gatos/higiene','UserController@shopGatosHigiene');
+Route::get('/shop/gatos/ropa','UserController@shopGatosRopa');
+
 Route::get('/shop/mamiferos','UserController@shopMamiferos');
+Route::get('/shop/mamiferos/alimento','UserController@shopMamiferosAlimento');
+Route::get('/shop/mamiferos/transportadoras','UserController@shopMamiferosTransportadoras');
+
 Route::get('/shop/aves','UserController@shopAves');
+Route::get('/shop/aves/alimento','UserController@shopAvesAlimento');
+Route::get('/shop/aves/transportadoras','UserController@shopAvesTransportadoras');
+
 Route::get('/shop/reptiles','UserController@shopReptiles');
+Route::get('/shop/reptiles/alimento','UserController@shopReptilesAlimento');
+Route::get('/shop/reptiles/transportadoras','UserController@shopReptilesTransportadoras');
+
 Route::get('/shop/peces','UserController@shopPeces');
+Route::get('/shop/peces/alimento','UserController@shopPecesAlimento');
+Route::get('/shop/peces/acuarios','UserController@shopPecesAcuarios');
+Route::get('/shop/peces/accesorios','UserController@shopPecesAccesorios');
+
 Route::get('/shop/servicios','UserController@shopServicios');
+
 
 /*
 Route::get('/shop/perros', function () {

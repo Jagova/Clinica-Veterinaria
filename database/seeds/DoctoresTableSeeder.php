@@ -13,7 +13,6 @@ class DoctoresTableSeeder extends Seeder
     {
         DB::table('doctors')->insert([
             'primer_nombre' => 'Doctor',
-            'segundo_nombre' => 'Doctor',
             'apellido_paterno' => 'Doctor',
             'apellido_materno' => 'Doctor',
             'especialidad_1' => 'Cirugano',

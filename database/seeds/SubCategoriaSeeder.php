@@ -11,18 +11,17 @@ class SubCategoriaSeeder extends Seeder
      */
     public function run()
     {
-      //SubCategorias para perros
-      DB::table('subcategorias')->insert([ 'nombre' => 'Alimento para perro']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Alimento para gato']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Camas para perro']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Camas para gato']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Juguetes para perro']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Juguetes para gato']);
+      //SubCategorias
+      DB::table('subcategorias')->insert([ 'nombre' => 'Alimento']);
       DB::table('subcategorias')->insert([ 'nombre' => 'Suplementos']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Premios']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Camas']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Juguetes']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Transportadoras']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Ropa']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Higiene']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Muebles']);
       DB::table('subcategorias')->insert([ 'nombre' => 'Acuarios']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Jaulas y Transportadoras']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Premios para gato']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Arena para gato']);
-      DB::table('subcategorias')->insert([ 'nombre' => 'Muebles para gato']);
+      DB::table('subcategorias')->insert([ 'nombre' => 'Accesorios']);
     }
 }
