@@ -19,6 +19,14 @@
             document.getElementById("articulo_precio").innerHTML = articuloPrecio;
     });
 </script>
+
+<!--Script para filtrar productos-->
+<script>
+$(document).on("click", ".link-subcategoria", function(event){
+
+        var filtro = $(this).data('filtro');
+});
+</script>
        
 <div class="container-fluid p-0 m-0">     
   <div class="row justify-content-center m-3">
@@ -32,16 +40,25 @@
       <div class="collapse navbar-collapse" id="menuCategoria">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 1</a>
+            <a class="nav-link link-subcategoria" href="#">Alimento</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 2</a>
+            <a class="nav-link" href="#">Suplementos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 3</a>
+            <a class="nav-link" href="#">Camas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 4</a>
+            <a class="nav-link" href="#">Juguetes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Transportadoras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ropa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Higiene</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -53,7 +70,7 @@
   </div>
 
   <!--Empiezan tarjetas de productos-->
-  <div class="row" style="height:60vh">
+  <div class="row m-5" style="height:60vh">
   @foreach ($articulosPerros as $articulo)
     <div class="col-3 m-0 p-0 h-100 mh-100">
       <div class="card w-100 h-100" style="width: 18rem;">

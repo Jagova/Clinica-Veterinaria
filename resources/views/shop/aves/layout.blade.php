@@ -22,7 +22,7 @@
        
 <div class="container-fluid p-0 m-0">     
   <div class="row justify-content-center m-3">
-    <h1>Artículos para reptiles</h1>
+    <h1>Artículos para aves</h1>
   </div> 
   <div>
     <nav class="navbar navbar-expand-lg navbar-light shadow-md d-flex justify-content-between height-auto">
@@ -32,10 +32,10 @@
       <div class="collapse navbar-collapse" id="menuCategoria">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link link-subcategoria" data-filtro ="alimento" href="#">Alimento</a>
+            <a class="nav-link" href="/shop/aves/alimento">Alimento</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Jaulas y transportadoras</a>
+            <a class="nav-link" href="/shop/aves/transportadoras">Jaulas y transportadoras</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -46,30 +46,7 @@
     </nav>
   </div>
 
-  <!--Empiezan tarjetas de productos-->
-  <div class="row m-5" style="height:60vh">
-  @foreach ($articulosReptiles as $articulo)
-    <div class="col-3 m-0 p-0 h-100 mh-100">
-      <div class="card w-100 h-100" style="width: 18rem;">
-        <div style="height:40vh">
-          <img class="card-img-top mh-100" src="{{ asset($articulo->urlImagen) }}" alt="articulo">
-        </div>
-        <div class="card-body" style="20vh">
-          <h5 class="card-title">{{$articulo->nombre}}</h5>
-          <p class="card-text">{{$articulo->precio_u}}</p>
-          <a href="#" class="btn btn-primary abrirVerMas" data-toggle="modal" data-target="#modalVerMas"
-            data-id="{{$articulo->id}}"
-            data-nombre="{{$articulo->nombre}}"
-            data-marca="{{$articulo->marca}}"
-            data-stock="{{$articulo->stock}}"
-            data-precio="{{$articulo->precio_u}}"
-            >Ver más</a>
-        </div>
-      </div>
-    </div>
-  @endforeach
-  </div>
-
+  @yield('contenido2')
 
 </div>
 

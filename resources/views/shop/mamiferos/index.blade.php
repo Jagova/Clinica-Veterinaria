@@ -32,16 +32,10 @@
       <div class="collapse navbar-collapse" id="menuCategoria">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 1</a>
+            <a class="nav-link" href="#">Alimento</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 3</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Categoría 4</a>
+            <a class="nav-link" href="#">Jaulas y trasnportadoras</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -53,7 +47,7 @@
   </div>
 
   <!--Empiezan tarjetas de productos-->
-  <div class="row" style="height:60vh">
+  <div class="row m-5" style="height:60vh">
   @foreach ($articulosMamiferos as $articulo)
     <div class="col-3 m-0 p-0 h-100 mh-100">
       <div class="card w-100 h-100" style="width: 18rem;">

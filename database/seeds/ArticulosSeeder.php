@@ -17,7 +17,7 @@ class ArticulosSeeder extends Seeder
         DB::table('articulos')->insert([
             'nombre' => 'Comida Perrito Feliz',
             'preciocom' => '100',
-            'marca' => 'RoyalCannin',
+            'marca' => 'RoyalCanin',
             'fecha_cad' => '2019-12-24',
             'precio_u' => '20',
             'stock' => 100,
@@ -38,7 +38,7 @@ class ArticulosSeeder extends Seeder
             'stock' => 20,
             'urlImagen' => '/storage/Articulos/rascador.jpg',
             'categoria_id' => 1,
-            'subcategoria_id' => 1,
+            'subcategoria_id' => 9,
             'clinica_id' => 1
 
         ]);
@@ -53,7 +53,7 @@ class ArticulosSeeder extends Seeder
             'stock' => 122,
             'urlImagen' => '/storage/Articulos/pecera100lts.jpg',
             'categoria_id' => 5,
-            'subcategoria_id' => 8,
+            'subcategoria_id' => 10,
             'clinica_id' => 1
 
         ]);        
@@ -67,8 +67,8 @@ class ArticulosSeeder extends Seeder
             'precio_u' => '600',
             'stock' => 200,
             'urlImagen' => '/storage/Articulos/comedero.jpg',
-            'categoria_id' => 5,
-            'subcategoria_id' => 8,
+            'categoria_id' => 3,
+            'subcategoria_id' => 6,
             'clinica_id' => 1
 
         ]);    
@@ -84,7 +84,7 @@ class ArticulosSeeder extends Seeder
             'stock' => 200,
             'urlImagen' => '/storage/Articulos/camaparagato.jpg',
             'categoria_id' => 1,
-            'subcategoria_id' => 1,
+            'subcategoria_id' => 4,
             'clinica_id' => 1
 
         ]);    
