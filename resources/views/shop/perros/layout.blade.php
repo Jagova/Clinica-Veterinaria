@@ -19,10 +19,12 @@
             document.getElementById("articulo_precio").innerHTML = articuloPrecio;
     });
 </script>
+
+
        
 <div class="container-fluid p-0 m-0">     
   <div class="row justify-content-center m-3">
-    <h1>Artículos para gatos</h1>
+    <h1>Artículos para perros</h1>
   </div> 
   <div>
     <nav class="navbar navbar-expand-lg navbar-light shadow-md d-flex justify-content-between height-auto">
@@ -32,31 +34,25 @@
       <div class="collapse navbar-collapse" id="menuCategoria">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/alimento">Alimento</a>
+            <a class="nav-link " href="/shop/perros/alimento">Alimento</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/premios">Premios</a>
+            <a class="nav-link" href="/shop/perros/suplementos">Suplementos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/suplementos">Suplementos</a>
+            <a class="nav-link" href="/shop/perros/camas">Camas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/camas">Camas</a>
+            <a class="nav-link" href="/shop/perros/juguetes">Juguetes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/juguetes">Juguetes</a>
+            <a class="nav-link" href="/shop/perros/transportadoras">Transportadoras</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/transportadoras">Transportadoras</a>
+            <a class="nav-link" href="/shop/perros/ropa">Ropa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/muebles">Muebles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/higiene">Higiene</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/shop/gatos/ropa">Ropa</a>
+            <a class="nav-link" href="/shop/perros/higiene">Higiene</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -68,7 +64,6 @@
   </div>
 
   @yield('contenido2')
-
 
 </div>
 
