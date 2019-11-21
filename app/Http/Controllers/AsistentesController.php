@@ -59,12 +59,13 @@ class AsistentesController extends Controller
        
     request()->validate([
             'nombre1' => ['required','max:20', 'min:3'],
-            'nombre2' => 'nullable',
+           // 'nombre2' => 'nullable',
             'ApPaterno' =>'required',
             'ApMaterno' =>'required',
             'clinica'=>'required',
-            'correo'=>'required',
-            'telefono'=>'required|alpha_num'         
+            'email'=>'required | unique:users',
+            'telefono'=>'required|alpha_num',
+                  
         ]);
        
         /*Agregado Usuario a la tabla Users con la información del asistente*/
@@ -74,7 +75,7 @@ class AsistentesController extends Controller
         $nombreCompleto = $nombreUsuario . ' ' . $apellidoUsuario;
         $nuevoUser = new \App\User;
         $nuevoUser->name = $nombreCompleto;
-        $nuevoUser->email = $request->get('correo');
+        $nuevoUser->email = $request->get('email');
         $nuevoUser->rol = 'ASISTENTE';
         $nuevoUser->password = Hash::make($request->get('password'));
         
@@ -88,12 +89,12 @@ class AsistentesController extends Controller
 
         $nuevoAsistente = new \App\Asistente;
         $nuevoAsistente->primer_nombre = $request->get('nombre1');
-        $nuevoAsistente->segundo_nombre = $request->get('nombre2');
+        //$nuevoAsistente->segundo_nombre = $request->get('nombre2');
         $nuevoAsistente->apellido_paterno = $request->get('ApPaterno');
         $nuevoAsistente->apellido_materno = $request->get('ApMaterno');
         $nuevoAsistente->urlImagen = "/storage/".$ruta;
         $nuevoAsistente->clinica_id = $request->get('clinica');
-        $nuevoAsistente->correo=$request->get('correo');
+        $nuevoAsistente->correo=$request->get('email');
         $nuevoAsistente->telefono=$request->get('telefono');
         $nuevoAsistente->user_id = $nuevoUser->id;
         $nuevoAsistente->save();
@@ -136,11 +137,11 @@ class AsistentesController extends Controller
     {
         request()->validate([
             'nombre1' => ['required','max:20', 'min:3'],
-            'nombre2' => 'nullable',
+          //  'nombre2' => 'nullable',
             'ApPaterno' =>'required',
             'ApMaterno' =>'required',
             'clinica'=>'required',
-            'correo'=>'required',
+            'email'=>'required | unique:users',
             'telefono'=>'required|alpha_num'
 
             
@@ -157,11 +158,11 @@ class AsistentesController extends Controller
        
         
         $asistente ->primer_nombre = $request->get('nombre1');
-        $asistente ->segundo_nombre = $request->get('nombre2');
+       // $asistente ->segundo_nombre = $request->get('nombre2');
         $asistente ->apellido_paterno = $request->get('ApPaterno');
         $asistente ->apellido_materno = $request->get('ApMaterno');
         $asistente->clinica_id = $request->get('clinica');
-        $asistente->correo=$request->get('correo');
+        $asistente->correo=$request->get('email');
         $asistente->telefono=$request->get('telefono');
         $asistente->save();
         return redirect('/asistentes');
@@ -177,6 +178,9 @@ class AsistentesController extends Controller
     {
         //
         $asistente = \App\Asistente::find($id);
+        $idUsuario = $asistente ->user_id;
+        $usuario = \App\User::find($idUsuario);
+        $usuario->delete();
         $asistente->delete();
         return redirect('/asistentes');
     }

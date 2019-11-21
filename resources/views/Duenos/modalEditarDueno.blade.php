@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-6">
                         <label for="editar-dueno-telefono">Teléfono</label>
-                            <input type="number" maxlength="10" required class="form-control" id="editar-dueno-telefono" name="telefono">
+                            <input type="text" maxlength="10" required class="form-control" id="editar-dueno-telefono" name="telefono">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-6">
                         <label for="editar-dueno-celular">Celular</label>
-                            <input type="number" maxlength="10" class="form-control" id="editar-dueno-celular" name="celular">
+                            <input type="text" maxlength="10" class="form-control" id="editar-dueno-celular" name="celular">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -57,7 +57,7 @@
                 <div class="form-group row">
                     <div class="col-6">
                     <label for="in_atributo1">Código Postal</label>
-                        <input type="number" maxlength="5" required class="form-control" id="editar-dueno-codigo_postal" name="codigo_postal">
+                        <input type="text" maxlength="5" required class="form-control" id="editar-dueno-codigo_postal" name="codigo_postal">
                 </div>
                     <div class="col-6">
                         <label for="editar-dueno-razon_social">Razón Social</label>

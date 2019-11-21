@@ -41,7 +41,7 @@
                         <div class="form-group row">
                             <div class="col-6">
                                     <label for="editar-asistente-especialidad1">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="correo" name="correo" required>        
+                                    <input type="email" class="form-control" id="email" name="email" required>        
                             </div>
                             <div class="col-6">
                                     <label for="editar-asistente-especialidad2">Telefono</label>

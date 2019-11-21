@@ -85,6 +85,15 @@
 
        
 <div class="container-fluid">
+     @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
             <div class="row p-5"><h1 class="display-1">Doctores <i class="fas fa-stethoscope"></i> </h1></div>
             <div class="row p-5">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Agregar doctor</button>

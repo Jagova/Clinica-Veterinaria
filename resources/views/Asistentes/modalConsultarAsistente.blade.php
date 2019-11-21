@@ -42,7 +42,7 @@
                     <tr>
                         <td class="form-group">
                                 <label for="consultar-asistente-correo" style="font-weight:bold">Correo</label>
-                                <p id="consultar-asistente-correo" name="correo"></p>        
+                                <p id="consultar-asistente-correo" name="email"></p>        
                         </td>
                         <td class="form-group">
                                 <label for="consultar-asistente-telefono" style="font-weight:bold">Telefono</label>

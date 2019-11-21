@@ -64,6 +64,9 @@ class DoctorController extends Controller
             'ApMaterno' => 'required',
             'esp1' => 'required',
             'esp2' => 'required',
+
+            'email' => 'required | unique:users',
+
             'clinica' => 'required',
         ]);
 
@@ -147,6 +150,7 @@ class DoctorController extends Controller
             'esp1' => 'required',
             'esp2' => 'required',
             'clinica' => 'required',
+            'email' => 'required | unique:users',
         ]); 
 
         $doctor = \App\Doctor::find($id);
@@ -197,6 +201,9 @@ class DoctorController extends Controller
     {
         //
         $doctor = \App\Doctor::find($id);
+        $idUsuario = $doctor ->user_id;
+        $usuario = \App\User::find($idUsuario);
+        $usuario->delete();
         $doctor->delete();
         //dd($doctor);
         return redirect('/doctores');

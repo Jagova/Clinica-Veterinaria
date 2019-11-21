@@ -54,22 +54,23 @@ class DuenoController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'nombre' => 'required|alpha',
-            'apellido_paterno' => 'required|alpha',
-            'apellido_materno' => 'required|alpha',
+            'nombre' => 'required',
+            'apellido_paterno' => 'required',
+            'apellido_materno' => 'required',
             'telefono' => 'required|numeric',
             'direccion' => 'required',
             'celular' => 'required|numeric',
             'rfc' => 'required',
             'codigo_postal' => 'required|numeric',
-            'razon_social' => 'required'
+            'razon_social' => 'required',
+            'email' => 'required | unique:users',
         ]);
 
 
         //Registro usuario
         $nombreCompleto = "";
-        $nombreUsuario =  $request->get('nombre1');
-        $apellidoUsuario = $request->get('ApPaterno');
+        $nombreUsuario =  $request->get('nombre');
+        $apellidoUsuario = $request->get('apellido_paterno');
         $nombreCompleto = $nombreUsuario . ' ' . $apellidoUsuario;
         $nuevoUser = new \App\User;
         $nuevoUser->name = $nombreCompleto;
@@ -132,15 +133,16 @@ class DuenoController extends Controller
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
         $validatedData = $arequest->validate([
-            'nombre' => 'required|alpha',
-            'apellido_paterno' => 'required|alpha',
-            'apellido_materno' => 'required|alpha',
+            'nombre' => 'required',
+            'apellido_paterno' => 'required',
+            'apellido_materno' => 'required',
             'telefono' => 'required|max:255|numeric',
             'direccion' => 'required',
             'celular' => 'required|numeric',
             'rfc' => 'required',
             'codigo_postal' => 'required|numeric',
-            'razon_social' => 'required'
+            'razon_social' => 'required',
+            'email' => 'required | unique:users',
         ]);
 
         $dueno->nombre = $request->get('nombre');
@@ -165,6 +167,9 @@ class DuenoController extends Controller
     public function destroy(Dueno $dueno)
     {
         //
+        $idUsuario = $dueno -> user_id;
+        $usuario = \App\User::find($idUsuario);
+        $usuario->delete();
         $dueno->delete();
         return redirect('/duenos');
     }
