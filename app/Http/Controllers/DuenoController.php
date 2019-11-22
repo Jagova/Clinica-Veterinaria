@@ -158,6 +158,23 @@ class DuenoController extends Controller
         return redirect('/duenos');
     }
 
+    function updatePassword(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required',
+            'confirmapassword' => 'required',
+        ]); 
+
+        $dueño = \App\Doctor::find($id);
+        $usuario = \App\User::find($dueño->user_id);
+        //El request toma los valores con el name en HTML
+        //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
+        $usuario->password = Hash::make($request->get('password'));
+        $usuario->save();
+
+        return redirect('/duenos');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

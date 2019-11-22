@@ -55,8 +55,6 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        
-
         $request->validate([
             'nombre1' => 'required',
      
@@ -185,7 +183,7 @@ class DoctorController extends Controller
         $usuario = \App\User::find($doctor->user_id);
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
-        $usuario-> Hash::make($request->get('password'));
+        $usuario->password = Hash::make($request->get('password'));
         $usuario->save();
 
         return redirect('/doctores');

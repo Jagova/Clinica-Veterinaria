@@ -13,6 +13,18 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 });
 </script>
 
+<!--Script para abrir el modal editar contraseña-->
+<script>
+    $(document).on("click", ".abrirEditaContraseñaModal", function (event) {
+
+        var doctorId = $(this).data('id');
+        //document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
+        console.log(doctorId);
+        document.getElementById('form-editar-contraseña').action = "duenoseditapass/" + doctorId;
+
+    });
+</script>
+
 <!--Script para editar un modal-->
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
@@ -87,7 +99,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
           
     <!--Consultar-->
     <div class="row p-5">
-        <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueno</button>
+        <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueñoo</button>
         <table class="table" id="table1">
             <thead>
                 <tr>
@@ -140,6 +152,11 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                                     data-razon_social="{{$dueno->razon_social}}"
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
+                                    <button type="button" class="btn btn-primary mx-2 abrirEditaContraseñaModal" data-toggle="modal" 
+                                    data-target="#editarContraseñaModal"
+                                    data-id="{{$dueno->id}}"
+                                    >Modificar Contraseña <i class="fas fa-pencil-alt"></i> </button>
+
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
                                     data-id="{{$dueno->id}}"
@@ -158,7 +175,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 
           
            
-
+        @include('Duenos.modalEditarContraseña')
         @include('Duenos.modalAgregarDueno')
         @include('Duenos.modalConsultarDueno')
         @include('Duenos.modalEliminarDueno')

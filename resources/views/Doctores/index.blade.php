@@ -47,9 +47,10 @@
 <!--Script para abrir el modal editar contraseña-->
 <script>
     $(document).on("click", ".abrirEditaContraseñaModal", function (event) {
-        var doctorId = $(this).data('id');
-        document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
 
+        var doctorId = $(this).data('id');
+        //document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
+        console.log(doctorId);
         document.getElementById('form-editar-contraseña').action = "doctoreseditapass/" + doctorId;
 
     });
