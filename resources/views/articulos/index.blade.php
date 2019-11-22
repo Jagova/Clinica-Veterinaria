@@ -92,7 +92,7 @@
         document.getElementById("consultar-subcategoria").innerHTML = subcategoria;
         document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
 
-        document.getElementById("imagen").src = articuloUrlImagen;
+        document.getElementById("imagenconsulta").src = articuloUrlImagen;
 
 
     });
@@ -236,7 +236,7 @@
                                 <div class="col-5">
                                     <div>
                                 Fotos
-                                <input type="file" name="imagen" id=imagen>
+                                <input type="file" name="imagen2" id=imagen2>
                             </div>
                         </div>
                     </div>
@@ -334,7 +334,7 @@
                                 </tr>
                                 <tr>
                                      <div class = "container" > 
-                                        <img id="imagen" height="300" class="d-block w-100" alt="..." >
+                                        <img id="imagenconsulta" height="300" class="d-block " alt="..." >
                                         </div>
                                    
                                 </tr>

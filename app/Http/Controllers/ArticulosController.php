@@ -72,7 +72,7 @@ class ArticulosController extends Controller
             'clinica' => 'required',
         ]);
 
-        $ruta = "public\Articulos\circulos_estado-05.png"; 
+        $ruta = "\Articulos\circulos_estado-05.png"; 
 
 
         //Se revisa si se cargo una imagen     
@@ -141,6 +141,11 @@ class ArticulosController extends Controller
             'subcategoria' =>'required',
             'clinica' => 'required',
         ]);
+
+            if ($request->hasFile('imagen')) {
+            $ruta = $request->imagen->store('Articulos','public');
+            $paciente->urlImagen = "/storage/".$ruta;
+        }
 
         $articulo = \App\articulos::find($id);
         $articulo->nombre=$request->get('nombre');

@@ -89,6 +89,55 @@ class ArticulosSeeder extends Seeder
 
         ]);    
 
+
+                    DB::table('articulos')->insert([
+            'nombre' => 'Pro Plan Optiderma Sensitive Skin Alimento Seco para Perro Adulto  ',
+            'preciocom' => '1672',
+            'marca' => 'purina',
+            'fecha_cad' => '2019-10-10',
+            'precio_u' => '1760',
+            'stock' => 100,
+            'urlImagen' => '/storage/Articulos/problan.png',
+            'categoria_id' => 1,
+            'subcategoria_id' => 1,
+            'clinica_id' => 1
+
+        ]);    
+
+
+                    DB::table('articulos')->insert([
+            'nombre' => 'Hills Prescription Diet Alimento Para Gato S/D 1.81 kg',
+            'preciocom' => '446',
+            'marca' => 'purina',
+            'fecha_cad' => '2019-10-10',
+            'precio_u' => '470',
+            'stock' => 100,
+            'urlImagen' => '/storage/Articulos/urinarycare.png',
+            'categoria_id' => 1,
+            'subcategoria_id' => 1,
+            'clinica_id' => 1
+
+        ]);    
+
+                    
+
+
+               DB::table('articulos')->insert([
+            'nombre' => 'Chuckit! Pelota Ultra X Grande',
+            'preciocom' => '205',
+            'marca' => 'purina',
+            'fecha_cad' => '2019-10-10',
+            'precio_u' => '205',
+            'stock' => 100,
+            'urlImagen' => '/storage/Articulos/pelota.png',
+            'categoria_id' => 1,
+            'subcategoria_id' => 1,
+            'clinica_id' => 1
+
+        ]);  
+
+                    
+
  
 
     }
