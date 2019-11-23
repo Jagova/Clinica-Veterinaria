@@ -68,8 +68,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm sticky-top">
-            <a class="navbar-brand" href="/"><img class="img-fluid" width="70" src="{{URL::asset('images/logo-prueba.png')}}"/></a>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm sticky-top py-0 px-5">
+            <a class="navbar-brand" href="/"><img class="img-fluid" width="70" src="{{URL::asset('images/logo2.png')}}"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#MenuAdmin"
                 aria-controls="MenuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -77,40 +77,41 @@
             <div class="collapse navbar-collapse" id="MenuAdmin">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/buscar"></i>
+                        <a class="nav-link menuControl" href="/control/buscar"></i>
                             Buscar</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/registro_dueno"></i>
+                        <a class="nav-link menuControl" href="/control/registro_dueno"></i>
                             Registrar Dueño</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/registro_mascota"></i>
+                        <a class="nav-link menuControl" href="/control/registro_mascota"></i>
                             Registrar Mascota</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/agendar"></i>
+                        <a class="nav-link menuControl" href="/control/agendar"></i>
                             Agendar servicio</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/registro_vacunas"></i>
+                        <a class="nav-link menuControl" href="/control/registro_vacunas"></i>
                             Registro de vacunas</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/registro_vacunas"></i>
-                            Registro de ventas</a>
+                        <a class="nav-link menuControl" href="/control/compras_ventas"></i>
+                            Compras y ventas</a>
                     </li>
+                    
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/registro_compras"></i>
-                            Registro de compras</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/control/historial_mascota"></i>
+                        <a class="nav-link menuControl" href="/control/historial_mascota"></i>
                             Historial de mascota</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/control/historial_personal"></i>
+                        <a class="nav-link menuControl" href="/control/historial_personal"></i>
                             Historial del personal</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link menuControl" href="/control/registrar_servicio"></i>
+                            Registrar Servicio</a>
                     </li>
                     
                 </ul>
