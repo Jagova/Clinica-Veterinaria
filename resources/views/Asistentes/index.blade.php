@@ -15,6 +15,17 @@
     });
 </script>
 
+<!--Script para abrir el modal editar contraseña-->
+<script>
+    $(document).on("click", ".abrirEditaContraseñaModal", function (event) {
+
+        var doctorId = $(this).data('id');
+        //document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
+        console.log(doctorId);
+        document.getElementById('form-editar-contraseña').action = "asistenteseditapass/" + doctorId;
+    });
+</script>
+
 <!--Script para editar un modal-->
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
@@ -135,6 +146,11 @@
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
+                                    <button type="button" class="btn btn-primary mx-2 abrirEditaContraseñaModal" data-toggle="modal" 
+                                    data-target="#editarContraseñaModal"
+                                    data-id="{{$asistente->id}}"
+                                    >Modificar Contraseña <i class="fas fa-pencil-alt"></i> </button>
+
                                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
                                 data-id="{{$asistente->id}}"
@@ -155,5 +171,5 @@
             @include('Asistentes.modalEliminarAsistente')
             @include('Asistentes.modalEditarAsistente')
             @include('Asistentes.modalConsultarAsistente') 
-           
+            @include('Asistentes.modalEditarContraseña') 
 @endsection

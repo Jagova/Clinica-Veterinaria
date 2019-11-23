@@ -126,6 +126,23 @@ class AsistentesController extends Controller
         //
     }
 
+    function updatePassword(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required',
+            'confirmapassword' => 'required',
+        ]); 
+
+        $asistente = \App\Doctor::find($id);
+        $usuario = \App\User::find($asistente->user_id);
+        //El request toma los valores con el name en HTML
+        //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
+        $usuario->password = Hash::make($request->get('password'));
+        $usuario->save();
+
+        return redirect('/asistentes');
+    }
+
     /**
      * Update the specified resource in storage.
      *

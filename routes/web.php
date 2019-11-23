@@ -197,3 +197,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Rutas para editar contraseñas
 Route::post('/doctoreseditapass/{id}','DoctorController@updatePassword');
+Route::post('/duenoseditapass/{id}','DuenoController@updatePassword');
+Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
