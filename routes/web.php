@@ -144,13 +144,10 @@ Route::get('/control/registro_vacunas', function () {
     return view('/control/registro_vacunas/index');
 });
 
-Route::get('/control/registro_ventas', function () {
-    return view('/control/registro_ventas/index');
+Route::get('/control/compras_ventas', function () {
+    return view('/control/compras_ventas/index');
 });
 
-Route::get('/control/registro_compras', function () {
-    return view('/control/registro_compras/index');
-});
 
 Route::get('/control/historial_mascota', function () {
     return view('/control/historial_mascota/index');
@@ -158,6 +155,10 @@ Route::get('/control/historial_mascota', function () {
 
 Route::get('/control/historial_personal', function () {
     return view('/control/historial_personal/index');
+});
+
+Route::get('/control/registrar_servicio', function () {
+    return view('/control/registrar_servicio/index');
 });
 
 Route::get('/control/buscar/mascota/encontrado', function () {
