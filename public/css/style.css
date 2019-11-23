@@ -2,5 +2,14 @@
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
     border-width: 10px;
-    border-color: brown;
+}
+.menuControl{
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    color: white;
+
+}
+
+.nav-item:hover{
+    background-color: rgb(104,148,239);
 }
