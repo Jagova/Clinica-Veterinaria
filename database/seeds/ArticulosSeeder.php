@@ -43,7 +43,6 @@ class ArticulosSeeder extends Seeder
 
         ]);
 
-
                 DB::table('articulos')->insert([
             'nombre' => 'Pecera para 100 litros',
             'preciocom' => '3000',

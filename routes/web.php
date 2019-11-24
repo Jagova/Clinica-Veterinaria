@@ -107,7 +107,6 @@ Route::get('/shop/peces/accesorios','UserController@shopPecesAccesorios');
 
 Route::get('/shop/servicios','UserController@shopServicios');
 
-
 /*
 Route::get('/shop/perros', function () {
     return view('/shop/perros/index');
@@ -201,3 +200,5 @@ Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
 
 //ruta para los reportes de perros perdidos
 Route::resource('/reportes','ReporteController');
+                                  
+Route::resource('/shop/reportes','ReportesShopController');
