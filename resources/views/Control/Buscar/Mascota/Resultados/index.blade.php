@@ -2,9 +2,9 @@
 
 @section('contenido2')
 <div class="container-fluid">
-    <div class="row">
+    <!--<div class="row">
         <h3 class="mx-auto">Resultados obtenidos = 5</h3>
-    </div>
+    </div>-->
     <div class="row shadow-lg mx-md-5 p-3">
         <table class="w-100 h-100">
             <tr>
@@ -13,63 +13,37 @@
                 <th>Especie</th>
                 <th>Raza</th>
                 <th>Dueño</th>
-            </tr>
-            <a href="/control/maascota/encontrado">
-            <tr>
-                <td>
-                    <p id="num" name="num">1</p>
-                </td>
-                <td>
-                    <p id="mascota-nombre" name="nombre">Loki</p>
-                </td>
-
-                <td>
-                    <p id="mascota-especie" name="especie">Perro</p>
-                </td>
-                <td>
-                    <p id="mascota-raza" name="raza">Mixta</p>
-                </td>
-                <td>
-                    <p id="mascota-dueno" name="dueno">Tiffany Cortez</p>
-                </td>
-            </tr>
-            </a>
-            <tr>
-                <td>
-                    <p id="num" name="num">2</p>
-                </td>
-                <td>
-                    <p id="mascota-nombre" name="nombre">Loki</p>
-                </td>
-
-                <td>
-                    <p id="mascota-especie" name="especie">Perro</p>
-                </td>
-                <td>
-                    <p id="mascota-raza" name="raza">Mixta</p>
-                </td>
-                <td>
-                    <p id="mascota-dueno" name="dueno">Tiffany Cortez</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p id="num" name="num">3</p>
-                </td>
-                <td>
-                    <p id="mascota-nombre" name="nombre">Loki</p>
-                </td>
-
-                <td>
-                    <p id="mascota-especie" name="especie">Perro</p>
-                </td>
-                <td>
-                    <p id="mascota-raza" name="raza">Mixta</p>
-                </td>
-                <td>
-                    <p id="mascota-dueno" name="dueno">Tiffany Cortez</p>
-                </td>
-            </tr>
+                <th></th>
+            </tr>       
+                @foreach ($Pacientes as $paciente)
+                @if (strpos($paciente->nombre, $filtro) !== false || $filtro == '')
+                    <tr>
+                        <td>
+                            <p id="num" name="num">{{$paciente->id}}</p>
+                        </td>
+                        <td>
+                            <p id="mascota-nombre" name="nombre">{{$paciente->nombre}}</p>
+                        </td>
+        
+                        <td>
+                            <p id="mascota-especie" name="especie">{{$paciente->especie}}</p>
+                        </td>
+                        <td>
+                            <p id="mascota-raza" name="raza">{{$paciente->raza}}</p>
+                        </td>
+                        <td>
+                            <p id="mascota-dueno" name="dueno">{{$paciente->Dueno}}</p>
+                        </td>
+                        <td>
+                        <a href="/encontrarmascota/{{$paciente->id}}">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        </td>
+                    </tr>
+                   
+                @endif
+                @endforeach
+                
         </table>
     </div>
 </div>

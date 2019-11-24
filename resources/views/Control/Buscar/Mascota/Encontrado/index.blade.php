@@ -7,28 +7,28 @@
             <tr class="mh-100">
                 <td class="w-25 h-100">
                     <div class="card shadow h-100" style="width: 18rem;">
-                        <img src="{{ asset('images/Tienda/juguetes/juguete1.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ $paciente->urlImagen }}" class="card-img-top" alt="...">
                     </div>
                 </td>
                 <td>
                     <label for="mascota-nombre" style="font-weight:bold">Nombre</label>
-                    <p id="mascota-nombre" name="nombre">Loki</p>
+                <p id="mascota-nombre" name="nombre">{{$paciente->nombre}}</p>
                 </td>
                 <td>
                     <label for="mascota-edad" style="font-weight:bold">Edad</label>
-                    <p id="mascota-edad" name="edad">1</p>
+                    <p id="mascota-edad" name="edad">{{$paciente->edad}}</p>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
                     <label for="mascota-especie" style="font-weight:bold">Especie</label>
-                    <p id="mascota-especie" name="especie">Perro</p>
+                    <p id="mascota-especie" name="especie">{{$paciente->especie}}</p>
                 </td>
                 
                 <td>
                     <label for="mascota-raza" style="font-weight:bold">Raza</label>
-                    <p id="mascota-raza" name="raza">Mixto</p>
+                    <p id="mascota-raza" name="raza">{{$paciente->raza}}</p>
                 </td>
                 
             </tr>

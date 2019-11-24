@@ -160,13 +160,17 @@ Route::get('/control/registrar_servicio', function () {
     return view('/control/registrar_servicio/index');
 });
 
+/*
 Route::get('/control/buscar/mascota/encontrado', function () {
     return view('/control/buscar/mascota/encontrado/index');
 });
-
+*/
+/*
 Route::get('/control/buscar/mascota/resultados', function () {
     return view('/control/buscar/mascota/resultados/index');
-});
+});*/
+
+
 
 Route::get('/control/buscar/dueno/encontrado', function () {
     return view('/control/buscar/dueno/encontrado/index');
@@ -198,3 +202,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/doctoreseditapass/{id}','DoctorController@updatePassword');
 Route::post('/duenoseditapass/{id}','DuenoController@updatePassword');
 Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
+
+//Rutas para las busquedas de mascota y dueño
+Route::post('/buscarmascota','ControlController@buscarMascota');
+Route::get('/encontrarmascota/{id}','ControlController@datosMascota');
