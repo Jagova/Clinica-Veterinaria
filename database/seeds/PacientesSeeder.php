@@ -19,7 +19,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Ave',
             'raza' => 'Guacamaya Azul',
             'urlImagen' => '/storage/Pacientes/pet.jpg',
-            'duenio_id' => 1,
+            'dueno_id' => 1,
             'doctor_id' => 1
         ]);  
 
@@ -30,7 +30,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Perro',
             'raza' => 'Inushiba',
             'urlImagen' => '/storage/Pacientes/pet.jpg',
-            'duenio_id' => 1,
+            'dueno_id' => 1,
             'doctor_id' => 1
         ]);  
 
@@ -41,7 +41,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Perro',
             'raza' => 'Collie Pelo Largo',
             'urlImagen' => '/storage/Pacientes/pet.jpg',
-            'duenio_id' => 1,
+            'dueno_id' => 1,
             'doctor_id' => 1
         ]);  
 
@@ -52,7 +52,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Gato',
             'raza' => 'Collie Pelo Largo',
             'urlImagen' => '/storage/Pacientes/pet.png',
-            'duenio_id' => 1,
+            'dueno_id' => 1,
             'doctor_id' => 1
         ]);      
 
@@ -62,7 +62,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Reptil',
             'raza' => 'Camaleon',
             'urlImagen' => '/storage/Pacientes/pet.jpg',
-            'duenio_id' => 1,
+            'dueno_id' => 1,
             'doctor_id' => 1
         ]);            
 
@@ -72,7 +72,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Perro',
             'raza' => 'Pug',
             'urlImagen' => '/storage/Pacientes/pet.jpg',
-            'duenio_id' => 1,
+            'dueno_id' => 1,
             'doctor_id' => 1
         ]);
     }

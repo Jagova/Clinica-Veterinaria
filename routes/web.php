@@ -62,11 +62,16 @@ Route::resource('/categorias','CategoriaController');
 
 Route::resource('/subcategorias','SubcategoriasController');
 
+
+
+
 //Rutas para la tienda
 //Route::resource('/shop','Shop\ShopController');
 Route::get('/shop', function () {
     return view('/shop/index');
 });
+
+
 
 Route::get('/shop/perros','UserController@shopPerros');
 Route::get('/shop/perros/alimento','UserController@shopPerrosAlimento');
@@ -132,9 +137,8 @@ Route::get('/control/registro_dueno', function () {
     return view('/control/registro_dueno/index');
 });
 
-Route::get('/control/registro_mascota', function () {
-    return view('/control/registro_mascota/index');
-});
+Route::get('/control/registro_mascota','PacienteController@registra');
+
 
 Route::get('/control/agendar', function () {
     return view('/control/agendar/index');
@@ -156,13 +160,17 @@ Route::get('/control/registrar_servicio', function () {
     return view('/control/registrar_servicio/index');
 });
 
+/*
 Route::get('/control/buscar/mascota/encontrado', function () {
     return view('/control/buscar/mascota/encontrado/index');
 });
-
+*/
+/*
 Route::get('/control/buscar/mascota/resultados', function () {
     return view('/control/buscar/mascota/resultados/index');
-});
+});*/
+
+
 
 Route::get('/control/buscar/dueno/encontrado', function () {
     return view('/control/buscar/dueno/encontrado/index');
@@ -194,3 +202,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/doctoreseditapass/{id}','DoctorController@updatePassword');
 Route::post('/duenoseditapass/{id}','DuenoController@updatePassword');
 Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
+
+//Rutas para las busquedas de mascota y dueño
+Route::post('/buscarmascota','ControlController@buscarMascota');
+Route::get('/encontrarmascota/{id}','ControlController@datosMascota');

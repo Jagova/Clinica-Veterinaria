@@ -22,7 +22,7 @@ class CreatePacientesTable extends Migration
             //No sé cómo se define la foto
             $table->string('urlImagen');
             //Llave foránea al dueño de la mascota
-            $table->unsignedInteger('duenio_id')->foreign('duenio_id')->references('id')->on('duenios')->onDelete('cascade'); 
+            $table->unsignedInteger('dueno_id')->foreign('dueno_id')->references('id')->on('duenos')->onDelete('cascade'); 
             //Llave foránea a su doctor favorito
             $table->unsignedInteger('doctor_id')->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade'); 
             $table->timestamps();
