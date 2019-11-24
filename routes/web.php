@@ -198,3 +198,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/doctoreseditapass/{id}','DoctorController@updatePassword');
 Route::post('/duenoseditapass/{id}','DuenoController@updatePassword');
 Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
+
+//ruta para los reportes de perros perdidos
+Route::resource('/reportes','ReporteController');
