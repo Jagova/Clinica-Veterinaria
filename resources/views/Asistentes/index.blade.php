@@ -19,10 +19,10 @@
 <script>
     $(document).on("click", ".abrirEditaContraseñaModal", function (event) {
 
-        var doctorId = $(this).data('id');
+        var asistenteId = $(this).data('id');
         //document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
-        console.log(doctorId);
-        document.getElementById('form-editar-contraseña').action = "asistenteseditapass/" + doctorId;
+        console.log(asistenteId);
+        document.getElementById('form-editar-contraseña').action = "asistenteseditapass/" + asistenteId;
     });
 </script>
 
