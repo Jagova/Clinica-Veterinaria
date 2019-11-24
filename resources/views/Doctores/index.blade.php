@@ -28,9 +28,9 @@
 
         var doctorUrlImagen = $(this).data('urlimagen');
         
-        var nombreCompleto = doctorNombre1 +" "+ doctorNombre2;
+        var nombreCompleto = doctorNombre1;
 
-        document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
+        
 
         $("#editar-doctor-nombre1").val(doctorNombre1);
         $("#editar-doctor-apellido1").val(doctorApellido1);
@@ -38,9 +38,9 @@
         $("#editar-doctor-especialidad1").val(doctorEspecialidad1);
         $("#editar-doctor-especialidad2").val(doctorEspecialidad2);
         $("#editar-doctor-clinica").val(doctorClinica);
-
+        document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
         document.getElementById('form-editar').action = "doctores/" + doctorId;
-
+        console.log("doctores/" + doctorId);
     });
 </script>
 
@@ -139,7 +139,7 @@
                                     data-apellido2="{{$doctor->apellido_materno}}"
                                     data-especialidad1="{{$doctor->especialidad_1}}"
                                     data-especialidad2="{{$doctor->especialidad_2}}"
-                                    data-clinica="{{$doctor->clinica_id}}"
+                                    data-clinica="{{$doctor->clinica_id}}" 
                                     data-urlimagen = "{{$doctor->urlImagen}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
