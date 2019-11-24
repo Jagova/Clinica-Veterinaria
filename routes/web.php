@@ -206,3 +206,7 @@ Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
 //Rutas para las busquedas de mascota y dueño
 Route::post('/buscarmascota','ControlController@buscarMascota');
 Route::get('/encontrarmascota/{id}','ControlController@datosMascota');
+
+Route::post('/buscardueño','ControlController@buscarDueño');
+Route::get('/encontrardueño/{id}','ControlController@datosDueño');
+

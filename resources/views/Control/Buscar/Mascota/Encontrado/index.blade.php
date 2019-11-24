@@ -1,3 +1,4 @@
+
 @extends('control.buscar.layout')
 
 @section('contenido2')

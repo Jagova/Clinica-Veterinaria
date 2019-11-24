@@ -179,4 +179,34 @@ class ControlController extends Controller
         ]
     );
     }
+
+    //Búsqueda Dueño
+    public function buscarDueño(Request $request)
+    {
+        $filtro = $request->get('filtro');
+        $dueños = \App\Dueno::all();
+
+        return view('/control/buscar/dueno/resultados/index',
+        [
+            'Dueños' => $dueños,
+            'filtro' => $filtro
+        ]
+    );
+    }
+
+    public function datosDueño($id)
+    {
+        $dueño = \App\Dueno::find($id);
+        $pacientes = \App\Paciente::all();
+        $pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        return view('/control/buscar/dueno/encontrado/index',
+        [
+            'dueño' => $dueño,
+            'Pacientes' => $pacientesDueño
+        ]
+    );
+    }
+
+
 }
