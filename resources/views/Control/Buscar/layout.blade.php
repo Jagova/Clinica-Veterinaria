@@ -19,9 +19,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/control/buscar/mascota">Mascota</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Doctor??</a>
-          </li>
         </ul>
       </div>
     </nav>

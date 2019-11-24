@@ -2,7 +2,7 @@
 
 @section('contenido2')
 <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-center">
         <nav class="navbar navbar-light bg-light">
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

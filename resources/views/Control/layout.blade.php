@@ -74,51 +74,29 @@
                 aria-controls="MenuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="MenuAdmin">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+            <div class="collapse navbar-collapse m-0" id="MenuAdmin">
+                <ul class="navbar-nav mr-auto mx-auto">
+                    <li class="nav-item active p-3">
                         <a class="nav-link menuControl" href="/control/buscar"></i>
                             Buscar</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active p-3">
                         <a class="nav-link menuControl" href="/control/registro_dueno"></i>
                             Registrar Dueño</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active p-3">
                         <a class="nav-link menuControl" href="/control/registro_mascota"></i>
                             Registrar Mascota</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active p-3">
                         <a class="nav-link menuControl" href="/control/agendar"></i>
                             Agendar servicio</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link menuControl" href="/control/registro_vacunas"></i>
-                            Registro de vacunas</a>
-                    </li>
-                    <li class="nav-item active dropdown">
-                        <a class="dropdown-toggle menuControl" href="#" id="navbardrop" data-toggle="dropdown">
-                            Inventario
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/control/registrar_compra">Registrar Compra</a>
-                            <a class="dropdown-item" href="/control/registrar_inventario">Registrar llegada de artículos</a>
-                        </div>
-                        
-                    </li>
                     
-                    <li class="nav-item active">
-                        <a class="nav-link menuControl" href="/control/historial_mascota"></i>
-                            Historial de mascota</a>
-
-                    </li>
-                    <li class="nav-item active">
+                    
+                    <li class="nav-item active p-3">
                         <a class="nav-link menuControl" href="/control/historial_personal"></i>
                             Historial del personal</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link menuControl" href="/control/registrar_servicio"></i>
-                            Registrar Servicio</a>
                     </li>
                     
                 </ul>

@@ -144,11 +144,6 @@ Route::get('/control/registro_vacunas', function () {
     return view('/control/registro_vacunas/index');
 });
 
-Route::get('/control/compras_ventas', function () {
-    return view('/control/compras_ventas/index');
-});
-
-
 Route::get('/control/historial_mascota', function () {
     return view('/control/historial_mascota/index');
 });

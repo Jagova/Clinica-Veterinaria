@@ -2,7 +2,7 @@
 
 @section('contenido2')
 <div class="container-fluid">
-    <div class="row shadow-lg mx-md-5 p-3">
+    <div class="row shadow-lg mx-md-5 p-3 w-100">
         <table class="w-100 h-100">
             <tr class="mh-100">
                 <td class="w-25 h-100">
@@ -44,6 +44,20 @@
                 </td>
             </tr>
         </table>
+
+        <div class="col-6 ml-auto">
+            <a href="/control/historial_mascota">
+                <button class="btn-primary p-3 m-2" >Ver historial</button>
+            </a>
+            <a href="/control/registrar_servicio">
+                <button class="btn-primary p-3 m-2" >Registrar servicio</button>
+            </a>
+            <a href="/control/historial_mascota">
+                <button class="btn-primary p-3 m-2" >Registrar Vacuna</button>
+            </a>
+        </div>
+        
     </div>
+
 </div>
 @endsection
