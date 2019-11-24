@@ -155,4 +155,28 @@ class ControlController extends Controller
         $paciente->delete();
         return redirect('/pacientes');
     }
+
+    public function buscarMascota(Request $request)
+    {
+        $filtro = $request->get('filtro');
+        $pacientes = \App\Paciente::all();
+
+
+        return view('/control/buscar/mascota/resultados/index',
+        [
+            'Pacientes' => $pacientes,
+            'filtro' => $filtro
+        ]
+    );
+    }
+
+    public function datosMascota($id)
+    {
+        $paciente = \App\Paciente::find($id);
+        return view('/control/buscar/mascota/encontrado/index',
+        [
+            'paciente' => $paciente
+        ]
+    );
+    }
 }

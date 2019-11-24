@@ -62,11 +62,16 @@ Route::resource('/categorias','CategoriaController');
 
 Route::resource('/subcategorias','SubcategoriasController');
 
+
+
+
 //Rutas para la tienda
 //Route::resource('/shop','Shop\ShopController');
 Route::get('/shop', function () {
     return view('/shop/index');
 });
+
+
 
 Route::get('/shop/perros','UserController@shopPerros');
 Route::get('/shop/perros/alimento','UserController@shopPerrosAlimento');
@@ -131,9 +136,8 @@ Route::get('/control/registro_dueno', function () {
     return view('/control/registro_dueno/index');
 });
 
-Route::get('/control/registro_mascota', function () {
-    return view('/control/registro_mascota/index');
-});
+Route::get('/control/registro_mascota','PacienteController@registra');
+
 
 Route::get('/control/agendar', function () {
     return view('/control/agendar/index');
@@ -141,14 +145,6 @@ Route::get('/control/agendar', function () {
 
 Route::get('/control/registro_vacunas', function () {
     return view('/control/registro_vacunas/index');
-});
-
-Route::get('/control/registro_ventas', function () {
-    return view('/control/registro_ventas/index');
-});
-
-Route::get('/control/registro_compras', function () {
-    return view('/control/registro_compras/index');
 });
 
 Route::get('/control/historial_mascota', function () {
@@ -159,13 +155,21 @@ Route::get('/control/historial_personal', function () {
     return view('/control/historial_personal/index');
 });
 
+Route::get('/control/registrar_servicio', function () {
+    return view('/control/registrar_servicio/index');
+});
+
+/*
 Route::get('/control/buscar/mascota/encontrado', function () {
     return view('/control/buscar/mascota/encontrado/index');
 });
-
+*/
+/*
 Route::get('/control/buscar/mascota/resultados', function () {
     return view('/control/buscar/mascota/resultados/index');
-});
+});*/
+
+
 
 Route::get('/control/buscar/dueno/encontrado', function () {
     return view('/control/buscar/dueno/encontrado/index');
@@ -202,3 +206,6 @@ Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
 Route::resource('/reportes','ReporteController');
                                   
 Route::resource('/shop/reportes','ReportesShopController');
+//Rutas para las busquedas de mascota y dueño
+Route::post('/buscarmascota','ControlController@buscarMascota');
+Route::get('/encontrarmascota/{id}','ControlController@datosMascota');

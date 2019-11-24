@@ -36,6 +36,29 @@ class PacienteController extends Controller
             'Doctores' => $doctores,
             'Especies' =>$especies
         ]
+
+        );       
+    }
+
+    public function registra(){
+
+       /* if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }*/
+        //
+        $pacientes = \App\Paciente::all();
+        //$duenios = \App\Duenios::all();
+        $doctores = \App\Doctor::all();
+        $duenios = \App\Dueno::all();
+        $especies = ["Perro","Gato","Conejo","Reptil","Ave"];
+        return view('Control.registro_mascota.index',
+        [
+            'Pacientes' => $pacientes,
+            'Duenios' => $duenios,
+            'Doctores' => $doctores,
+            'Especies' =>$especies
+        ]
         );       
     }
 
