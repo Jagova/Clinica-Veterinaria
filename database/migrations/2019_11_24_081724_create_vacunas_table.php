@@ -15,6 +15,10 @@ class CreateVacunasTable extends Migration
     {
         Schema::create('vacunas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('Nombre_vacuna');
+            $table->date('Fecha_Vacuna');
+            $table->unsignedInteger('paciente_id')->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
+            $table->date('Fecha_Siguiente_Vacuna');
             $table->timestamps();
         });
     }
