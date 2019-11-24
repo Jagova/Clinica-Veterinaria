@@ -5,7 +5,7 @@
   <!--Empiezan tarjetas de productos-->
   <div class="row m-5" style="height:60vh">
   @foreach ($articulosPerros as $articulo)
-    <div class="col-lg-3 col-md4 col-sm-12 col-md4 col-sm-12 m-0 p-0 h-100 mh-100">
+    <div class="col-3 m-0 p-0 h-100 mh-100">
       <div class="card w-100 h-100" style="width: 18rem;">
         <div style="height:40vh">
           <img class="card-img-top mh-100" src="{{ asset($articulo->urlImagen) }}" alt="articulo">
