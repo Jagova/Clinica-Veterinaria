@@ -62,11 +62,16 @@ Route::resource('/categorias','CategoriaController');
 
 Route::resource('/subcategorias','SubcategoriasController');
 
+
+
+
 //Rutas para la tienda
 //Route::resource('/shop','Shop\ShopController');
 Route::get('/shop', function () {
     return view('/shop/index');
 });
+
+
 
 Route::get('/shop/perros','UserController@shopPerros');
 Route::get('/shop/perros/alimento','UserController@shopPerrosAlimento');
@@ -132,9 +137,8 @@ Route::get('/control/registro_dueno', function () {
     return view('/control/registro_dueno/index');
 });
 
-Route::get('/control/registro_mascota', function () {
-    return view('/control/registro_mascota/index');
-});
+Route::get('/control/registro_mascota','PacienteController@registra');
+
 
 Route::get('/control/agendar', function () {
     return view('/control/agendar/index');

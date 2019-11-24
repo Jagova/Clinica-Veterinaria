@@ -1,63 +1,81 @@
 @extends('control.layout')
 
 @section('contenido')
-
    
-<div class="container-fluid">
-  <div class="row justify-content-center m-3">
-    <h1>Registrar mascota</h1>
-  </div> 
-    <div class="row shadow-lg mx-md-5 p-3">
-        <table class="w-100 h-100">
-            <tr class="mh-100">
-                <td class="w-25 h-100">
-                    <div class="card shadow h-100" style="width: 18rem;">
-                        Foto:
-                        <input type="file" name="imagen" id="imagen">
-                    </div>
-                </td>
-                <td>
-                    <label for="mascota-nombre" style="font-weight:bold">Nombre</label>
-                    <input type="text" required class="form-control" id="nombre" name="nombre">
-                </td>
-                <td>
-                    <label for="mascota-edad" style="font-weight:bold">Edad</label>
-                    <input required class="form-control" id="edad" name="edad" type="edad"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <label for="mascota-especie" style="font-weight:bold">Especie</label>
-                    <select required class="form-control" id = "especie" name="especie">
-                                        
-                                    </select>
-                </td>
-                
-                <td>
-                    <label for="mascota-raza" style="font-weight:bold">Raza</label>
-                    <input type="text" required class="form-control" id="raza" name="raza">
-                </td>
-                
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <label for="mascota-dueno" style="font-weight:bold">Dueño</label>
-                    <select required class="form-control" name="duenio_id">
-                            
-                        </select>
-                </td>
-                <td>
-                    <label for="mascota-doctor" style="font-weight:bold">Doctor</label>
-                    <select required class="form-control" name="doctor_id">
-                                
-                        </select>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="agregarModalLabel">Agregar paciente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/pacientes" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+                <div class="modal-body">                          
+                        <div class="form-group">
+                            <div class = "row">
+                                <div class = "col-6" >
+                                    <label for="in_atributo1">Nombre</label>
+                                    <input type="text" required class="form-control" id="nombre" name="nombre">
+                                </div>
+                                <div class = "col-6" >
+                                    <label for="in_atributo2">Edad</label>
+                                    <input required class="form-control" id="edad" name="edad" type="edad"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col-5">
+                                    <div>
+                                        Foto
+                                        <input type="file" name="imagen" id="imagen">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <div class = "row">
+                                    <div class = "col-6" >
+                                        <label for="in_atributo3">Especie</label>
+                                        <select required class="form-control" id = "especie" name="especie">
+                                                <option value="Perro">Perro</option>                      
+                                                <option value="Gato">Gato</option>                      
+                                                <option value="Conejo">Conejo</option>                      
+                                                <option value="Reptil">Reptil</option>                      
+                                                <option value="Ave">Ave</option>                                                 
+                                        </select>
+                                    </div>
+                                    <div class = "col-6" >
+                                        <label for="in_atributo4">Raza</label>
+                                        <input type="text" required class="form-control" id="raza" name="raza">
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <label for="in_atributo6">Dueño</label>
+                            <select required class="form-control" name="duenio_id">
+                                @foreach ($Duenios as $duenio)                                  
+                                    <option value="{{$duenio->id}}">{{$duenio->nombre}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="in_atributo7">Doctor favorito</label>
+                            <select required class="form-control" name="doctor_id">
+                                    @foreach ($Doctores as $doctor)                                  
+                                        <option value="{{$doctor->id}}">{{$doctor->primer_nombre}}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+            </form>
+            </div>
+        </div>
 
 
     
