@@ -18,7 +18,7 @@ class ReportesShopController extends Controller
     {
 
         $reporteperdidos = \App\Reporte::all();
-        $estados=["Abiero","Cerrado"];
+        $estados=["Abierto","Cerrado"];
 
         return view('\shop\reportes.index',
         [

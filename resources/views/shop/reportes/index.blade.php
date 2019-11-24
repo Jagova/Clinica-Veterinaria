@@ -80,15 +80,6 @@
 
 <div class="container-fluid">
 
-            <div class="row p-5" >
-                <div> 
-                    <h1 class="display-1">Reporte <i class="fas fa-newspaper"></i>    </h1>
-                    <h3 class="display-20">Mascotas Perdidas   </h3>
-                </div>
-                 
-
-                
-
                 
             </div>
             <div class="row p-5">
@@ -220,10 +211,10 @@
                                 <div class="col-6">
                                         <label for="in_atributo7">Estado</label>
                                         <select class="form-control" name="estado">
-                                            <option value="Abierto">Abierto</option>
-                                            <option value="Cerrado">Cerrado</option>
 
-                                            
+                                        @foreach ($Estados as $estados)                                  
+                                            <option value="{{$estados}}">{{$estados}} </option>
+                                        @endforeach                                            
                                         </select>
                                 </div>
 

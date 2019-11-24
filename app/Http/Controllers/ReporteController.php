@@ -28,7 +28,7 @@ class ReporteController extends Controller
 
 
         $reporteperdidos = \App\Reporte::all();
-        $estados=["Abiero","Cerrado"];
+        $estados=["Abierto","Cerrado"];
 
         return view('Reporte_mascotas_perdidas.index',
         [

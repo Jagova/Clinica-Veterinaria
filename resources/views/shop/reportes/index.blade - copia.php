@@ -1,6 +1,7 @@
-@extends('layout')
+@extends('shop.reportes.layout')
 
-@section('contenido')
+@section('contenido2')
+
 
 
 <script>
@@ -18,7 +19,7 @@
         
         $("#eliminar-reporte-id").val(reporteId);
         document.getElementById('eliminar-reporte-titulo').innerHTML = reporteTitulo;
-        document.getElementById('form-eliminar').action = "reportes/" + reporteId;
+        document.getElementById('form-eliminar').action = "/shop/reportes/" + reporteId;
     });
 </script>
 
@@ -44,7 +45,7 @@
 
 
         
-        document.getElementById('form-editar').action = "reportes/" + reporteId;
+        document.getElementById('form-editar').action = "/shop/reportes/" + reporteId;
     });
     </script>
 
@@ -172,7 +173,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/reportes" method="POST" enctype="multipart/form-data">
+                        <form action="/shop/reportes" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                         <div class="modal-body">
@@ -217,12 +218,11 @@
 
                             <div class="form-group row ">
                                 <div class="col-6">
-                                        <label for="in_atributo7">Estado: </label>
+                                        <label for="in_atributo7">Estado</label>
                                         <select class="form-control" name="estado">
-                                        
-                                        @foreach ($Estados as $estados)                                  
-                                            <option value="{{$estados}}">{{$estados}} </option>
-                                        @endforeach
+                                            <option value="Abierto">Abierto</option>
+                                            <option value="Cerrado">Cerrado</option>
+
                                             
                                         </select>
                                 </div>
@@ -369,11 +369,11 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="form-eliminar" method="POST">
+                            <form id="form-eliminar" method="POST"action="/shop/reportes/">
                                     @csrf
                                     @method('DELETE')
                             <div class="modal-body">
-                                ¿Estás seguro que desea eliminar el reporte <span id="eliminar-reporte-titulo"></span>? 
+                                ¿Estás seguro que desea eliminar <span id="eliminar-reporte-titulo"></span>? 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -385,4 +385,10 @@
             </div>
         </div>
 
+
+
+
+
 @endsection
+
+
