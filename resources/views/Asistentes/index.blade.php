@@ -4,7 +4,7 @@
 
 <script>
     $(document).on("click", ".abrirEliminaModal", function (event) {
-        var asistenteNombre = $(this).data('nombre');
+        var asistenteNombre = $(this).data('nombre'); 
         var asistenteDoctor = $(this).data('asistente');
         var asistenteId = $(this).data('id');
         
@@ -156,7 +156,7 @@
                                 data-id="{{$asistente->id}}"
                                 data-nombre="{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
                                 data-clinica="{{$asistente->clinica}}"
-                                >Eliminar <i class="fas fa-trash-alt"></i> </button>
+                                >Eliminar <i class="fas fa-trash-alt"></i> </button> 
                                 </div>
                         </td>
                         </tr>

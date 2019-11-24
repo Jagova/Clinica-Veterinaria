@@ -151,7 +151,7 @@
                                 <button type="button" class="btn btn-danger abrirEliminaModal"
                                 data-toggle="modal" data-target="#eliminarModal"
                                 data-id="{{$doctor->id}}"
-                                data-nombre="{{$doctor->primer_nombre}}"
+                                data-nombre="{{$doctor->primer_nombre}} {{$doctor->apellido_paterno}} {{$doctor->apellido_materno}}"
                                 data-clinica="{{$doctor->clinica}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
