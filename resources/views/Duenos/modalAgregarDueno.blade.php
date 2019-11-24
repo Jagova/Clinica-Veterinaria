@@ -8,24 +8,24 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/duenos" method="POST">
+            <form action="/duenos" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
             <div class="modal-body">                          
                 <div class="form-group row">
                     <div class="col-6">
                         <label for="in_atributo1">Nombre</label>
-                            <input type="text" required class="form-control" id="nombre" name="nombre">
+                            <input type="text" required class="form-control" id="nombre" name="nombre" keypress='return (event.charCode >= 65 && event.charCode <= 90)&&(event.charCode >= 65 && event.charCode <= 90)'>
                     </div>
                     <div class="col-6">
                         <label for="in_atributo1">Apellido Paterno</label>
-                            <input type="text" required class="form-control" id="apellido_paterno" name="apellido_paterno">
+                            <input type="text" required class="form-control" id="apellido_paterno" name="apellido_paterno" keypress='return (event.charCode >= 65 && event.charCode <= 90)&&(event.charCode >= 65 && event.charCode <= 90)'>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-6">
                         <label for="in_atributo1">Apellido Materno</label>
-                            <input type="text" required class="form-control" id="apellido_materno" name="apellido_materno">
+                            <input type="text" required class="form-control" id="apellido_materno" name="apellido_materno"keypress='return (event.charCode >= 65 && event.charCode <= 90)&&(event.charCode >= 65 && event.charCode <= 90)'>
                     </div>
                     <div class="col-6">
                         <label for="in_atributo1">Teléfono</label>
