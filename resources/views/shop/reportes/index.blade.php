@@ -43,6 +43,10 @@
         $("#editar-reporte-estado").val(reporteEstado);
         $("#editar-reporte-fecha").val(reporteFecha);
 
+         document.getElementById("imagenActual").src = reporteUrlImagen;
+
+
+
 
         
         document.getElementById('form-editar').action = "/shop/reportes/" + reporteId;
@@ -171,19 +175,19 @@
                       
                                 <div class="form-group row">
                                     <div class="col-6">
-                                    <label for="in_atributo1">Título: </label>
+                                    <label for="in_atributo1">Título:</label>
                                         <input type="text" required class="form-control" id="titulo" name="titulo">
                                 </div>
 
                                  <div class="col-6">
-                                    <label for="in_atributo3">Fecha: </label>
+                                    <label for="in_atributo3">Fecha:</label>
                                     <input type="date" required class="form-control" id="fecha" name="fecha">
                                 </div>
 
-                        <div class = "row">
-                            <div class="col-5">
+                        <div class = "form-group row" style="margin-left: 10%;">
+                            <div class="col-6">
                                 <div>
-                                    Foto
+                                    <label for="in_atributo3">Foto de Mascota:</label>
                                     <input type="file" name="imagenStore" id="imagenStore">
                                 </div>
                             </div>
@@ -195,8 +199,8 @@
                                 <div class="form-group row">
 
                                     <div class="col-12">
-                                    <label for="in_atributo2">Descripción: </label>
-                                    <textarea class="form-control" rows="5" id="descripcion" maxlength="200" name="descripcion" style="min-width: 100%"></textarea>
+                                    <label for="in_atributo2">Descripción:</label>
+                                    <textarea required class="form-control" rows="2" id="descripcion" maxlength="200" name="descripcion" style="min-width: 100%"></textarea>
 
                                 </div>
                                    
@@ -204,12 +208,12 @@
                                 
                             </div>
 
-                                >
+                                
 
 
                             <div class="form-group row ">
                                 <div class="col-6">
-                                        <label for="in_atributo7">Estado</label>
+                                        <label for="in_atributo7">Estado del reporte:</label>
                                         <select class="form-control" name="estado">
 
                                         @foreach ($Estados as $estados)                                  
@@ -246,14 +250,11 @@
                         <div class="modal-body">  
                             <table class="table"> 
                                 <tr>
-                                    <td>
-                                        
-                                    </td>
 
-                                    <!-- Foto de la mascota extraviada -->
+                                        <!-- Foto de la mascota extraviada -->
                                 
                                      <div class = "container" > 
-                                        <img id="imagenConsulta" height="300" class="d-block " alt="..." >
+                                        <img id="imagenConsulta" height="200" class="d-block " alt="..." style="margin-left:20%;" >
                                         </div>
                                    
                                 
@@ -266,6 +267,11 @@
                                         <label for="consultar-fecha" style="font-weight:bold">Fecha:</label>
                                         <p id="consultar-reporte-fecha" name="fecha"></p>
                                     </td>
+
+                                    <td class="form-group">
+                                        <label for="consultar-estado" style="font-weight:bold">Estado:</label>
+                                        <p id="consultar-reporte-estado" name="estado"></p>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="form-group">
@@ -273,10 +279,7 @@
                                         <p id="consultar-reporte-descripcion" name="descripcion"></p>
                                     </td>
 
-                                    <td class="form-group">
-                                        <label for="consultar-estado" style="font-weight:bold">Estado:</label>
-                                        <p id="consultar-reporte-estado" name="estado"></p>
-                                    </td>
+                                    
 
                                 </tr>
                                     
@@ -317,18 +320,24 @@
                                 </div>
 
                                 <div class = "row">
-                            <div class="col-5">
-                                <div>
-                                    Foto
+                            <div class="col-5" style="margin-left:20%">
+                                Fotografía Guardada:
+                                <img id="imagenActual" height="150" class="d-block " alt="..." style="margin-left:20%;" >
+                                <div >
+                                    Editar Fotografía:
                                     <input type="file" name="imagenUpdate" id="imagenUpdate">
                                 </div>
                             </div>
                         </div>
 
                                     <div class="form-group row">
-                                        <div class="col-6">
-                                        <label for="editar-reporte-descripcion-">Descripcion: </label>
-                                        <input type="text" required class="form-control" id="editar-reporte-descripcion" name="descripcion">
+
+
+                                         <div class="col-12">
+                                         <label for="editar-reporte-descripcion-">Descripción: </label>
+                                         <textarea requiered class="form-control" rows="2" id="editar-reporte-descripcion" maxlength="200" name="descripcion" style="min-width: 100%"></textarea>
+
+                                        <label for="editar-reporte-descripcion-">Estado del reporte: </label>
                                         <select required class="form-control" name="estado" id="editar-reporte-estado">
                                                     @foreach ($Estados as $estados)                                  
                                                         <option value="{{$estados}}">{{$estados}} </option>
