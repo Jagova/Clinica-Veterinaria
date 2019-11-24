@@ -75,46 +75,26 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/pacientes" method="POST" enctype="multipart/form-data">
+            <form action="/control/registro_vacunas" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
             <div class="modal-body">                          
                     <div class="form-group">
                         <div class = "row">
-                            <div class = "col-6" >
-                                
+                            <div class = "col-12" >
+                                <label for="fecha">Fecha</label>
+                                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha" name="fecha">
                             </div>
-                            <div class = "col-6" >
+                            <div class = "col-12" >
+                                <label for="nombre">Nombre</label>
+                                    <input type="text" required class="form-control" id="nombre" name="nombre">
                             </div>
-                        </div>
-                        <div class = "row">
-                            <div class="col-5">
-                                <div>
-                                    Foto
-                                    <input type="file" name="imagen" id="imagen">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                            <div class = "row">
-                                <div class = "col-6" >
-                                    
-                                </div>
-                                <div class = "col-6" >
-                                    <label for="in_atributo4">Raza</label>
-                                    <input type="text" required class="form-control" id="raza" name="raza">
-                                </div>
+                            <div class = "col-12" >
+                                <label for="nombre">Siguiente Aplicación</label>
+                                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_siguiente" name="fecha_siguiente">
                             </div>
                         </div>
-                    <div class="form-group">
-                        <label for="in_atributo6">Dueño</label>
                         
-                    </div>
-                    <div class="form-group">
-                        <label for="in_atributo7">Doctor favorito</label>
-                        
-                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
