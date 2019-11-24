@@ -54,12 +54,14 @@
                             <div class="form-group row ">
                                 <div class="col-6">
                                         <label for="in_atributo7">Estado</label>
-                                        <select class="form-control" name="estado">
-                                            <option>Abierto</option>
-                                            <option>Cerrado</option>
-
+                                        
+                                            <select required class="form-control" id = "estado" name="estado">
+                                        @foreach ($Estados as $estados)                                  
+                                            <option value="{{$estados}}">{{$estados}} </option>
+                                        @endforeach
+                                    </select>
                                             
-                                        </select>
+                                        
                                 </div>
 
                             </div>

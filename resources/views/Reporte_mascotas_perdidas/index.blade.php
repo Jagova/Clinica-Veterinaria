@@ -6,8 +6,6 @@
 <script>
     $(document).on("click", ".abrirEliminaModal", function (event) {
 
-
-
         var reporteId = $(this).data('id');
         var reporteDescripcion = $(this).data('descripcion');
         var reporteTitulo = $(this).data('titulo');
@@ -35,8 +33,9 @@
         var reporteFecha = $(this).data('fecha');
 
         var reporteUrlImagen = $(this).data('urlimagen');
+        console.log(reporteUrlImagen);
 
-        $("#editar-reporte-id").val(reporteId);
+        
         $("#editar-reporte-descripcion").val(reporteDescripcion);
         $("#editar-reporte-titulo").val(reporteTitulo);
 
@@ -63,7 +62,6 @@
         var reporteFecha = $(this).data('fecha');
 
         var reporteUrlImagen = $(this).data('urlimagen');
-
 
         document.getElementById("consultar-reporte-descripcion").innerHTML = reporteDescripcion;
         document.getElementById("consultar-reporte-titulo").innerHTML = reporteTitulo;
@@ -310,7 +308,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="form-editar" method="POST">
+                            <form id="form-editar" method="POST" enctype="multipart/form-data" >
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
@@ -326,14 +324,25 @@
                                     </div>
                                 </div>
 
+                                <div class = "row">
+                            <div class="col-5">
+                                <div>
+                                    Foto
+                                    <input type="file" name="imagenUpdate" id="imagenUpdate">
+                                </div>
+                            </div>
+                        </div>
+
                                     <div class="form-group row">
                                         <div class="col-6">
                                         <label for="editar-reporte-descripcion-">Descripcion: </label>
                                         <input type="text" required class="form-control" id="editar-reporte-descripcion" name="descripcion">
                                         <select required class="form-control" name="estado" id="editar-reporte-estado">
-                                            <option value="Abierto">Abierto</option>
-                                            <option value="Cerrado">Cerrado</option>
-                                        </select>
+                                                    @foreach ($Estados as $estados)                                  
+                                                        <option value="{{$estados}}">{{$estados}} </option>
+                                                    @endforeach
+                                                </select>
+                                        
 
                                     </div>
 

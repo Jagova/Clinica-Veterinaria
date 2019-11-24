@@ -28,11 +28,12 @@ class ReporteController extends Controller
 
 
         $reporteperdidos = \App\Reporte::all();
-
+        $estados=["Abiero","Cerrado"];
 
         return view('Reporte_mascotas_perdidas.index',
         [
-            'Reporteperdidos' => $reporteperdidos
+            'Reporteperdidos' => $reporteperdidos,
+            'Estados' => $estados
         ]
         );
     }
@@ -133,7 +134,7 @@ class ReporteController extends Controller
             $reporte->urlImagen = "/storage/".$ruta;
         }
 
-        $reporte = new \App\Reporte;
+        
         $reporte->titulo = $request->get('titulo');
         $reporte->descripcion = $request->get('descripcion');
         $reporte->fecha = $request->get('fecha');
