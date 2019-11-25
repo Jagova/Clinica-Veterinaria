@@ -113,6 +113,8 @@ Route::get('/shop/peces/accesorios','UserController@shopPecesAccesorios');
 Route::get('/shop/servicios','UserController@shopServicios');
 
 
+
+Route::get('/shop/reportesextraviados','UserController@shopReportes');
 /*
 Route::get('/shop/perros', function () {
     return view('/shop/perros/index');
@@ -204,6 +206,10 @@ Route::post('/doctoreseditapass/{id}','DoctorController@updatePassword');
 Route::post('/duenoseditapass/{id}','DuenoController@updatePassword');
 Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
 
+//ruta para los reportes de perros perdidos
+Route::resource('/reportes','ReporteController');
+                                  
+Route::resource('/shop/reportes','ReportesShopController');
 //Rutas para las busquedas de mascota y dueño
 Route::post('/buscarmascota','ControlController@buscarMascota');
 Route::get('/encontrarmascota/{id}','ControlController@datosMascota');
