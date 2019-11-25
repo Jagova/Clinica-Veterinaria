@@ -217,8 +217,6 @@ class ControlController extends Controller
         $Servicios = \App\Servicio::all();
         //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
 
-        
-
         return view('/control/Registrar_servicio/index',
         [
             'Clinicas' => $Clinicas,
@@ -229,14 +227,16 @@ class ControlController extends Controller
     );
     }
 
-    public function registraServicio()
+    public function registraServicio(Request $request)
     {
-        /*
-        $Clinicas = \App\Clinica::all();
-        $paciente = \App\Paciente::find($id);
-        $dueño = \App\Dueno::find($paciente->dueno_id);
-        $Servicios = \App\Servicio::all();*/
-        //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
+        $servicioRealizado = new \App\ServicioRealizado;
+        $servicioRealizado->clinica_id = $request->get('clinica_id');
+        $servicioRealizado->user_id = $request->get('user_id');
+        $servicioRealizado->paciente_id = $request->get('paciente_id');
+        $servicioRealizado->servicio_id = $request->get('servicio_id');
+        $servicioRealizado->fecha = $request->get('fecha');
+
+        $servicioRealizado->save();
 
         return redirect('/control/historial_mascota');
     }
