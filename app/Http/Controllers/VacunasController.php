@@ -50,11 +50,18 @@ class VacunasController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate([
+            'nombre' => ['required','max:20', 'min:3'],
+ 
+            'fecha' =>'required',
+           
+                  
+        ]);
         $nuevaVacuna = new \App\Vacuna;
-        $nuevaVacuna->nombre_vacuna = $request->get('Nombre_vacuna');
-        $nuevaVacuna->fecha_vacuna = $request->get('Fecha_vacuna');
-        $nuevaVacuna->fecha_vacuna = $request->get('Fecha_Siguiente_Vacuna');
-        $nuevaVacuna->clinica_id = $request->get('clinica');
+        $nuevaVacuna->Nombre_vacuna = $request->get('nombre');
+        $nuevaVacuna->Fecha_Vacuna = $request->get('fecha');
+        $nuevaVacuna->Fecha_Siguiente_Vacuna = $request->get('fecha_siguiente');
+        $nuevaVacuna->paciente_id = $request->get('paciente');
         $nuevaVacuna->save();
         return redirect('/registro_vacunas');
     }
@@ -88,9 +95,10 @@ class VacunasController extends Controller
      * @param  \App\vacunas  $vacunas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, vacunas $vacunas)
+    public function update(Request $request, $id)
     {
         //
+        $vacuna = \App\vacunas::find($id);
 
     }
 
