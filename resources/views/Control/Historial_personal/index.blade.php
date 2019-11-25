@@ -18,57 +18,32 @@
                 <th>Clínica</th>
                 <th>Paciente</th>
                 <th>Dueño</th>
-                <th>Estado</th>
             </tr>
+            @foreach($Servicios as $servicio)
             <tr>
                 <td>
-                    <p id="num" name="num">{{$servi->id_servicio}}</p>
+                    <p id="num" name="num">{{$servicio->id}}</p>
                 </td>
                 <td>
-                    <p id="fecha" name="fecha">01/01/2019</p>
+                    <p id="fecha" name="fecha">{{$servicio->fecha}}</p>
                 </td>
 
                 <td>
-                    <p id="servicio" name="servicio">Corte de Cabello</p>
+                    <p id="servicio" name="servicio">{{$servicio->Servicio->nombre}}</p>
                 </td>
                 <td>
-                    <p id="clinica" name="clinica">Clínica del Sol</p>
+                    <p id="clinica" name="clinica">{{$servicio->Clinica->nombre}}</p>
                 </td>
                 <td>
-                    <p id="paciente" name="paciente">Loki</p>
+                    <p id="paciente" name="paciente">{{$servicio->Paciente->nombre}}</p>
                 </td>
                 <td>
-                    <p id="dueño" name="dueño">Tiffany</p>
-                </td>
-                <td>
-                    <p id="estado" name="estado">Completado</p>
+                    <p id="dueño" name="dueño">{{$servicio->Paciente->Dueno->nombre}} {{$servicio->Paciente->Dueno->apellido_paterno}}</p>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <p id="num" name="num">2</p>
-                </td>
-                <td>
-                    <p id="fecha" name="fecha">01/01/2019</p>
-                </td>
-
-                <td>
-                    <p id="servicio" name="servicio">Corte de Cabello</p>
-                </td>
-                <td>
-                    <p id="clinica" name="clinica">Clínica del Sol</p>
-                </td>
-                <td>
-                    <p id="paciente" name="paciente">Loki</p>
-                </td>
-                <td>
-                    <p id="dueño" name="dueño">Tiffany</p>
-                </td>
-                <td>
-                    <p id="estado" name="estado">Completado</p>
-                </td>
-            </tr>
+            @endforeach
         </table>
     </div>
 </div>
+
 @endsection
