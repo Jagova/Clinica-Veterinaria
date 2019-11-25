@@ -53,8 +53,8 @@
             <a href="/control/registrar_servicio">
                 <button class="btn-primary p-3 m-2" >Registrar servicio</button>
             </a>
-            <a href="/control/historial_mascota">
-                <button class="btn-primary p-3 m-2" >Registrar Vacuna</button>
+            <a href="/control/registro_vacunas">
+                <button class="btn-primary p-3 m-2" >Registro de vacunas</button>
             </a>
         </div>
         
