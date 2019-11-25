@@ -1,3 +1,4 @@
+
 @extends('control.buscar.layout')
 
 @section('contenido2')
@@ -36,11 +37,11 @@
                 <td></td>
                 <td>
                     <label for="mascota-dueno" style="font-weight:bold">Dueño</label>
-                    <p id="mascota-dueno" name="dueno">Tiffany Cortez</p>
+                <p id="mascota-dueno" name="dueno">{{$paciente->Dueno->nombre}} {{$paciente->Dueno->apellido_paterno}}</p>
                 </td>
                 <td>
                     <label for="mascota-doctor" style="font-weight:bold">Doctor</label>
-                    <p id="mascota-doctor" name="doctor">Gonzalo de La Orden</p>
+                    <p id="mascota-doctor" name="doctor">{{$paciente->Doctor->primer_nombre}} {{$paciente->Doctor->apellido_paterno}}</p>
                 </td>
             </tr>
         </table>
@@ -49,7 +50,7 @@
             <a href="/control/historial_mascota">
                 <button class="btn-primary p-3 m-2" >Ver historial</button>
             </a>
-            <a href="/control/registrar_servicio">
+            <a href="/registrar_servicio/{{$paciente->id}}">
                 <button class="btn-primary p-3 m-2" >Registrar servicio</button>
             </a>
             <a href="/control/registro_vacunas">

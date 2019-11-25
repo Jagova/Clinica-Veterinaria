@@ -11,8 +11,6 @@ class PacientesSeeder extends Seeder
      */
     public function run()
     {
-
-
         DB::table('pacientes')->insert([
             'nombre' => 'Rio',
             'edad' => '1',

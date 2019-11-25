@@ -21,7 +21,7 @@ class AsistentesSeeder extends Seeder
             'telefono' => '1234567890',
             'clinica_id' => 1,
             'urlImagen' => '/storage/Asistentes/asistente.png',
-            'user_id' => 2
+            'user_id' => 3
         ]);
 
 /*

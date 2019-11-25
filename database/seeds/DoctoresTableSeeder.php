@@ -19,7 +19,7 @@ class DoctoresTableSeeder extends Seeder
             'especialidad_2' => 'Anestesiologo',
             'clinica_id' => 1,
             'urlImagen' => '/storage/Doctores/doctor.png',
-            'user_id' => 1
+            'user_id' => 2
         ]);  
     }
 }

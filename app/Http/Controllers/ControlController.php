@@ -179,4 +179,65 @@ class ControlController extends Controller
         ]
     );
     }
+
+    //Búsqueda Dueño
+    public function buscarDueño(Request $request)
+    {
+        
+        $filtro = $request->get('filtro');
+        $dueños = \App\Dueno::all();
+        return view('/control/buscar/dueno/resultados/index',
+        [
+            'Dueños' => $dueños,
+            'filtro' => $filtro
+        ]
+    );
+    }
+
+    public function datosDueño($id)
+    {
+        $dueño = \App\Dueno::find($id);
+        $pacientes = \App\Paciente::all();
+        $pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        return view('/control/buscar/dueno/encontrado/index',
+        [
+            'dueño' => $dueño,
+            'Pacientes' => $pacientesDueño
+        ]
+    );
+    }
+
+    //Registro de servicio
+    public function registrarServicio($id)
+    {
+        $Clinicas = \App\Clinica::all();
+        $paciente = \App\Paciente::find($id);
+        $dueño = \App\Dueno::find($paciente->dueno_id);
+        $Servicios = \App\Servicio::all();
+        //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        
+
+        return view('/control/Registrar_servicio/index',
+        [
+            'Clinicas' => $Clinicas,
+            'dueño' => $dueño,
+            'paciente' => $paciente,
+            'Servicios' => $Servicios
+        ]
+    );
+    }
+
+    public function registraServicio()
+    {
+        /*
+        $Clinicas = \App\Clinica::all();
+        $paciente = \App\Paciente::find($id);
+        $dueño = \App\Dueno::find($paciente->dueno_id);
+        $Servicios = \App\Servicio::all();*/
+        //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        return redirect('/control/historial_mascota');
+    }
 }
