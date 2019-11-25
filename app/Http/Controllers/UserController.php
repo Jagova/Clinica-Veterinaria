@@ -392,4 +392,17 @@ class UserController extends Controller
         ]
         );
     }
+
+
+        public function shopReportes()
+        {
+        //
+        $reportesPerdidos = \App\Reporte::all();
+        
+        return view('shop.reportes.index_reportes',
+        [
+            'reportesPerdidos'=>$reportesPerdidos,
+        ]
+        );
+    }
 }

@@ -112,6 +112,9 @@ Route::get('/shop/peces/accesorios','UserController@shopPecesAccesorios');
 
 Route::get('/shop/servicios','UserController@shopServicios');
 
+
+
+Route::get('/shop/reportesextraviados','UserController@shopReportes');
 /*
 Route::get('/shop/perros', function () {
     return view('/shop/perros/index');
