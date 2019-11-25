@@ -214,3 +214,6 @@ Route::get('/encontrardueño/{id}','ControlController@datosDueño');
 //Regitro de servicio
 Route::get('/registrar_servicio/{id}','ControlController@registrarServicio');
 Route::post('/control/historial_mascota','ControlController@registraServicio');
+//Regitro de de vacunas
+Route::get('/registro_vacunas/{id}','ControlController@registrarVacuna');
+Route::post('/control/historial_mascota','ControlController@registraVacuna');

@@ -228,6 +228,25 @@ class ControlController extends Controller
         ]
     );
     }
+    public function registrarVacuna($id)
+    {
+        $Clinicas = \App\Clinica::all();
+        $paciente = \App\Paciente::find($id);
+        $dueño = \App\Dueno::find($paciente->dueno_id);
+      
+        //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        
+
+        return view('/control/Registro_vacunas/index',
+        [
+            'Clinicas' => $Clinicas,
+            'dueño' => $dueño,
+            'paciente' => $paciente,
+           
+        ]
+    );
+    }
 
     public function registraServicio()
     {
