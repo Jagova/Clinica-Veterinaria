@@ -214,3 +214,6 @@ Route::get('/encontrardueño/{id}','ControlController@datosDueño');
 //Regitro de servicio
 Route::get('/registrar_servicio/{id}','ControlController@registrarServicio');
 Route::post('/control/historial_mascota','ControlController@registraServicio');
+
+//Ruta para las búsquedas de servicios
+Route::get('control/historial_personal','ControlController@llenaServiciosRealizados');

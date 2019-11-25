@@ -240,4 +240,24 @@ class ControlController extends Controller
 
         return redirect('/control/historial_mascota');
     }
+
+    public function llenaServiciosRealizados()
+    {
+       
+        $nuevoUser = new \App\ServicioRealizado;
+        $nuevoUser->clinica_id = 1;
+        $nuevoUser->user_id = 1;
+        $nuevoUser->paciente_id = 1;
+        $nuevoUser->servicio_id = 1;
+        $nuevoUser->fecha = '10-09-2019';
+
+        $nuevoUser->save();
+        $servicios = \App\ServicioRealizado::all();
+        return view('/control/Historial_personal/index',
+        [
+            'servicios' => $servicios,
+            'servi' => $nuevoUser
+        ]
+    );
+    }
 }
