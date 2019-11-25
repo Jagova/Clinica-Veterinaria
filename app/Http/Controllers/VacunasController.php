@@ -15,6 +15,20 @@ class VacunasController extends Controller
     public function index()
     {
         //
+        
+        if(Auth::user()->rol != "ADMINISTRADOR")
+        {
+            return redirect('/');
+        }
+        //
+        $vacunas = \App\vacunas::all();
+        $clinicas = \App\Clinica::all();
+        return view('vacunas.index',
+        [
+            'Servicios' => $servicios,
+            'Vacunas' => $vacunas
+        ]
+        );
     }
 
     /**
@@ -36,6 +50,13 @@ class VacunasController extends Controller
     public function store(Request $request)
     {
         //
+        $nuevaVacuna = new \App\Vacuna;
+        $nuevaVacuna->nombre_vacuna = $request->get('Nombre_vacuna');
+        $nuevaVacuna->fecha_vacuna = $request->get('Fecha_vacuna');
+        $nuevaVacuna->fecha_vacuna = $request->get('Fecha_Siguiente_Vacuna');
+        $nuevaVacuna->clinica_id = $request->get('clinica');
+        $nuevaVacuna->save();
+        return redirect('/registro_vacunas');
     }
 
     /**
@@ -70,6 +91,7 @@ class VacunasController extends Controller
     public function update(Request $request, vacunas $vacunas)
     {
         //
+
     }
 
     /**
