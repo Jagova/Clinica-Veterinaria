@@ -42,7 +42,7 @@
                 </td>
                 <td>
                     <label for="dueno-correo" style="font-weight:bold">Correo electrónico</label>
-                    <p id="dueno-correo" name="dueno">AQUÍ VA EL CORREO</p>
+                    <p id="dueno-correo" name="dueno">{{$dueño->User->email}}</p>
                 </td>
                 <td>
                     <label for="dueno-rfc" style="font-weight:bold">RFC</label>

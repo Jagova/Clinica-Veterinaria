@@ -38,7 +38,7 @@
                                     <p id="dueno-telefono" name="telefono">{{$dueño->telefono}}</p>
                             </td>
                             <td>
-                                    <p id="dueno-email" name="email">AQUÍ VA EL EMAIL</p>
+                                    <p id="dueno-email" name="email">{{$dueño->User->email}}</p>
                             </td>
                             <td>
                             <a href="/encontrardueño/{{$dueño->id}}">

@@ -30,6 +30,13 @@ class UsersTableSeeder extends Seeder
             'email' => 'asistente@gmail.com',
             'rol' => 'ASISTENTE',
             'password' => Hash::make('12345678')
-        ]);       
+        ]);  
+        
+        DB::table('users')->insert([
+            'name' => 'Dueño',
+            'email' => 'dueño@gmail.com',
+            'rol' => 'DUEÑO',
+            'password' => Hash::make('12345678')
+        ]);    
     }
 }
