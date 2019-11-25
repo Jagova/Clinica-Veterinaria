@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>
-                    <p id="num" name="num">1</p>
+                    <p id="num" name="num">{{$servi->id_servicio}}</p>
                 </td>
                 <td>
                     <p id="fecha" name="fecha">01/01/2019</p>
