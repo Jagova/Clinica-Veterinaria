@@ -238,25 +238,30 @@ class ControlController extends Controller
 
         $servicioRealizado->save();
 
-        return redirect('/control/historial_mascota');
+        return redirect('/control/historial_mascota/'.$servicioRealizado->paciente_id);
     }
 
     public function llenaServiciosRealizados()
     {
        
-        $nuevoUser = new \App\ServicioRealizado;
-        $nuevoUser->clinica_id = 1;
-        $nuevoUser->user_id = 1;
-        $nuevoUser->paciente_id = 1;
-        $nuevoUser->servicio_id = 1;
-        $nuevoUser->fecha = '10-09-2019';
-
-        $nuevoUser->save();
         $servicios = \App\ServicioRealizado::all();
         return view('/control/Historial_personal/index',
         [
-            'servicios' => $servicios,
-            'servi' => $nuevoUser
+            'Servicios' => $servicios,
+        ]
+    );
+    }
+
+    public function llenaServiciosRealizadosMascota($id)
+    {
+       
+        $Servicios = \App\ServicioRealizado::all();
+        $ServiciosMascota = $Servicios->where('paciente_id','=',$id);
+        $mascota = \App\Paciente::find($id);
+        return view('/control/Historial_mascota/index',
+        [
+            'ServiciosMascota' => $ServiciosMascota,
+            'mascota' => $mascota,
         ]
     );
     }

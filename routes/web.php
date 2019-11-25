@@ -217,3 +217,6 @@ Route::post('/control/historial_mascota','ControlController@registraServicio');
 
 //Ruta para las búsquedas de servicios
 Route::get('control/historial_personal','ControlController@llenaServiciosRealizados');
+
+Route::get('control/historial_mascota/{id}','ControlController@llenaServiciosRealizadosMascota');
+
