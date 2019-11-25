@@ -2,9 +2,10 @@
 
 @section('contenido')
 
+
    
 <div class="container-fluid">
-    <form action="/control/historial_mascota" method="POST">
+    <form id="form1" action="/control/historial_mascota" method="POST">
     @csrf
     @method('POST')
     <div class="row justify-content-center m-3">
@@ -66,13 +67,13 @@
                 </div>
             </div>
             
+            <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
         </div>
                 <button type="submit" class="btn-primary px-3 py-2 m-2" >Registrar</button>
     </div>
     </form>    
 
 </div>
-
-
     
 @endsection

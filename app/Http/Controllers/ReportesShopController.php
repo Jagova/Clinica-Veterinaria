@@ -3,34 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Reporte;
+use App\ReportesShop;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
 
-
-class ReporteController extends Controller
+class ReportesShopController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    /**
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        if(Auth::user()->rol != "ADMINISTRADOR")
-        {
-            return redirect('/');
-        }
-
 
         $reporteperdidos = \App\Reporte::all();
         $estados=["Abierto","Cerrado"];
 
-        return view('Reporte_mascotas_perdidas.index',
+        return view('\shop\reportes.index',
         [
             'Reporteperdidos' => $reporteperdidos,
             'Estados' => $estados
@@ -82,7 +72,7 @@ class ReporteController extends Controller
         $nreporte->urlImagen = "/storage/".$ruta;
 
         $nreporte->save();
-        return redirect('/reportes');
+        return redirect('/shop/reportes/');
     }
 
     /**
@@ -143,7 +133,7 @@ class ReporteController extends Controller
         $reporte->urlImagen = "/storage/".$ruta;
 
         $reporte->save();
-        return redirect('/reportes');
+        return redirect('/shop/reportes');
     }
 
     /**
@@ -155,6 +145,6 @@ class ReporteController extends Controller
     public function destroy(Reporte $reporte)
     {
          $reporte->delete();
-        return redirect('/reportes');
+        return redirect('/shop/reportes');
     }
 }
