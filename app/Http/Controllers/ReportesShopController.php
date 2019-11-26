@@ -33,9 +33,9 @@ class ReportesShopController extends Controller
         $reporteperdidos = \App\Reporte::all();
         $estados=["Abierto","Cerrado"];
 
-        return view('Reporte_mascotas_perdidas.index',
+        return view('shop.reportes.index_reportes',
         [
-            'Reporteperdidos' => $reporteperdidos,
+            'reportesPerdidos' => $reporteperdidos,
             'Estados' => $estados
         ]
         );

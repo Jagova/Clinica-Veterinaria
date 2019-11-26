@@ -104,6 +104,11 @@
                         <a class="nav-link menuControl" href="/control/historial_personal"></i>
                             Historial del personal</a>
                     </li>
+
+                    <li class="nav-item active p-3">
+                        <a class="nav-link menuControl" href="/reportes"></i>
+                            Reportes</a>
+                    </li>
                     
                 </ul>
                 <hr />
