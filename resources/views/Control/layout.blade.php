@@ -30,8 +30,9 @@
     <script src="{{ asset('fullcalendar/packages/daygrid/main.js') }}"></script>
     <script src="{{ asset('fullcalendar/packages/timegrid/main.js') }}"></script>
     <script src="{{ asset('fullcalendar/packages/core/locales/es.js') }}"></script>
-    <link href="{{ asset('fullcalendar/bootstrap/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('fullcalendar/packages/bootstrap/main.css') }}" rel='stylesheet' />
     <link href="{{ asset('fullcalendar/packages/timegrid/main.css')}}" rel='stylesheet'/>
+    <script src="{{ asset('fullcalendar/packages//interaction/main.js')}}"></script>
 
     <?php
         $mytime = date('Y-m-d');
@@ -47,7 +48,7 @@
             // options apply to timeGridWeek and timeGridDay views
             },
             
-            plugins: [ 'timeGrid' ],
+            plugins: [ 'timeGrid', 'interaction'],
             defaultView: 'timeGridWeek',
             
             nowDate : "{{$mytime}}",
@@ -56,6 +57,11 @@
                 start: "{{$mytime}}"
             },
             locale : 'es',
+
+            dateClick: function(info) {
+                alert('Seleccionaste ' + info.dateStr);
+                document.getElementById("fecha").value=info.dateStr;
+            }
         });
 
         calendar.render();
@@ -71,7 +77,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm sticky-top py-0 px-5">
             <a class="navbar-brand" href="/"><img class="img-fluid" width="70" src="{{URL::asset('images/logo2.png')}}"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#MenuAdmin"
-                aria-controls="MenuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="MenuAdmin" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse m-0" id="MenuAdmin">
@@ -97,6 +103,11 @@
                     <li class="nav-item active p-3">
                         <a class="nav-link menuControl" href="/control/historial_personal"></i>
                             Historial del personal</a>
+                    </li>
+
+                    <li class="nav-item active p-3">
+                        <a class="nav-link menuControl" href="/reportes"></i>
+                            Reportes</a>
                     </li>
                     
                 </ul>

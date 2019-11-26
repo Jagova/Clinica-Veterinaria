@@ -11,4 +11,9 @@ class Clinica extends Model
      {
          return $this->hasMany('App\Doctor');
      }
+
+     public function servicios()
+     {
+         return $this->hasMany('App\Servicio');
+     }
 }

@@ -64,6 +64,10 @@
                         <a class="nav-link" href="/shop/servicios"><i class="fas fa-heartbeat"></i>
                             Servicios</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/mascotasperdidas"><i class="fas fa-heartbeat"></i>
+                            Reportes</a>
+                    </li>
                 </ul>
                 <hr />
             </div>

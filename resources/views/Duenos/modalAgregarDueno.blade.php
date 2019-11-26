@@ -55,7 +55,7 @@
                 <div class="form-group row">
                     <div class="col-6">
                         <label for="in_atributo1">Código Postal</label>
-                            <input type="text" maxlength="5" required class="form-control" id="codigp_postal" name="codigo_postal">
+                            <input type="text" maxlength="5" required class="form-control" id="codigo_postal" name="codigo_postal">
                     </div>
                     <div class="col-6">
                         <label for="in_atributo1">Razón Social</label>
