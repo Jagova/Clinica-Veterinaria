@@ -259,7 +259,19 @@ class ControlController extends Controller
 
         return redirect('/control/historial_mascota/'.$servicioRealizado->paciente_id);
     }
+    public function registraVacuna(Request $request)
+    {
+        $vacunaRealizada = new \App\vacunas;
+        $vacunaRealizada->nombre_vacuna = $request->get('Nombre_vacuna');
+        $vacunaRealizada->clinica_id = $request->get('clinica_id');
+        $vacunaRealizada->user_id = $request->get('user_id');
+        $vacunaRealizada->paciente_id = $request->get('paciente_id');
+        $vacunaRealizada->fecha = $request->get('Fecha_Vacuna');
+        $vacunaRealizada->fechasiguientevacuna = $request->get('Fecha_Siguiente_Vacuna');
+        $vacunaRealizada->save();
 
+        return redirect('/control/historial_mascota/'.$vacunaRealizada->paciente_id);
+    }
     public function llenaServiciosRealizados()
     {
        

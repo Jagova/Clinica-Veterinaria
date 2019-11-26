@@ -25,8 +25,9 @@ class VacunasController extends Controller
         $clinicas = \App\Clinica::all();
         return view('vacunas.index',
         [
-            'Servicios' => $servicios,
+            'Clinicas' => $clinicas,
             'Vacunas' => $vacunas
+
         ]
         );
     }

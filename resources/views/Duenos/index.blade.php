@@ -174,13 +174,14 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 </table>
             </div>
 
-
-          
+            @include('Duenos.modalAgregarDueno')
+            @include('Duenos.modalConsultarDueno')
+            @include('Duenos.modalEliminarDueno')
         @include('Duenos.modalEditarDueno')
         @include('Duenos.modalEditarContraseña')
-        @include('Duenos.modalAgregarDueno')
-        @include('Duenos.modalConsultarDueno')
-        @include('Duenos.modalEliminarDueno')
+      
+      
+        
         
 
 @endsection
