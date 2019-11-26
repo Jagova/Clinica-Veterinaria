@@ -140,6 +140,15 @@ class ArticulosController extends Controller
             'clinica' => 'required',
         ]);
 
+
+         if ($request->hasFile('imagen')) {
+            $ruta = $request->imagen->store('Articulos','public');
+            $articulo->urlImagen = "/storage/".$ruta;
+        }
+
+
+
+
         $articulo = \App\articulos::find($id);
         $articulo->nombre=$request->get('nombre');
         $articulo->precioCom=$request->get('preciocom');

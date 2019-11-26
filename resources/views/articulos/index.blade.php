@@ -16,6 +16,10 @@
         var fecha_cad = $(this).data('fecha_cad');
         var precio_u = $(this).data('precio_u');
 
+                var imagenStore = $(this).data('imagen');
+
+
+
         $("#eliminar-clinica-id").val(articuloId);
         document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
         document.getElementById('form-eliminar').action = "articulos/" + articuloId;
@@ -38,6 +42,9 @@
 
         var categoria = $(this).data('categoria');
         var subcategoria = $(this).data('subcategoria');
+
+        var UrlImagen = $(this).data('urlimagen');
+        
 
 
         $("#editar-articulo-nombre").val(articuloNombre);
@@ -77,6 +84,8 @@
         var subcategoria = $(this).data('subcategoria');
 
 
+        var UrlImagen = $(this).data('urlimagen');
+
         document.getElementById("consultar-articulo-nombre").innerHTML = articuloNombre;
         document.getElementById("consultar-articulo-precio").innerHTML = preciocom;
         document.getElementById("consultar-articulo-marca").innerHTML = marca;
@@ -86,6 +95,8 @@
         document.getElementById("consultar-categoria").innerHTML = categoria;
         document.getElementById("consultar-subcategoria").innerHTML = subcategoria;
         document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
+
+        document.getElementById("imagen").src = UrlImagen;
 
 
     });
@@ -119,9 +130,8 @@
                             <th >SubCategoria </th>
 
                             <th >Clinica </th>
-                            <th>Imagen </th>
-
-                            <th></th>
+                    
+                        
                         </tr>
                     </thead>
                     <tbody>
@@ -141,6 +151,8 @@
                                     data-categoria="{{$articulo->categoria_id}}"
                                     data-subcategoria="{{$articulo->subcategoria_id}}"
                                     data-clinica="{{$articulo->clinica_id}}"
+                                    data-urlimagen="{{$articulo->urlImagen}}"
+
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -156,7 +168,7 @@
                         <td>{{$articulo->Categoria->nombre}}</td>
                         <td>{{$articulo->Subcategoria->nombre}}</td>
                         <td>{{$articulo->Clinica->nombre}}</td>
-                        <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="100" class="d-block w-1" alt="..."></td>
+                       <!-- <td><img  src="{{URL::asset($articulo->urlImagen)}}" height="100" class="d-block w-1" alt="..."></td> -->
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -171,6 +183,7 @@
                                     data-categoria="{{$articulo->categoria_id}}"
                                     data-subcategoria="{{$articulo->subcategoria_id}}"
                                     data-clinica="{{$articulo->clinica_id}}"
+                                    data-urlimagen="{{$articulo->urlImagen}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
@@ -206,7 +219,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/articulos" method="POST">
+                        <form action="/articulos" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
@@ -313,6 +326,12 @@
                         <div class="modal-body">  
                             <table class="table"> 
                                 <tr>
+
+
+                                     <div class = "container" > 
+                                        <img id="imagen" height="300" class="d-block " alt="..." >
+                                        </div>
+
                                     <td class="form-group">
                                         <label for="consultar-nombre" style="font-weight:bold">Nombre:</label>
                                         <p id="consultar-articulo-nombre" name="nombre"></p>
@@ -383,10 +402,18 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="form-editar" method="POST">
+                            <form id="form-editar" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
+                                    <div class = "row">
+                                        <div class="col-5">
+                                            <div>
+                                    Foto
+                                    <input type="file" name="imagen" id="imagen">
+                                </div>
+                            </div>
+                        </div>
                                     <div class="form-group row ">
                                         <div class="col-6">
                                         <label for="editar-nombre">Nombre:</label>
