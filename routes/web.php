@@ -25,8 +25,10 @@ Route::get('/', function () {
     if( Auth::user() ) 
         if( Auth::user()->rol =='ADMINISTRADOR') 
             return redirect('/clinicas');
-        else
+        else if(Auth::user()->rol =='DUEÑO')
             return redirect('/shop');
+        else 
+        return redirect('/control');
     else
        return redirect('/shop');
 });
@@ -210,9 +212,11 @@ Route::post('/duenoseditapass/{id}','DuenoController@updatePassword');
 Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
 
 //ruta para los reportes de perros perdidos
-Route::resource('/reportes','ReporteController');
-                                  
-Route::resource('/shop/reportes','ReportesShopController');
+//Route::resource('/reportes','ReporteController');                              
+Route::resource('/reportes','ReportesShopController');
+
+Route::get('/mascotasperdidas','ReportesShopController@reportesMascotasPerdidas');
+
 //Rutas para las busquedas de mascota y dueño
 Route::post('/buscarmascota','ControlController@buscarMascota');
 Route::get('/encontrarmascota/{id}','ControlController@datosMascota');

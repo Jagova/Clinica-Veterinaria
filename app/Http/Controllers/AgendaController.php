@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function store(Request $request)
     {
@@ -16,10 +20,7 @@ class AgendaController extends Controller
             'fecha' => 'required ',
             'clinica' => 'required',
             'servicio' => 'required'
-        ]);
-       
-
-       
+        ]);   
 
         $nuevaCita = new \App\Cita;
         $nuevaCita->mascota = $request->get('mascota');
@@ -30,7 +31,6 @@ class AgendaController extends Controller
         $nuevaCita->servicio_id = $request->get('servicio');
         $nuevaCita->save();
         return view('control.agendar.exitoso.index');
-
     }
 
 

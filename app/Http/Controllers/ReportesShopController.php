@@ -28,6 +28,19 @@ class ReportesShopController extends Controller
         );
     }
 
+    public function reportesMascotasPerdidas()
+    {
+        $reporteperdidos = \App\Reporte::all();
+        $estados=["Abierto","Cerrado"];
+
+        return view('Reporte_mascotas_perdidas.index',
+        [
+            'Reporteperdidos' => $reporteperdidos,
+            'Estados' => $estados
+        ]
+        );
+    }
+
     /**
      * Show the form for creating a new resource.
      *
