@@ -26,7 +26,7 @@
                     <p id="num" name="num">{{$vacuna->id}}</p>
                 </td>
                 <td>
-                    <p id="servicio" name="servicio">{{$vacuna->Vacuna->nombre}}</p>
+                    <p id="servicio" name="servicio">{{$vacuna->Vacuna->Nombre_vacuna}}</p>
                 </td>
                 <td>
                     <p id="fecha" name="fecha">{{$vacuna->Fecha_Vacuna}}</p>
