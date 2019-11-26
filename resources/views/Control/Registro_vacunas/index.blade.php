@@ -26,7 +26,14 @@
                 <label for="vacuna" style="font-weight:bold">Vacuna</label>
                 <input type="text" required  id="nombre_vacuna" name="nombre_vacuna">
             </div>
-
+            <div class="col-md-4 col-sm-12"> 
+                <label for="fecha" style="font-weight:bold">Fecha de la aplicación</label>
+                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_Vacuna" name="fecha_Vacuna">
+            </div>
+            <div class="col-md-4 col-sm-12"> 
+                <label for="fecha" style="font-weight:bold">Fecha de la siguiente aplicación</label>
+                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_Siguiente_Vacuna" name="fecha_Siguiente_Vacuna">
+            </div>
         </div>
         <div class="row w-100 justify-content-center">
             <div class="col-md-4 col-sm-12"> 
@@ -48,14 +55,7 @@
 
         </div>
         <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
-                <label for="fecha" style="font-weight:bold">Fecha de la aplicación</label>
-                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="Fecha_Vacuna" name="Fecha_Vacuna">
-            </div>
-            <div class="col-md-4 col-sm-12"> 
-                <label for="fecha" style="font-weight:bold">Fecha de la siguiente aplicación</label>
-                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="Fecha_Siguiente_Vacuna" name="Fecha_Siguiente_Vacuna">
-            </div>
+           
             <div class="col-md-4 col-sm-12"> 
                 <!-- Doctor o asistente -->
                 <div class="col-md-4 col-sm-12"> <div class="row">

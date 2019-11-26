@@ -267,8 +267,8 @@ class ControlController extends Controller
         $vacunaRealizada->clinica_id = $request->get('clinica_id');
         $vacunaRealizada->user_id = $request->get('user_id');
         $vacunaRealizada->paciente_id = $request->get('paciente_id');
-        $vacunaRealizada->Fecha_Vacuna = $request->get('fecha_Vacuna');
-        $vacunaRealizada->Fecha_Siguiente_Vacuna = $request->get('fecha_Siguiente_Vacuna');
+        $vacunaRealizada->fecha_Vacuna = $request->get('fecha_Vacuna');
+        $vacunaRealizada->fecha_Siguiente_Vacuna = $request->get('fecha_Siguiente_Vacuna');
         $vacunaRealizada->save();
 
         return redirect('/control/historial_mascota/'.$vacunaRealizada->paciente_id);
@@ -302,12 +302,12 @@ class ControlController extends Controller
     {
        
         $vacunas = \App\vacunas::all();
-        $vacunasMascota = $vacunas->where('paciente_id','=',$id);
         $mascota = \App\Paciente::find($id);
+        $vacunasMascota = $vacunas->where('paciente_id','=',$id);
         return view('/control/Historial_vacunas/index',
         [
-            'vacunaMascota' => $VacunasMascota,
-            'mascota' => $mascota,
+            'vacunaMascota' => $vacunasMascota,
+            'mascota' => $mascota
         ]
     );
     }
