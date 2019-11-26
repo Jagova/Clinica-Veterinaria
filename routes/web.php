@@ -142,9 +142,12 @@ Route::get('/control/registro_dueno', function () {
 Route::get('/control/registro_mascota','PacienteController@registra');
 
 
-Route::get('/control/agendar', function () {
-    return view('/control/agendar/index');
-});
+//AGENDAR
+
+Route::resource('/control/agendar','CitaController');
+
+Route::resource('/control/agendar/calendario','CalendarioController');
+Route::resource('/control/agendar/exitoso','AgendaController');
 
 Route::get('/control/registro_vacunas', function () {
     return view('/control/registro_vacunas/index');

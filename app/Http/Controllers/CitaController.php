@@ -14,9 +14,18 @@ class CitaController extends Controller
      */
     public function index()
     {
+    
         //
+        $servicios = \App\Servicio::all();
+        $clinicas = \App\Clinica::all();
+       // dd($doctores[0]->clinica());
+        return view('control.agendar.index',
+        [
+            'servicios' => $servicios,
+            'clinicas' => $clinicas
+        ]
+        );
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -33,10 +42,7 @@ class CitaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -82,4 +88,6 @@ class CitaController extends Controller
     {
         //
     }
+
+
 }
