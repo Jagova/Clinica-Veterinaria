@@ -143,6 +143,10 @@ Route::resource('/control/agendar','CitaController');
 Route::resource('/control/agendar/calendario','CalendarioController');
 Route::resource('/control/agendar/exitoso','AgendaController');
 
+Route::resource('/control/citas','CitasController');
+
+Route::resource('/control/citas/porclinica','CitasPorClinicaController');
+
 Route::get('/control/registro_vacunas', function () {
     return view('/control/registro_vacunas/index');
 });

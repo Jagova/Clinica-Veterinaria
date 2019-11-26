@@ -104,6 +104,11 @@
                         <a class="nav-link menuControl" href="/control/historial_personal"></i>
                             Historial del personal</a>
                     </li>
+
+                    <li class="nav-item active p-3">
+                        <a class="nav-link menuControl" href="/control/citas"></i>
+                            Consultar citas</a>
+                    </li>
                     
                 </ul>
                 <hr />
