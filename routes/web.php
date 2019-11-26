@@ -25,8 +25,10 @@ Route::get('/', function () {
     if( Auth::user() ) 
         if( Auth::user()->rol =='ADMINISTRADOR') 
             return redirect('/clinicas');
-        else
+        else if(Auth::user()->rol =='DUEÑO')
             return redirect('/shop');
+        else 
+        return redirect('/control');
     else
        return redirect('/shop');
 });
@@ -142,9 +144,16 @@ Route::get('/control/registro_dueno', function () {
 Route::get('/control/registro_mascota','PacienteController@registra');
 
 
-Route::get('/control/agendar', function () {
-    return view('/control/agendar/index');
-});
+//AGENDAR
+
+Route::resource('/control/agendar','CitaController');
+
+Route::resource('/control/agendar/calendario','CalendarioController');
+Route::resource('/control/agendar/exitoso','AgendaController');
+
+Route::resource('/control/citas','CitasController');
+
+Route::resource('/control/citas/porclinica','CitasPorClinicaController');
 
 Route::get('/control/registro_vacunas', function () {
     return view('/control/registro_vacunas/index');
@@ -158,10 +167,11 @@ Route::get('/control/historial_personal', function () {
     return view('/control/historial_personal/index');
 });
 
+/*
 Route::get('/control/registrar_servicio', function () {
     return view('/control/registrar_servicio/index');
 });
-
+*/
 /*
 Route::get('/control/buscar/mascota/encontrado', function () {
     return view('/control/buscar/mascota/encontrado/index');
@@ -173,14 +183,14 @@ Route::get('/control/buscar/mascota/resultados', function () {
 });*/
 
 
-
+/*
 Route::get('/control/buscar/dueno/encontrado', function () {
     return view('/control/buscar/dueno/encontrado/index');
 });
 
 Route::get('/control/buscar/dueno/resultados', function () {
     return view('/control/buscar/dueno/resultados/index');
-});
+});*/
 
 /*regresa una vista de las mascotas*/
 Route::get('mascotas',function(){ });
@@ -206,9 +216,24 @@ Route::post('/duenoseditapass/{id}','DuenoController@updatePassword');
 Route::post('/asistenteseditapass/{id}','AsistentesController@updatePassword');
 
 //ruta para los reportes de perros perdidos
-Route::resource('/reportes','ReporteController');
-                                  
-Route::resource('/shop/reportes','ReportesShopController');
+//Route::resource('/reportes','ReporteController');                              
+Route::resource('/reportes','ReportesShopController');
+
+Route::get('/mascotasperdidas','ReportesShopController@reportesMascotasPerdidas');
+
 //Rutas para las busquedas de mascota y dueño
 Route::post('/buscarmascota','ControlController@buscarMascota');
 Route::get('/encontrarmascota/{id}','ControlController@datosMascota');
+
+Route::post('/buscardueño','ControlController@buscarDueño');
+Route::get('/encontrardueño/{id}','ControlController@datosDueño');
+
+//Regitro de servicio
+Route::get('/registrar_servicio/{id}','ControlController@registrarServicio');
+Route::post('/control/historial_mascota','ControlController@registraServicio');
+
+//Ruta para las búsquedas de servicios
+Route::get('control/historial_personal','ControlController@llenaServiciosRealizados');
+
+Route::get('control/historial_mascota/{id}','ControlController@llenaServiciosRealizadosMascota');
+

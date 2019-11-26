@@ -32,7 +32,7 @@
                             <p id="mascota-raza" name="raza">{{$paciente->raza}}</p>
                         </td>
                         <td>
-                            <p id="mascota-dueno" name="dueno">{{$paciente->Dueno}}</p>
+                            <p id="mascota-dueno" name="dueno">{{$paciente->Dueno->nombre}} {{$paciente->Dueno->apellido_paterno}}</p>
                         </td>
                         <td>
                         <a href="/encontrarmascota/{{$paciente->id}}">

@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Cita;
+use App\vacunas;
 use Illuminate\Http\Request;
 
-class CitaController extends Controller
+class VacunasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -18,18 +14,9 @@ class CitaController extends Controller
      */
     public function index()
     {
-    
         //
-        $servicios = \App\Servicio::all();
-        $clinicas = \App\Clinica::all();
-       // dd($doctores[0]->clinica());
-        return view('control.agendar.index',
-        [
-            'servicios' => $servicios,
-            'clinicas' => $clinicas
-        ]
-        );
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -46,15 +33,18 @@ class CitaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
+    public function store(Request $request)
+    {
+        //
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cita  $cita
+     * @param  \App\vacunas  $vacunas
      * @return \Illuminate\Http\Response
      */
-    public function show(Cita $cita)
+    public function show(vacunas $vacunas)
     {
         //
     }
@@ -62,10 +52,10 @@ class CitaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cita  $cita
+     * @param  \App\vacunas  $vacunas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cita $cita)
+    public function edit(vacunas $vacunas)
     {
         //
     }
@@ -74,10 +64,10 @@ class CitaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cita  $cita
+     * @param  \App\vacunas  $vacunas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cita $cita)
+    public function update(Request $request, vacunas $vacunas)
     {
         //
     }
@@ -85,13 +75,11 @@ class CitaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cita  $cita
+     * @param  \App\vacunas  $vacunas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cita $cita)
+    public function destroy(vacunas $vacunas)
     {
         //
     }
-
-
 }

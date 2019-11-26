@@ -19,11 +19,12 @@ class DuenosTableSeeder extends Seeder
             'telefono' => '474545545',
             'direccion' => 'aqui',
             'celular' => '745896',
-            'correo' => 'unmail'.'@gmail.com',
             'rfc' => 'unrfc',
             'codigo_postal' => '45621',
             'razon_social' => 'yo',
+            'user_id' => 4
         ]);
+        /*
         DB::table('duenos')->insert([
             'nombre' => 'otratiff',
             'apellido_paterno' => 'Cortez',
@@ -31,7 +32,6 @@ class DuenosTableSeeder extends Seeder
             'telefono' => '85236987',
             'direccion' => 'alla',
             'celular' => '78546',
-            'correo' => 'otromail'.'@gmail.com',
             'rfc' => 'unrfc',
             'codigo_postal' => '45621',
             'razon_social' => 'yo',
@@ -43,10 +43,9 @@ class DuenosTableSeeder extends Seeder
             'telefono' => '789654123',
             'direccion' => 'lugar',
             'celular' => '123456789',
-            'correo' => 'carlos'.'@gmail.com',
             'rfc' => 'unrfc',
             'codigo_postal' => '74589',
             'razon_social' => 'yo',
-        ]);
+        ]);*/
     }
 }

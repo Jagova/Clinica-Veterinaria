@@ -4,61 +4,105 @@
 
    
 <div class="container-fluid">
-    <div class="row justify-content-center m-3">
-        <h1>Registrar Servicio</h1>
-    </div> 
-    <div class="row shadow mx-md-5 p-3 justify-content-center my-3">
-        <h4 class="mr-3" style="font-weight:bold">Clínica </h4>
-        <select required class="form-control w-25 min-vw-25" name="clinica_id">
-                            
-        </select>
 
+<div class="row justify-content-center m-3">
+        <h1 class="mx-auto">Historial de vacunas</h1>
     </div>
-    <div class="row shadow-lg mx-md-5 p-3 justify-content-center">
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
-                <label for="servicio" style="font-weight:bold">Servicio</label>
-                <select required class="form-control" name="servicio_id">
-                            
-                </select>
-            </div>
+    <div class="row justify-content-center">
+        <h5 class="mr-2">Mascota: </h5>
+        <p>Loki</p>
+        <h5 class="ml-5 mr-2">Dueño: </h5>
+        <p>Tiffany Cortez</p>
+    </div>
+    <div class="row shadow-lg mx-md-5 p-3">
+        <table class="w-100 h-100">
+            <tr>
+                <th>#</th>
+                <th>Fecha</th>
+                <th>Vacuna</th>
+                <th>Siguiente Aplicación</th>
+            </tr>
+            <tr>
+                <td>
+                    <p id="num" name="num">1</p>
+                </td>
+                <td>
+                    <p id="fecha" name="fecha">01/01/2019</p>
+                </td>
 
-        </div>
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
-                <label for="dueno" style="font-weight:bold">Dueño</label>
-                <select required class="form-control" name="dueno_id">
-                            
-                </select>
-            </div>
-            <div class="col-md-4 col-sm-12"> 
-                <label for="mascota" style="font-weight:bold">Mascota</label>
-                <select required class="form-control" name="mascota_id">
-                                
-                    </select>
-            </div>
+                <td>
+                    <p id="vacuna" name="vacuna">Rabia</p>
+                </td>
+                <td>
+                    <p id="fecha_siguiente" name="fecha_siguiente">01/01/2020</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p id="num" name="num">1</p>
+                </td>
+                <td>
+                    <p id="fecha" name="fecha">01/01/2019</p>
+                </td>
 
-        </div>
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
-                <label for="fecha" style="font-weight:bold">Fecha</label>
-                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha" name="fecha">
-            </div>
-            <div class="col-md-4 col-sm-12"> 
-                <!-- Doctor o asistente -->
-                <label for="encargado" style="font-weight:bold">Encargado</label>
-                <select required class="form-control" name="encargado_id">
-                                
-                </select>
-            </div>
+                <td>
+                    <p id="vacuna" name="vacuna">Polivalente</p>
+                </td>
+                <td>
+                    <p id="fecha_siguiente" name="fecha_siguiente">01/01/2020</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="col-6 ml-auto">
+                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i>Registrar Vacuna</button>
+                
 
-        </div>
-        
+            
     </div>
                 
 
 </div>
 
-
+   <!-- Modal Registrar -->
+   <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="agregarModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarModalLabel">Registrar Vacuna</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/control/registro_vacunas" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
+            <div class="modal-body">                          
+                    <div class="form-group">
+                        <div class = "row">
+                            <div class = "col-12" >
+                                <label for="fecha">Fecha</label>
+                                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha" name="fecha">
+                            </div>
+                            <div class = "col-12" >
+                                <label for="nombre">Nombre</label>
+                                    <input type="text" required class="form-control" id="nombre" name="nombre">
+                            </div>
+                            <div class = "col-12" >
+                                <label for="nombre">Siguiente Aplicación</label>
+                                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_siguiente" name="fecha_siguiente">
+                            </div>
+                        </div>
+                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
     
 @endsection

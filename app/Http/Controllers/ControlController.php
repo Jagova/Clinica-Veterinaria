@@ -179,4 +179,90 @@ class ControlController extends Controller
         ]
     );
     }
+
+    //Búsqueda Dueño
+    public function buscarDueño(Request $request)
+    {
+        
+        $filtro = $request->get('filtro');
+        $dueños = \App\Dueno::all();
+        return view('/control/buscar/dueno/resultados/index',
+        [
+            'Dueños' => $dueños,
+            'filtro' => $filtro
+        ]
+    );
+    }
+
+    public function datosDueño($id)
+    {
+        $dueño = \App\Dueno::find($id);
+        $pacientes = \App\Paciente::all();
+        $pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        return view('/control/buscar/dueno/encontrado/index',
+        [
+            'dueño' => $dueño,
+            'Pacientes' => $pacientesDueño
+        ]
+    );
+    }
+
+    //Registro de servicio
+    public function registrarServicio($id)
+    {
+        $Clinicas = \App\Clinica::all();
+        $paciente = \App\Paciente::find($id);
+        $dueño = \App\Dueno::find($paciente->dueno_id);
+        $Servicios = \App\Servicio::all();
+        //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        return view('/control/Registrar_servicio/index',
+        [
+            'Clinicas' => $Clinicas,
+            'dueño' => $dueño,
+            'paciente' => $paciente,
+            'Servicios' => $Servicios
+        ]
+    );
+    }
+
+    public function registraServicio(Request $request)
+    {
+        $servicioRealizado = new \App\ServicioRealizado;
+        $servicioRealizado->clinica_id = $request->get('clinica_id');
+        $servicioRealizado->user_id = $request->get('user_id');
+        $servicioRealizado->paciente_id = $request->get('paciente_id');
+        $servicioRealizado->servicio_id = $request->get('servicio_id');
+        $servicioRealizado->fecha = $request->get('fecha');
+
+        $servicioRealizado->save();
+
+        return redirect('/control/historial_mascota/'.$servicioRealizado->paciente_id);
+    }
+
+    public function llenaServiciosRealizados()
+    {
+       
+        $servicios = \App\ServicioRealizado::all();
+        return view('/control/Historial_personal/index',
+        [
+            'Servicios' => $servicios,
+        ]
+    );
+    }
+
+    public function llenaServiciosRealizadosMascota($id)
+    {
+       
+        $Servicios = \App\ServicioRealizado::all();
+        $ServiciosMascota = $Servicios->where('paciente_id','=',$id);
+        $mascota = \App\Paciente::find($id);
+        return view('/control/Historial_mascota/index',
+        [
+            'ServiciosMascota' => $ServiciosMascota,
+            'mascota' => $mascota,
+        ]
+    );
+    }
 }

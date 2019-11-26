@@ -7,7 +7,7 @@
     <div class="row justify-content-center m-3">
         <h1>Hacer una cita</h1>
     </div> 
-    <form action="/control/agendar/calendario" method="POST">
+    <form action="/control/citas/porclinica" method="POST">
                             @csrf
                             @method('POST')
     <div class="row shadow mx-md-5 p-3 justify-content-center my-3">
@@ -20,17 +20,7 @@
 
     </div>
     <div class="row shadow-lg mx-md-5 p-3 justify-content-center">
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
-                <label for="servicio" style="font-weight:bold">Servicio</label>
-                <select required class="form-control" name="servicio_id">
-                    @foreach ($servicios as $servicio)                                  
-                        <option value="{{$servicio->id}}">{{$servicio->nombre}} </option>
-                    @endforeach  
-                </select>
-            </div>
 
-        </div>
         <div class="row w-100 justify-content- m-3">
             <div class="ml-auto">
                 <button class="btn-primary p-2" type="submit">Siguiente</button>

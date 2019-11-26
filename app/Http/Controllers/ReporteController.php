@@ -21,11 +21,6 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->rol != "ADMINISTRADOR")
-        {
-            return redirect('/');
-        }
-
 
         $reporteperdidos = \App\Reporte::all();
         $estados=["Abierto","Cerrado"];
@@ -37,6 +32,8 @@ class ReporteController extends Controller
         ]
         );
     }
+    
+    
 
     /**
      * Show the form for creating a new resource.
