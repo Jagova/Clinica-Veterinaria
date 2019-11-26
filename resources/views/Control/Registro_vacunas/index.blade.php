@@ -20,22 +20,7 @@
         </select>
 
     </div>
-    <div class="row shadow-lg mx-md-5 p-3 justify-content-center">
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
-                <label for="vacuna" style="font-weight:bold">Vacuna</label>
-                <input type="text" required  id="nombre_vacuna" name="nombre_vacuna">
-            </div>
-            <div class="col-md-4 col-sm-12"> 
-                <label for="fecha" style="font-weight:bold">Fecha de la aplicación</label>
-                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_Vacuna" name="fecha_Vacuna">
-            </div>
-            <div class="col-md-4 col-sm-12"> 
-                <label for="fecha" style="font-weight:bold">Fecha de la siguiente aplicación</label>
-                <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_Siguiente_Vacuna" name="fecha_Siguiente_Vacuna">
-            </div>
-        </div>
-        <div class="row w-100 justify-content-center">
+    <div class="row w-100 justify-content-center">
             <div class="col-md-4 col-sm-12"> 
                 
                 <div class="row">
@@ -52,19 +37,42 @@
                   <label for="mascota" style="font-weight:bold">{{$paciente->nombre}}</label>
                 </div>
             </div>
-
+            <div class="col-md-4 col-sm-12"> <div class="row">
+                    <label for="encargado" style="font-weight:bold">Encargado</label>
+                </div>
+                <div class="row">
+                  <label for="encargado" style="font-weight:bold">{{ Auth::user()->name }}</label>
+                </div>
+            </div>
         </div>
+    <div class="row shadow-lg mx-md-5 p-3 justify-content-center">
+        
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-4 col-sm-12"> 
+                <label for="vacuna" style="font-weight:bold">Vacuna</label>
+                <input type="text" required  id="nombre_vacuna" name="nombre_vacuna">
+            </div>
+            
+        </div>
+        
+        <div class="row shadow-lg mx-md-5 p-3 justify-content-center">
+            <div class="row w-100 justify-content-center">
+                    <div class="col-md-5 col-sm-12"> 
+                            <label for="fecha" style="font-weight:bold">Fecha de la aplicación</label>
+                            <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_Vacuna" name="fecha_Vacuna">
+                        </div>
+                        <div class="col-md-5 col-sm-12"> 
+                            <label for="fecha" style="font-weight:bold">Fecha de la siguiente aplicación</label>
+                            <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha_Siguiente_Vacuna" name="fecha_Siguiente_Vacuna">
+                        </div>
+            </div>
+        </div>
+       
         <div class="row w-100 justify-content-center">
            
             <div class="col-md-4 col-sm-12"> 
                 <!-- Doctor o asistente -->
-                <div class="col-md-4 col-sm-12"> <div class="row">
-                        <label for="encargado" style="font-weight:bold">Encargado</label>
-                    </div>
-                    <div class="row">
-                      <label for="encargado" style="font-weight:bold">{{ Auth::user()->name }}</label>
-                    </div>
-                </div>
+               
             </div>
             
             <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
@@ -72,6 +80,9 @@
         </div>
                 <button type="submit" class="btn-primary px-3 py-2 m-2" >Registrar</button>
     </div>
+   
+    <button type="submit" class="btn-primary px-3 py-2 m-2" >Ver historial de vacunas</button>
+           
     </form>    
 
 </div>
