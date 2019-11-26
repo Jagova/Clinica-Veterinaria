@@ -231,7 +231,7 @@ class ControlController extends Controller
         $Clinicas = \App\Clinica::all();
         $paciente = \App\Paciente::find($id);
         $dueño = \App\Dueno::find($paciente->dueno_id);
-      
+       $vacunas = \App\vacunas::all();
         //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
 
         
@@ -241,6 +241,7 @@ class ControlController extends Controller
             'Clinicas' => $Clinicas,
             'dueño' => $dueño,
             'paciente' => $paciente,
+            'vacunas'=>$vacunas
            
         ]
     );
@@ -266,12 +267,13 @@ class ControlController extends Controller
         $vacunaRealizada->clinica_id = $request->get('clinica_id');
         $vacunaRealizada->user_id = $request->get('user_id');
         $vacunaRealizada->paciente_id = $request->get('paciente_id');
-        $vacunaRealizada->fecha = $request->get('Fecha_Vacuna');
-        $vacunaRealizada->fechasiguientevacuna = $request->get('Fecha_Siguiente_Vacuna');
+        $vacunaRealizada->Fecha_Vacuna = $request->get('Fecha_Vacuna');
+        $vacunaRealizada->Fecha_Siguiente_Vacuna = $request->get('Fecha_Siguiente_Vacuna');
         $vacunaRealizada->save();
 
         return redirect('/control/historial_mascota/'.$vacunaRealizada->paciente_id);
     }
+    
     public function llenaServiciosRealizados()
     {
        
@@ -292,6 +294,19 @@ class ControlController extends Controller
         return view('/control/Historial_mascota/index',
         [
             'ServiciosMascota' => $ServiciosMascota,
+            'mascota' => $mascota,
+        ]
+    );
+    }
+    public function llenaVacunasRealizadosMascota($id)
+    {
+       
+        $Vacunas = \App\vacunas::all();
+        $VacunasMascota = $Vacunas->where('paciente_id','=',$id);
+        $mascota = \App\Paciente::find($id);
+        return view('/control/Historial_vacunas/index',
+        [
+            'VacunaMascota' => $VacunasMascota,
             'mascota' => $mascota,
         ]
     );

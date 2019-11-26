@@ -53,7 +53,7 @@
             <a href="/registrar_servicio/{{$paciente->id}}">
                 <button class="btn-primary p-3 m-2" >Registrar servicio</button>
             </a>
-            <a href="/control/registro_vacunas">
+            <a href="/registro_vacunas/{{$paciente->id}}">
                 <button class="btn-primary p-3 m-2" >Registro de vacunas</button>
             </a>
         </div>
