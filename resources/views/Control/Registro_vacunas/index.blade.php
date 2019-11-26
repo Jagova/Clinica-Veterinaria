@@ -11,39 +11,42 @@
     <div class="row justify-content-center m-3">
         <h1>Registrar Vacuna</h1>
     </div> 
-    <div class="row shadow mx-md-5 p-3 justify-content-center my-3">
-        <h4 class="mr-3" style="font-weight:bold">Clínica </h4>
-        <select required class="form-control w-25 min-vw-25" name="clinica_id">
-            @foreach ($Clinicas as $clinica)                                  
-                <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
-            @endforeach
-        </select>
-
-    </div>
+   
+    <div class="row justify-content-center m-3">
     <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
+            <div class="col-md-2 col-sm-12"> 
                 
                 <div class="row">
                     <label for="dueno" style="font-weight:bold">Dueño</label>
                 </div>
                 <div class="row">
-                 <label for="dueno" style="font-weight:bold">{{$dueño->nombre}} {{$dueño->apellido_paterno}}</label>
+                 <label for="dueno" >{{$dueño->nombre}} {{$dueño->apellido_paterno}}</label>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12"> <div class="row">
+            <div class="col-md-2 col-sm-12"> <div class="row">
                     <label for="mascota" style="font-weight:bold">Mascota</label>
                 </div>
                 <div class="row">
-                  <label for="mascota" style="font-weight:bold">{{$paciente->nombre}}</label>
+                  <label for="mascota">{{$paciente->nombre}}</label>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12"> <div class="row">
+            <div class="col-md-2 col-sm-12"> <div class="row">
                     <label for="encargado" style="font-weight:bold">Encargado</label>
                 </div>
                 <div class="row">
-                  <label for="encargado" style="font-weight:bold">{{ Auth::user()->name }}</label>
+                  <label for="encargado" >{{ Auth::user()->name }}</label>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row shadow mx-md-5 p-3 justify-content-center my-3">
+            <h4 class="mr-3" style="font-weight:bold">Clínica </h4>
+            <select required class="form-control w-25 min-vw-25" name="clinica_id">
+                @foreach ($Clinicas as $clinica)                                  
+                    <option value="{{$clinica->id}}">{{$clinica->nombre}}</option>
+                @endforeach
+            </select>
+    
         </div>
     <div class="row shadow-lg mx-md-5 p-3 justify-content-center">
         
@@ -81,7 +84,7 @@
                 <button type="submit" class="btn-primary px-3 py-2 m-2" >Registrar</button>
     </div>
    
-    <button type="submit" class="btn-primary px-3 py-2 m-2" >Ver historial de vacunas</button>
+    
            
     </form>    
 

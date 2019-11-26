@@ -67,7 +67,9 @@
                 <td>
                     <p id="fecha_Siguiente_Vacuna" name="fecha_Siguiente_Vacuna">{{$vacuna->fecha_Siguiente_Vacuna}}</p>
                 </td>
-               
+                <td>
+                        <p id="clinica" name="clinica">{{$vacuna->Clinica->nombre}}</p>
+                    </td>
             </tr>
             @endforeach
             </table>
