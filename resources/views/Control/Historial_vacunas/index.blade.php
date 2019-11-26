@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="container-fluid">
     <div class="row justify-content-center m-3">
-        <h1 class="mx-auto">Historial de mascota</h1>
+        <h1 class="mx-auto">Historial de vacunas de la mascota</h1>
     </div>
     <div class="row justify-content-center">
         <h5 class="mr-2">Mascota: </h5>
@@ -15,26 +15,25 @@
         <table class="w-100 h-100">
             <tr>
                 <th>#</th>
-                <th>Vacuna</th>
+                <th>Nombre </th>
                 <th>Fecha</th>
-                <th>Siguiente Fecha</th>
+                <th>Fecha de prxima aplicación</th>
                 <th>Clínica</th>
             </tr>
-            @foreach($VacunasMascota as $vacuna)
+            @foreach($vacunasMascota as $vacuna)
             <tr>
                 <td>
                     <p id="num" name="num">{{$vacuna->id}}</p>
                 </td>
                 <td>
-                    <p id="servicio" name="servicio">{{$vacuna->Vacuna->nombre_vacuna}}</p>
+                    <p id="nombre_vacuna" name="nombre_vacuna">{{$vacuna->nombre_vacuna}}</p>
                 </td>
                 <td>
-                    <p id="fecha" name="fecha">{{$vacuna->fecha_Vacuna}}</p>
+                    <p id="fecha_Vacuna" name="fecha_Vacuna">{{$vacuna->fecha_Vacuna}}</p>
                 </td>
                 <td>
-                    <p id="fecha" name="fecha">{{$vacuna->fecha_Siguiente_Vacuna}}</p>
+                    <p id="fecha_Siguiente_Vacuna" name="fecha_Siguiente_Vacuna">{{$vacuna->fecha_Siguiente_Vacuna}}</p>
                 </td>
-              
                 <td>
                     <p id="clinica" name="clinica">{{$vacuna->Clinica->nombre}}</p>
                 </td>

@@ -272,7 +272,7 @@ class ControlController extends Controller
         $vacunaRealizada->save();
         
 
-        return redirect('/control/historial_vacunas /'.$vacunaRealizada->paciente_id);
+        return redirect('/control/historial_vacunas/'.$vacunaRealizada->paciente_id);
     }
     
     public function llenaServiciosRealizados()
