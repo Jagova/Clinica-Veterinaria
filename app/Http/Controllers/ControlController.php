@@ -292,9 +292,12 @@ class ControlController extends Controller
         $Servicios = \App\ServicioRealizado::all();
         $ServiciosMascota = $Servicios->where('paciente_id','=',$id);
         $mascota = \App\Paciente::find($id);
+        $vacunas = \App\vacunas::all();
+        $vacunasMascota = $vacunas->where('paciente_id','=',$id);
         return view('/control/Historial_mascota/index',
         [
             'ServiciosMascota' => $ServiciosMascota,
+            'vacunasMascota' => $vacunasMascota,
             'mascota' => $mascota,
         ]
     );
