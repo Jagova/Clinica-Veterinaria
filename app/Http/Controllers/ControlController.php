@@ -270,8 +270,9 @@ class ControlController extends Controller
         $vacunaRealizada->fecha_Vacuna = $request->get('fecha_Vacuna');
         $vacunaRealizada->fecha_Siguiente_Vacuna = $request->get('fecha_Siguiente_Vacuna');
         $vacunaRealizada->save();
+        
 
-        return redirect('/control/historial_mascota/'.$vacunaRealizada->paciente_id);
+        return redirect('/control/historial_vacunas /'.$vacunaRealizada->paciente_id);
     }
     
     public function llenaServiciosRealizados()
@@ -306,7 +307,7 @@ class ControlController extends Controller
         $vacunasMascota = $vacunas->where('paciente_id','=',$id);
         return view('/control/Historial_vacunas/index',
         [
-            'vacunaMascota' => $vacunasMascota,
+            'vacunasMascota' => $vacunasMascota,
             'mascota' => $mascota
         ]
     );
