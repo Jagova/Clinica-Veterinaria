@@ -24,7 +24,7 @@
         <div class="row w-100 justify-content-center">
             <div class="col-md-4 col-sm-12"> 
                 <label for="vacuna" style="font-weight:bold">Vacuna</label>
-                <input type="text"   required class="form-control" id="Nombre_vacuna" name="Nombre_vacuna">
+                <input type="text" required  id="nombre_vacuna" name="nombre_vacuna">
             </div>
 
         </div>

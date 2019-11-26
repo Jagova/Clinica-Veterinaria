@@ -263,12 +263,12 @@ class ControlController extends Controller
     public function registraVacuna(Request $request)
     {
         $vacunaRealizada = new \App\vacunas;
-        $vacunaRealizada->nombre_vacuna = $request->get('Nombre_vacuna');
+        $vacunaRealizada->nombre_vacuna = $request->get('nombre_vacuna');
         $vacunaRealizada->clinica_id = $request->get('clinica_id');
         $vacunaRealizada->user_id = $request->get('user_id');
         $vacunaRealizada->paciente_id = $request->get('paciente_id');
-        $vacunaRealizada->Fecha_Vacuna = $request->get('Fecha_Vacuna');
-        $vacunaRealizada->Fecha_Siguiente_Vacuna = $request->get('Fecha_Siguiente_Vacuna');
+        $vacunaRealizada->Fecha_Vacuna = $request->get('fecha_Vacuna');
+        $vacunaRealizada->Fecha_Siguiente_Vacuna = $request->get('fecha_Siguiente_Vacuna');
         $vacunaRealizada->save();
 
         return redirect('/control/historial_mascota/'.$vacunaRealizada->paciente_id);
@@ -301,12 +301,12 @@ class ControlController extends Controller
     public function llenaVacunasRealizadosMascota($id)
     {
        
-        $Vacunas = \App\vacunas::all();
-        $VacunasMascota = $Vacunas->where('paciente_id','=',$id);
+        $vacunas = \App\vacunas::all();
+        $vacunasMascota = $vacunas->where('paciente_id','=',$id);
         $mascota = \App\Paciente::find($id);
         return view('/control/Historial_vacunas/index',
         [
-            'VacunaMascota' => $VacunasMascota,
+            'vacunaMascota' => $VacunasMascota,
             'mascota' => $mascota,
         ]
     );

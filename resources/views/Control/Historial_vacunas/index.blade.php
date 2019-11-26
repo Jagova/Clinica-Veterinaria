@@ -26,13 +26,13 @@
                     <p id="num" name="num">{{$vacuna->id}}</p>
                 </td>
                 <td>
-                    <p id="servicio" name="servicio">{{$vacuna->Vacuna->Nombre_vacuna}}</p>
+                    <p id="servicio" name="servicio">{{$vacuna->Vacuna->nombre_vacuna}}</p>
                 </td>
                 <td>
-                    <p id="fecha" name="fecha">{{$vacuna->Fecha_Vacuna}}</p>
+                    <p id="fecha" name="fecha">{{$vacuna->fecha_Vacuna}}</p>
                 </td>
                 <td>
-                    <p id="fecha" name="fecha">{{$vacuna->Fecha_Siguiente_Vacuna}}</p>
+                    <p id="fecha" name="fecha">{{$vacuna->fecha_Siguiente_Vacuna}}</p>
                 </td>
               
                 <td>
