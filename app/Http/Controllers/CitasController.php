@@ -31,7 +31,12 @@ class CitasController extends Controller
         //
         $cita = \App\Cita::find($id);
         $cita->delete();
-        return view('control.citas.porclinica.index');
+
+        $clinicas = \App\Clinica::all();
+
+        return view('control.citas.index',
+        ['clinicas' => $clinicas,]
+    );
     }
 
 

@@ -4,6 +4,7 @@
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
     var citaId = $(this).data('id');
+    document.getElementById('form-eliminar').action =  citaId;
 });
 </script>
 <div class="container-fluid">
