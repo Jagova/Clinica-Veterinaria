@@ -11,6 +11,24 @@
     <div class="row justify-content-center m-3">
         <h1>Registrar Servicio</h1>
     </div> 
+    <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-12"> 
+                
+                    <div class="row">
+                        <label for="dueno" style="font-weight:bold">Dueño</label>
+                    </div>
+                    <div class="row">
+                     <label for="dueno" style="font-weight:bold">{{$dueño->nombre}} {{$dueño->apellido_paterno}}</label>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12"> <div class="row">
+                        <label for="mascota" style="font-weight:bold">Mascota</label>
+                    </div>
+                    <div class="row">
+                      <label for="mascota" style="font-weight:bold">{{$paciente->nombre}}</label>
+                    </div>
+                </div>
+    </div>
     <div class="row shadow mx-md-5 p-3 justify-content-center my-3">
         <h4 class="mr-3" style="font-weight:bold">Clínica </h4>
         <select required class="form-control w-25 min-vw-25" name="clinica_id">
@@ -33,29 +51,14 @@
 
         </div>
         <div class="row w-100 justify-content-center">
-            <div class="col-md-4 col-sm-12"> 
-                
-                <div class="row">
-                    <label for="dueno" style="font-weight:bold">Dueño</label>
-                </div>
-                <div class="row">
-                 <label for="dueno" style="font-weight:bold">{{$dueño->nombre}} {{$dueño->apellido_paterno}}</label>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12"> <div class="row">
-                    <label for="mascota" style="font-weight:bold">Mascota</label>
-                </div>
-                <div class="row">
-                  <label for="mascota" style="font-weight:bold">{{$paciente->nombre}}</label>
-                </div>
-            </div>
+            
 
         </div>
         <div class="row w-100 justify-content-center">
             <div class="col-md-4 col-sm-12"> 
                 <label for="fecha" style="font-weight:bold">Fecha</label>
                 <input type="date" min="2019-01-01" max="2025-12-31"  required class="form-control" id="fecha" name="fecha">
-            </div>
+            </div> 
             <div class="col-md-4 col-sm-12"> 
                 <!-- Doctor o asistente -->
                 <div class="col-md-4 col-sm-12"> <div class="row">
