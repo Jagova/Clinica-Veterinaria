@@ -1,6 +1,13 @@
 @extends('control.layout')
 
 @section('contenido')
+<script>
+$(document).on("click", ".abrirEliminaModal", function (event) {
+    var citaId = $(this).data('id');
+    document.getElementById('eliminar-clinica-nombre').innerHTML = clinicaNombre;
+    document.getElementById('form-eliminar').action = "clinicas/" + clinicaId;
+});
+</script>
 <div class="container-fluid">
     <div class="row justify-content-center m-3">
         <h1 class="mx-auto">Citas</h1>
@@ -8,6 +15,7 @@
 
     <div class="row shadow-lg mx-md-5 p-3">
         <table class="w-100 h-100">
+        @foreach ($ocupados as $cita)
             <tr>
                 <th>#</th>
                 <th>Fecha</th>
@@ -18,28 +26,30 @@
             </tr>
             <tr>
                 <td>
-                    <p id="num" name="num">1</p>
+                    <p id="num" name="num">{{$cita->id}}</p>
                 </td>
                 <td>
-                    <p id="fecha" name="fecha">01/01/2019</p>
+                    <p id="fecha" name="fecha">{{$cita->fecha}}</p>
                 </td>
 
                 <td>
-                    <p id="servicio" name="servicio">Corte de Cabello</p>
+                    <p id="servicio" name="servicio">{{$cita->servicio_id}}</p>
                 </td>
                 <td>
-                    <p id="clinica" name="clinica">Tiffany</p>
+                    <p id="dueno" name="dueno">{{$cita->dueno}}</p>
                 </td>
                 <td>
-                    <p id="estado" name="estado">Loki</p>
+                    <p id="mascota" name="mascota">{{$cita->mascota}}</p>
                 </td>
                 <td>
                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
+                                    data-id="{{$clinica->id}}"
                                     >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                     </div>
                 </td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class CitasController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +24,14 @@ class CitasController extends Controller
             'clinicas' => $clinicas
         ]
         );
+    }
+
+    public function destroy($id)
+    {
+        //
+        $cita = \App\Cita::find($id);
+        $cita->delete();
+        return view('control.citas.porclinica.index');
     }
 
 
