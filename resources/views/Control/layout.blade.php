@@ -34,42 +34,7 @@
     <link href="{{ asset('fullcalendar/packages/timegrid/main.css')}}" rel='stylesheet'/>
     <script src="{{ asset('fullcalendar/packages//interaction/main.js')}}"></script>
 
-    <?php
-        $mytime = date('Y-m-d');
-    ?>
-
-    <script>
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            timeGrid: {
-            // options apply to timeGridWeek and timeGridDay views
-            },
-            
-            plugins: [ 'timeGrid', 'interaction'],
-            defaultView: 'timeGridWeek',
-            
-            nowDate : "{{$mytime}}",
-
-            validRange: {
-                start: "{{$mytime}}"
-            },
-            locale : 'es',
-
-            dateClick: function(info) {
-                alert('Seleccionaste ' + info.dateStr);
-                document.getElementById("fecha").value=info.dateStr;
-            }
-        });
-
-        calendar.render();
-      });
-
-    </script>
- 
- 
+    
     <title> Clinica veterinaria </title>
 </head>
 <body>

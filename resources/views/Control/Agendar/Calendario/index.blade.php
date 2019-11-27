@@ -2,7 +2,66 @@
 @extends('control.layout')
 
 @section('contenido')
+<?php
+        $mytime = date('Y-m-d');
+        $eventos = array();
+        
 
+    ?>
+    @foreach ($ocupados as $cita)
+        <?php
+            $new_data = array('start'=>"{$cita->fecha}");
+            array_push($eventos, $new_data);
+            
+        ?>
+    @endforeach
+    
+    
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            timeGrid: {
+            // options apply to timeGridWeek and timeGridDay views
+            },
+            
+            plugins: [ 'timeGrid', 'interaction'],
+            defaultView: 'timeGridWeek',
+            
+            nowDate : "{{$mytime}}",
+
+            validRange: {
+                start: "{{$mytime}}"
+            },
+            locale : 'es',
+
+            dateClick: function(info) {
+                alert('Seleccionaste ' + info.dateStr);
+                document.getElementById("fecha").value=info.dateStr;
+            },
+            businessHours: {
+            // days of week. an array of zero-based day of week integers (0=Sunday)
+            daysOfWeek: [ 1, 2, 3, 4, 5 ,6, 7 ], // Monday - Sunday
+
+            startTime: '10:00', // a start time (10am in this example)
+            endTime: '18:00', // an end time (6pm in this example)
+            },
+            height: 50,
+            
+            minTime: '10:00:00',
+            maxTime: '18:00:00',
+            events : <?php echo json_encode($eventos); ?>
+       
+        });
+
+        calendar.render();
+      });
+
+    </script>
+ 
+ 
    
 <div class="container-fluid">
     <div class="row justify-content-center m-3">

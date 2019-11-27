@@ -4,8 +4,6 @@
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
     var citaId = $(this).data('id');
-    document.getElementById('eliminar-clinica-nombre').innerHTML = clinicaNombre;
-    document.getElementById('form-eliminar').action = "clinicas/" + clinicaId;
 });
 </script>
 <div class="container-fluid">
@@ -44,7 +42,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <td>
                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
-                                    data-id="{{$clinica->id}}"
+                                    data-id="{{$cita->id}}"
                                     >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                     </div>
                 </td>
