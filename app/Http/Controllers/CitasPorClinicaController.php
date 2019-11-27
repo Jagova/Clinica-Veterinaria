@@ -15,9 +15,7 @@ class CitasPorClinicaController extends Controller
         $request->validate([
             'clinica_id' => 'required',
         ]);
-
-
-       
+   
         $ocupados = \App\Cita::where('clinica_id', '=', $clinica_id )->get();
         
         return view('control.citas.PorClinica.index',
@@ -26,5 +24,4 @@ class CitasPorClinicaController extends Controller
         ]
         );
     }
-
 }
