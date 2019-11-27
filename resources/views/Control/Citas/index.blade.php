@@ -5,7 +5,7 @@
    
 <div class="container-fluid">
     <div class="row justify-content-center m-3">
-        <h1>Hacer una cita</h1>
+        <h1>Citas</h1>
     </div> 
     <form action="/control/citas/porclinica" method="POST">
                             @csrf
