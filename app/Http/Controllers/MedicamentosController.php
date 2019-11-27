@@ -70,25 +70,26 @@ class MedicamentosController extends Controller
 
             $ruta = "Medicamentos/medicamentos_ima.png"; 
         //Se revisa si se cargo una imagen     
-        if ($request->hasFile('imagen')) { $ruta = $request->imagen->store('Medicamentos','public'); }
+        if ($request->hasFile('imagen')) 
+            { 
+                $ruta = $request->imagen->store('Medicamentos','public'); 
+            }
 
+        $nmedis = new \App\Medicamentos;
+        $nmedis->nombre = $request->get('nombre');
+        $nmedis->presentacion = $request->get('presentacion');
+        $nmedis->ml_mg = $request->get('ml_mg');
+        $nmedis->compuesto = $request->get('compuesto');
+        $nmedis->precio = $request->get('precio');
+        $nmedis->laboratorio= $request->get('laboratorio');
+        $nmedis->paq_unidad= $request->get('paq_unidad');
+        $nmedis->controlado= $request->get('controlado');
+        $nmedis->fecha_caducidad= $request->get('fecha_caducidad');
+        $nmedis->stock= $request->get('stock');
+        $nmedis->clinica_id = $request->get('clinica');
+        $nmedis->urlImagen = "/storage/".$ruta;
 
-
-        $medis = new \App\Medicamentos;
-        $medis->nombre = $request->get('nombre');
-        $medis->presentacion = $request->get('presentacion');
-        $medis->ml_mg = $request->get('ml_mg');
-        $medis->compuesto = $request->get('compuesto');
-        $medis->precio = $request->get('precio');
-        $medis->laboratorio= $request->get('laboratorio');
-        $medis->paq_unidad= $request->get('paq_unidad');
-        $medis->controlado= $request->get('controlado');
-        $medis->fecha_caducidad= $request->get('fecha_caducidad');
-        $medis->stock= $request->get('stock');
-        $medis->clinica_id = $request->get('clinica');
-        $medis->urlImagen = "/storage/".$ruta;
-
-        $medis->save();
+        $nmedis->save();
         return redirect('/medicamentos');
     }
 
@@ -138,6 +139,13 @@ class MedicamentosController extends Controller
         ]);
 
         $medis = \App\Medicamentos::find($id);
+
+         if ($request->hasFile('imagen')) {
+            $medis = $request->imagen->store('Medicamentos','public');
+            $medis->urlImagen = "/storage/".$ruta;
+        }
+
+
         $medis->nombre = $request->get('nombre');
         $medis->presentacion = $request->get('presentacion');
         $medis->ml_mg = $request->get('ml_mg');

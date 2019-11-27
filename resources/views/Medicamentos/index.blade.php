@@ -16,7 +16,10 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
     var paq_unidad = $(this).data('paq_unidad');
     var controlado = $(this).data('controlado');
     var fecha_caducidad = $(this).data('fecha_caducidad');
+
     var stock = $(this).data('stock');
+
+    var imagenStore = $(this).data('imagen');
 
 
 $("#eliminar-clinica-id").val(medicinaId);
@@ -46,6 +49,9 @@ $("#eliminar-clinica-id").val(medicinaId);
     var fecha_caducidad = $(this).data('fecha_caducidad');
     var stock = $(this).data('stock');
 
+     var fotoArticulo = $(this).data('urlimagen');
+        console.log(fotoArticulo);
+
         $("#editar-m-nombre").val(medicinaNombre);
         $("#editar-m-presentacion").val(presentacion);
 
@@ -60,7 +66,7 @@ $("#eliminar-clinica-id").val(medicinaId);
 
         $("#editar-m-fechcad").val(fecha_caducidad);
         $("#editar-m-stock").val(stock);
-        
+
         document.getElementById('form-editar').action = "medicamentos/" + medicinaId;
     });
     </script>
@@ -85,6 +91,11 @@ $("#eliminar-clinica-id").val(medicinaId);
 
     var fecha_caducidad = $(this).data('fecha_caducidad');
     var stock = $(this).data('stock');
+
+            var UrlImagen = $(this).data('urlimagen');
+document.getElementById("imagenModal").src = UrlImagen;
+
+
 
     document.getElementById("consultar-m-nombre").innerHTML = medicinaNombre;
     document.getElementById("consultar-m-presentacion").innerHTML = presentacion;
@@ -151,6 +162,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     data-controlado="{{$medis->controlado}}"
                                     data-fecha_caducidad="{{$medis->fecha_caducidad}}"
                                     data-stock="{{$medis->stock}}"data-clinica="{{$medis->clinica_id}}"
+                                    data-urlimagen="{{$medis->urlImagen}}"
                             >
                                 <i class="fas fa-plus-circle"></i>
                             </button>
@@ -168,7 +180,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                         <td>{{$medis->fecha_caducidad}}</td>
                         <td>{{$medis->stock}}</td>-->
                         <td>{{$medis->Clinica->nombre}}</td>
-                        <td><img  src="{{URL::asset($medis->urlImagen)}}" height="100" class="d-block w" alt="..."></td>
+
                         <td>
                                 <div class="btn-group" role="group" aria-label="Acciones"> 
                                     <button type="button" class="btn btn-primary mx-2 abrirEditaModal" data-toggle="modal" 
@@ -181,6 +193,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     data-controlado="{{$medis->controlado}}"
                                     data-fecha_caducidad="{{$medis->fecha_caducidad}}"
                                     data-stock="{{$medis->stock}}"data-clinica="{{$medis->clinica_id}}"
+                                    data-urlimagen="{{$medis->urlImagen}}"
 
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>
 
@@ -198,6 +211,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     data-fecha_caducidad="{{$medis->fecha_caducidad}}"
                                     data-stock="{{$medis->stock}}"
                                     data-clinica="{{$medis->clinica}}"
+                                    data-urlimagen="{{$medis->urlImagen}}"
 
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>                                
                                 </div>
@@ -219,7 +233,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/medicamentos" method="POST">
+                        <form action="/medicamentos" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                         <div class="modal-body">                          
@@ -247,7 +261,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                             <div class = "row">
                         <div class="col-5">
                             <div>
-                                Foto
+                                Foto:
                                 <input type="file" name="imagen" id=imagen>
                             </div>
                         </div>
@@ -295,7 +309,7 @@ $("#eliminar-clinica-id").val(medicinaId);
 
                                                                 <div class="col-6">
                                     <label for="in_atributo2">Stock: </label>
-                                    <input type="number" min="1" max="1000" required class="form-control" id="stock" name="stock">
+                                    <input type="number" min="1"  required class="form-control" id="stock" name="stock">
                                 </div>
                             </div>
 
@@ -346,6 +360,17 @@ $("#eliminar-clinica-id").val(medicinaId);
                         
                         <div class="modal-body">  
                             <table class="table"> 
+
+                                <div class = "row" style="margin-left: 45%;">
+                                <div class="col-5">
+                                    <div>
+                                Foto:
+                                <img id="imagenModal" height="300" class="d-block " alt="..." style="width:70%; height: 70%;"  >
+                            </div>
+                        </div>
+                    </div>
+
+
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo1" style="font-weight:bold">Nombre: </label>
@@ -426,10 +451,19 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="form-editar" method="POST">
+                            <form id="form-editar" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
+
+                                          <div class = "row">
+                                        <div class="col-5">
+                                            <div>
+                                    Foto:
+                                    <input type="file" name="imagen" id="editar-imagen">
+                                </div>
+                            </div>
+                        </div>
 
                                 <div class="form-group row">
                                     <div class="col-6">
@@ -455,7 +489,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo3">ML MG: </label>
-                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-mlmg" name="ml_mg">
+                                    <input type="number" min="1"   required class="form-control" id="editar-m-mlmg" name="ml_mg">
                                 </div>
 
                                 <div class="col-6">
@@ -467,7 +501,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <div class="form-group row">
                                     <div class="col-6">
                                     <label for="in_atributo2">Precio: </label>
-                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-precio" name="precio">
+                                    <input type="number" min="1"   required class="form-control" id="editar-m-precio" name="precio">
                                 </div>
 
                                 <div class="col-6">
@@ -479,7 +513,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                 <div class="form-group row">
                                     <div class="col-3">
                                     <label for="in_atributo2">Paq Unidad: </label>
-                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-paqunidad" name="paq_unidad">
+                                    <input type="number" min="1"   required class="form-control" id="editar-m-paqunidad" name="paq_unidad">
                                 </div>
 
                                 <div class="col-3">
@@ -494,7 +528,7 @@ $("#eliminar-clinica-id").val(medicinaId);
 
                                 <div class="col-6">
                                     <label for="in_atributo2">Stock: </label>
-                                    <input type="number" min="1" max="1000"  required class="form-control" id="editar-m-stock" name="stock">
+                                    <input type="number" min="1"   required class="form-control" id="editar-m-stock" name="stock">
                                 </div>
 
 
@@ -506,7 +540,7 @@ $("#eliminar-clinica-id").val(medicinaId);
                                     <label for="in_atributo2">Fecha Caducidad: </label>
                                     <!--<input type="date" required class="form-control" id="editar-m-fechcad" name="fecha_caducidad">-->
                                      <input type="date" required class="form-control" id="editar-m-fechcad" name="fecha_caducidad"
-                                      min="2019-01-01" max="2025-12-31">
+                                      min="2019-01-01" >
                                 </div>
 
                                  <div class="col-6">

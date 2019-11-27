@@ -958,37 +958,6 @@ DB::table('articulos')->insert([
             'clinica_id' => 1
 
         ]);        
-              DB::table('articulos')->insert([
-            'nombre' => 'Comedero panorámico para pájaros',
-            'preciocom' => '400',
-            'marca' => 'peek a boo',
-            'fecha_cad' => '2019-10-10',
-            'precio_u' => '600',
-            'stock' => 200,
-            'urlImagen' => '/storage/Articulos/comedero.jpg',
-            'categoria_id' => 3,
-            'subcategoria_id' => 6,
-            'clinica_id' => 1
-
-        ]);    
-
-
-
-                      DB::table('articulos')->insert([
-            'nombre' => 'Pecute Cama para Gato ',
-            'preciocom' => '400',
-            'marca' => 'peek a boo',
-            'fecha_cad' => '2019-10-10',
-            'precio_u' => '600',
-            'stock' => 200,
-            'urlImagen' => '/storage/Articulos/camaparagato.jpg',
-            'categoria_id' => 1,
-            'subcategoria_id' => 4,
-            'clinica_id' => 1
-
-        ]);    
-
- 
 
     }
 }

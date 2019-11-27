@@ -72,7 +72,7 @@ class ArticulosController extends Controller
             'clinica' => 'required',
         ]);
 
-        $ruta = "Articulos/circulos_estado-05.png"; 
+        $ruta = "Articulos/producto.png"; 
         //Se revisa si se cargo una imagen     
         if ($request->hasFile('imagen')) 
         { 
@@ -140,6 +140,7 @@ class ArticulosController extends Controller
             'clinica' => 'required',
         ]);
 
+        $articulo = \App\articulos::find($id);
 
          if ($request->hasFile('imagen')) {
             $ruta = $request->imagen->store('Articulos','public');
@@ -148,8 +149,7 @@ class ArticulosController extends Controller
 
 
 
-
-        $articulo = \App\articulos::find($id);
+        
         $articulo->nombre=$request->get('nombre');
         $articulo->precioCom=$request->get('preciocom');
         $articulo->marca=$request->get('marca');

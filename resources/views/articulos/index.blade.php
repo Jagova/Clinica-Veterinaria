@@ -16,9 +16,7 @@
         var fecha_cad = $(this).data('fecha_cad');
         var precio_u = $(this).data('precio_u');
 
-                var imagenStore = $(this).data('imagen');
-
-
+        var imagenStore = $(this).data('imagen');
 
         $("#eliminar-clinica-id").val(articuloId);
         document.getElementById('eliminar-nombre-articulo').innerHTML = articuloNombre;
@@ -43,8 +41,9 @@
         var categoria = $(this).data('categoria');
         var subcategoria = $(this).data('subcategoria');
 
-        var UrlImagen = $(this).data('urlimagen');
+        var fotoArticulo = $(this).data('urlimagen');
         
+        console.log(fotoArticulo);
 
 
         $("#editar-articulo-nombre").val(articuloNombre);
@@ -96,7 +95,7 @@
         document.getElementById("consultar-subcategoria").innerHTML = subcategoria;
         document.getElementById("consultar-doctor-clinica").innerHTML = doctorClinica;
 
-        document.getElementById("imagen").src = UrlImagen;
+        document.getElementById("imagenModal").src = UrlImagen;
 
 
     });
@@ -199,6 +198,7 @@
                                     data-categoria="{{$articulo->categoria}}"
                                     data-subcategoria="{{$articulo->subcategoria}}"
                                     data-clinica="{{$articulo->clinica}}"
+                                    data-urlimagen="{{$articulo->urlImagen}}"
                                 >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                 </div>
                             </td>
@@ -239,7 +239,7 @@
                             <div class = "row">
                                 <div class="col-5">
                                     <div>
-                                Fotos
+                                Foto:
                                 <input type="file" name="imagen" id=imagen>
                             </div>
                         </div>
@@ -264,7 +264,7 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <label for="in_atributo6">Precio Ut: </label>
+                                    <label for="in_atributo6">Precio Unitario: </label>
                                     <input type="number" min="1" max="1000" required class="form-control" id="precio_u" name="precio_u">
                                 </div>
                             </div>
@@ -329,7 +329,7 @@
 
 
                                      <div class = "container" > 
-                                        <img id="imagen" height="300" class="d-block " alt="..." >
+                                        <img id="imagenModal" height="300" class="d-block " alt="..." >
                                         </div>
 
                                     <td class="form-group">
@@ -409,8 +409,8 @@
                                     <div class = "row">
                                         <div class="col-5">
                                             <div>
-                                    Foto
-                                    <input type="file" name="imagen" id="imagen">
+                                    Foto:
+                                    <input type="file" name="imagen" id="editar-imagen">
                                 </div>
                             </div>
                         </div>
