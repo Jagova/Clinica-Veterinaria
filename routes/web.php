@@ -162,7 +162,9 @@ Route::get('/control/registro_vacunas', function () {
 Route::get('/control/historial_mascota', function () {
     return view('/control/historial_mascota/index');
 });
-
+Route::get('/control/historial_vacunas', function () {
+    return view('/control/historial_vacunas/index');
+});
 Route::get('/control/historial_personal', function () {
     return view('/control/historial_personal/index');
 });
@@ -231,9 +233,14 @@ Route::get('/encontrardueño/{id}','ControlController@datosDueño');
 //Regitro de servicio
 Route::get('/registrar_servicio/{id}','ControlController@registrarServicio');
 Route::post('/control/historial_mascota','ControlController@registraServicio');
+//Regitro de de vacunas
+Route::get('/registro_vacunas/{id}','ControlController@registrarVacuna');
+Route::post('/control/historial_vacunas','ControlController@registraVacuna');
 
 //Ruta para las búsquedas de servicios
 Route::get('control/historial_personal','ControlController@llenaServiciosRealizados');
 
 Route::get('control/historial_mascota/{id}','ControlController@llenaServiciosRealizadosMascota');
+Route::get('control/historial_vacunas/{id}','ControlController@llenaVacunasRealizadosMascota');
+
 

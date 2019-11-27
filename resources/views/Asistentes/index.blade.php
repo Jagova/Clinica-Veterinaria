@@ -4,7 +4,7 @@
 
 <script>
     $(document).on("click", ".abrirEliminaModal", function (event) {
-        var asistenteNombre = $(this).data('nombre');
+        var asistenteNombre = $(this).data('nombre'); 
         var asistenteDoctor = $(this).data('asistente');
         var asistenteId = $(this).data('id');
         
@@ -19,10 +19,10 @@
 <script>
     $(document).on("click", ".abrirEditaContraseñaModal", function (event) {
 
-        var doctorId = $(this).data('id');
+        var asistenteId = $(this).data('id');
         //document.getElementById('editarmo-doctor-nombre1').innerHTML = nombreCompleto;
-        console.log(doctorId);
-        document.getElementById('form-editar-contraseña').action = "asistenteseditapass/" + doctorId;
+        console.log(asistenteId);
+        document.getElementById('form-editar-contraseña').action = "asistenteseditapass/" + asistenteId;
     });
 </script>
 
@@ -156,7 +156,7 @@
                                 data-id="{{$asistente->id}}"
                                 data-nombre="{{$asistente->primer_nombre}} {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
                                 data-clinica="{{$asistente->clinica}}"
-                                >Eliminar <i class="fas fa-trash-alt"></i> </button>
+                                >Eliminar <i class="fas fa-trash-alt"></i> </button> 
                                 </div>
                         </td>
                         </tr>

@@ -29,7 +29,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 <script>
     $(document).on("click", ".abrirEditaModal", function (event) {
         var duenoNombre = $(this).data('nombre');
-        var duenoId = $(this).data('id');
+        var duenoId = $(this).data('id'); 
         var duenoApPaterno = $(this).data('apellido_paterno');
         var duenoApMaterno = $(this).data('apellido_materno');
         var duenoTelefono = $(this).data('telefono');
@@ -50,6 +50,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
         $("#editar-dueno-codigo_postal").val(duenoCP);
         $("#editar-dueno-razon_social").val(duenoRazonSocial);
         document.getElementById('form-editar').action = "duenos/" + duenoId;
+        console.log("duenos/" + duenoId);
     });
 </script>
 
@@ -99,7 +100,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
           
     <!--Consultar-->
     <div class="row p-5">
-        <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueñoo</button>
+        <button class="btn btn-primary text-white" data-toggle="modal" data-target="#agregarModal"><i class="fas fa-plus"></i> Crear dueño</button>
         <table class="table" id="table1">
             <thead>
                 <tr>
@@ -114,6 +115,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 @foreach ($Duenos as $dueno)
                     <tr>
                         <td>
+                                <div>
                             <button class="btn btn-primary abrirConsultaModal" type="button" data-target="#consultarModal" 
                             data-toggle="modal"
                             data-id="{{$dueno->id}}"
@@ -172,13 +174,14 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 </table>
             </div>
 
-
-          
-           
-        @include('Duenos.modalEditarContraseña')
-        @include('Duenos.modalAgregarDueno')
-        @include('Duenos.modalConsultarDueno')
-        @include('Duenos.modalEliminarDueno')
+            @include('Duenos.modalAgregarDueno')
+            @include('Duenos.modalConsultarDueno')
+            @include('Duenos.modalEliminarDueno')
         @include('Duenos.modalEditarDueno')
+        @include('Duenos.modalEditarContraseña')
+      
+      
+        
+        
 
 @endsection

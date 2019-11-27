@@ -12,13 +12,13 @@
                                 @csrf
                                 @method('DELETE')
                         <div class="modal-body">
-                            ¿Estás seguro de eliminar el doctor <span id="eliminar-doctor-nombre"></span>? 
+                            ¿Estás seguro de eliminar el doctor <b><span id="eliminar-doctor-nombre"></b></span>? 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> 
                             <button type="submit" class="btn btn-primary">Eliminar</button>
                         </div>
                         </form>
                     </div>
                 </div>
-        </div>
+        </div> 

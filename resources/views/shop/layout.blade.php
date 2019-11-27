@@ -46,7 +46,7 @@
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/shop/mamiferos"><i class="fas fa-otter"></i>
-                            Mamíferos</a>
+                            Especies pequeñas</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/shop/aves"><i class="fas fa-kiwi-bird"></i>

@@ -226,6 +226,26 @@ class ControlController extends Controller
         ]
     );
     }
+    public function registrarVacuna($id)
+    {
+        $Clinicas = \App\Clinica::all();
+        $paciente = \App\Paciente::find($id);
+        $dueño = \App\Dueno::find($paciente->dueno_id);
+       $vacunas = \App\vacunas::all();
+        //$pacientesDueño = $pacientes->where('dueno_id','=',$id);
+
+        
+
+        return view('/control/Registro_vacunas/index',
+        [
+            'Clinicas' => $Clinicas,
+            'dueño' => $dueño,
+            'paciente' => $paciente,
+            'vacunas'=>$vacunas
+           
+        ]
+    );
+    }
 
     public function registraServicio(Request $request)
     {
@@ -240,7 +260,21 @@ class ControlController extends Controller
 
         return redirect('/control/historial_mascota/'.$servicioRealizado->paciente_id);
     }
+    public function registraVacuna(Request $request)
+    {
+        $vacunaRealizada = new \App\vacunas;
+        $vacunaRealizada->nombre_vacuna = $request->get('nombre_vacuna');
+        $vacunaRealizada->clinica_id = $request->get('clinica_id');
+        $vacunaRealizada->user_id = $request->get('user_id');
+        $vacunaRealizada->paciente_id = $request->get('paciente_id');
+        $vacunaRealizada->fecha_Vacuna = $request->get('fecha_Vacuna');
+        $vacunaRealizada->fecha_Siguiente_Vacuna = $request->get('fecha_Siguiente_Vacuna');
+        $vacunaRealizada->save();
+        
 
+        return redirect('/control/historial_vacunas/'.$vacunaRealizada->paciente_id);
+    }
+    
     public function llenaServiciosRealizados()
     {
        
@@ -258,10 +292,26 @@ class ControlController extends Controller
         $Servicios = \App\ServicioRealizado::all();
         $ServiciosMascota = $Servicios->where('paciente_id','=',$id);
         $mascota = \App\Paciente::find($id);
+        $vacunas = \App\vacunas::all();
+        $vacunasMascota = $vacunas->where('paciente_id','=',$id);
         return view('/control/Historial_mascota/index',
         [
             'ServiciosMascota' => $ServiciosMascota,
+            'vacunasMascota' => $vacunasMascota,
             'mascota' => $mascota,
+        ]
+    );
+    }
+    public function llenaVacunasRealizadosMascota($id)
+    {
+       
+        $vacunas = \App\vacunas::all();
+        $mascota = \App\Paciente::find($id);
+        $vacunasMascota = $vacunas->where('paciente_id','=',$id);
+        return view('/control/Historial_vacunas/index',
+        [
+            'vacunasMascota' => $vacunasMascota,
+            'mascota' => $mascota
         ]
     );
     }
