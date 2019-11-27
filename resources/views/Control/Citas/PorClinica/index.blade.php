@@ -3,9 +3,10 @@
 @section('contenido')
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
-    var citaId = $(this).data('id');
-    document.getElementById('eliminar-clinica-nombre').innerHTML = clinicaNombre;
-    document.getElementById('form-eliminar').action = "clinicas/" + clinicaId;
+    var citaId = $(this).data('num');
+    console.log(citaId);
+    document.getElementById('eliminar-nombre-cita').innerHTML = citaId;
+    document.getElementById('form-eliminar').action = " porclinica/" + citaId;
 });
 </script>
 <div class="container-fluid">
@@ -15,6 +16,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
 
     <div class="row shadow-lg mx-md-5 p-3">
         <table class="w-100 h-100">
+            @if($ocupados != null)
         @foreach ($ocupados as $cita)
             <tr>
                 <th>#</th>
@@ -44,12 +46,14 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <td>
                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
-                                    data-id="{{$clinica->id}}"
+                                    
+                                    data-num="{{$cita->id}}"
                                     >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                     </div>
                 </td>
             </tr>
             @endforeach
+            @endif
         </table>
     </div>
 </div>
@@ -64,11 +68,11 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="form-eliminar" method="POST">
+            <form action="/control/citas/porclinica" id="form-eliminar" method="POST" >
                     @csrf
                     @method('DELETE')
             <div class="modal-body">
-                ¿Estás seguro de eliminar la cita? 
+                ¿Estás seguro de eliminar la cita número  <span id="eliminar-nombre-cita"></span> ? 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

@@ -31,6 +31,6 @@ class CitasPorClinicaController extends Controller
         //
         $cita = \App\Cita::find($id);
         $cita->delete();
-        return view('control.citas.porclinica.index');
+        return redirect('control/citas/porclinica');
     }
 }
