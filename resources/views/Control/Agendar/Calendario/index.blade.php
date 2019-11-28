@@ -90,12 +90,12 @@
             <div class="col-md-4 col-sm-12"> 
                 <label for="dueno" style="font-weight:bold">Dueño</label>
                 
-                <input type="text" class="form-control" id="dueno" name="dueno"  >
+                <input type="text" class="form-control" required id="dueno" name="dueno"  >
             </div>
             <div class="col-md-4 col-sm-12"> 
                 <label for="mascota" style="font-weight:bold">Mascota</label>
                 
-                <input type="text" class="form-control" id="mascota" name="mascota"  >
+                <input type="text" class="form-control" required id="mascota" name="mascota"  >
             </div>
 
         </div>
@@ -103,7 +103,7 @@
             <div class="col-md-4 col-sm-12"> 
                 <label for="fecha" style="font-weight:bold">Fecha: </label>
                 
-                <input type=text id="fecha" name="fecha" >
+                <input type=text id="fecha" name="fecha"  required>
             </div>
             <div id="calendar"></div>
 

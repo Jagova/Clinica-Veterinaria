@@ -20,6 +20,16 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('fullcalendar/packages/core/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('fullcalendar/packages/daygrid/main.css') }}" rel='stylesheet' />
+    <script src="{{ asset('fullcalendar/packages/core/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/packages/daygrid/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/packages/timegrid/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/packages/core/locales/es.js') }}"></script>
+    <link href="{{ asset('fullcalendar/packages/bootstrap/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('fullcalendar/packages/timegrid/main.css')}}" rel='stylesheet'/>
+    <script src="{{ asset('fullcalendar/packages//interaction/main.js')}}"></script>
+
 
 </head>
 
@@ -51,10 +61,7 @@
                     </li>
                     
                     
-                    <li class="nav-item active p-3">
-                        <a class="nav-link menuControl" href="/control/historial_personal"></i>
-                            Historial del personal</a>
-                    </li>
+                    
 
                     <li class="nav-item active p-3">
                         <a class="nav-link menuControl" href="/reportes"></i>
@@ -73,6 +80,20 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Acceder') }}</a>
+                    </li>
+                    @if  (Route::has('register'))
+                      <!--  <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                        </li> -->
+                    @endif
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
