@@ -24,8 +24,10 @@ class DatabaseSeeder extends Seeder
          $this->call('ServiciosSeeder');
          $this->call('DuenosTableSeeder');
          $this->call('DoctoresTableSeeder');
-         $this->call('vacunas');
-         $this->call('ServiciosRealizadosSeeder');
+         $this->call('ReportesSeeder');
+         //$this->call('vacunas');
+         //$this->call('ServiciosRealizadosSeeder');
+
 
 
          /*$this->call(

@@ -141,7 +141,7 @@ class MedicamentosController extends Controller
         $medis = \App\Medicamentos::find($id);
 
          if ($request->hasFile('imagen')) {
-            $medis = $request->imagen->store('Medicamentos','public');
+            $ruta = $request->imagen->store('Medicamentos','public');
             $medis->urlImagen = "/storage/".$ruta;
         }
 
