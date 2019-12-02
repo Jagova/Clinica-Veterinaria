@@ -22,11 +22,11 @@
                         <div class="form-group row">
                             <div class="col-6">
                                     <label for="in_atributo2">Apellido Paterno</label>
-                                    <input type="text" class="form-control" id="direccion" name="ApPaterno" requiredon keypress='return (event.charCode >= 65 && event.charCode <= 90)&&(event.charCode >= 65 && event.charCode <= 90)'>        
+                                    <input type="text" class="form-control" id="direccion" name="ApPaterno" required keypress='return (event.charCode >= 65 && event.charCode <= 90)&&(event.charCode >= 65 && event.charCode <= 90)'>        
                             </div>
                             <div class="col-6">
                                     <label for="in_atributo2">Apellido Materno</label>
-                                    <input type="text" class="form-control" id="direccion" name="ApMaterno" required>        
+                                    <input type="text" class="form-control" id="direccion" name="ApMaterno" required keypress='return (event.charCode >= 65 && event.charCode <= 90)&&(event.charCode >= 65 && event.charCode <= 90)'>        
                             </div>
                         </div>
                         <div class = "row">

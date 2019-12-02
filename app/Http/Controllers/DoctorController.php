@@ -148,7 +148,7 @@ class DoctorController extends Controller
             'esp1' => 'required',
             'esp2' => 'required',
             'clinica' => 'required',
-            'email' => 'required | unique:users',
+           
         ]); 
 
         $doctor = \App\Doctor::find($id);

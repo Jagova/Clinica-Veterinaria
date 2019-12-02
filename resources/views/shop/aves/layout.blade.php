@@ -1,7 +1,8 @@
 @extends('shop.layout')
 
 @section('contenido')
-
+  <!-- JQuery Link -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!--Script para abrir el modal-->
 <script>
     $(document).on("click", ".abrirVerMas", function (event) {

@@ -3,10 +3,8 @@
 @section('contenido')
 <script>
 $(document).on("click", ".abrirEliminaModal", function (event) {
-    var citaId = $(this).data('num');
-    console.log(citaId);
-    document.getElementById('eliminar-nombre-cita').innerHTML = citaId;
-    document.getElementById('form-eliminar').action = " porclinica/" + citaId;
+    var citaId = $(this).data('id');
+    document.getElementById('form-eliminar').action =  citaId;
 });
 </script>
 <div class="container-fluid">
@@ -46,8 +44,7 @@ $(document).on("click", ".abrirEliminaModal", function (event) {
                 <td>
                     <button type="button" class="btn btn-danger abrirEliminaModal"
                                     data-toggle="modal" data-target="#eliminarModal"
-                                    
-                                    data-num="{{$cita->id}}"
+                                    data-id="{{$cita->id}}"
                                     >Eliminar <i class="fas fa-trash-alt"></i> </button>
                                     </div>
                 </td>

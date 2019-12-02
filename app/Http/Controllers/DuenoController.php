@@ -132,17 +132,17 @@ class DuenoController extends Controller
     {
         //El request toma los valores con el name en HTML
         //O sea que el nombre que tengas en el name en HTML es como lo vas a leer aquí. 
-        $validatedData = $arequest->validate([
+        $validatedData = $request->validate([
             'nombre' => 'required',
             'apellido_paterno' => 'required',
             'apellido_materno' => 'required',
-            'telefono' => 'required|max:255|numeric',
+            'telefono' => 'required|numeric',
             'direccion' => 'required',
             'celular' => 'required|numeric',
             'rfc' => 'required',
             'codigo_postal' => 'required|numeric',
             'razon_social' => 'required',
-            'email' => 'required | unique:users',
+           // 'email' => 'required | unique:users',
         ]);
 
         $dueno->nombre = $request->get('nombre');

@@ -59,7 +59,7 @@ class AsistentesController extends Controller
        
     request()->validate([
             'nombre1' => ['required','max:20', 'min:3'],
-           // 'nombre2' => 'nullable',
+ 
             'ApPaterno' =>'required',
             'ApMaterno' =>'required',
             'clinica'=>'required',
@@ -89,7 +89,6 @@ class AsistentesController extends Controller
 
         $nuevoAsistente = new \App\Asistente;
         $nuevoAsistente->primer_nombre = $request->get('nombre1');
-        //$nuevoAsistente->segundo_nombre = $request->get('nombre2');
         $nuevoAsistente->apellido_paterno = $request->get('ApPaterno');
         $nuevoAsistente->apellido_materno = $request->get('ApMaterno');
         $nuevoAsistente->urlImagen = "/storage/".$ruta;
@@ -154,7 +153,7 @@ class AsistentesController extends Controller
     {
         request()->validate([
             'nombre1' => ['required','max:20', 'min:3'],
-          //  'nombre2' => 'nullable',
+     
             'ApPaterno' =>'required',
             'ApMaterno' =>'required',
             'clinica'=>'required',
@@ -175,7 +174,6 @@ class AsistentesController extends Controller
        
         
         $asistente ->primer_nombre = $request->get('nombre1');
-       // $asistente ->segundo_nombre = $request->get('nombre2');
         $asistente ->apellido_paterno = $request->get('ApPaterno');
         $asistente ->apellido_materno = $request->get('ApMaterno');
         $asistente->clinica_id = $request->get('clinica');
