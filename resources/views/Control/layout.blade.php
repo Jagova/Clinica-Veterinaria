@@ -59,7 +59,11 @@
                         <a class="nav-link menuControl" href="/control/agendar"></i>
                             Agendar servicio</a>
                     </li>
-                    
+
+                    <li class="nav-item active p-3">
+                        <a class="nav-link menuControl" href="/control/historial_personal"></i>
+                            Historial personal</a>
+                    </li>
                     
                     
 

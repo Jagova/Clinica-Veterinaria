@@ -40,7 +40,7 @@
                                 <tr>
                                     <td class="form-group">
                                         <label for="in_atributo6" style="font-weight:bold">Dueño</label>
-                                        <p id="consultar-paciente-duenio-id" name="duenio_id"></p>
+                                        <p id="consultar-paciente-duenio-id" name="dueno_id"></p>
                                     </div>
                                     <td class="form-group">
                                         <label for="in_atributo7" style="font-weight:bold">Doctor favorito</label>

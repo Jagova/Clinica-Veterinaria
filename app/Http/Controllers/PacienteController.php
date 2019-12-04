@@ -25,7 +25,6 @@ class PacienteController extends Controller
         }
         //
         $pacientes = \App\Paciente::all();
-        //$duenios = \App\Duenios::all();
         $doctores = \App\Doctor::all();
         $duenios = \App\Dueno::all();
         $especies = ["Perro","Gato","Conejo","Reptil","Ave"];
@@ -48,7 +47,6 @@ class PacienteController extends Controller
         }*/
         //
         $pacientes = \App\Paciente::all();
-        //$duenios = \App\Duenios::all();
         $doctores = \App\Doctor::all();
         $duenios = \App\Dueno::all();
         $especies = ["Perro","Gato","Conejo","Reptil","Ave"];
@@ -87,7 +85,7 @@ class PacienteController extends Controller
             'edad' => 'required | integer | min:0 | regex: /^[0-9]+$/',
             'especie' => 'required ',
             'raza' => 'required | max:200 | regex:/(^[a-zA-z- ]+$)+/',
-            'duenio_id' => 'required',
+            'dueno_id' => 'required',
             'doctor_id' => 'required'
         ]);
 
@@ -104,7 +102,7 @@ class PacienteController extends Controller
         $nuevoPaciente->especie = $request->get('especie');
         $nuevoPaciente->raza = $request->get('raza');
         $nuevoPaciente->urlImagen = "/storage/".$ruta;
-        $nuevoPaciente->duenio_id = $request->get('duenio_id');
+        $nuevoPaciente->dueno_id = $request->get('dueno_id');
         $nuevoPaciente->doctor_id = $request->get('doctor_id');
         $nuevoPaciente->save();
         return redirect('/pacientes');
@@ -146,7 +144,7 @@ class PacienteController extends Controller
             'edad' => 'required | integer | min:0 |regex: /^[0-9]+$/',
             'especie' => 'required ',
             'raza' => 'required | max:200 |  regex:/(^[a-zA-z- ]+$)+/',
-            'duenio_id' => 'required',
+            'dueno_id' => 'required',
             'doctor_id' => 'required'
         ]);
 
@@ -165,7 +163,7 @@ class PacienteController extends Controller
         $paciente->raza = $request->get('raza');
 
 
-        $paciente->duenio_id = $request->get('duenio_id');
+        $paciente->dueno_id = $request->get('dueno_id');
         $paciente->doctor_id = $request->get('doctor_id');
 
         

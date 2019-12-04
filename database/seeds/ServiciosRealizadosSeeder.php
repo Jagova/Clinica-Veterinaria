@@ -23,7 +23,7 @@ class ServiciosRealizadosSeeder extends Seeder
         ]);   
         DB::table('servicio_realizados')->insert([
 
-            'clinica_id' => 0,
+            'clinica_id' => 1,
             'user_id' => 2,
             'paciente_id' => 1,
             'servicio_id'=> 1,

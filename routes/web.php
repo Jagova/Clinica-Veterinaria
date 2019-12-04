@@ -165,6 +165,8 @@ Route::get('/control/historial_mascota', function () {
 Route::get('/control/historial_vacunas', function () {
     return view('/control/historial_vacunas/index');
 });
+
+//Ruta a historial personal
 Route::get('/control/historial_personal', function () {
     return view('/control/historial_personal/index');
 });
@@ -227,12 +229,14 @@ Route::get('/mascotasperdidas','ReportesShopController@reportesMascotasPerdidas'
 Route::post('/buscarmascota','ControlController@buscarMascota');
 Route::get('/encontrarmascota/{id}','ControlController@datosMascota');
 
+//Búsquedas dueños
 Route::post('/buscardueño','ControlController@buscarDueño');
 Route::get('/encontrardueño/{id}','ControlController@datosDueño');
 
 //Regitro de servicio
 Route::get('/registrar_servicio/{id}','ControlController@registrarServicio');
 Route::post('/control/historial_mascota','ControlController@registraServicio');
+
 //Regitro de de vacunas
 Route::get('/registro_vacunas/{id}','ControlController@registrarVacuna');
 Route::post('/control/historial_vacunas','ControlController@registraVacuna');
@@ -240,6 +244,7 @@ Route::post('/control/historial_vacunas','ControlController@registraVacuna');
 //Ruta para las búsquedas de servicios
 Route::get('control/historial_personal','ControlController@llenaServiciosRealizados');
 
+//Ruta para las búsquedas de servicios a una mascota, viene desde index econtrado
 Route::get('control/historial_mascota/{id}','ControlController@llenaServiciosRealizadosMascota');
 Route::get('control/historial_vacunas/{id}','ControlController@llenaVacunasRealizadosMascota');
 

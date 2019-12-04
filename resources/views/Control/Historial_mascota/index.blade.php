@@ -1,5 +1,4 @@
 @extends('control.layout')
-
 @section('contenido')
 <div class="container-fluid">
     <div class="row justify-content-center m-3">

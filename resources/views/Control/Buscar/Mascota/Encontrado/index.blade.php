@@ -47,7 +47,6 @@
         </table>
 
         <div class="col-6 ml-auto">
-            
             <a href="/control/historial_mascota/{{$paciente->id}}">
                 <button class="btn-primary p-3 m-2" >Ver historial</button>
             </a>

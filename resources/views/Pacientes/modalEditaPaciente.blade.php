@@ -50,7 +50,7 @@
                                     </div>
                                 <div class="form-group">
                                     <label for="in_atributo6">Dueño</label>
-                                    <select required class="form-control" id="editar-paciente-duenio-id" name="duenio_id">
+                                    <select required class="form-control" id="editar-paciente-duenio-id" name="dueno_id">
                                         @foreach ($Duenios as $duenio)                                  
                                         <option value="{{$duenio->id}}">{{$duenio->nombre}}</option>
                                         @endforeach

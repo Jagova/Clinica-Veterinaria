@@ -119,7 +119,7 @@
                                     data-urlimagen="{{$asistente->urlImagen}}"
                                     data-correo="{{$asistente->correo}}"
                                     data-telefono="{{$asistente->telefono}}"
-                                    data-clinica="{{$asistente->clinica_id}}"
+                                    data-clinica="{{$asistente->Clinica -> nombre}}"
                                     data-nombre="{{$asistente->primer_nombre}}  {{$asistente->apellido_paterno}} {{$asistente->apellido_materno}}"
                                    
                             >

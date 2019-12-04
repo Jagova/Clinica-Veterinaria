@@ -2,9 +2,6 @@
 
 @section('contenido2')
 <div class="container-fluid">
-    <!--<div class="row">
-        <h3 class="mx-auto">Resultados obtenidos = 5</h3>
-    </div>-->
     <div class="row shadow-lg mx-md-5 p-3">
         <table class="w-100 h-100">
             <tr>

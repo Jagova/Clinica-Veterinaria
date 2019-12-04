@@ -84,8 +84,12 @@
                     <td>
                         <p id="mascota-raza" name="raza">{{$paciente->raza}}</p>
                     </td>
+                    <td>
+                        <a href="/encontrarmascota/{{$paciente->id}}">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </td>
                 </tr>
-               
             @endforeach
             
     </table>

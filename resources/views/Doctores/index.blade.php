@@ -120,7 +120,7 @@
                                 data-apellido2="{{$doctor->apellido_materno}}"
                                 data-especialidad1="{{$doctor->especialidad_1}}"
                                 data-especialidad2="{{$doctor->especialidad_2}}"
-                                data-clinica="{{$doctor->clinica_id}}"
+                                data-clinica="{{$doctor->Clinica -> nombre}}"
                                 data-urlimagen="{{$doctor->urlImagen}}"
                             >
                                 <i class="fas fa-plus-circle"></i>

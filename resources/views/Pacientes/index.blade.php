@@ -106,8 +106,8 @@
                                         data-edad = "{{$paciente->edad}}"
                                         data-especie = "{{$paciente->especie}}"
                                         data-raza = "{{$paciente->raza}}"
-                                        data-duenioid="{{$paciente->duenio_id}}"
-                                        data-doctorid = "{{$paciente->doctor_id}}"
+                                        data-duenioid="{{$paciente->Dueno->nombre}}"
+                                        data-doctorid = "{{$paciente->Doctor->primer_nombre}} {{$paciente->Doctor->apellido_paterno}}"
                                         data-urlimagen = "{{$paciente->urlImagen}}"
                                 >
                                     <i class="fas fa-plus-circle"></i>
@@ -128,7 +128,7 @@
                                     data-edad = "{{$paciente->edad}}"
                                     data-especie = "{{$paciente->especie}}"
                                     data-raza = "{{$paciente->raza}}"
-                                    data-duenioid="{{$paciente->duenio_id}}"
+                                    data-duenioid="{{$paciente->dueno_id}}"
                                     data-doctorid = "{{$paciente->doctor_id}}"
                                     data-urlimagen = "{{$paciente->urlImagen}}"
                                     >Modificar <i class="fas fa-pencil-alt"></i> </button>

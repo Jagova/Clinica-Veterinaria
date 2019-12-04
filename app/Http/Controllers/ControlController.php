@@ -155,7 +155,7 @@ class ControlController extends Controller
         $paciente->delete();
         return redirect('/pacientes');
     }
-
+//Route: /buscarmascota
     public function buscarMascota(Request $request)
     {
         $filtro = $request->get('filtro');
@@ -169,7 +169,7 @@ class ControlController extends Controller
         ]
     );
     }
-
+// Route/encontrarmascota/{id}
     public function datosMascota($id)
     {
         $paciente = \App\Paciente::find($id);
@@ -293,7 +293,8 @@ class ControlController extends Controller
         $ServiciosMascota = $Servicios->where('paciente_id','=',$id);
         $mascota = \App\Paciente::find($id);
         $vacunas = \App\vacunas::all();
-        $vacunasMascota = $vacunas->where('paciente_id','=',$id);
+        $vacunasMascota = $vacunas->where('paciente_id','=', $id);
+
         return view('/control/Historial_mascota/index',
         [
             'ServiciosMascota' => $ServiciosMascota,
