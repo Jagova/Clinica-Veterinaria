@@ -316,7 +316,7 @@ DB::table('articulos')->insert([
             'stock' => 20,
             'urlImagen' => '/storage/Articulos/1Gato/articulosparagato.png',
             'categoria_id' => 1,
-            'subcategoria_id' => 5,
+            'subcategoria_id' =>5,
             'clinica_id' => 1
 
         ]);                            
@@ -520,7 +520,7 @@ DB::table('articulos')->insert([
             'stock' => 100,
             'urlImagen' => '/storage/Articulos/camaparagato.jpg',
             'categoria_id' => 1,
-            'subcategoria_id' => 3,
+            'subcategoria_id' => 4,
             'clinica_id' => 1
 
         ]);  
@@ -534,7 +534,7 @@ DB::table('articulos')->insert([
             'stock' => 100,
             'urlImagen' => '/storage/Articulos/camaparagato.jpg',
             'categoria_id' => 1,
-            'subcategoria_id' => 3,
+            'subcategoria_id' => 4,
             'clinica_id' => 1
 
         ]);  
@@ -547,7 +547,7 @@ DB::table('articulos')->insert([
             'stock' => 100,
             'urlImagen' => '/storage/Articulos/camaparagato.jpg',
             'categoria_id' => 1,
-            'subcategoria_id' => 3,
+            'subcategoria_id' => 4,
             'clinica_id' => 1
 
         ]); 
