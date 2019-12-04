@@ -12,9 +12,9 @@ class DoctoresTableSeeder extends Seeder
     public function run()
     {
         DB::table('doctors')->insert([
-            'primer_nombre' => 'Doctor',
-            'apellido_paterno' => 'Doctor',
-            'apellido_materno' => 'Doctor',
+            'primer_nombre' => 'Mario',
+            'apellido_paterno' => 'Ruiz',
+            'apellido_materno' => 'Peralta',
             'especialidad_1' => 'Cirugano',
             'especialidad_2' => 'Anestesiologo',
             'clinica_id' => 1,

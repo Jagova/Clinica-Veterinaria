@@ -495,6 +495,62 @@ DB::table('articulos')->insert([
 
         ]);                                              
 
+        DB::table('articulos')->insert([
+            'nombre' => 'Suplemento de Vitamina A. Muy importante para la vista, para el óptimo crecimiento de los cachorros, para la salud de la piel y el pelo',
+            'preciocom' => '100',
+            'marca' => 'Can can',
+            'fecha_cad' => '2019-12-24',
+            'precio_u' => '200',
+            'stock' => 100,
+            'urlImagen' => '/storage/Articulos/2Perro/comidaparaperro.png',
+            'categoria_id' => 2,
+            'subcategoria_id' => 2,
+            'clinica_id' => 1
+
+        ]); 
+      
+        
+      
+        DB::table('articulos')->insert([
+            'nombre' => 'Cama para gato, tamaño chica',
+            'preciocom' => '100',
+            'marca' => 'SleepDog',
+            'fecha_cad' => '2019-12-24',
+            'precio_u' => '200',
+            'stock' => 100,
+            'urlImagen' => '/storage/Articulos/camaparagato.jpg',
+            'categoria_id' => 1,
+            'subcategoria_id' => 3,
+            'clinica_id' => 1
+
+        ]);  
+
+        DB::table('articulos')->insert([
+            'nombre' => 'Cama para gato, tamaño grande',
+            'preciocom' => '100',
+            'marca' => 'SleepDog',
+            'fecha_cad' => '2019-12-24',
+            'precio_u' => '200',
+            'stock' => 100,
+            'urlImagen' => '/storage/Articulos/camaparagato.jpg',
+            'categoria_id' => 1,
+            'subcategoria_id' => 3,
+            'clinica_id' => 1
+
+        ]);  
+        DB::table('articulos')->insert([
+            'nombre' => 'Cama para gato, tamaño doble',
+            'preciocom' => '200',
+            'marca' => 'SleepDog',
+            'fecha_cad' => '2019-12-24',
+            'precio_u' => '200',
+            'stock' => 100,
+            'urlImagen' => '/storage/Articulos/camaparagato.jpg',
+            'categoria_id' => 1,
+            'subcategoria_id' => 3,
+            'clinica_id' => 1
+
+        ]); 
 
  DB::table('articulos')->insert([
             'nombre' => 'Paquete Juguetes( Pelota y hueso)',

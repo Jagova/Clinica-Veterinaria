@@ -39,7 +39,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Perro',
             'raza' => 'Collie Pelo Largo',
             'urlImagen' => '/storage/Pacientes/pet.jpg',
-            'dueno_id' => 1,
+            'dueno_id' => 2,
             'doctor_id' => 1
         ]);  
 
@@ -50,7 +50,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Gato',
             'raza' => 'Collie Pelo Largo',
             'urlImagen' => '/storage/Pacientes/pet.png',
-            'dueno_id' => 1,
+            'dueno_id' => 2,
             'doctor_id' => 1
         ]);      
 
@@ -70,7 +70,7 @@ class PacientesSeeder extends Seeder
             'especie' => 'Perro',
             'raza' => 'Pug',
             'urlImagen' => '/storage/Pacientes/pet.jpg',
-            'dueno_id' => 1,
+            'dueno_id' => 3,
             'doctor_id' => 1
         ]);
     }

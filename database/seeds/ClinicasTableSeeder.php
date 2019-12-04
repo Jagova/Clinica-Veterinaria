@@ -13,7 +13,7 @@ class ClinicasTableSeeder extends Seeder
     {
         //
         DB::table('clinicas')->insert([
-            'nombre' => 'Clínico',
+            'nombre' => 'Clínica 1',
             'direccion' => 'San Miguelito'
         ]);
         DB::table('clinicas')->insert([

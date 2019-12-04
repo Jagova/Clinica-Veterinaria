@@ -17,8 +17,8 @@ class AsistentesSeeder extends Seeder
             'apellido_paterno' => 'Alfaro',
             'apellido_materno' => 'Buendia',
           
-            'correo' => 'Cambiar',
-            'telefono' => '1234567890',
+            'correo' => 'JoseAlfaro@gmail.com',
+            'telefono' => '4448883392',
             'clinica_id' => 1,
             'urlImagen' => '/storage/Asistentes/asistente.png',
             'user_id' => 3
